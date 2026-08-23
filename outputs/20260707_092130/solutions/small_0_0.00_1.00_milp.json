@@ -1,0 +1,157 @@
+{
+  "routes": {
+    "('K1', 1)": [
+      "D2",
+      "G3:S1",
+      "D2"
+    ],
+    "('K2', 1)": [
+      "D2",
+      "G2:S1",
+      "G1:S1",
+      "D2"
+    ],
+    "('K3', 1)": [
+      "D1",
+      "G1:S2",
+      "G3:S2",
+      "G2:S2",
+      "D1"
+    ],
+    "('K1', 2)": [
+      "D2",
+      "G2:S1",
+      "D2"
+    ],
+    "('K2', 2)": [
+      "D2",
+      "G1:S1",
+      "G3:S1",
+      "G1:S2",
+      "D2"
+    ],
+    "('K3', 2)": [
+      "D1",
+      "G2:S2",
+      "G3:S2",
+      "D1"
+    ]
+  },
+  "summary": {
+    "pickup": [
+      {
+        "period": 1,
+        "node": "G1:S1",
+        "quantity": 1.459
+      },
+      {
+        "period": 1,
+        "node": "G1:S2",
+        "quantity": 0.913
+      },
+      {
+        "period": 1,
+        "node": "G2:S1",
+        "quantity": 1.605
+      },
+      {
+        "period": 1,
+        "node": "G2:S2",
+        "quantity": 1.838
+      },
+      {
+        "period": 1,
+        "node": "G3:S1",
+        "quantity": 1.133
+      },
+      {
+        "period": 1,
+        "node": "G3:S2",
+        "quantity": 0.828
+      },
+      {
+        "period": 2,
+        "node": "G1:S1",
+        "quantity": 0.538
+      },
+      {
+        "period": 2,
+        "node": "G1:S2",
+        "quantity": 0.835
+      },
+      {
+        "period": 2,
+        "node": "G2:S1",
+        "quantity": 1.515
+      },
+      {
+        "period": 2,
+        "node": "G2:S2",
+        "quantity": 0.63
+      },
+      {
+        "period": 2,
+        "node": "G3:S1",
+        "quantity": 0.545
+      },
+      {
+        "period": 2,
+        "node": "G3:S2",
+        "quantity": 1.258
+      }
+    ],
+    "processing": [
+      {
+        "period": 1,
+        "facility": "D1",
+        "waste_type": "S2",
+        "quantity": 3.579
+      },
+      {
+        "period": 1,
+        "facility": "D2",
+        "waste_type": "S1",
+        "quantity": 4.197
+      },
+      {
+        "period": 2,
+        "facility": "D1",
+        "waste_type": "S2",
+        "quantity": 1.888
+      },
+      {
+        "period": 2,
+        "facility": "D2",
+        "waste_type": "S1",
+        "quantity": 2.598
+      },
+      {
+        "period": 2,
+        "facility": "D2",
+        "waste_type": "S2",
+        "quantity": 0.835
+      }
+    ],
+    "ending_inventory": []
+  },
+  "metrics": {
+    "cost": 2692.367618000032,
+    "risk": 1.23028378705775,
+    "normalized_cost": 1.7673541009570088,
+    "normalized_risk": 0.17466815006539482,
+    "weighted_objective_raw": 1.23028378705775,
+    "weighted_objective_normalized": 0.17466815006539482,
+    "weighted_objective": 0.17466815006539482,
+    "cost_ref": 1523.3888989999998,
+    "risk_ref": 7.043549648846332,
+    "fixed_cost": 300.0,
+    "distance_cost": 2205.5339999999997,
+    "processing_cost": 186.83361800003237,
+    "transport_risk": 1.17184731435643,
+    "coload_risk": 0.05843647270132001,
+    "producer_inventory_risk": 0.0,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  }
+}

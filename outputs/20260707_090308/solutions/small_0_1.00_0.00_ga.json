@@ -1,0 +1,144 @@
+{
+  "routes": {
+    "('K1', 2)": [
+      "D1",
+      "G2:S2",
+      "G1:S2",
+      "G2:S1",
+      "D1"
+    ],
+    "('K2', 2)": [
+      "D1",
+      "G4:S1",
+      "G3:S2",
+      "G1:S1",
+      "G3:S1",
+      "D1"
+    ],
+    "('K3', 2)": [
+      "D1",
+      "G4:S2",
+      "D1"
+    ]
+  },
+  "summary": {
+    "pickup": [
+      {
+        "period": 2,
+        "node": "G1:S1",
+        "quantity": 1.997
+      },
+      {
+        "period": 2,
+        "node": "G1:S2",
+        "quantity": 1.748
+      },
+      {
+        "period": 2,
+        "node": "G2:S1",
+        "quantity": 3.12
+      },
+      {
+        "period": 2,
+        "node": "G2:S2",
+        "quantity": 2.468
+      },
+      {
+        "period": 2,
+        "node": "G3:S1",
+        "quantity": 1.678
+      },
+      {
+        "period": 2,
+        "node": "G3:S2",
+        "quantity": 2.086
+      },
+      {
+        "period": 2,
+        "node": "G4:S1",
+        "quantity": 1.338
+      },
+      {
+        "period": 2,
+        "node": "G4:S2",
+        "quantity": 2.792
+      }
+    ],
+    "processing": [
+      {
+        "period": 2,
+        "facility": "D1",
+        "waste_type": "S1",
+        "quantity": 8.133
+      },
+      {
+        "period": 2,
+        "facility": "D1",
+        "waste_type": "S2",
+        "quantity": 9.094
+      }
+    ],
+    "ending_inventory": [
+      {
+        "period": 1,
+        "node": "G1:S1",
+        "producer_inventory": 1.459
+      },
+      {
+        "period": 1,
+        "node": "G1:S2",
+        "producer_inventory": 0.913
+      },
+      {
+        "period": 1,
+        "node": "G2:S1",
+        "producer_inventory": 1.605
+      },
+      {
+        "period": 1,
+        "node": "G2:S2",
+        "producer_inventory": 1.838
+      },
+      {
+        "period": 1,
+        "node": "G3:S1",
+        "producer_inventory": 1.133
+      },
+      {
+        "period": 1,
+        "node": "G3:S2",
+        "producer_inventory": 0.828
+      },
+      {
+        "period": 1,
+        "node": "G4:S1",
+        "producer_inventory": 0.54
+      },
+      {
+        "period": 1,
+        "node": "G4:S2",
+        "producer_inventory": 1.475
+      }
+    ]
+  },
+  "metrics": {
+    "cost": 1506.102681,
+    "risk": 14.43522818223333,
+    "normalized_cost": 0.7350834455446392,
+    "normalized_risk": 0.9322860095752344,
+    "weighted_objective_raw": 1506.102681,
+    "weighted_objective_normalized": 0.7350834455446392,
+    "weighted_objective": 0.7350834455446392,
+    "cost_ref": 2048.886681,
+    "risk_ref": 15.483690663566074,
+    "fixed_cost": 150.0,
+    "distance_cost": 1239.96,
+    "processing_cost": 116.14268099999998,
+    "transport_risk": 7.80661811175516,
+    "coload_risk": 0.4228150704781699,
+    "producer_inventory_risk": 6.205795,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  }
+}

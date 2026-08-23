@@ -1,0 +1,537 @@
+{
+  "producers": [
+    "G1",
+    "G2"
+  ],
+  "waste_types": [
+    "S1",
+    "S2"
+  ],
+  "facilities": [
+    "D1"
+  ],
+  "vehicles": [
+    "K1",
+    "K2"
+  ],
+  "periods": [
+    1,
+    2
+  ],
+  "generation": [
+    {
+      "key": [
+        "G1",
+        "S1",
+        1
+      ],
+      "value": 2.0
+    },
+    {
+      "key": [
+        "G1",
+        "S2",
+        1
+      ],
+      "value": 1.0
+    },
+    {
+      "key": [
+        "G2",
+        "S1",
+        1
+      ],
+      "value": 1.5
+    },
+    {
+      "key": [
+        "G2",
+        "S2",
+        1
+      ],
+      "value": 1.0
+    },
+    {
+      "key": [
+        "G1",
+        "S1",
+        2
+      ],
+      "value": 1.0
+    },
+    {
+      "key": [
+        "G1",
+        "S2",
+        2
+      ],
+      "value": 1.0
+    },
+    {
+      "key": [
+        "G2",
+        "S1",
+        2
+      ],
+      "value": 1.0
+    },
+    {
+      "key": [
+        "G2",
+        "S2",
+        2
+      ],
+      "value": 1.0
+    }
+  ],
+  "initial_producer_inventory": [
+    {
+      "key": [
+        "G1",
+        "S1"
+      ],
+      "value": 0.0
+    },
+    {
+      "key": [
+        "G1",
+        "S2"
+      ],
+      "value": 0.0
+    },
+    {
+      "key": [
+        "G2",
+        "S1"
+      ],
+      "value": 0.0
+    },
+    {
+      "key": [
+        "G2",
+        "S2"
+      ],
+      "value": 0.0
+    }
+  ],
+  "initial_facility_inventory": [
+    {
+      "key": [
+        "D1",
+        "S1"
+      ],
+      "value": 0.0
+    },
+    {
+      "key": [
+        "D1",
+        "S2"
+      ],
+      "value": 0.0
+    }
+  ],
+  "producer_capacity": {
+    "G1": 10.0,
+    "G2": 10.0
+  },
+  "facility_capacity": {
+    "D1": 30.0
+  },
+  "vehicle_capacity": 10.0,
+  "distance": [
+    {
+      "key": [
+        "D1",
+        "n::G1::S1"
+      ],
+      "value": 2.236
+    },
+    {
+      "key": [
+        "D1",
+        "n::G1::S2"
+      ],
+      "value": 2.332
+    },
+    {
+      "key": [
+        "D1",
+        "n::G2::S1"
+      ],
+      "value": 5.22
+    },
+    {
+      "key": [
+        "D1",
+        "n::G2::S2"
+      ],
+      "value": 5.281
+    },
+    {
+      "key": [
+        "n::G1::S1",
+        "D1"
+      ],
+      "value": 2.236
+    },
+    {
+      "key": [
+        "n::G1::S1",
+        "n::G2::S1"
+      ],
+      "value": 3.041
+    },
+    {
+      "key": [
+        "n::G1::S1",
+        "n::G2::S2"
+      ],
+      "value": 3.081
+    },
+    {
+      "key": [
+        "n::G1::S2",
+        "D1"
+      ],
+      "value": 2.332
+    },
+    {
+      "key": [
+        "n::G1::S2",
+        "n::G2::S1"
+      ],
+      "value": 3.015
+    },
+    {
+      "key": [
+        "n::G1::S2",
+        "n::G2::S2"
+      ],
+      "value": 3.041
+    },
+    {
+      "key": [
+        "n::G2::S1",
+        "D1"
+      ],
+      "value": 5.22
+    },
+    {
+      "key": [
+        "n::G2::S1",
+        "n::G1::S1"
+      ],
+      "value": 3.041
+    },
+    {
+      "key": [
+        "n::G2::S1",
+        "n::G1::S2"
+      ],
+      "value": 3.015
+    },
+    {
+      "key": [
+        "n::G2::S2",
+        "D1"
+      ],
+      "value": 5.281
+    },
+    {
+      "key": [
+        "n::G2::S2",
+        "n::G1::S1"
+      ],
+      "value": 3.081
+    },
+    {
+      "key": [
+        "n::G2::S2",
+        "n::G1::S2"
+      ],
+      "value": 3.041
+    }
+  ],
+  "accident_probability": [
+    {
+      "key": [
+        "D1",
+        "n::G1::S1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "D1",
+        "n::G1::S2"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "D1",
+        "n::G2::S1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "D1",
+        "n::G2::S2"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G1::S1",
+        "D1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G1::S1",
+        "n::G2::S1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G1::S1",
+        "n::G2::S2"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G1::S2",
+        "D1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G1::S2",
+        "n::G2::S1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G1::S2",
+        "n::G2::S2"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G2::S1",
+        "D1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G2::S1",
+        "n::G1::S1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G2::S1",
+        "n::G1::S2"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G2::S2",
+        "D1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G2::S2",
+        "n::G1::S1"
+      ],
+      "value": 0.001
+    },
+    {
+      "key": [
+        "n::G2::S2",
+        "n::G1::S2"
+      ],
+      "value": 0.001
+    }
+  ],
+  "vehicle_fixed_cost": 50.0,
+  "distance_cost": 3.0,
+  "processing_cost": [
+    {
+      "key": [
+        "D1",
+        "S1"
+      ],
+      "value": 8.0
+    },
+    {
+      "key": [
+        "D1",
+        "S2"
+      ],
+      "value": 8.0
+    }
+  ],
+  "technology": [
+    {
+      "key": [
+        "D1",
+        "S1"
+      ],
+      "value": 1
+    },
+    {
+      "key": [
+        "D1",
+        "S2"
+      ],
+      "value": 1
+    }
+  ],
+  "processing_capacity": [
+    {
+      "key": [
+        "D1",
+        "S1",
+        1
+      ],
+      "value": 20.0
+    },
+    {
+      "key": [
+        "D1",
+        "S1",
+        2
+      ],
+      "value": 20.0
+    },
+    {
+      "key": [
+        "D1",
+        "S2",
+        1
+      ],
+      "value": 20.0
+    },
+    {
+      "key": [
+        "D1",
+        "S2",
+        2
+      ],
+      "value": 20.0
+    }
+  ],
+  "compatibility": [
+    {
+      "key": [
+        "S1",
+        "S1"
+      ],
+      "value": 1
+    },
+    {
+      "key": [
+        "S1",
+        "S2"
+      ],
+      "value": 1
+    },
+    {
+      "key": [
+        "S2",
+        "S2"
+      ],
+      "value": 1
+    }
+  ],
+  "coload_risk": [
+    {
+      "key": [
+        "S1",
+        "S1"
+      ],
+      "value": 0.0
+    },
+    {
+      "key": [
+        "S1",
+        "S2"
+      ],
+      "value": 0.2
+    },
+    {
+      "key": [
+        "S2",
+        "S2"
+      ],
+      "value": 0.0
+    }
+  ],
+  "waste_consequence": {
+    "S1": 1.0,
+    "S2": 1.5
+  },
+  "producer_inventory_risk": [
+    {
+      "key": [
+        "G1",
+        "S1"
+      ],
+      "value": 0.4
+    },
+    {
+      "key": [
+        "G1",
+        "S2"
+      ],
+      "value": 0.4
+    },
+    {
+      "key": [
+        "G2",
+        "S1"
+      ],
+      "value": 0.4
+    },
+    {
+      "key": [
+        "G2",
+        "S2"
+      ],
+      "value": 0.4
+    }
+  ],
+  "facility_inventory_risk": [
+    {
+      "key": [
+        "D1",
+        "S1"
+      ],
+      "value": 0.2
+    },
+    {
+      "key": [
+        "D1",
+        "S2"
+      ],
+      "value": 0.2
+    }
+  ],
+  "min_pickup": 0.001,
+  "cost_weight": 1.0,
+  "risk_weight": 1.0,
+  "require_terminal_clear": true
+}

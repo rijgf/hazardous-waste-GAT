@@ -1,0 +1,122 @@
+{
+  "routes": {
+    "('K1', 2)": [
+      "D1",
+      "G2:S1",
+      "G3:S2",
+      "D1"
+    ],
+    "('K2', 2)": [
+      "D1",
+      "G2:S2",
+      "G1:S1",
+      "D1"
+    ],
+    "('K3', 2)": [
+      "D1",
+      "G1:S2",
+      "G3:S1",
+      "D1"
+    ]
+  },
+  "summary": {
+    "pickup": [
+      {
+        "period": 2,
+        "node": "G1:S1",
+        "quantity": 1.997
+      },
+      {
+        "period": 2,
+        "node": "G1:S2",
+        "quantity": 1.748
+      },
+      {
+        "period": 2,
+        "node": "G2:S1",
+        "quantity": 3.12
+      },
+      {
+        "period": 2,
+        "node": "G2:S2",
+        "quantity": 2.468
+      },
+      {
+        "period": 2,
+        "node": "G3:S1",
+        "quantity": 1.678
+      },
+      {
+        "period": 2,
+        "node": "G3:S2",
+        "quantity": 2.086
+      }
+    ],
+    "processing": [
+      {
+        "period": 2,
+        "facility": "D1",
+        "waste_type": "S1",
+        "quantity": 6.795
+      },
+      {
+        "period": 2,
+        "facility": "D1",
+        "waste_type": "S2",
+        "quantity": 6.302
+      }
+    ],
+    "ending_inventory": [
+      {
+        "period": 1,
+        "node": "G1:S1",
+        "producer_inventory": 1.459
+      },
+      {
+        "period": 1,
+        "node": "G1:S2",
+        "producer_inventory": 0.913
+      },
+      {
+        "period": 1,
+        "node": "G2:S1",
+        "producer_inventory": 1.605
+      },
+      {
+        "period": 1,
+        "node": "G2:S2",
+        "producer_inventory": 1.838
+      },
+      {
+        "period": 1,
+        "node": "G3:S1",
+        "producer_inventory": 1.133
+      },
+      {
+        "period": 1,
+        "node": "G3:S2",
+        "producer_inventory": 0.828
+      }
+    ]
+  },
+  "metrics": {
+    "cost": 1792.827308,
+    "risk": 11.610967373272793,
+    "normalized_cost": 1.0,
+    "normalized_risk": 1.0,
+    "weighted_objective_raw": 1347.523222843318,
+    "weighted_objective_normalized": 1.0,
+    "weighted_objective": 1.0,
+    "cost_ref": 1792.827308,
+    "risk_ref": 11.610967373272793,
+    "fixed_cost": 150.0,
+    "distance_cost": 1550.529,
+    "processing_cost": 92.298308,
+    "transport_risk": 6.127603153196568,
+    "coload_risk": 0.11843122007622399,
+    "producer_inventory_risk": 5.364933000000001,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  }
+}
