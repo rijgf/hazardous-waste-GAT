@@ -22,10 +22,6 @@ def load_algorithm_config() -> Dict[str, Any]:
     return load_json(CONFIG_DIR / "algorithm_config.json")
 
 
-def load_network_config() -> Dict[str, Any]:
-    return load_json(CONFIG_DIR / "network_config.json")
-
-
 def ensure_dir(path: str | Path) -> Path:
     output = Path(path)
     output.mkdir(parents=True, exist_ok=True)

@@ -4,9 +4,9 @@ import argparse
 import json
 import sys
 import time
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Protocol, Tuple
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -19,11 +19,64 @@ if str(GA_DIR) not in sys.path:
 from genetic_algorithm import ClassicGeneticAlgorithm, GAConfig
 from hazardous_waste_model import solve_with_milp
 from sample_params import params_to_json_data
-from src.config import ensure_dir, load_algorithm_config, load_model_config, load_network_config
+from src.config import ensure_dir, load_algorithm_config, load_model_config
 from src.heuristics import build_greedy_initial_solution
 from src.instance_generator import generate_random_params
-from src.ppo_improver import PPOImprover
 from src.solution_utils import evaluate_solution
+
+
+@dataclass
+class GATRunResult:
+    """Standard result returned by the future GAT experiment adapter."""
+
+    solution: Dict[str, Any]
+    inference_seconds: float
+    metadata: Dict[str, Any] | None = None
+
+
+class GATExperimentAdapter(Protocol):
+    """Contract between this experiment entry point and the future GAT method.
+
+    The GAT implementation should own graph construction, model training/loading,
+    checkpoint management, and inference. The experiment entry point only passes
+    problem data in and evaluates the returned solution with the common evaluator.
+    """
+
+    def prepare(
+        self,
+        base_params: Any,
+        initial_solution: Dict[str, Any],
+        objective_refs: Tuple[float, float],
+        seed: int,
+        artifact_dir: Path,
+    ) -> float:
+        """Train or load the model and return preparation time in seconds."""
+        ...
+
+    def solve(
+        self,
+        params: Any,
+        initial_solution: Dict[str, Any],
+        preference: Tuple[float, float],
+        objective_refs: Tuple[float, float],
+        seed: int,
+    ) -> GATRunResult:
+        """Return a complete candidate solution for one preference vector."""
+        ...
+
+
+def build_gat_adapter(
+    algorithm_config: Dict[str, Any],
+    scale: str,
+) -> GATExperimentAdapter | None:
+    """Future GAT registration point; disabled until the GAT code is implemented.
+
+    TODO(GAT): import the concrete adapter here and return an instance. Keeping
+    this hook optional lets the MILP/GA baselines run while the GAT implementation
+    is being developed. Legacy learned-method compatibility is intentionally omitted.
+    """
+    del algorithm_config, scale
+    return None
 
 
 def _write_json(path: Path, data: Any) -> None:
@@ -50,10 +103,8 @@ def run_ga(params, ga_cfg: Dict[str, Any], seed: int):
 
 def run_experiments(quick: bool = False) -> Path:
     algorithm_config = load_algorithm_config()
-    network_config = load_network_config()
     seed = int(algorithm_config["random_seed"])
     run_dir = ensure_dir(ROOT / algorithm_config["output_dir"] / time.strftime("%Y%m%d_%H%M%S"))
-    ensure_dir(run_dir / "models")
     ensure_dir(run_dir / "figures")
     ensure_dir(run_dir / "instances")
     ensure_dir(run_dir / "solutions")
@@ -63,24 +114,14 @@ def run_experiments(quick: bool = False) -> Path:
         algorithm_config["large_instance_count"] = 1
         algorithm_config["milp_time_limit"] = 5.0
         algorithm_config["preferences"] = [[0.5, 0.5], [1.0, 0.0]]
-        algorithm_config["ppo"]["train_iterations"] = 5
-        algorithm_config["ppo"]["episode_steps"] = 8
-        algorithm_config["ppo"]["eval_steps"] = 10
         algorithm_config["ga"]["small"]["generations"] = 20
         algorithm_config["ga"]["large"]["generations"] = 1
         algorithm_config["ga"]["small"]["population_size"] = 12
         algorithm_config["ga"]["large"]["population_size"] = 4
-        network_config["embedding_dim"] = 32
-        network_config["transformer_layers"] = 1
-        network_config["attention_heads"] = 4
-        network_config["ff_hidden_dim"] = 64
-        network_config["max_tokens"] = 160
 
     _write_json(run_dir / "algorithm_config.json", algorithm_config)
-    _write_json(run_dir / "network_config.json", network_config)
 
     rows: List[Dict[str, Any]] = []
-    train_rows: List[Dict[str, Any]] = []
     preferences = [tuple(item) for item in algorithm_config["preferences"]]
 
     for scale in ["small", "large"]:
@@ -102,14 +143,20 @@ def run_experiments(quick: bool = False) -> Path:
             ref_metrics = evaluate_solution(base_params, ref_solution, (0.5, 0.5))
             objective_refs = (max(ref_metrics["cost"], 1e-9), max(ref_metrics["risk"], 1e-9))
 
-            ppo = PPOImprover(base_params, algorithm_config, network_config, seed=instance_seed)
-            model_path = run_dir / "models" / f"ppo_{scale}_{instance_idx}.pt"
-            start = time.perf_counter()
-            print(f"[{scale}] instance {instance_idx} train PPO", flush=True)
-            train_history = ppo.train(save_path=model_path)
-            ppo_train_time = time.perf_counter() - start
-            for step, (reward, best_obj) in enumerate(zip(train_history["episode_reward"], train_history["best_objective"])):
-                train_rows.append({"scale": scale, "instance": instance_idx, "iteration": step, "episode_reward": reward, "best_objective": best_obj})
+            # Optional future method hook. Once a GAT adapter is registered,
+            # it is prepared once per instance and evaluated under every
+            # preference using the same objective references as MILP and GA.
+            gat_adapter = build_gat_adapter(algorithm_config, scale)
+            gat_prepare_time: float | None = None
+            if gat_adapter is not None:
+                gat_dir = ensure_dir(run_dir / "gat" / f"{scale}_{instance_idx}")
+                gat_prepare_time = gat_adapter.prepare(
+                    base_params,
+                    ref_solution,
+                    objective_refs,
+                    instance_seed,
+                    gat_dir,
+                )
 
             for preference in preferences:
                 print(f"[{scale}] instance {instance_idx} preference {preference}", flush=True)
@@ -139,15 +186,29 @@ def run_experiments(quick: bool = False) -> Path:
                 rows.append(_row(scale, instance_idx, pref_label, "GA", ga_eval, ga_time, fallback_reason=ga_fallback_reason))
                 _write_json(run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_ga.json", _solution_record(ga_solution, ga_eval))
 
-                start = time.perf_counter()
-                print(f"[{scale}] instance {instance_idx} run PPO eval", flush=True)
-                ppo_result = ppo.improve(preference, seed=instance_seed)
-                ppo_time = time.perf_counter() - start
-                ppo_eval = evaluate_solution(params, ppo_result.solution, preference, objective_refs=objective_refs)
-                row = _row(scale, instance_idx, pref_label, "PPO", ppo_eval, ppo_time)
-                row["ppo_train_time"] = ppo_train_time
-                rows.append(row)
-                _write_json(run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_ppo.json", _solution_record(ppo_result.solution, ppo_eval))
+                if gat_adapter is not None:
+                    print(f"[{scale}] instance {instance_idx} run GAT", flush=True)
+                    gat_result = gat_adapter.solve(
+                        params,
+                        ref_solution,
+                        preference,
+                        objective_refs,
+                        instance_seed,
+                    )
+                    gat_eval = evaluate_solution(
+                        params,
+                        gat_result.solution,
+                        preference,
+                        objective_refs=objective_refs,
+                    )
+                    row = _row(scale, instance_idx, pref_label, "GAT", gat_eval, gat_result.inference_seconds)
+                    row["gat_prepare_time_seconds"] = gat_prepare_time
+                    row["gat_metadata"] = json.dumps(gat_result.metadata or {}, ensure_ascii=False)
+                    rows.append(row)
+                    _write_json(
+                        run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_gat.json",
+                        _solution_record(gat_result.solution, gat_eval),
+                    )
 
                 if scale == "small":
                     start = time.perf_counter()
@@ -162,12 +223,10 @@ def run_experiments(quick: bool = False) -> Path:
                         _write_json(run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_milp.json", _solution_record(milp_result.solution, milp_eval))
 
     results = pd.DataFrame(rows)
-    train_results = pd.DataFrame(train_rows)
     results.to_csv(run_dir / "results.csv", index=False, encoding="utf-8-sig")
-    train_results.to_csv(run_dir / "training_history.csv", index=False, encoding="utf-8-sig")
     _add_gaps(results).to_csv(run_dir / "results_with_gap.csv", index=False, encoding="utf-8-sig")
     _write_summary(run_dir, results)
-    _plot_results(run_dir, results, train_results)
+    _plot_results(run_dir, results)
     return run_dir
 
 
@@ -226,16 +285,6 @@ def _add_gaps(results: pd.DataFrame) -> pd.DataFrame:
         best = float(row["weighted_objective_normalized"])
         out.loc[mask, "gap_percent"] = (out.loc[mask, "weighted_objective_normalized"] - best) / max(abs(best), 1e-9) * 100.0
         out.loc[mask, "gap_baseline"] = "MILP"
-    ppo = out[out["method"] == "PPO"][["scale", "instance", "preference", "weighted_objective_normalized"]]
-    for _, row in ppo.iterrows():
-        mask = (
-            (out["scale"] == "large")
-            & (out["instance"] == row["instance"])
-            & (out["preference"] == row["preference"])
-        )
-        base = float(row["weighted_objective_normalized"])
-        out.loc[mask, "gap_percent"] = (out.loc[mask, "weighted_objective_normalized"] - base) / max(abs(base), 1e-9) * 100.0
-        out.loc[mask, "gap_baseline"] = "PPO"
     return out
 
 
@@ -266,15 +315,14 @@ def _write_summary(run_dir: Path, results: pd.DataFrame) -> None:
         "## Output Files",
         "",
         "- `results.csv`: raw method metrics.",
-        "- `results_with_gap.csv`: metrics plus unified gap column. Small-scale gaps use MILP as baseline; large-scale gaps use PPO as baseline.",
-        "- `training_history.csv`: PPO training curves.",
-        "- `models/`: saved PPO model checkpoints.",
+        "- `results_with_gap.csv`: metrics plus gaps for instances with an optimal MILP baseline.",
+        "- `gat/`: reserved for future GAT checkpoints and training artifacts; created only when a GAT adapter is registered.",
         "- `figures/`: generated result figures.",
     ]
     (run_dir / "summary.md").write_text("\n".join(text), encoding="utf-8")
 
 
-def _plot_results(run_dir: Path, results: pd.DataFrame, train_results: pd.DataFrame) -> None:
+def _plot_results(run_dir: Path, results: pd.DataFrame) -> None:
     figures = run_dir / "figures"
     summary = results.groupby(["scale", "method"])["weighted_objective_normalized"].mean().reset_index()
     for scale in summary["scale"].unique():
@@ -299,17 +347,6 @@ def _plot_results(run_dir: Path, results: pd.DataFrame, train_results: pd.DataFr
         plt.savefig(figures / "small_gap_to_milp.png", dpi=180)
         plt.close()
 
-    large_gap = gap[(gap["scale"] == "large") & (gap["method"] != "PPO") & gap["gap_percent"].notna()]
-    if not large_gap.empty:
-        plot_data = large_gap.groupby("method")["gap_percent"].mean().reset_index()
-        plt.figure(figsize=(8, 5))
-        plt.bar(plot_data["method"], plot_data["gap_percent"])
-        plt.title("Large-scale mean gap to PPO")
-        plt.ylabel("Gap to PPO (%)")
-        plt.tight_layout()
-        plt.savefig(figures / "large_gap_to_ppo.png", dpi=180)
-        plt.close()
-
     runtime = results.groupby(["scale", "method"])["runtime_seconds"].mean().reset_index()
     plt.figure(figsize=(9, 5))
     for method in runtime["method"].unique():
@@ -321,18 +358,6 @@ def _plot_results(run_dir: Path, results: pd.DataFrame, train_results: pd.DataFr
     plt.tight_layout()
     plt.savefig(figures / "runtime_by_scale.png", dpi=180)
     plt.close()
-
-    if not train_results.empty:
-        data = train_results.groupby("iteration")["episode_reward"].mean().reset_index()
-        plt.figure(figsize=(8, 5))
-        plt.plot(data["iteration"], data["episode_reward"])
-        plt.title("PPO training reward")
-        plt.xlabel("Iteration")
-        plt.ylabel("Episode reward")
-        plt.tight_layout()
-        plt.savefig(figures / "ppo_training_reward.png", dpi=180)
-        plt.close()
-
 
 def _markdown_table(df: pd.DataFrame) -> str:
     if df.empty:
