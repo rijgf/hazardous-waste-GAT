@@ -1,8 +1,11 @@
 # 多周期多目标危险废物运输的统一 GAT-PPO 求解器设计
 
-> 状态：文献调研后的更新设计稿，尚未实现 GAT 训练代码。
-> 更新日期：2026-08-23。
-> 文件名因历史链接保留为 `ppo_transformer_design.md`；当前设计不再使用 Transformer。
+> 当前状态（2026-08-25）：本文主体仍是 GAT-PPO 的目标设计，GAT 训练与推理代码尚未实现。
+> 本轮恢复的是一个**修复后的、可执行的 PPO-Transformer 基线**，用于重新建立可信的算法对比与复现链路；它不是本文主体所设计的 GAT，也不构成 GAT 已实现的证据。
+> 基线实现分布在 `src/operators.py`（跨期 repair 与八类邻域算子）、`src/ppo_improver.py`（Transformer、PPO 与成本/风险双 Critic）、`src/reproducibility.py`（确定性派生 seed、规范序列化与 SHA-256、环境快照）以及 `replay_experiment.py`（单实验单元回放）。统一实验入口仍为 `run_experiments.py`。
+> 历史 PPO-Transformer 结果受 temporal repair 缺陷影响：旧 repair 按产生者—废物节点全局去重，并把修复后的访问重新放入末期，因而会删除合法的跨期重复服务并抵消时期移动动作。旧结果只能作为历史记录，不能与修复后实验混用；正式数值必须重新运行获得。
+> 当前修复基线按实例训练，同一实例的不同偏好共享该实例检查点；它不等同于本文后续要求的“单一冻结 GAT 检查点跨实例、跨规模零样本泛化”。
+> 文件名因历史链接保留为 `ppo_transformer_design.md`；下文主体设计仍不使用 Transformer。
 > 配套调研：[多周期多目标逆向物流与 GAT 神经求解器文献调研](literature_review_gat_reverse_logistics.md)。
 
 ## 0. 已确认的设计决定
@@ -706,7 +709,7 @@ PPO clipped loss使用 $A_t^\alpha$；价值损失分别拟合两个目标。可
 - GAT 非 MoE 主模型；
 - GAT + MoE 消融。
 
-旧 Transformer 代码和结果已经删除，不再作为当前仓库的可执行基线。若论文需要比较，应以独立归档版本或重新实现的明确基线进行，不能引用已删除结果。
+历史 Transformer 结果因跨期 repair 缺陷已作废，不能进入新比较。当前仓库保留的是重新实现并经严格可行性测试的 PPO-Transformer 基线；它仅用于与启发式、GA 和小规模 MILP 建立可信对照，不替代本节规划的 GAT 主模型。论文如引用 Transformer 对比，只能使用修复后、带 manifest 与回放记录的新实验。
 
 ### 12.3 指标
 
@@ -820,7 +823,7 @@ PPO 初始值：
 ```python
 class GATExperimentAdapter(Protocol):
     def prepare(...) -> float: ...
-    def solve(...) -> GATRunResult: ...
+    def solve(...) -> ExperimentRunResult: ...
 
 def build_gat_adapter(...) -> GATExperimentAdapter | None:
     ...
