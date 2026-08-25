@@ -21,12 +21,33 @@
       "tournament_size": 3
     },
     "large": {
-      "population_size": 1,
-      "generations": 0,
+      "population_size": 20,
+      "generations": 40,
       "crossover_rate": 0.9,
       "mutation_rate": 0.25,
       "elite_size": 4,
       "tournament_size": 3
+    }
+  },
+  "ppo": {
+    "train_iterations": 20,
+    "num_parallel_episodes": 24,
+    "episode_steps": 24,
+    "update_epochs": 24,
+    "gamma": 0.95,
+    "gae_lambda": 0.9,
+    "clip_ratio": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.02,
+    "value_coef": 0.5,
+    "repair_failure_penalty": 0.2,
+    "no_change_penalty": 0.01,
+    "eval_steps": 60,
+    "eval_candidate_samples": 32,
+    "evaluation_restarts": 3,
+    "preference_sampling": {
+      "endpoint_probability_each": 0.1,
+      "beta_concentration": 0.5
     }
   }
 }

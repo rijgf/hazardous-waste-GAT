@@ -29,20 +29,23 @@ def _can_add(params: ModelParams, route_nodes: List[str], node: str, load: float
 def build_greedy_initial_plan(params: ModelParams, seed: int = 0) -> RoutePlan:
     rng = random.Random(seed)
     routes: RoutePlan = {}
-    remaining = set(params.pickup_nodes)
+    # Keep iteration order independent of Python's randomized string hashing so
+    # a recorded seed reproduces the same initial plan across processes.
+    remaining = sorted(params.pickup_nodes)
     last_period = params.periods[-1]
 
     for vehicle in params.vehicles:
         if not remaining:
             break
-        first = max(remaining, key=lambda n: (terminal_inventory(params, n), rng.random()))
+        tie_break = {node: rng.random() for node in remaining}
+        first = max(remaining, key=lambda n: (terminal_inventory(params, n), tie_break[n]))
         facility = _best_facility_for_type(params, pickup_type(first))
         current_nodes: List[str] = []
         current_load = 0.0
         while remaining:
             candidates = [
                 node
-                for node in remaining
+                for node in sorted(remaining)
                 if params.technology[facility, pickup_type(node)] == 1 and _can_add(params, current_nodes, node, current_load)
             ]
             if not candidates:
@@ -51,7 +54,7 @@ def build_greedy_initial_plan(params: ModelParams, seed: int = 0) -> RoutePlan:
                 previous = current_nodes[-1] if current_nodes else facility
                 return terminal_inventory(params, candidate), -params.distance.get((previous, candidate), 0.0)
 
-            node = max(candidates, key=score)
+            node = max(sorted(candidates), key=score)
             current_nodes.append(node)
             current_load += terminal_inventory(params, node)
             remaining.remove(node)

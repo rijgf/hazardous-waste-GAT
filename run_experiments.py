@@ -2,32 +2,65 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from dataclasses import dataclass, replace
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Protocol, Tuple
 
 import matplotlib.pyplot as plt
 import pandas as pd
 
+os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
+
 ROOT = Path(__file__).resolve().parent
 GA_DIR = ROOT / "遗传算法"
 if str(GA_DIR) not in sys.path:
     sys.path.insert(0, str(GA_DIR))
 
+EXPERIMENT_SOURCE_FILES = (
+    "backfill_solution_identities.py",
+    "hazardous_waste_model.py",
+    "sample_params.py",
+    "refresh_ga_results.py",
+    "run_experiments.py",
+    "replay_experiment.py",
+    "configs/algorithm_config.json",
+    "configs/network_config.json",
+    "src/config.py",
+    "src/heuristics.py",
+    "src/instance_generator.py",
+    "src/operators.py",
+    "src/ppo_improver.py",
+    "src/reproducibility.py",
+    "src/solution_utils.py",
+    "遗传算法/genetic_algorithm.py",
+)
+
 from genetic_algorithm import ClassicGeneticAlgorithm, GAConfig
 from hazardous_waste_model import solve_with_milp
 from sample_params import params_to_json_data
-from src.config import ensure_dir, load_algorithm_config, load_model_config
-from src.heuristics import build_greedy_initial_solution
+from src.config import ensure_dir, load_algorithm_config, load_model_config, load_network_config
+from src.heuristics import build_greedy_initial_plan
 from src.instance_generator import generate_random_params
-from src.solution_utils import evaluate_solution
+from src.ppo_improver import PPOImprover
+from src.reproducibility import (
+    derive_seed,
+    environment_snapshot,
+    file_sha256,
+    git_status_snapshot,
+    json_sha256,
+    plan_sha256,
+    plan_to_canonical_data,
+)
+from src.solution_utils import evaluate_solution, route_plan_to_solution
 
 
 @dataclass
-class GATRunResult:
-    """Standard result returned by the future GAT experiment adapter."""
+class ExperimentRunResult:
+    """Standard result returned by a learned-method experiment adapter."""
 
     solution: Dict[str, Any]
     inference_seconds: float
@@ -60,7 +93,7 @@ class GATExperimentAdapter(Protocol):
         preference: Tuple[float, float],
         objective_refs: Tuple[float, float],
         seed: int,
-    ) -> GATRunResult:
+    ) -> ExperimentRunResult:
         """Return a complete candidate solution for one preference vector."""
         ...
 
@@ -79,8 +112,131 @@ def build_gat_adapter(
     return None
 
 
+class PPOTransformerExperimentAdapter:
+    """Executable, repaired PPO-Transformer baseline behind the common runner seam."""
+
+    def __init__(
+        self,
+        algorithm_config: Dict[str, Any],
+        network_config: Dict[str, Any],
+        train_seed: int,
+    ) -> None:
+        self.algorithm_config = algorithm_config
+        self.network_config = network_config
+        self.train_seed = train_seed
+        self.improver: PPOImprover | None = None
+        self.initial_plan = None
+        self.checkpoint_path: Path | None = None
+
+    def prepare(
+        self,
+        base_params: Any,
+        initial_solution: Dict[str, Any],
+        objective_refs: Tuple[float, float],
+        seed: int,
+        artifact_dir: Path,
+    ) -> float:
+        del objective_refs, seed
+        self.initial_plan = {
+            key: list(route) for key, route in initial_solution["plan"].items()
+        }
+        self.improver = PPOImprover(
+            base_params,
+            self.algorithm_config,
+            self.network_config,
+            seed=self.train_seed,
+        )
+        self.checkpoint_path = artifact_dir / "checkpoint.pt"
+        started = time.perf_counter()
+        history = self.improver.train(save_path=self.checkpoint_path)
+        if self.improver.device.type == "cuda":
+            import torch
+
+            torch.cuda.synchronize()
+        elapsed = time.perf_counter() - started
+        pd.DataFrame(history).to_csv(
+            artifact_dir / "training_history.csv",
+            index_label="iteration",
+            encoding="utf-8-sig",
+        )
+        _write_json(artifact_dir / "network_config.json", self.network_config)
+        return elapsed
+
+    def solve(
+        self,
+        params: Any,
+        initial_solution: Dict[str, Any],
+        preference: Tuple[float, float],
+        objective_refs: Tuple[float, float],
+        seed: int,
+    ) -> ExperimentRunResult:
+        del params, initial_solution, objective_refs
+        if self.improver is None or self.initial_plan is None:
+            raise RuntimeError("PPO-Transformer adapter must be prepared before solve")
+        if self.improver.device.type == "cuda":
+            import torch
+
+            torch.cuda.synchronize()
+        started = time.perf_counter()
+        result = self.improver.improve(
+            preference,
+            seed=seed,
+            initial_plan=self.initial_plan,
+        )
+        if self.improver.device.type == "cuda":
+            import torch
+
+            torch.cuda.synchronize()
+        elapsed = time.perf_counter() - started
+        return ExperimentRunResult(
+            solution=result.solution,
+            inference_seconds=elapsed,
+            metadata={"trace": result.trace, "evaluation_seed": seed},
+        )
+
+
 def _write_json(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _artifact_inventory(run_dir: Path, folder: str) -> List[Dict[str, str]]:
+    directory = run_dir / folder
+    return [
+        {
+            "file": path.relative_to(run_dir).as_posix(),
+            "sha256": file_sha256(path),
+        }
+        for path in sorted(directory.rglob("*"))
+        if path.is_file()
+    ]
+
+
+def _normalize_result_dtypes(results: pd.DataFrame) -> pd.DataFrame:
+    normalized = results.copy()
+    for column in (
+        "evaluation_seed",
+        "instance_seed",
+        "initial_solution_seed",
+        "training_seed",
+    ):
+        if column in normalized:
+            normalized[column] = pd.array(
+                pd.to_numeric(normalized[column], errors="raise"),
+                dtype="Int64",
+            )
+    return normalized
+
+
+def _write_result_tables(run_dir: Path, results: pd.DataFrame) -> pd.DataFrame:
+    normalized = _normalize_result_dtypes(results)
+    normalized.to_csv(run_dir / "results.csv", index=False, encoding="utf-8-sig")
+    _add_gaps(normalized).to_csv(
+        run_dir / "results_with_gap.csv",
+        index=False,
+        encoding="utf-8-sig",
+    )
+    return normalized
 
 
 def _with_preference(params, preference: Tuple[float, float]):
@@ -102,24 +258,71 @@ def run_ga(params, ga_cfg: Dict[str, Any], seed: int):
 
 
 def run_experiments(quick: bool = False) -> Path:
+    import torch
+
+    torch.use_deterministic_algorithms(True, warn_only=True)
+    if torch.cuda.is_available():
+        torch.backends.cudnn.benchmark = False
+        torch.backends.cudnn.deterministic = True
     algorithm_config = load_algorithm_config()
-    seed = int(algorithm_config["random_seed"])
-    run_dir = ensure_dir(ROOT / algorithm_config["output_dir"] / time.strftime("%Y%m%d_%H%M%S"))
-    ensure_dir(run_dir / "figures")
-    ensure_dir(run_dir / "instances")
-    ensure_dir(run_dir / "solutions")
+    network_config = load_network_config()
+    master_seed = int(algorithm_config["random_seed"])
 
     if quick:
         algorithm_config["small_instance_count"] = 1
         algorithm_config["large_instance_count"] = 1
         algorithm_config["milp_time_limit"] = 5.0
-        algorithm_config["preferences"] = [[0.5, 0.5], [1.0, 0.0]]
-        algorithm_config["ga"]["small"]["generations"] = 20
-        algorithm_config["ga"]["large"]["generations"] = 1
-        algorithm_config["ga"]["small"]["population_size"] = 12
-        algorithm_config["ga"]["large"]["population_size"] = 4
+        algorithm_config["preferences"] = [[0.5, 0.5], [0.0, 1.0]]
+        algorithm_config["ppo"]["train_iterations"] = 2
+        algorithm_config["ppo"]["num_parallel_episodes"] = 4
+        algorithm_config["ppo"]["episode_steps"] = 4
+        algorithm_config["ppo"]["update_epochs"] = 2
+        algorithm_config["ppo"]["eval_steps"] = 8
+        algorithm_config["ppo"]["eval_candidate_samples"] = 4
+        algorithm_config["ppo"]["evaluation_restarts"] = 1
+        algorithm_config["ga"]["small"]["generations"] = 5
+        algorithm_config["ga"]["large"]["generations"] = 2
+        algorithm_config["ga"]["small"]["population_size"] = 8
+        algorithm_config["ga"]["large"]["population_size"] = 6
+        network_config["embedding_dim"] = 32
+        network_config["attention_heads"] = 4
+        network_config["ff_hidden_dim"] = 64
+
+    run_id = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    run_dir = ensure_dir(ROOT / algorithm_config["output_dir"] / run_id)
+    ensure_dir(run_dir / "figures")
+    ensure_dir(run_dir / "instances")
+    ensure_dir(run_dir / "initial_solutions")
+    ensure_dir(run_dir / "solutions")
+    ensure_dir(run_dir / "ppo_transformer")
+    ensure_dir(run_dir / "traces")
 
     _write_json(run_dir / "algorithm_config.json", algorithm_config)
+    _write_json(run_dir / "network_config.json", network_config)
+
+    manifest: Dict[str, Any] = {
+        "schema_version": "hazardous-waste-experiment-v2",
+        "run_id": run_id,
+        "started_at": datetime.now().astimezone().isoformat(),
+        "quick_mode": quick,
+        "command": " ".join(sys.argv),
+        "master_seed": master_seed,
+        "seed_scheme": "sha256-seed-v1",
+        "training_scope": "instance-specific",
+        "preferences": algorithm_config["preferences"],
+        "algorithm_config_sha256": json_sha256(algorithm_config),
+        "network_config_sha256": json_sha256(network_config),
+        "source_files_sha256": {
+            relative: file_sha256(ROOT / relative)
+            for relative in EXPERIMENT_SOURCE_FILES
+        },
+        "git": git_status_snapshot(ROOT),
+        "environment": environment_snapshot(),
+        "instances": [],
+        "training": [],
+        "evaluations": [],
+    }
+    _write_json(run_dir / "manifest.json", manifest)
 
     rows: List[Dict[str, Any]] = []
     preferences = [tuple(item) for item in algorithm_config["preferences"]]
@@ -135,46 +338,125 @@ def run_experiments(quick: bool = False) -> Path:
         instance_count = int(algorithm_config[f"{scale}_instance_count"])
         _write_json(run_dir / f"model_config_{scale}.json", model_config)
         for instance_idx in range(instance_count):
+            instance_id = f"{scale}_{instance_idx}"
             print(f"[{scale}] instance {instance_idx} start", flush=True)
-            instance_seed = seed + (0 if scale == "small" else 10_000) + instance_idx
+            instance_seed = derive_seed(master_seed, "instance", scale, instance_idx, bits=32)
+            initial_seed = derive_seed(master_seed, "initial_solution", instance_id, bits=32)
+            train_seed = derive_seed(master_seed, "training", "ppo_transformer", instance_id, bits=32)
             base_params = generate_random_params(model_config, instance_seed)
-            _write_json(run_dir / "instances" / f"{scale}_{instance_idx}.json", params_to_json_data(base_params))
-            ref_solution = build_greedy_initial_solution(base_params, seed=instance_seed)
+            instance_path = run_dir / "instances" / f"{instance_id}.json"
+            _write_json(instance_path, params_to_json_data(base_params))
+
+            initial_started = time.perf_counter()
+            ref_plan = build_greedy_initial_plan(base_params, seed=initial_seed)
+            ref_solution = route_plan_to_solution(base_params, ref_plan)
+            initialization_seconds = time.perf_counter() - initial_started
             ref_metrics = evaluate_solution(base_params, ref_solution, (0.5, 0.5))
+            if not ref_metrics["feasible"]:
+                raise RuntimeError(f"initial solution is infeasible: {ref_metrics['violations']}")
             objective_refs = (max(ref_metrics["cost"], 1e-9), max(ref_metrics["risk"], 1e-9))
 
-            # Optional future method hook. Once a GAT adapter is registered,
-            # it is prepared once per instance and evaluated under every
-            # preference using the same objective references as MILP and GA.
-            gat_adapter = build_gat_adapter(algorithm_config, scale)
-            gat_prepare_time: float | None = None
-            if gat_adapter is not None:
-                gat_dir = ensure_dir(run_dir / "gat" / f"{scale}_{instance_idx}")
-                gat_prepare_time = gat_adapter.prepare(
-                    base_params,
-                    ref_solution,
-                    objective_refs,
-                    instance_seed,
-                    gat_dir,
-                )
+            initial_hash = plan_sha256(ref_plan)
+            initial_path = run_dir / "initial_solutions" / f"{instance_id}.json"
+            _write_json(
+                initial_path,
+                {
+                    "schema": "initial-solution-v1",
+                    "instance_id": instance_id,
+                    "seed": initial_seed,
+                    "plan": plan_to_canonical_data(ref_plan),
+                    "plan_sha256": initial_hash,
+                    "objective_refs": {"cost": objective_refs[0], "risk": objective_refs[1]},
+                    "metrics": ref_metrics,
+                },
+            )
+
+            ppo_dir = ensure_dir(run_dir / "ppo_transformer" / instance_id)
+            ppo_adapter = PPOTransformerExperimentAdapter(
+                algorithm_config,
+                network_config,
+                train_seed=train_seed,
+            )
+            print(f"[{scale}] instance {instance_idx} train PPO-Transformer", flush=True)
+            ppo_train_time = ppo_adapter.prepare(
+                base_params,
+                ref_solution,
+                objective_refs,
+                train_seed,
+                ppo_dir,
+            )
+            checkpoint_hash = file_sha256(ppo_adapter.checkpoint_path) if ppo_adapter.checkpoint_path else None
+
+            instance_manifest = {
+                "instance_id": instance_id,
+                "scale": scale,
+                "index": instance_idx,
+                "dimensions": {
+                    "producers": len(base_params.producers),
+                    "waste_types": len(base_params.waste_types),
+                    "facilities": len(base_params.facilities),
+                    "vehicles": len(base_params.vehicles),
+                    "periods": len(base_params.periods),
+                },
+                "instance_seed": instance_seed,
+                "instance_file": str(instance_path.relative_to(run_dir)),
+                "instance_sha256": file_sha256(instance_path),
+                "initial_solution_seed": initial_seed,
+                "initial_solution_file": str(initial_path.relative_to(run_dir)),
+                "initial_solution_sha256": initial_hash,
+                "initialization_seconds": initialization_seconds,
+                "cost_ref": objective_refs[0],
+                "risk_ref": objective_refs[1],
+            }
+            manifest["instances"].append(instance_manifest)
+            manifest["training"].append(
+                {
+                    "method": "PPO-Transformer",
+                    "instance_id": instance_id,
+                    "training_scope": "instance-specific",
+                    "train_seed": train_seed,
+                    "checkpoint_file": str(ppo_adapter.checkpoint_path.relative_to(run_dir)),
+                    "checkpoint_sha256": checkpoint_hash,
+                    "training_seconds": ppo_train_time,
+                }
+            )
+            _write_json(run_dir / "manifest.json", manifest)
 
             for preference in preferences:
                 print(f"[{scale}] instance {instance_idx} preference {preference}", flush=True)
                 params = _with_preference(base_params, preference)
                 optimizer_params = _with_normalized_objective(base_params, preference, objective_refs)
                 pref_label = f"{preference[0]:.2f}_{preference[1]:.2f}"
+                identity = {
+                    "run_id": run_id,
+                    "instance_id": instance_id,
+                    "instance_seed": instance_seed,
+                    "initial_solution_seed": initial_seed,
+                    "initial_solution_sha256": initial_hash,
+                    "preference_cost": preference[0],
+                    "preference_risk": preference[1],
+                }
 
-                start = time.perf_counter()
                 print(f"[{scale}] instance {instance_idx} run heuristic", flush=True)
                 heuristic_solution = ref_solution
-                heuristic_time = time.perf_counter() - start
                 heuristic_eval = evaluate_solution(params, heuristic_solution, preference, objective_refs=objective_refs)
-                rows.append(_row(scale, instance_idx, pref_label, "Heuristic", heuristic_eval, heuristic_time))
-                _write_json(run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_heuristic.json", _solution_record(heuristic_solution, heuristic_eval))
+                heuristic_solution_name = f"{scale}_{instance_idx}_{pref_label}_heuristic.json"
+                rows.append(_row(
+                    scale, instance_idx, pref_label, "Heuristic", heuristic_eval,
+                    initialization_seconds, restart=0, evaluation_seed=initial_seed,
+                    solution_file=f"solutions/{heuristic_solution_name}",
+                    result_plan_sha256=plan_sha256(heuristic_solution["plan"]),
+                    **identity,
+                ))
+                _write_json(
+                    run_dir / "solutions" / heuristic_solution_name,
+                    _solution_record(heuristic_solution, heuristic_eval),
+                )
 
                 start = time.perf_counter()
                 print(f"[{scale}] instance {instance_idx} run GA", flush=True)
-                ga_result = run_ga(optimizer_params, algorithm_config["ga"][scale], instance_seed)
+                ga_seed = derive_seed(master_seed, "evaluation", "GA", instance_id, pref_label, bits=32)
+                ga_result = run_ga(optimizer_params, algorithm_config["ga"][scale], ga_seed)
                 ga_time = time.perf_counter() - start
                 ga_solution = ga_result.best_solution
                 ga_eval = evaluate_solution(params, ga_solution, preference, objective_refs=objective_refs)
@@ -183,31 +465,101 @@ def run_experiments(quick: bool = False) -> Path:
                     ga_fallback_reason = "ga_infeasible_fallback_to_heuristic"
                     ga_solution = heuristic_solution
                     ga_eval = evaluate_solution(params, ga_solution, preference, objective_refs=objective_refs)
-                rows.append(_row(scale, instance_idx, pref_label, "GA", ga_eval, ga_time, fallback_reason=ga_fallback_reason))
-                _write_json(run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_ga.json", _solution_record(ga_solution, ga_eval))
+                ga_solution_name = f"{scale}_{instance_idx}_{pref_label}_ga.json"
+                rows.append(_row(
+                    scale, instance_idx, pref_label, "GA", ga_eval, ga_time,
+                    fallback_reason=ga_fallback_reason, restart=0, evaluation_seed=ga_seed,
+                    solution_file=f"solutions/{ga_solution_name}",
+                    result_plan_sha256=(
+                        plan_sha256(ga_solution["plan"])
+                        if "plan" in ga_solution else None
+                    ),
+                    **identity,
+                ))
+                _write_json(
+                    run_dir / "solutions" / ga_solution_name,
+                    _solution_record(ga_solution, ga_eval),
+                )
 
-                if gat_adapter is not None:
-                    print(f"[{scale}] instance {instance_idx} run GAT", flush=True)
-                    gat_result = gat_adapter.solve(
+                for restart in range(int(algorithm_config["ppo"].get("evaluation_restarts", 1))):
+                    eval_seed = derive_seed(
+                        master_seed,
+                        "evaluation",
+                        "PPO-Transformer",
+                        instance_id,
+                        preference[0],
+                        preference[1],
+                        restart,
+                        bits=32,
+                    )
+                    print(
+                        f"[{scale}] instance {instance_idx} run PPO-Transformer restart {restart}",
+                        flush=True,
+                    )
+                    ppo_result = ppo_adapter.solve(
                         params,
                         ref_solution,
                         preference,
                         objective_refs,
-                        instance_seed,
+                        eval_seed,
                     )
-                    gat_eval = evaluate_solution(
+                    ppo_eval = evaluate_solution(
                         params,
-                        gat_result.solution,
+                        ppo_result.solution,
                         preference,
                         objective_refs=objective_refs,
                     )
-                    row = _row(scale, instance_idx, pref_label, "GAT", gat_eval, gat_result.inference_seconds)
-                    row["gat_prepare_time_seconds"] = gat_prepare_time
-                    row["gat_metadata"] = json.dumps(gat_result.metadata or {}, ensure_ascii=False)
+                    solution_name = f"{instance_id}_{pref_label}_ppo_restart_{restart}.json"
+                    solution_path = run_dir / "solutions" / solution_name
+                    trace_path = run_dir / "traces" / instance_id / pref_label / f"restart_{restart}.json"
+                    row = _row(
+                        scale,
+                        instance_idx,
+                        pref_label,
+                        "PPO-Transformer",
+                        ppo_eval,
+                        ppo_result.inference_seconds,
+                        restart=restart,
+                        evaluation_seed=eval_seed,
+                        training_seed=train_seed,
+                        checkpoint_sha256=checkpoint_hash,
+                        preparation_seconds=ppo_train_time,
+                        training_scope="instance-specific",
+                        solution_file=f"solutions/{solution_name}",
+                        result_plan_sha256=plan_sha256(ppo_result.solution["plan"]),
+                        **identity,
+                    )
                     rows.append(row)
                     _write_json(
-                        run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_gat.json",
-                        _solution_record(gat_result.solution, gat_eval),
+                        solution_path,
+                        _solution_record(ppo_result.solution, ppo_eval),
+                    )
+                    _write_json(
+                        trace_path,
+                        {
+                            "instance_id": instance_id,
+                            "preference": list(preference),
+                            "restart": restart,
+                            "evaluation_seed": eval_seed,
+                            "initial_solution_sha256": initial_hash,
+                            "checkpoint_sha256": checkpoint_hash,
+                            "trace": (ppo_result.metadata or {}).get("trace", []),
+                        },
+                    )
+                    manifest["evaluations"].append(
+                        {
+                            "instance_id": instance_id,
+                            "method": "PPO-Transformer",
+                            "preference": list(preference),
+                            "restart": restart,
+                            "evaluation_seed": eval_seed,
+                            "trace_file": str(trace_path.relative_to(run_dir)),
+                            "solution_file": f"solutions/{solution_name}",
+                            "trace_sha256": file_sha256(trace_path),
+                            "solution_sha256": file_sha256(solution_path),
+                            "result_plan_sha256": plan_sha256(ppo_result.solution["plan"]),
+                            "checkpoint_sha256": checkpoint_hash,
+                        }
                     )
 
                 if scale == "small":
@@ -217,16 +569,38 @@ def run_experiments(quick: bool = False) -> Path:
                     milp_time = time.perf_counter() - start
                     if milp_result.solution:
                         milp_eval = evaluate_solution(params, milp_result.solution, preference, objective_refs=objective_refs)
-                        row = _row(scale, instance_idx, pref_label, "MILP", milp_eval, milp_time)
+                        milp_solution_name = f"{scale}_{instance_idx}_{pref_label}_milp.json"
+                        row = _row(
+                            scale, instance_idx, pref_label, "MILP", milp_eval, milp_time,
+                            restart=0, evaluation_seed=None,
+                            solution_file=f"solutions/{milp_solution_name}",
+                            result_plan_sha256=None,
+                            **identity,
+                        )
                         row["solver_status"] = milp_result.status
                         rows.append(row)
-                        _write_json(run_dir / "solutions" / f"{scale}_{instance_idx}_{pref_label}_milp.json", _solution_record(milp_result.solution, milp_eval))
+                        _write_json(
+                            run_dir / "solutions" / milp_solution_name,
+                            _solution_record(milp_result.solution, milp_eval),
+                        )
+                # Persist completed cells immediately so an interrupted long run
+                # can be inspected or resumed without losing prior preferences.
+                partial_results = pd.DataFrame(rows)
+                _write_result_tables(run_dir, partial_results)
+                _write_json(run_dir / "manifest.json", manifest)
 
-    results = pd.DataFrame(rows)
-    results.to_csv(run_dir / "results.csv", index=False, encoding="utf-8-sig")
-    _add_gaps(results).to_csv(run_dir / "results_with_gap.csv", index=False, encoding="utf-8-sig")
+    results = _write_result_tables(run_dir, pd.DataFrame(rows))
     _write_summary(run_dir, results)
     _plot_results(run_dir, results)
+    manifest["finished_at"] = datetime.now().astimezone().isoformat()
+    manifest["artifacts"] = {
+        "results.csv": file_sha256(run_dir / "results.csv"),
+        "results_with_gap.csv": file_sha256(run_dir / "results_with_gap.csv"),
+        "summary.md": file_sha256(run_dir / "summary.md"),
+    }
+    manifest["solution_artifacts"] = _artifact_inventory(run_dir, "solutions")
+    manifest["trace_artifacts"] = _artifact_inventory(run_dir, "traces")
+    _write_json(run_dir / "manifest.json", manifest)
     return run_dir
 
 
@@ -238,8 +612,11 @@ def _row(
     metrics: Dict[str, Any],
     runtime: float,
     fallback_reason: str = "",
+    restart: int = 0,
+    evaluation_seed: int | None = None,
+    **metadata: Any,
 ) -> Dict[str, Any]:
-    return {
+    row = {
         "scale": scale,
         "instance": instance_idx,
         "preference": pref_label,
@@ -265,11 +642,23 @@ def _row(
         "fallback_used": bool(fallback_reason),
         "fallback_reason": fallback_reason,
         "runtime_seconds": runtime,
+        "restart": restart,
+        "evaluation_seed": evaluation_seed,
     }
+    row.update(metadata)
+    return row
 
 
 def _solution_record(solution: Dict[str, Any], metrics: Dict[str, Any]) -> Dict[str, Any]:
-    return {"routes": {str(k): v for k, v in solution.get("routes", {}).items()}, "summary": solution.get("summary", {}), "metrics": metrics}
+    record = {
+        "routes": {str(k): v for k, v in solution.get("routes", {}).items()},
+        "summary": solution.get("summary", {}),
+        "metrics": metrics,
+    }
+    if "plan" in solution:
+        record["plan"] = plan_to_canonical_data(solution["plan"])
+        record["plan_sha256"] = plan_sha256(solution["plan"])
+    return record
 
 
 def _add_gaps(results: pd.DataFrame) -> pd.DataFrame:
@@ -316,7 +705,11 @@ def _write_summary(run_dir: Path, results: pd.DataFrame) -> None:
         "",
         "- `results.csv`: raw method metrics.",
         "- `results_with_gap.csv`: metrics plus gaps for instances with an optimal MILP baseline.",
-        "- `gat/`: reserved for future GAT checkpoints and training artifacts; created only when a GAT adapter is registered.",
+        "- `manifest.json`: seeds, hashes, environment, Git snapshot, and artifact checksums.",
+        "- `initial_solutions/`: canonical initial plans and objective references.",
+        "- `ppo_transformer/`: instance-specific checkpoints and training histories.",
+        "- `traces/`: per-preference, per-restart local-search traces.",
+        "- `solutions/`: saved method solutions and final plan hashes.",
         "- `figures/`: generated result figures.",
     ]
     (run_dir / "summary.md").write_text("\n".join(text), encoding="utf-8")

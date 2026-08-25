@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import combinations
-from math import isclose
+from math import isclose, isfinite
 from typing import Any, Dict, Iterable, List, Mapping, Tuple
 
 from hazardous_waste_model import (
@@ -172,7 +172,7 @@ def evaluate_solution(
 ) -> Dict[str, Any]:
     pref = preference if preference is not None else (params.cost_weight, params.risk_weight)
     breakdown = objective_breakdown(params, solution)
-    violations = check_solution(params, solution) if check_constraints else []
+    violations = validate_solution(params, solution) if check_constraints else []
     weighted_raw = pref[0] * breakdown.cost + pref[1] * breakdown.risk
     cost_ref, risk_ref = objective_refs if objective_refs is not None else (1.0, 1.0)
     normalized_cost = breakdown.cost / max(cost_ref, 1e-9)
@@ -200,41 +200,97 @@ def evaluate_solution(
     }
 
 
-def enhanced_check_solution(params: ModelParams, solution: Mapping[str, Any], tol: float = 1e-5) -> List[str]:
+def validate_solution(params: ModelParams, solution: Mapping[str, Any], tol: float = 1e-5) -> List[str]:
+    """Validate a complete solution, including the conservation equations.
+
+    The legacy checker focused on upper bounds and treated every missing value as
+    zero. This validator rejects an empty raw solution and checks producer and
+    facility mass balance. Sparse zero variables emitted by the MILP remain valid.
+    """
+
     raw = solution.get("raw", solution)
+    if not raw:
+        return ["missing raw solution variables"]
+
     violations = list(check_solution(params, solution, tol=tol))
+    for key, value in raw.items():
+        if isinstance(value, (int, float)):
+            if not isfinite(float(value)):
+                violations.append(f"non-finite solution value: {key}")
+            elif float(value) < -tol:
+                violations.append(f"negative solution value: {key}={value}")
+
+    previous_period: int | None = None
     for t in params.periods:
+        for node in params.pickup_nodes:
+            owner = pickup_owner(node)
+            waste = pickup_type(node)
+            previous_inventory = (
+                params.initial_producer_inventory[owner, waste]
+                if previous_period is None
+                else raw.get(("IG", node, previous_period), 0.0)
+            )
+            expected_before_pickup = previous_inventory + params.generation[owner, waste, t]
+            before_pickup = raw.get(("BG", node, t), 0.0)
+            collected = sum(raw.get(("q", node, vehicle, t), 0.0) for vehicle in params.vehicles)
+            ending = raw.get(("IG", node, t), 0.0)
+            if not isclose(before_pickup, expected_before_pickup, abs_tol=tol):
+                violations.append(
+                    f"producer inventory balance before pickup: {display_node(node)}, t={t}, "
+                    f"BG={before_pickup}, expected={expected_before_pickup}"
+                )
+            if not isclose(before_pickup, collected + ending, abs_tol=tol):
+                violations.append(
+                    f"producer inventory balance after pickup: {display_node(node)}, t={t}, "
+                    f"BG={before_pickup}, q+IG={collected + ending}"
+                )
+
         for j in params.facilities:
             for s in params.waste_types:
+                previous_inventory = (
+                    params.initial_facility_inventory[j, s]
+                    if previous_period is None
+                    else raw.get(("ID", j, s, previous_period), 0.0)
+                )
+                received = raw.get(("R", j, s, t), 0.0)
                 bd = raw.get(("BD", j, s, t), 0.0)
                 processed = raw.get(("p", j, s, t), 0.0)
+                ending = raw.get(("ID", j, s, t), 0.0)
                 cap = params.processing_capacity[j, s, t] * params.technology[j, s]
+                if not isclose(bd, previous_inventory + received, abs_tol=tol):
+                    violations.append(
+                        f"facility inventory balance before processing: facility={j}, waste={s}, t={t}"
+                    )
+                if not isclose(bd, processed + ending, abs_tol=tol):
+                    violations.append(
+                        f"facility inventory balance after processing: facility={j}, waste={s}, t={t}"
+                    )
                 if processed > cap + tol:
                     violations.append(f"processing capacity exceeded: facility={j}, waste={s}, t={t}")
                 if processed > bd + tol:
                     violations.append(f"processed more than available: facility={j}, waste={s}, t={t}")
-        for node in params.pickup_nodes:
-            visits = sum(raw.get(("x", a, node, k, t), 0.0) for k in params.vehicles for a, b in params.arcs if b == node)
-            if visits > 0.5:
-                i, s = pickup_owner(node), pickup_type(node)
-                feasible_facilities = []
-                for k in params.vehicles:
-                    for a, b in params.arcs:
-                        if b == node and raw.get(("x", a, b, k, t), 0.0) > 0.5:
-                            starts = [j for j in params.facilities for n in params.pickup_nodes if raw.get(("x", j, n, k, t), 0.0) > 0.5]
-                            feasible_facilities.extend(starts)
-                if feasible_facilities and not any(params.technology[j, s] == 1 for j in feasible_facilities):
-                    violations.append(f"facility technology mismatch for {node}, t={t}")
-            qty = sum(raw.get(("q", node, k, t), 0.0) for k in params.vehicles)
-            if qty > tol and visits < 0.5:
-                violations.append(f"pickup quantity without visit: {display_node(node)}, t={t}")
-    if params.require_terminal_clear:
-        last = params.periods[-1]
-        for node in params.pickup_nodes:
-            if not isclose(raw.get(("IG", node, last), 0.0), 0.0, abs_tol=tol):
-                violations.append(f"terminal producer inventory not clear: {display_node(node)}")
-        for j in params.facilities:
-            for s in params.waste_types:
-                if not isclose(raw.get(("ID", j, s, last), 0.0), 0.0, abs_tol=tol):
-                    violations.append(f"terminal facility inventory not clear: {j},{s}")
+                if received > tol and params.technology[j, s] != 1:
+                    violations.append(f"facility technology mismatch: facility={j}, waste={s}, t={t}")
+
+        for waste in params.waste_types:
+            collected = sum(
+                raw.get(("q", node, vehicle, t), 0.0)
+                for node in params.pickup_nodes
+                if pickup_type(node) == waste
+                for vehicle in params.vehicles
+            )
+            received = sum(raw.get(("R", facility, waste, t), 0.0) for facility in params.facilities)
+            if not isclose(collected, received, abs_tol=tol):
+                violations.append(
+                    f"pickup-to-facility flow balance: waste={waste}, t={t}, q={collected}, R={received}"
+                )
+
+        previous_period = t
+
     return violations
+
+
+def enhanced_check_solution(params: ModelParams, solution: Mapping[str, Any], tol: float = 1e-5) -> List[str]:
+    """Backward-compatible name for the complete validator."""
+
+    return validate_solution(params, solution, tol=tol)

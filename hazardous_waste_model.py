@@ -323,7 +323,8 @@ class HazardousWasteMILP:
 
     def _decode(self, x: np.ndarray) -> Dict[str, Any]:
         raw = {self.names[i]: float(x[i]) for i in range(len(self.names)) if abs(x[i]) > 1e-7}
-        routes: Dict[Tuple[str, int], List[List[str]]] = {}
+        routes: Dict[Tuple[str, int], List[str]] = {}
+        plan: Dict[Tuple[str, int], List[str]] = {}
         for t in self.p.periods:
             for k in self.p.vehicles:
                 used = {(a, b): raw.get(("x", a, b, k, t), 0.0) for a, b in self.p.arcs if raw.get(("x", a, b, k, t), 0.0) > 0.5}
@@ -338,8 +339,14 @@ class HazardousWasteMILP:
                     if nxt in path and nxt not in self.p.facilities:
                         break
                     path.append(nxt)
+                plan[k, t] = path
                 routes[k, t] = [display_node(n) for n in path]
-        return {"raw": raw, "routes": routes, "summary": summarize_solution(self.p, raw)}
+        return {
+            "raw": raw,
+            "routes": routes,
+            "summary": summarize_solution(self.p, raw),
+            "plan": plan,
+        }
 
 
 def display_node(node: str) -> str:
@@ -376,13 +383,69 @@ def solve_with_milp(params: ModelParams, time_limit: Optional[float] = 30.0) -> 
 def check_solution(params: ModelParams, solution: Mapping[str, Any], tol: float = 1e-5) -> List[str]:
     raw = solution.get("raw", solution)
     violations: List[str] = []
-    incoming = {n: [a for a, b in params.arcs if b == n] for n in params.nodes}
+    # Build visit counts from the sparse chosen arcs. Iterating the full arc set
+    # for every node made large-instance validation dominate training time.
     incoming_value = {
-        (n, k, t): sum(raw.get(("x", a, n, k, t), 0.0) for a in incoming[n])
+        (n, k, t): 0.0
         for n in params.nodes
         for k in params.vehicles
         for t in params.periods
     }
+    outgoing_value = {
+        (n, k, t): 0.0
+        for n in params.nodes
+        for k in params.vehicles
+        for t in params.periods
+    }
+    used_arcs: Dict[Tuple[str, int], List[Arc]] = {}
+    for key, value in raw.items():
+        if key[0] != "x" or abs(value) <= tol:
+            continue
+        _, a, b, vehicle, period = key
+        if (a, b) not in params.distance:
+            violations.append(f"route uses forbidden arc: {a}->{b}, k={vehicle}, t={period}")
+            continue
+        if vehicle not in params.vehicles or period not in params.periods:
+            violations.append(f"route uses unknown vehicle/period: k={vehicle}, t={period}")
+            continue
+        if not isclose(value, 1.0, abs_tol=tol):
+            violations.append(f"route arc must be binary: {a}->{b}, k={vehicle}, t={period}, x={value}")
+        incoming_value[b, vehicle, period] = incoming_value.get((b, vehicle, period), 0.0) + value
+        outgoing_value[a, vehicle, period] = outgoing_value.get((a, vehicle, period), 0.0) + value
+        used_arcs.setdefault((vehicle, period), []).append((a, b))
+
+    flow_in: Dict[Tuple[str, str, str, int], float] = {}
+    flow_out: Dict[Tuple[str, str, str, int], float] = {}
+    for key, value in raw.items():
+        if key[0] != "F" or abs(value) <= tol:
+            continue
+        _, a, b, waste, vehicle, period = key
+        if (
+            (a, b) not in params.distance
+            or waste not in params.waste_types
+            or vehicle not in params.vehicles
+            or period not in params.periods
+        ):
+            violations.append(
+                f"load flow uses unknown arc/type/vehicle/period: {key}"
+            )
+            continue
+        if raw.get(("x", a, b, vehicle, period), 0.0) < 0.5:
+            violations.append(
+                f"load flow without route arc: {a}->{b}, waste={waste}, "
+                f"k={vehicle}, t={period}"
+            )
+        if a in params.facilities:
+            violations.append(
+                f"vehicle leaves facility with waste load: facility={a}, "
+                f"waste={waste}, k={vehicle}, t={period}"
+            )
+        flow_out[a, waste, vehicle, period] = (
+            flow_out.get((a, waste, vehicle, period), 0.0) + value
+        )
+        flow_in[b, waste, vehicle, period] = (
+            flow_in.get((b, waste, vehicle, period), 0.0) + value
+        )
     for (j, s), can_process in params.technology.items():
         if can_process not in (0, 1):
             violations.append(f"technology[{j},{s}] must be 0 or 1")
@@ -391,6 +454,47 @@ def check_solution(params: ModelParams, solution: Mapping[str, Any], tol: float 
             violations.append(f"compatibility{pair} must be 0 or 1")
     for t in params.periods:
         for k in params.vehicles:
+            for node in params.nodes:
+                incoming = incoming_value[node, k, t]
+                outgoing = outgoing_value[node, k, t]
+                if not isclose(incoming, outgoing, abs_tol=tol):
+                    violations.append(
+                        f"route flow conservation violated: node={display_node(node)}, "
+                        f"k={k}, t={t}, incoming={incoming}, outgoing={outgoing}"
+                    )
+            departures = sum(
+                outgoing_value[facility, k, t]
+                for facility in params.facilities
+            )
+            if departures > 1.0 + tol:
+                violations.append(
+                    f"vehicle starts more than one route: k={k}, t={t}, departures={departures}"
+                )
+            arcs = used_arcs.get((k, t), [])
+            if arcs:
+                adjacency: Dict[str, List[str]] = {}
+                route_nodes = set()
+                for a, b in arcs:
+                    adjacency.setdefault(a, []).append(b)
+                    route_nodes.update((a, b))
+                frontier = [
+                    facility
+                    for facility in params.facilities
+                    if outgoing_value[facility, k, t] > tol
+                ]
+                reachable = set(frontier)
+                while frontier:
+                    node = frontier.pop()
+                    for successor in adjacency.get(node, []):
+                        if successor not in reachable:
+                            reachable.add(successor)
+                            frontier.append(successor)
+                disconnected = sorted(route_nodes - reachable)
+                if disconnected:
+                    violations.append(
+                        f"route contains disconnected nodes: k={k}, t={t}, "
+                        f"nodes={[display_node(node) for node in disconnected]}"
+                    )
             load = sum(raw.get(("q", n, k, t), 0.0) for n in params.pickup_nodes)
             if load > params.vehicle_capacity + tol:
                 violations.append(f"vehicle capacity exceeded: k={k}, t={t}, load={load}")
@@ -402,6 +506,22 @@ def check_solution(params: ModelParams, solution: Mapping[str, Any], tol: float 
             for s1, s2 in combinations(served_types, 2):
                 if params.compatibility[normalize_pair(s1, s2)] == 0:
                     violations.append(f"incompatible coload on k={k}, t={t}: {s1}, {s2}")
+            for n in params.pickup_nodes:
+                node_waste = pickup_type(n)
+                pickup_quantity = raw.get(("q", n, k, t), 0.0)
+                for waste in params.waste_types:
+                    incoming_load = flow_in.get((n, waste, k, t), 0.0)
+                    outgoing_load = flow_out.get((n, waste, k, t), 0.0)
+                    expected_increase = pickup_quantity if waste == node_waste else 0.0
+                    if not isclose(
+                        outgoing_load - incoming_load,
+                        expected_increase,
+                        abs_tol=tol,
+                    ):
+                        violations.append(
+                            f"waste load conservation violated: node={display_node(n)}, "
+                            f"waste={waste}, k={k}, t={t}"
+                        )
         for n in params.pickup_nodes:
             visits = sum(incoming_value[n, k, t] for k in params.vehicles)
             qty = sum(raw.get(("q", n, k, t), 0.0) for k in params.vehicles)
@@ -421,6 +541,16 @@ def check_solution(params: ModelParams, solution: Mapping[str, Any], tol: float 
             if inv > params.facility_capacity[j] + tol:
                 violations.append(f"facility inventory capacity exceeded: {j}, t={t}")
             for s in params.waste_types:
+                received_flow = sum(
+                    flow_in.get((j, s, k, t), 0.0)
+                    for k in params.vehicles
+                )
+                recorded_received = raw.get(("R", j, s, t), 0.0)
+                if not isclose(received_flow, recorded_received, abs_tol=tol):
+                    violations.append(
+                        f"facility receipt flow mismatch: facility={j}, waste={s}, "
+                        f"t={t}, flow={received_flow}, R={recorded_received}"
+                    )
                 bd = raw.get(("BD", j, s, t), 0.0)
                 processed = raw.get(("p", j, s, t), 0.0)
                 cap = params.processing_capacity[j, s, t] * params.technology[j, s]
