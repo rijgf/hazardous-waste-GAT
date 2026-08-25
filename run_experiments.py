@@ -574,7 +574,9 @@ def run_experiments(quick: bool = False) -> Path:
                             scale, instance_idx, pref_label, "MILP", milp_eval, milp_time,
                             restart=0, evaluation_seed=None,
                             solution_file=f"solutions/{milp_solution_name}",
-                            result_plan_sha256=None,
+                            result_plan_sha256=plan_sha256(
+                                milp_result.solution["plan"]
+                            ),
                             **identity,
                         )
                         row["solver_status"] = milp_result.status
