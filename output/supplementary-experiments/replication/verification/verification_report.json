@@ -1,0 +1,53 @@
+{
+  "schema_version": "supplementary-verification-v1",
+  "verified_at": "2026-09-05T00:55:13.205834+08:00",
+  "protocol_id": "supplementary-experiment-v1",
+  "schedule_file_sha256": "7312dae1eaccf33b8f28b1421822be32a3e7f6310dc2751a90696db69d3c286a",
+  "summary_input_cell_ledger_sha256": "bff5643b687e9ef7467ef6fa61d77d104c972bc7e6da215a5d44af576e41008d",
+  "summary_ledger_match": true,
+  "table_files_sha256": {
+    "raw_results.csv": "c831522fec92766a77f9c323852d32fe205610062c3e9e63fe2845922e3c77b2",
+    "instance_level_results.csv": "a536c17210a6c499b116848c75c3491765244d2b25b56a4c72016386c44452db",
+    "summary_by_preference.csv": "2235535c390a33e341cdffa0189dcaa708a25d91896daac80f3f34199e188884",
+    "paired_ppo_vs_ga.csv": "b8d0b9aa98aacd8a0fe263e631a0cfc95cf9980fd29da13f182c6962d1dacd26",
+    "paired_ppo_vs_ga_summary.csv": "1500d875f5b5b63870d6ae47e2aca4b7b494a452d3337982ebb98f285bb2e78a",
+    "milp_gap_by_instance.csv": "2563d38213328dd9a58c9f5ddd90b05730ff0fdf164fcc74c387beecf1a3379b",
+    "milp_gap_summary.csv": "a3b78b71a836c568f1d98b90ecfa22f627aaee143921ca34e0a382f218582f09",
+    "generalization_matrix.csv": "fb0caab57f56f4b16220913bb3c54e77749bba459658500459b1956ac3ac84ed",
+    "generalization_operational.csv": "530a852703a3d2010cb6d7ce9522c139e81882837176e1cd1d63bd9c2ee50d06",
+    "cell_file_ledger.csv": "67b0ade133ee104a244b7e92a06905013a529ed4ac7039e3ff8a424691c61e05"
+  },
+  "table_integrity_errors": [],
+  "expected_cell_counts": {
+    "ppo": 6000,
+    "ga": 3000,
+    "heuristic": 500,
+    "milp": 250,
+    "total": 9750
+  },
+  "observed_complete_counts": {
+    "ppo": 6000,
+    "ga": 3000,
+    "heuristic": 500,
+    "milp": 250
+  },
+  "count_match": true,
+  "model_count": 2,
+  "checkpoint_file_count": 2,
+  "test_instance_count": 200,
+  "missing_count": 0,
+  "missing_cell_ids": [],
+  "failed_count": 0,
+  "failed_cell_ids": [],
+  "integrity_error_count": 0,
+  "integrity_errors": [],
+  "artifact_rechecked_count": 75,
+  "artifact_error_count": 0,
+  "artifact_errors": [],
+  "solver_replayed_count": 15,
+  "solver_replay_error_count": 0,
+  "solver_replay_errors": [],
+  "milp_nonoptimal_replay_differences": [],
+  "source_changes_since_init": {},
+  "passed": true
+}

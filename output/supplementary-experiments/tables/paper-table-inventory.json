@@ -1,0 +1,96 @@
+{
+  "allow_smoke_flag": false,
+  "build_script": "output/supplementary-experiments/scripts/build_paper_tables.py",
+  "build_script_sha256": "17c1bc2f9c30a76daddb3021c215070f5e81988de9352a9ad17f8b7852ce3d91",
+  "built_at_utc": "2026-09-04T17:45:44.248832+00:00",
+  "design_counts": {
+    "ga_restarts": 3,
+    "heuristic_restarts": 1,
+    "instances_by_scale": {
+      "Test-1": 50,
+      "Test-2": 50,
+      "Test-3": 50,
+      "Test-4": 50
+    },
+    "milp_restarts": 1,
+    "models": 2,
+    "ppo_restarts": 3,
+    "preferences": 5,
+    "test_scales": 4
+  },
+  "expected_cell_counts": {
+    "ga": 3000,
+    "heuristic": 500,
+    "milp": 250,
+    "ppo": 6000,
+    "total": 9750
+  },
+  "input_files_sha256": {
+    "manifest.json": "43f9d52058a7b338b1081bfd5e617aed3f505000531e3cdee2aaf88a62244d9e",
+    "protocol_config.json": "74edd93e5866d583eef7ffa17a004c9e92070a165260712761d549a691253257",
+    "schedule.json": "7312dae1eaccf33b8f28b1421822be32a3e7f6310dc2751a90696db69d3c286a",
+    "tables/cell_file_ledger.csv": "67b0ade133ee104a244b7e92a06905013a529ed4ac7039e3ff8a424691c61e05",
+    "tables/generalization_matrix.csv": "fb0caab57f56f4b16220913bb3c54e77749bba459658500459b1956ac3ac84ed",
+    "tables/generalization_operational.csv": "530a852703a3d2010cb6d7ce9522c139e81882837176e1cd1d63bd9c2ee50d06",
+    "tables/instance_level_results.csv": "a536c17210a6c499b116848c75c3491765244d2b25b56a4c72016386c44452db",
+    "tables/milp_gap_by_instance.csv": "2563d38213328dd9a58c9f5ddd90b05730ff0fdf164fcc74c387beecf1a3379b",
+    "tables/milp_gap_summary.csv": "a3b78b71a836c568f1d98b90ecfa22f627aaee143921ca34e0a382f218582f09",
+    "tables/paired_ppo_vs_ga.csv": "b8d0b9aa98aacd8a0fe263e631a0cfc95cf9980fd29da13f182c6962d1dacd26",
+    "tables/paired_ppo_vs_ga_summary.csv": "1500d875f5b5b63870d6ae47e2aca4b7b494a452d3337982ebb98f285bb2e78a",
+    "tables/raw_results.csv": "c831522fec92766a77f9c323852d32fe205610062c3e9e63fe2845922e3c77b2",
+    "tables/summary_by_preference.csv": "2235535c390a33e341cdffa0189dcaa708a25d91896daac80f3f34199e188884",
+    "verification/verification_report.json": "e7799970170b264ac0f5e55aec9c4ab45228008f69d5f7fb485180adc3d50f88"
+  },
+  "inventory_self_hash": null,
+  "inventory_self_hash_note": "Omitted to avoid recursive self-hashing; every other emitted artifact is hashed above.",
+  "mode": "formal",
+  "observed_complete_counts": {
+    "ga": 3000,
+    "heuristic": 500,
+    "milp": 250,
+    "ppo": 6000
+  },
+  "output_files_sha256": {
+    "adjudication-log.csv": "7df1ad1364490d44a7b59b5a5aa131036b971d2381893eb01e2d9dda42f00e4d",
+    "appendix_all_methods.csv": "eb157e31d8f6af9219a8ad532c3a645e9b91443d4d19abb79dab1a4a0cb2c27a",
+    "appendix_all_methods.md": "ecd1b7f9bf7450d40e46d8e02612d9eb1681ec32f7c4ae4a5a99a3e53e771ae7",
+    "appendix_milp_status.csv": "07fb0635818c59bf0d5c45997e85783eb53d73b7168ddd411e514c51f106a350",
+    "appendix_milp_status.md": "ed96bee58e5cc5d35c9ff370634d51a4b4557264a66f93088cdc1e3149f4ec1d",
+    "appendix_risk_components.csv": "f4fa1e45a18133548157af6dde30183170802bda7714a0b1ea26c11976442a12",
+    "appendix_risk_components.md": "0cdaf4e799587819c229931923358cd913cc3848feb85da0b155d95e40d5d740",
+    "results-registry.csv": "f05cc19c309c76d2c1154c2529f6e84730ea63c12d0912162538f369d68035ff",
+    "table3_small_scale.csv": "c7fc0cd5609ee07a92ba035c1976969d34a50f20da68d8ec575ad2a50df31497",
+    "table3_small_scale.md": "15ed52b9aff43ef9cda76518bc61c51d9fb86398a02354fa04cf3f4b59dc3995",
+    "table4_large_scale.csv": "9b7128877c354ab3690ef55dd8c91ecbbeebd139b812572ab036981198bb1dac",
+    "table4_large_scale.md": "9b758cba04451832f7332db5deacd28b5dbdea54eb040ba849dba1b6e311b647",
+    "table5_scale_design.csv": "13bc0240ba7d92b73b5717ba092e68fa3a32bd9c5609890d189ddad0661c2e67",
+    "table5_scale_design.md": "d10fcc7bee2a4bcd686918c71483a7d0512699761656f4033171ae0a86acf1a1",
+    "table6_generalization_matrix.csv": "a5439ab951fe64e05051c8a7020fc5fa175169c706a01ff0652037137bbb9ac2",
+    "table6_generalization_matrix.md": "08c797c0891500258a60fa9652300a354f271f80b8c9866ad4e9606d651fe746",
+    "table7_generalization_operational.csv": "636aee64f4b9a55229f988c7047163992ff23ffcdace06047f3f73a7d9035797",
+    "table7_generalization_operational.md": "789c07234c517a05b95f6f0eededfc33b02577b7f3dd640f7a0d6193623f8d8d"
+  },
+  "output_row_counts": {
+    "adjudication-log.csv": 4,
+    "appendix_all_methods.csv": 35,
+    "appendix_milp_status.csv": 9,
+    "appendix_risk_components.csv": 35,
+    "results-registry.csv": 521,
+    "table3_small_scale.csv": 5,
+    "table4_large_scale.csv": 5,
+    "table5_scale_design.csv": 6,
+    "table6_generalization_matrix.csv": 2,
+    "table7_generalization_operational.csv": 8
+  },
+  "protocol_id": "supplementary-experiment-v1",
+  "protocol_sha256": "24ff3429c5aac99bf01607d682cc54539dbd96a044e891697547b01b291959ba",
+  "result_ids": [
+    "E1",
+    "E2",
+    "G-Train-L",
+    "G-Train-S"
+  ],
+  "schema_version": "paper-table-inventory-v1",
+  "source_run_dir": "outputs/supplementary_experiment_v1",
+  "source_run_dir_path_kind": "repository-relative"
+}

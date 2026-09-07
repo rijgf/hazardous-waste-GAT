@@ -1,0 +1,202 @@
+{
+  "protocol_id": "supplementary-experiment-v1",
+  "output_dir": "outputs/supplementary_experiment_v1",
+  "seed_root": 42,
+  "seed_namespaces": {
+    "training_instance": "training-instance-v1",
+    "training_algorithm": "training-algorithm-v1",
+    "test_instance": "test-instance-v1",
+    "initial_solution": "initial-solution-v1",
+    "ppo_inference": "ppo-inference-v1",
+    "ga_restart": "ga-restart-v1",
+    "heuristic": "heuristic-v1",
+    "milp": "milp-v1"
+  },
+  "scale_fields": [
+    "producers_count",
+    "waste_types_count",
+    "facilities_count",
+    "vehicles_count",
+    "periods_count"
+  ],
+  "generator_profile": {
+    "generation_range": [0.5, 2.0],
+    "vehicle_capacity_factor": 1.8,
+    "producer_capacity_factor": 2.5,
+    "facility_capacity_factor": 3.0,
+    "processing_capacity_factor": 2.0,
+    "coordinate_range": [0.0, 100.0],
+    "accident_probability_range": [0.0005, 0.003],
+    "vehicle_fixed_cost": 50.0,
+    "distance_cost": 3.0,
+    "processing_cost_range": [4.0, 20.0],
+    "waste_consequence_range": [1.0, 4.0],
+    "producer_inventory_risk_range": [0.2, 1.0],
+    "facility_inventory_risk_range": [0.1, 0.8],
+    "coload_risk_range": [0.05, 0.5],
+    "compatibility_probability": 1.0,
+    "technology_probability": 0.85,
+    "require_terminal_clear": true
+  },
+  "models": [
+    {
+      "id": "Train-S",
+      "train_scale": "Test-1",
+      "checkpoint": "small_model.pt"
+    },
+    {
+      "id": "Train-L",
+      "train_scale": "Test-4",
+      "checkpoint": "large_model.pt"
+    }
+  ],
+  "test_scales": {
+    "Test-1": {
+      "instances": 50,
+      "scale": {
+        "producers_count": 3,
+        "waste_types_count": 2,
+        "facilities_count": 2,
+        "vehicles_count": 3,
+        "periods_count": 2
+      }
+    },
+    "Test-2": {
+      "instances": 50,
+      "scale": {
+        "producers_count": 6,
+        "waste_types_count": 2,
+        "facilities_count": 2,
+        "vehicles_count": 4,
+        "periods_count": 3
+      }
+    },
+    "Test-3": {
+      "instances": 50,
+      "scale": {
+        "producers_count": 10,
+        "waste_types_count": 3,
+        "facilities_count": 3,
+        "vehicles_count": 5,
+        "periods_count": 3
+      }
+    },
+    "Test-4": {
+      "instances": 50,
+      "scale": {
+        "producers_count": 20,
+        "waste_types_count": 4,
+        "facilities_count": 3,
+        "vehicles_count": 8,
+        "periods_count": 4
+      }
+    }
+  },
+  "preferences": [
+    {"id": "C100-R000", "cost_weight": 1.0, "risk_weight": 0.0},
+    {"id": "C075-R025", "cost_weight": 0.75, "risk_weight": 0.25},
+    {"id": "C050-R050", "cost_weight": 0.5, "risk_weight": 0.5},
+    {"id": "C025-R075", "cost_weight": 0.25, "risk_weight": 0.75},
+    {"id": "C000-R100", "cost_weight": 0.0, "risk_weight": 1.0}
+  ],
+  "restarts": 3,
+  "methods": {
+    "ppo": {
+      "models": ["Train-S", "Train-L"],
+      "scales": ["Test-1", "Test-2", "Test-3", "Test-4"],
+      "restarts": 3
+    },
+    "ga": {
+      "models": ["GA"],
+      "scales": ["Test-1", "Test-2", "Test-3", "Test-4"],
+      "restarts": 3
+    },
+    "heuristic": {
+      "models": ["Heuristic"],
+      "scales": ["Test-1", "Test-4"],
+      "restarts": 1
+    },
+    "milp": {
+      "models": ["MILP"],
+      "scales": ["Test-1"],
+      "restarts": 1
+    }
+  },
+  "algorithm": {
+    "ppo": {
+      "train_iterations": 20,
+      "num_parallel_episodes": 24,
+      "episode_steps": 24,
+      "update_epochs": 24,
+      "gamma": 0.95,
+      "gae_lambda": 0.9,
+      "clip_ratio": 0.2,
+      "learning_rate": 0.0003,
+      "entropy_coef": 0.02,
+      "value_coef": 0.5,
+      "repair_failure_penalty": 0.2,
+      "no_change_penalty": 0.01,
+      "eval_steps": 60,
+      "eval_candidate_samples": 32,
+      "evaluation_restarts": 3,
+      "preference_sampling": {
+        "endpoint_probability_each": 0.1,
+        "beta_concentration": 0.5
+      }
+    },
+    "ga_by_scale": {
+      "Test-1": {
+        "population_size": 30,
+        "generations": 60,
+        "crossover_rate": 0.85,
+        "mutation_rate": 0.2,
+        "elite_size": 2,
+        "tournament_size": 3
+      },
+      "Test-2": {
+        "population_size": 30,
+        "generations": 60,
+        "crossover_rate": 0.85,
+        "mutation_rate": 0.2,
+        "elite_size": 2,
+        "tournament_size": 3
+      },
+      "Test-3": {
+        "population_size": 20,
+        "generations": 40,
+        "crossover_rate": 0.9,
+        "mutation_rate": 0.25,
+        "elite_size": 4,
+        "tournament_size": 3
+      },
+      "Test-4": {
+        "population_size": 20,
+        "generations": 40,
+        "crossover_rate": 0.9,
+        "mutation_rate": 0.25,
+        "elite_size": 4,
+        "tournament_size": 3
+      }
+    },
+    "milp_time_limit_seconds": 180.0
+  },
+  "network": {
+    "network_type": "full_transformer",
+    "embedding_dim": 48,
+    "transformer_layers": 1,
+    "attention_heads": 4,
+    "ff_hidden_dim": 96,
+    "dropout": 0.0,
+    "use_preference_token": true,
+    "use_preference_in_global": false,
+    "use_route_arc_tokens": true,
+    "use_facility_tokens": true,
+    "max_tokens": 896,
+    "operator_count": 8,
+    "object_count": 512
+  },
+  "network_capacity": {
+    "max_tokens": 896,
+    "object_count": 512
+  }
+}

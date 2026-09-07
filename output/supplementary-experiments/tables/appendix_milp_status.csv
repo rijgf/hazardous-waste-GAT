@@ -1,0 +1,10 @@
+﻿preference_id,preference,solver_status,status_n,preference_total_n,incumbent_j_mean,incumbent_j_sd,incumbent_j_valid_n,incumbent_j_mean_sd,eligible_as_j_star,reference_rule,all_status_counts
+C100-R000,"(1,0)",optimal,50,50,0.7972241937,0.1278318004,50,0.7972 ± 0.1278,True,可作为逐实例J*基准（仍按实例配对，不使用本行均值替代）,optimal:n=50
+C075-R025,"(0.75,0.25)",optimal,49,50,0.7753794012,0.1181622186,49,0.7754 ± 0.1182,True,可作为逐实例J*基准（仍按实例配对，不使用本行均值替代）,optimal:n=49; solver_status_1:n=1
+C075-R025,"(0.75,0.25)",solver_status_1,1,50,0.8936390868,,1,0.8936,False,仅为非optimal incumbent（若存在）；不得作为J*或Gap分母,optimal:n=49; solver_status_1:n=1
+C050-R050,"(0.5,0.5)",optimal,26,50,0.723524457,0.1259439493,26,0.7235 ± 0.1259,True,可作为逐实例J*基准（仍按实例配对，不使用本行均值替代）,optimal:n=26; solver_status_1:n=24
+C050-R050,"(0.5,0.5)",solver_status_1,24,50,0.7097168847,0.116854067,24,0.7097 ± 0.1169,False,仅为非optimal incumbent（若存在）；不得作为J*或Gap分母,optimal:n=26; solver_status_1:n=24
+C025-R075,"(0.25,0.75)",optimal,2,50,0.7177887124,0.07590768171,2,0.7178 ± 0.0759,True,可作为逐实例J*基准（仍按实例配对，不使用本行均值替代）,optimal:n=2; solver_status_1:n=48
+C025-R075,"(0.25,0.75)",solver_status_1,48,50,0.5480554297,0.121233855,48,0.5481 ± 0.1212,False,仅为非optimal incumbent（若存在）；不得作为J*或Gap分母,optimal:n=2; solver_status_1:n=48
+C000-R100,"(0,1)",optimal,2,50,0.3568131416,0.1569021319,2,0.3568 ± 0.1569,True,可作为逐实例J*基准（仍按实例配对，不使用本行均值替代）,optimal:n=2; solver_status_1:n=48
+C000-R100,"(0,1)",solver_status_1,48,50,0.2284730099,0.09218068527,48,0.2285 ± 0.0922,False,仅为非optimal incumbent（若存在）；不得作为J*或Gap分母,optimal:n=2; solver_status_1:n=48

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import random
 from dataclasses import dataclass
 from pathlib import Path
@@ -18,6 +19,73 @@ from src.solution_utils import RoutePlan, evaluate_solution, route_plan_to_solut
 
 
 TOKEN_FEATURES = 18
+CHECKPOINT_FORMAT_VERSION = 2
+
+_NETWORK_CONFIG_DEFAULTS: Dict[str, Any] = {
+    "network_type": "full_transformer",
+    "dropout": 0.0,
+    "use_preference_token": True,
+    "use_preference_in_global": False,
+    "use_route_arc_tokens": True,
+    "use_facility_tokens": True,
+    "max_tokens": 512,
+    "operator_count": len(OPERATORS),
+    "object_count": 128,
+}
+_NETWORK_CONFIG_CASTERS = {
+    "network_type": str,
+    "embedding_dim": int,
+    "transformer_layers": int,
+    "attention_heads": int,
+    "ff_hidden_dim": int,
+    "dropout": float,
+    "use_preference_token": bool,
+    "use_preference_in_global": bool,
+    "use_route_arc_tokens": bool,
+    "use_facility_tokens": bool,
+    "max_tokens": int,
+    "operator_count": int,
+    "object_count": int,
+}
+
+
+def _network_semantics(network_config: Dict[str, Any]) -> Dict[str, Any]:
+    semantics: Dict[str, Any] = {}
+    for field, caster in _NETWORK_CONFIG_CASTERS.items():
+        if field in network_config:
+            value = network_config[field]
+        elif field in _NETWORK_CONFIG_DEFAULTS:
+            value = _NETWORK_CONFIG_DEFAULTS[field]
+        else:
+            raise ValueError(f"network_config is missing required field {field!r}")
+        semantics[field] = caster(value)
+    return semantics
+
+
+def _required_object_capacity(params: ModelParams) -> int:
+    periods = len(params.periods)
+    return max(
+        len(params.pickup_nodes) * periods,
+        len(params.vehicles) * periods,
+        len(params.pickup_nodes),
+        len(params.vehicles),
+        len(params.facilities),
+        len(params.waste_types),
+        periods,
+    )
+
+
+def _validate_checkpoint_operator_vocabulary(checkpoint: Dict[str, Any]) -> None:
+    checkpoint_operators = checkpoint.get("operators")
+    format_version = int(checkpoint.get("checkpoint_format_version", 1))
+    if checkpoint_operators is None:
+        if format_version >= CHECKPOINT_FORMAT_VERSION:
+            raise ValueError("checkpoint is missing operator vocabulary metadata")
+        return
+    if list(checkpoint_operators) != list(OPERATORS):
+        raise ValueError(
+            "checkpoint operator vocabulary does not match the current implementation"
+        )
 
 
 @dataclass
@@ -44,6 +112,28 @@ class StateEncoder:
         self.max_generation = max(params.generation.values()) if params.generation else 1.0
         self.max_capacity = max([params.vehicle_capacity, *params.producer_capacity.values(), *params.facility_capacity.values()])
         self.max_period = max(params.periods) if params.periods else 1
+
+    @staticmethod
+    def required_token_capacity(
+        params: ModelParams, network_config: Dict[str, Any]
+    ) -> int:
+        """Return a safe token bound for any valid plan on ``params``."""
+        periods = len(params.periods)
+        pickups = len(params.pickup_nodes)
+        vehicle_periods = len(params.vehicles) * periods
+        tokens = 1
+        if bool(network_config.get("use_preference_token", True)):
+            tokens += 1
+        tokens += periods
+        tokens += vehicle_periods
+        tokens += pickups * periods
+        if bool(network_config.get("use_facility_tokens", True)):
+            tokens += len(params.facilities) * len(params.waste_types) * periods
+        if bool(network_config.get("use_route_arc_tokens", True)):
+            visits = pickups * periods
+            nonempty_routes = min(vehicle_periods, visits)
+            tokens += visits + nonempty_routes
+        return tokens
 
     def encode(self, plan: RoutePlan, preference: Tuple[float, float], step_ratio: float, no_improve_ratio: float) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         solution = route_plan_to_solution(self.params, plan)
@@ -252,7 +342,15 @@ class PPOPolicy(nn.Module):
 
 
 class PPOImprover:
-    def __init__(self, params: ModelParams, algorithm_config: Dict[str, Any], network_config: Dict[str, Any], seed: int = 0):
+    def __init__(
+        self,
+        params: ModelParams,
+        algorithm_config: Dict[str, Any],
+        network_config: Dict[str, Any],
+        seed: int = 0,
+        *,
+        trainable: bool = True,
+    ):
         self.params = params
         self.algorithm_config = algorithm_config
         self.network_config = network_config
@@ -271,15 +369,14 @@ class PPOImprover:
         else:
             self.device = torch.device("cpu")
 
+        self._frozen_state_sha256: str | None = None
+
         configured_operators = int(network_config.get("operator_count", len(OPERATORS)))
         if configured_operators != len(OPERATORS):
             raise ValueError(
                 f"network operator_count={configured_operators} does not match {len(OPERATORS)} operators"
             )
-        required_objects = max(
-            len(params.pickup_nodes) * len(params.periods),
-            len(params.vehicles) * len(params.periods),
-        )
+        required_objects = _required_object_capacity(params)
         if int(network_config.get("object_count", 128)) < required_objects:
             raise ValueError(
                 f"object_count must be at least {required_objects} for this instance"
@@ -287,13 +384,109 @@ class PPOImprover:
 
         self.encoder = StateEncoder(params, network_config)
         self.policy = PPOPolicy(network_config).to(self.device)
-        self.optimizer = optim.Adam(self.policy.parameters(), lr=float(algorithm_config["ppo"]["learning_rate"]))
+        self._is_frozen = not trainable
+        self.optimizer = (
+            optim.Adam(
+                self.policy.parameters(),
+                lr=float(algorithm_config["ppo"]["learning_rate"]),
+            )
+            if trainable
+            else None
+        )
 
         if self.device.type == "cuda":
             gpu_name = torch.cuda.get_device_name(0)
             gpu_mem = torch.cuda.get_device_properties(0).total_memory / 1024**3
             param_count = sum(p.numel() for p in self.policy.parameters())
             print(f"[PPOImprover] GPU: {gpu_name} ({gpu_mem:.1f} GB) | model params: {param_count:,}")
+
+    @property
+    def is_frozen(self) -> bool:
+        return self._is_frozen
+
+    def policy_state_sha256(self) -> str:
+        """Return a stable hash of the policy state, independent of its device."""
+        digest = hashlib.sha256()
+        for name, tensor in sorted(self.policy.state_dict().items()):
+            value = tensor.detach().cpu().contiguous()
+            digest.update(name.encode("utf-8"))
+            digest.update(str(value.dtype).encode("ascii"))
+            digest.update(str(tuple(value.shape)).encode("ascii"))
+            digest.update(value.numpy().tobytes())
+        return digest.hexdigest()
+
+    @classmethod
+    def from_frozen_checkpoint(
+        cls,
+        params: ModelParams,
+        checkpoint_path: str | Path,
+        *,
+        algorithm_config: Dict[str, Any] | None = None,
+        network_config: Dict[str, Any] | None = None,
+        seed: int = 0,
+    ) -> "PPOImprover":
+        """Create an inference-only improver for ``params`` from one checkpoint.
+
+        Checkpoints without config metadata remain supported when both configs are
+        supplied explicitly. A legacy checkpoint without an ``operators`` entry is
+        interpreted using the current operator order, matching ``load_checkpoint``.
+        """
+        checkpoint = torch.load(
+            Path(checkpoint_path), map_location="cpu", weights_only=False
+        )
+        _validate_checkpoint_operator_vocabulary(checkpoint)
+        checkpoint_network = checkpoint.get("network_config")
+        resolved_algorithm = (
+            algorithm_config
+            if algorithm_config is not None
+            else checkpoint.get("algorithm_config")
+        )
+        resolved_network = (
+            network_config if network_config is not None else checkpoint_network
+        )
+        if resolved_algorithm is None:
+            raise ValueError(
+                "legacy checkpoint has no algorithm_config; provide algorithm_config explicitly"
+            )
+        if resolved_network is None:
+            raise ValueError(
+                "legacy checkpoint has no network_config; provide network_config explicitly"
+            )
+        if network_config is not None and checkpoint_network is not None:
+            requested_semantics = _network_semantics(network_config)
+            checkpoint_semantics = _network_semantics(checkpoint_network)
+            mismatches = [
+                field
+                for field in _NETWORK_CONFIG_CASTERS
+                if requested_semantics[field] != checkpoint_semantics[field]
+            ]
+            if mismatches:
+                details = ", ".join(
+                    f"{field}: checkpoint={checkpoint_semantics[field]!r}, "
+                    f"requested={requested_semantics[field]!r}"
+                    for field in mismatches
+                )
+                raise ValueError(f"checkpoint network_config mismatch ({details})")
+
+        max_tokens = int(resolved_network.get("max_tokens", 512))
+        required_tokens = StateEncoder.required_token_capacity(params, resolved_network)
+        if max_tokens < required_tokens:
+            raise ValueError(
+                f"checkpoint max_tokens={max_tokens} cannot encode the target instance; "
+                f"requires at least {required_tokens}"
+            )
+
+        improver = cls(
+            params,
+            dict(resolved_algorithm),
+            dict(resolved_network),
+            seed=seed,
+            trainable=False,
+        )
+        improver.load_checkpoint(checkpoint_path)
+        improver.policy.requires_grad_(False)
+        improver.policy.eval()
+        return improver
 
     def _sample_preference(self) -> Tuple[float, float]:
         cfg = self.algorithm_config["ppo"].get("preference_sampling", {})
@@ -308,14 +501,17 @@ class PPOImprover:
         return 1.0 - risk_weight, risk_weight
 
     def load_checkpoint(self, path: str | Path, load_optimizer: bool = False) -> Dict[str, Any]:
+        if load_optimizer and self.optimizer is None:
+            raise RuntimeError("frozen PPOImprover cannot load optimizer state")
         checkpoint = torch.load(Path(path), map_location=self.device, weights_only=False)
-        checkpoint_operators = checkpoint.get("operators")
-        if checkpoint_operators is not None and list(checkpoint_operators) != list(OPERATORS):
-            raise ValueError("checkpoint operator vocabulary does not match the current implementation")
+        _validate_checkpoint_operator_vocabulary(checkpoint)
         self.policy.load_state_dict(checkpoint["state_dict"])
         if load_optimizer and "optimizer_state_dict" in checkpoint:
             self.optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
         self.policy.eval()
+        if self.is_frozen:
+            self.policy.requires_grad_(False)
+            self._frozen_state_sha256 = self.policy_state_sha256()
         return checkpoint
 
     def _action_from_logits(self, logits: List[torch.Tensor]) -> Tuple[OperatorAction, torch.Tensor, torch.Tensor]:
@@ -379,6 +575,11 @@ class PPOImprover:
     # Training  — 30 parallel episodes, batched GPU forward per step
     # ------------------------------------------------------------------
     def train(self, save_path: str | Path | None = None) -> Dict[str, List[float]]:
+        if self.is_frozen:
+            raise RuntimeError("frozen PPOImprover cannot be trained")
+        if self.optimizer is None:
+            raise RuntimeError("trainable PPOImprover has no optimizer")
+        self.policy.train()
         cfg = self.algorithm_config["ppo"]
         history: Dict[str, List[float]] = {"episode_reward": [], "best_objective": []}
         gamma = float(cfg["gamma"])
@@ -592,6 +793,7 @@ class PPOImprover:
             path.parent.mkdir(parents=True, exist_ok=True)
             torch.save(
                 {
+                    "checkpoint_format_version": CHECKPOINT_FORMAT_VERSION,
                     "state_dict": self.policy.state_dict(),
                     "optimizer_state_dict": self.optimizer.state_dict(),
                     "network_config": self.network_config,
@@ -620,6 +822,7 @@ class PPOImprover:
     # ------------------------------------------------------------------
     # Inference-time improvement  (GPU, batch=1 + multi-sample)
     # ------------------------------------------------------------------
+    @torch.inference_mode()
     def improve(
         self,
         preference: Tuple[float, float],
@@ -627,6 +830,17 @@ class PPOImprover:
         seed: int | None = None,
         initial_plan: RoutePlan | None = None,
     ) -> PPOEvalResult:
+        self.policy.eval()
+        before_state_hash: str | None = None
+        if self.is_frozen:
+            before_state_hash = self.policy_state_sha256()
+            if (
+                self._frozen_state_sha256 is not None
+                and before_state_hash != self._frozen_state_sha256
+            ):
+                raise RuntimeError(
+                    "frozen PPO policy state changed after checkpoint loading"
+                )
         cfg = self.algorithm_config["ppo"]
         limit = int(steps or cfg["eval_steps"])
         candidate_samples = int(cfg.get("eval_candidate_samples", 8))
@@ -663,9 +877,12 @@ class PPOImprover:
             mask_dev = mask.to(self.device)
             global_dev = global_vec.to(self.device)
 
-            with torch.no_grad():
-                logits, _ = self.policy(tokens_dev.unsqueeze(0), mask_dev.unsqueeze(0), global_dev.unsqueeze(0))
-                squeezed = [item.squeeze(0) for item in logits]
+            logits, _ = self.policy(
+                tokens_dev.unsqueeze(0),
+                mask_dev.unsqueeze(0),
+                global_dev.unsqueeze(0),
+            )
+            squeezed = [item.squeeze(0) for item in logits]
 
             best_candidate = None
             best_candidate_eval = None
@@ -738,4 +955,14 @@ class PPOImprover:
             )
 
         best_solution = route_plan_to_solution(self.params, best_plan)
-        return PPOEvalResult(solution=best_solution, plan=best_plan, history=history, trace=trace)
+        result = PPOEvalResult(
+            solution=best_solution,
+            plan=best_plan,
+            history=history,
+            trace=trace,
+        )
+        if before_state_hash is not None:
+            after_state_hash = self.policy_state_sha256()
+            if after_state_hash != before_state_hash:
+                raise RuntimeError("frozen PPO policy state changed during inference")
+        return result

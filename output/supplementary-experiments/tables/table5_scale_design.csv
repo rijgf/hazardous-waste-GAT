@@ -1,0 +1,7 @@
+﻿object_type,object_type_label,design_id,source_test_scale,producers_count,waste_types_count,facilities_count,vehicles_count,periods_count,scale_signature,quantity,quantity_unit,quantity_display,description
+training,训练规模,Train-S,Test-1,3,2,2,3,2,3/2/2/3/2,1,model,1份模型,生成small_model.pt
+training,训练规模,Train-L,Test-4,20,4,3,8,4,20/4/3/8/4,1,model,1份模型,生成large_model.pt
+test,测试规模,Test-1,Test-1,3,2,2,3,2,3/2/2/3/2,50,instance,50个实例,与Train-S同规模
+test,测试规模,Test-2,Test-2,6,2,2,4,3,6/2/2/4/3,50,instance,50个实例,未见中间规模1
+test,测试规模,Test-3,Test-3,10,3,3,5,3,10/3/3/5/3,50,instance,50个实例,未见中间规模2
+test,测试规模,Test-4,Test-4,20,4,3,8,4,20/4/3/8/4,50,instance,50个实例,与Train-L同规模

@@ -1,0 +1,5 @@
+﻿hypothesis_id,direction,magnitude,interpretation,source
+E1,PPO的J较低,平均ΔJ=20.992%，SD=7.103%，n=50,先在每个实例内等权平均全部偏好后进行描述性比较；ΔJ为正表示PPO目标较低，不据此作统计显著性判断。 MILP在129/250个实例—偏好基准上证明最优；Gap结论仅限于这些基准。,table3_small_scale.csv
+E2,PPO的J较低,平均ΔJ=26.589%，SD=1.551%，n=50,先在每个实例内等权平均全部偏好后进行描述性比较；ΔJ为正表示PPO目标较低，不据此作统计显著性判断。,table4_large_scale.csv
+G-Train-S,各测试规模的PPO目标较低或持平,各规模平均ΔJ范围=20.992%至28.004%；最低严格可行率=100.00%,冻结模型的描述性证据仅覆盖Test-1至Test-4。Test-2/Test-3的两模型相对差距不是严格泛化损失，结果不能外推为适用于任意规模。,table6_generalization_matrix.csv; table7_generalization_operational.csv
+G-Train-L,各测试规模的PPO目标较低或持平,各规模平均ΔJ范围=19.847%至27.417%；最低严格可行率=100.00%,冻结模型的描述性证据仅覆盖Test-1至Test-4。Test-2/Test-3的两模型相对差距不是严格泛化损失，结果不能外推为适用于任意规模。,table6_generalization_matrix.csv; table7_generalization_operational.csv

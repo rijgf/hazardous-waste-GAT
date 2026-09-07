@@ -32,8 +32,12 @@ def main() -> None:
 
     print(f"feasible: {result.feasible}")
     print(f"best_objective: {result.best_objective:.6f}")
-    print("best_chromosome:")
-    print("  " + " -> ".join(display_node(node) for node in result.best_chromosome))
+    print(f"best_source: {result.best_source}")
+    if result.best_chromosome is None:
+        print("best_chromosome: not applicable (locked initial solution retained)")
+    else:
+        print("best_chromosome:")
+        print("  " + " -> ".join(display_node(node) for node in result.best_chromosome))
     print("routes:")
     for (vehicle, period), route in sorted(result.best_solution.get("routes", {}).items(), key=lambda x: (x[0][1], x[0][0])):
         print(f"  period {period}, vehicle {vehicle}: {' -> '.join(route)}")

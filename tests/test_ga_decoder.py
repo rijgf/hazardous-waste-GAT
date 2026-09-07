@@ -7,7 +7,9 @@ from itertools import product
 from pathlib import Path
 
 from sample_params import build_sample_params
-from src.solution_utils import evaluate_solution
+from src.heuristics import build_greedy_initial_plan
+from src.reproducibility import plan_sha256
+from src.solution_utils import evaluate_solution, route_plan_to_solution
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,10 +17,50 @@ GA_DIR = ROOT / "遗传算法"
 if str(GA_DIR) not in sys.path:
     sys.path.insert(0, str(GA_DIR))
 
-from genetic_algorithm import ClassicGeneticAlgorithm  # noqa: E402
+from genetic_algorithm import ClassicGeneticAlgorithm, GAConfig  # noqa: E402
 
 
 class GADecoderTests(unittest.TestCase):
+    def test_locked_initial_chromosome_is_first_population_member(self) -> None:
+        params = build_sample_params()
+        locked = list(reversed(params.pickup_nodes))
+        solver = ClassicGeneticAlgorithm(
+            params,
+            GAConfig(population_size=4, generations=1, random_seed=19),
+            initial_chromosome=locked,
+        )
+
+        self.assertEqual(locked, solver._initial_population()[0])
+
+    def test_locked_initial_chromosome_must_be_a_complete_permutation(self) -> None:
+        params = build_sample_params()
+        with self.assertRaisesRegex(ValueError, "every pickup node exactly once"):
+            ClassicGeneticAlgorithm(
+                params,
+                GAConfig(population_size=4, generations=1),
+                initial_chromosome=params.pickup_nodes[:-1],
+            )
+
+    def test_locked_initial_solution_is_a_ga_incumbent(self) -> None:
+        params = build_sample_params()
+        plan = build_greedy_initial_plan(params, seed=23)
+        solution = route_plan_to_solution(params, plan)
+        chromosome = [
+            node
+            for key in sorted(plan, key=lambda item: (item[1], item[0]))
+            for node in plan[key][1:-1]
+        ]
+        result = ClassicGeneticAlgorithm(
+            params,
+            GAConfig(population_size=1, generations=0, random_seed=29),
+            initial_chromosome=chromosome,
+            initial_solution=solution,
+        ).run()
+
+        self.assertEqual(plan_sha256(plan), plan_sha256(result.best_solution["plan"]))
+        self.assertIsNone(result.best_chromosome)
+        self.assertEqual("locked_initial_solution", result.best_source)
+
     def test_decoder_uses_multiple_facilities_when_technology_is_split(self) -> None:
         base = build_sample_params()
         facilities = ["D1", "D2"]

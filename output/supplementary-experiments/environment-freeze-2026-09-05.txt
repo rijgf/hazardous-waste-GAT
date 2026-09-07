@@ -1,0 +1,67 @@
+# Supplementary experiment environment snapshot
+# Captured: 2026-09-05 (Asia/Shanghai), after the formal run completed.
+# Scope: current environment returned by `py -m pip freeze`; this is a post-run
+# snapshot, not an environment lock captured automatically at solver execution.
+# It supports provenance and approximate reconstruction but does not prove that
+# every process in the completed run used every current package build unchanged.
+#
+# Python: CPython 3.11.5 (tags/v3.11.5:cce6ba9, Aug 24 2023, 14:38:34),
+#         MSC v.1936 64 bit (AMD64)
+# OS: Windows-10-10.0.26200-SP0; AMD64
+# GPU queried on 2026-09-05: NVIDIA GeForce RTX 4070 Ti
+# NVIDIA driver queried on 2026-09-05: 591.86
+# PyTorch: 2.5.1+cu121
+# CUDA reported by PyTorch: 12.1
+# cuDNN reported by PyTorch and the formal manifest: 90100
+# SciPy: 1.16.0
+# MILP API: scipy.optimize.milp (scipy.optimize._milp.milp), which delegates to
+# HiGHS. The exact bundled HiGHS version was not recorded in the formal manifest
+# and is therefore reported as unknown rather than inferred.
+# MILP solver thread count: not recorded in the formal manifest.
+# GPU/CPU worker contention and solver-thread settings can change timings.
+# `CUBLAS_WORKSPACE_CONFIG` is set by the experiment entry point only when the
+# variable is not already set; the actual per-process value was not recorded.
+# Initialization-time manifest flags were deterministic_algorithms=false,
+# cudnn_benchmark=false, cudnn_deterministic=false. Training later enabled
+# deterministic algorithms (warn_only=True) and cuDNN deterministic mode; frozen
+# PPO construction also enabled cuDNN deterministic mode. These are phase-specific
+# settings and do not establish bitwise reproducibility across hardware/drivers.
+#
+# Raw output of: py -m pip freeze
+colorama==0.4.6
+contourpy==1.1.0
+cycler==0.11.0
+et-xmlfile==1.1.0
+filelock==3.19.1
+fonttools==4.42.1
+fsspec==2025.9.0
+gurobipy==10.0.0
+Jinja2==3.1.6
+kiwisolver==1.4.5
+llvmlite==0.45.1
+MarkupSafe==3.0.3
+matplotlib==3.7.2
+mpmath==1.3.0
+network==0.1
+networkx==3.3
+numba==0.62.1
+numpy==1.25.2
+openpyxl==3.1.2
+packaging==23.1
+pandas==2.1.0
+Pillow==10.0.0
+pyparsing==3.0.9
+python-dateutil==2.8.2
+pytz==2023.3.post1
+pywin32==306
+scipy==1.16.0
+seaborn==0.13.2
+six==1.16.0
+sympy==1.13.1
+torch==2.5.1+cu121
+torchaudio==2.5.1+cu121
+torchvision==0.20.1+cu121
+tqdm==4.66.1
+typing_extensions==4.15.0
+tzdata==2023.3
+xlwings==0.30.11

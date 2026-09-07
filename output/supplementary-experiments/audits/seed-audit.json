@@ -1,0 +1,121 @@
+{
+  "schema_version": "supplementary-seed-audit-v1",
+  "status": "PASS",
+  "checked_at": "2026-09-05T01:46:11.863640+08:00",
+  "audit_algorithm": "seed-audit-v1; recompute sha256-seed-v1 from locked protocol and compare every recorded seed",
+  "seed_derivation_algorithm": "sorted namespace lane in the high 3 bits plus low 29 bits of SHA-256 over canonical JSON payload",
+  "hashes": {
+    "protocol_canonical_sha256": "24ff3429c5aac99bf01607d682cc54539dbd96a044e891697547b01b291959ba",
+    "source_protocol_config_file_sha256": "db0313f644df5b93385bebfb00ae30edef6f1f0a66571edf4b5ec0fe48a18c43",
+    "formal_protocol_config_file_sha256": "74edd93e5866d583eef7ffa17a004c9e92070a165260712761d549a691253257",
+    "schedule_file_sha256": "7312dae1eaccf33b8f28b1421822be32a3e7f6310dc2751a90696db69d3c286a",
+    "manifest_file_sha256": "43f9d52058a7b338b1081bfd5e617aed3f505000531e3cdee2aaf88a62244d9e"
+  },
+  "hash_lock_checks": {
+    "source_and_formal_protocol_json_equal": true,
+    "protocol_matches_manifest": true,
+    "protocol_matches_schedule": true,
+    "schedule_matches_manifest": true,
+    "manifest_stage": "verified",
+    "manifest_verification_passed": true
+  },
+  "namespaces": {
+    "ga_restart": {
+      "tag": "ga-restart-v1",
+      "lane": 0,
+      "record_count": 3000,
+      "unique_seed_count": 3000
+    },
+    "heuristic": {
+      "tag": "heuristic-v1",
+      "lane": 1,
+      "record_count": 500,
+      "unique_seed_count": 500
+    },
+    "initial_solution": {
+      "tag": "initial-solution-v1",
+      "lane": 2,
+      "record_count": 200,
+      "unique_seed_count": 200
+    },
+    "milp": {
+      "tag": "milp-v1",
+      "lane": 3,
+      "record_count": 250,
+      "unique_seed_count": 250
+    },
+    "ppo_inference": {
+      "tag": "ppo-inference-v1",
+      "lane": 4,
+      "record_count": 6000,
+      "unique_seed_count": 6000
+    },
+    "test_instance": {
+      "tag": "test-instance-v1",
+      "lane": 5,
+      "record_count": 200,
+      "unique_seed_count": 200
+    },
+    "training_algorithm": {
+      "tag": "training-algorithm-v1",
+      "lane": 6,
+      "record_count": 2,
+      "unique_seed_count": 2
+    },
+    "training_instance": {
+      "tag": "training-instance-v1",
+      "lane": 7,
+      "record_count": 2,
+      "unique_seed_count": 2
+    }
+  },
+  "counts": {
+    "training_instance": 2,
+    "training_algorithm": 2,
+    "test_instance": 200,
+    "initial_solution": 200,
+    "evaluation_ppo": 6000,
+    "evaluation_ga": 3000,
+    "evaluation_heuristic": 500,
+    "evaluation_milp": 250,
+    "evaluation_total": 9750,
+    "all_seed_records_total": 10154
+  },
+  "uniqueness_checks": {
+    "all_seed_records_total": 10154,
+    "all_unique_seed_count": 10154,
+    "all_duplicate_seed_count": 0,
+    "all_duplicate_seed_values": [],
+    "evaluation_seed_records_total": 9750,
+    "evaluation_unique_seed_count": 9750,
+    "schedule_cell_count": 9750,
+    "schedule_unique_cell_id_count": 9750,
+    "schedule_unique_logical_cell_id_count": 9750
+  },
+  "derivation_checks": {
+    "checked_seed_record_count": 10154,
+    "seed_derivation_deviation_count": 0,
+    "seed_derivation_deviations": [],
+    "checked_evaluation_identity_count": 9750,
+    "evaluation_identity_deviation_count": 0,
+    "evaluation_identity_deviations": []
+  },
+  "isolation_checks": {
+    "training_seed_count": 4,
+    "test_and_evaluation_seed_count": 10150,
+    "training_test_seed_intersection_count": 0,
+    "training_test_seed_intersection": [],
+    "training_instance_content_hash_count": 2,
+    "test_instance_content_hash_count": 200,
+    "training_test_instance_content_hash_intersection_count": 0,
+    "training_test_instance_content_hash_intersection": []
+  },
+  "evidence_files": [
+    "configs/supplementary_experiment.json",
+    "outputs/supplementary_experiment_v1/protocol_config.json",
+    "outputs/supplementary_experiment_v1/manifest.json",
+    "outputs/supplementary_experiment_v1/schedule.json",
+    "src/supplementary_protocol.py",
+    "src/supplementary_experiment.py"
+  ]
+}

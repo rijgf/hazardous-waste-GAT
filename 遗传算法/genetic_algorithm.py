@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import random
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
 from hazardous_waste_model import ModelParams
 from src.operators import repair_plan
@@ -31,10 +31,11 @@ class GAConfig:
 @dataclass
 class GAResult:
     best_objective: float
-    best_chromosome: Chromosome
+    best_chromosome: Optional[Chromosome]
     best_solution: Dict[str, Any]
     feasible: bool
     history: List[float]
+    best_source: str
 
 
 class ClassicGeneticAlgorithm:
@@ -45,17 +46,48 @@ class ClassicGeneticAlgorithm:
     all feasibility repair to the shared deterministic route repairer.
     """
 
-    def __init__(self, params: ModelParams, config: Optional[GAConfig] = None):
+    def __init__(
+        self,
+        params: ModelParams,
+        config: Optional[GAConfig] = None,
+        initial_chromosome: Optional[Sequence[str]] = None,
+        initial_solution: Optional[Mapping[str, Any]] = None,
+    ):
         self.params = params
         self.config = config or GAConfig()
         self.rng = random.Random(self.config.random_seed)
         self.last_period = params.periods[-1]
+        self.initial_chromosome = (
+            list(initial_chromosome) if initial_chromosome is not None else None
+        )
+        if self.initial_chromosome is not None:
+            expected = sorted(params.pickup_nodes)
+            if sorted(self.initial_chromosome) != expected:
+                raise ValueError(
+                    "initial_chromosome must contain every pickup node exactly once"
+                )
+        self.initial_solution = dict(initial_solution) if initial_solution is not None else None
+        if self.initial_solution is not None and self._violations(self.initial_solution):
+            raise ValueError("initial_solution must be strictly feasible")
 
     def run(self) -> GAResult:
         population = self._initial_population()
         history: List[float] = []
         best_chromosome = population[0]
         best_objective, best_solution = self.evaluate(best_chromosome)
+        best_source = "genetic"
+        if self.initial_solution is not None:
+            locked_objective = evaluate_solution(
+                self.params,
+                self.initial_solution,
+                (self.params.cost_weight, self.params.risk_weight),
+                check_constraints=False,
+            )["weighted_objective"]
+            if locked_objective <= best_objective:
+                best_objective = float(locked_objective)
+                best_solution = dict(self.initial_solution)
+                best_chromosome = None
+                best_source = "locked_initial_solution"
 
         for _ in range(self.config.generations):
             scored = [(self.evaluate(ch)[0], ch) for ch in population]
@@ -64,6 +96,7 @@ class ClassicGeneticAlgorithm:
                 best_objective = scored[0][0]
                 best_chromosome = scored[0][1][:]
                 best_solution = self.evaluate(best_chromosome)[1]
+                best_source = "genetic"
             history.append(best_objective)
 
             new_population = [ch[:] for _, ch in scored[: self.config.elite_size]]
@@ -82,7 +115,14 @@ class ClassicGeneticAlgorithm:
             population = new_population
 
         feasible = not self._violations(best_solution)
-        return GAResult(best_objective, best_chromosome, best_solution, feasible, history)
+        return GAResult(
+            best_objective,
+            best_chromosome,
+            best_solution,
+            feasible,
+            history,
+            best_source,
+        )
 
     def evaluate(self, chromosome: Chromosome) -> Tuple[float, Dict[str, Any]]:
         solution = self.decode(chromosome)
@@ -114,7 +154,9 @@ class ClassicGeneticAlgorithm:
     def _initial_population(self) -> List[Chromosome]:
         base = self.params.pickup_nodes
         population = []
-        for _ in range(self.config.population_size):
+        if self.initial_chromosome is not None:
+            population.append(self.initial_chromosome[:])
+        while len(population) < self.config.population_size:
             ch = base[:]
             self.rng.shuffle(ch)
             population.append(ch)
