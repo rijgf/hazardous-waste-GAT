@@ -1,0 +1,30 @@
+{
+  "registry_version": 1,
+  "user_confirmed_on": "2026-09-08",
+  "status": "user_confirmed_default_frozen",
+  "path_base": "repository_root",
+  "experiment": "reference_generalization_v2",
+  "objective_normalization": "instance_reference",
+  "objective_refs_policy": "Use the target instance's persisted positive b_C and b_R. Do not recompute them per preference, restart, search start or incumbent.",
+  "loading_api": "PPOImprover.from_frozen_checkpoint",
+  "allow_training_or_overwriting_without_explicit_user_request": false,
+  "on_missing_or_hash_mismatch": "stop_and_notify_user",
+  "dataset_manifest": "datasets/reference_generalization_v2/manifest.json",
+  "dataset_manifest_sha256": "b339346dc6b580afeca787cc4590ddbb8734b748e0b8e9cfa38cdb2807ac9d51",
+  "models": {
+    "small": {
+      "experiment_alias": "New-S",
+      "checkpoint": "outputs/reference_generalization_v2/models/small_model.pt",
+      "sha256": "25b48dadc776f21a7e0aacfeea12f2cfe92632f1ba4fb3e0c856ac25b26ea565",
+      "training_scale": "Test-1",
+      "training_record": "outputs/reference_generalization_v2/models/small.json"
+    },
+    "large": {
+      "experiment_alias": "New-L",
+      "checkpoint": "outputs/reference_generalization_v2/models/large_model.pt",
+      "sha256": "29165c0a0b9d1c9b5e843f948049afb1bb94692e0dbe6aa161982b425f73bfef",
+      "training_scale": "Test-4",
+      "training_record": "outputs/reference_generalization_v2/models/large.json"
+    }
+  }
+}

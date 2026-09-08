@@ -22,6 +22,7 @@ TOKEN_FEATURES = 18
 CHECKPOINT_FORMAT_VERSION = 2
 
 _NETWORK_CONFIG_DEFAULTS: Dict[str, Any] = {
+    "objective_normalization": "legacy_fixed",
     "network_type": "full_transformer",
     "dropout": 0.0,
     "use_preference_token": True,
@@ -33,6 +34,7 @@ _NETWORK_CONFIG_DEFAULTS: Dict[str, Any] = {
     "object_count": 128,
 }
 _NETWORK_CONFIG_CASTERS = {
+    "objective_normalization": str,
     "network_type": str,
     "embedding_dim": int,
     "transformer_layers": int,
@@ -96,13 +98,34 @@ class PPOEvalResult:
     trace: List[Dict[str, Any]]
 
 
+def _validate_refs(refs: Tuple[float, float] | None) -> Tuple[float, float]:
+    if refs is None or len(refs) != 2:
+        raise ValueError("instance_reference requires fixed objective_refs=(b_C, b_R)")
+    values = tuple(float(x) for x in refs)
+    if not all(np.isfinite(x) and x > 0 for x in values):
+        raise ValueError("objective_refs must be finite and strictly positive")
+    return values
+
+
+@dataclass
+class PPOTrainingInstance:
+    instance_id: str
+    params: ModelParams
+    initial_plan: RoutePlan
+    objective_refs: Tuple[float, float]
+
+
 def _safe(value: float, scale: float) -> float:
     return float(value) / max(float(scale), 1e-9)
 
 
 class StateEncoder:
-    def __init__(self, params: ModelParams, network_config: Dict[str, Any]):
+    def __init__(self, params: ModelParams, network_config: Dict[str, Any], objective_refs: Tuple[float, float] | None = None):
         self.params = params
+        self.normalization = network_config.get("objective_normalization", "legacy_fixed")
+        if self.normalization not in {"legacy_fixed", "instance_reference"}:
+            raise ValueError("unknown objective_normalization")
+        self.objective_refs = _validate_refs(objective_refs) if self.normalization == "instance_reference" else None
         self.max_tokens = int(network_config.get("max_tokens", 512))
         self.use_preference_token = bool(network_config.get("use_preference_token", True))
         self.use_preference_in_global = bool(network_config.get("use_preference_in_global", False))
@@ -137,11 +160,13 @@ class StateEncoder:
 
     def encode(self, plan: RoutePlan, preference: Tuple[float, float], step_ratio: float, no_improve_ratio: float) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         solution = route_plan_to_solution(self.params, plan)
-        metrics = evaluate_solution(self.params, solution, preference, check_constraints=False)
+        metrics = evaluate_solution(self.params, solution, preference, objective_refs=self.objective_refs, check_constraints=False)
         raw = solution["raw"]
         tokens: List[List[float]] = []
 
         global_values = [step_ratio, no_improve_ratio, _safe(metrics["cost"], 1000.0), _safe(metrics["risk"], 100.0), _safe(metrics["weighted_objective"], 1000.0)]
+        if self.objective_refs is not None:
+            global_values = [step_ratio, no_improve_ratio, metrics["normalized_cost"], metrics["normalized_risk"], metrics["weighted_objective_normalized"]]
         if self.use_preference_in_global:
             global_values = [preference[0], preference[1], *global_values]
         global_features = self._feature(
@@ -350,6 +375,7 @@ class PPOImprover:
         seed: int = 0,
         *,
         trainable: bool = True,
+        objective_refs: Tuple[float, float] | None = None,
     ):
         self.params = params
         self.algorithm_config = algorithm_config
@@ -382,7 +408,7 @@ class PPOImprover:
                 f"object_count must be at least {required_objects} for this instance"
             )
 
-        self.encoder = StateEncoder(params, network_config)
+        self.encoder = StateEncoder(params, network_config, objective_refs)
         self.policy = PPOPolicy(network_config).to(self.device)
         self._is_frozen = not trainable
         self.optimizer = (
@@ -424,6 +450,7 @@ class PPOImprover:
         algorithm_config: Dict[str, Any] | None = None,
         network_config: Dict[str, Any] | None = None,
         seed: int = 0,
+        objective_refs: Tuple[float, float] | None = None,
     ) -> "PPOImprover":
         """Create an inference-only improver for ``params`` from one checkpoint.
 
@@ -482,6 +509,7 @@ class PPOImprover:
             dict(resolved_network),
             seed=seed,
             trainable=False,
+            objective_refs=objective_refs,
         )
         improver.load_checkpoint(checkpoint_path)
         improver.policy.requires_grad_(False)
@@ -562,6 +590,7 @@ class PPOImprover:
     # ------------------------------------------------------------------
     @dataclass
     class _EpState:
+        encoder: StateEncoder
         plan: RoutePlan
         pref: Tuple[float, float]
         old_eval: Dict[str, Any]
@@ -574,7 +603,7 @@ class PPOImprover:
     # ------------------------------------------------------------------
     # Training  — 30 parallel episodes, batched GPU forward per step
     # ------------------------------------------------------------------
-    def train(self, save_path: str | Path | None = None) -> Dict[str, List[float]]:
+    def train(self, save_path: str | Path | None = None, training_instances: List[PPOTrainingInstance] | None = None, progress_callback=None) -> Dict[str, List[float]]:
         if self.is_frozen:
             raise RuntimeError("frozen PPOImprover cannot be trained")
         if self.optimizer is None:
@@ -582,6 +611,22 @@ class PPOImprover:
         self.policy.train()
         cfg = self.algorithm_config["ppo"]
         history: Dict[str, List[float]] = {"episode_reward": [], "best_objective": []}
+        if training_instances:
+            if self.encoder.normalization != "instance_reference":
+                raise ValueError("multi-instance training requires instance_reference normalization")
+            if len({x.instance_id for x in training_instances}) != len(training_instances):
+                raise ValueError("duplicate training instance id")
+            encoders = [StateEncoder(x.params, self.network_config, x.objective_refs) for x in training_instances]
+            for enc in encoders:
+                if enc.required_token_capacity(enc.params, self.network_config) > enc.max_tokens or _required_object_capacity(enc.params) > self.network_config["object_count"]:
+                    raise ValueError("training instance exceeds network capacity")
+        else:
+            encoders = []
+        sample_rng = random.Random(self.seed ^ 0x5A5A5A5A)
+        sample_queue: List[int] = []
+        self.training_instance_counts: Dict[str, int] = {}
+        if training_instances:
+            history.update({"mean_best_objective": [], "invalid_action_rate": [], "no_change_action_rate": []})
         gamma = float(cfg["gamma"])
         lam = float(cfg["gae_lambda"])
         train_iterations = int(cfg["train_iterations"])
@@ -614,19 +659,32 @@ class PPOImprover:
             )
 
         for iteration in range(train_iterations):
+            invalid_actions = no_change_actions = 0
             # ==== Phase 1: initialise N parallel episodes ====
             ep_states: List[PPOImprover._EpState] = []
             for i in range(num_parallel):
                 ep_seed = self.seed + iteration * num_parallel + i
-                plan = build_greedy_initial_plan(self.params, seed=ep_seed)
+                if training_instances:
+                    if not sample_queue:
+                        sample_queue = list(range(len(training_instances)))
+                        sample_rng.shuffle(sample_queue)
+                    sample_index = sample_queue.pop()
+                    item = training_instances[sample_index]
+                    encoder = encoders[sample_index]
+                    plan = {key: list(route) for key, route in item.initial_plan.items()}
+                    self.training_instance_counts[item.instance_id] = self.training_instance_counts.get(item.instance_id, 0) + 1
+                else:
+                    encoder = self.encoder
+                    plan = build_greedy_initial_plan(self.params, seed=ep_seed)
                 pref = self._sample_preference()
-                solution = route_plan_to_solution(self.params, plan)
-                init_eval = evaluate_solution(self.params, solution, pref, check_constraints=False)
+                solution = route_plan_to_solution(encoder.params, plan)
+                init_eval = evaluate_solution(encoder.params, solution, pref, check_constraints=False)
                 ep_states.append(PPOImprover._EpState(
+                    encoder=encoder,
                     plan=plan, pref=pref, old_eval=init_eval,
-                    cost_scale=max(init_eval["cost"], 1.0),
-                    risk_scale=max(init_eval["risk"], 1.0),
-                    no_improve=0, best_obj=1.0,
+                    cost_scale=encoder.objective_refs[0] if encoder.objective_refs else max(init_eval["cost"], 1.0),
+                    risk_scale=encoder.objective_refs[1] if encoder.objective_refs else max(init_eval["risk"], 1.0),
+                    no_improve=0, best_obj=(pref[0]*init_eval["cost"]/encoder.objective_refs[0]+pref[1]*init_eval["risk"]/encoder.objective_refs[1]) if encoder.objective_refs else 1.0,
                     ep_seed=ep_seed,
                 ))
 
@@ -646,7 +704,7 @@ class PPOImprover:
                 cpu_masks: List[torch.Tensor] = []
                 cpu_globals: List[torch.Tensor] = []
                 for i, es in enumerate(ep_states):
-                    t, m, g = self.encoder.encode(
+                    t, m, g = es.encoder.encode(
                         es.plan, es.pref,
                         step / max(1, episode_steps),
                         es.no_improve / max(1, episode_steps),
@@ -655,8 +713,9 @@ class PPOImprover:
                     cpu_masks.append(m)
                     cpu_globals.append(g)
 
-                tokens_dev = torch.stack(cpu_tokens).to(self.device)    # [N, max_tok, 18]
-                masks_dev = torch.stack(cpu_masks).to(self.device)      # [N, max_tok]
+                token_limit = max(int(mask.sum()) for mask in cpu_masks) if self.encoder.objective_refs else self.encoder.max_tokens
+                tokens_dev = torch.stack(cpu_tokens)[:, :token_limit].to(self.device)
+                masks_dev = torch.stack(cpu_masks)[:, :token_limit].to(self.device)
                 globals_dev = torch.stack(cpu_globals).to(self.device)  # [N, 18]
 
                 # --- 2b: single batched GPU forward for all N episodes ---
@@ -671,9 +730,11 @@ class PPOImprover:
                     action, logprob, _ = self._action_from_logits(logits_i)
 
                     rng = random.Random(es.ep_seed + step)
-                    candidate, ok, _ = apply_operator(self.params, es.plan, action, seed=rng.randint(0, 1_000_000))
-                    new_solution = route_plan_to_solution(self.params, candidate if ok else es.plan)
-                    new_eval = evaluate_solution(self.params, new_solution, es.pref, check_constraints=False)
+                    candidate, ok, reason = apply_operator(es.encoder.params, es.plan, action, seed=rng.randint(0, 1_000_000))
+                    invalid_actions += int(not ok)
+                    no_change_actions += int(reason.endswith("_no_change"))
+                    new_solution = route_plan_to_solution(es.encoder.params, candidate if ok else es.plan)
+                    new_eval = evaluate_solution(es.encoder.params, new_solution, es.pref, check_constraints=False)
 
                     old_components = torch.tensor(
                         [es.old_eval["cost"] / es.cost_scale, es.old_eval["risk"] / es.risk_scale],
@@ -731,8 +792,10 @@ class PPOImprover:
                 pref_tensor = torch.tensor(ep_states[i].pref, dtype=torch.float32)
                 iter_total_reward += float(sum((reward * pref_tensor).sum().item() for reward in traj_rewards[i]))
 
-            tokens_b = torch.cat([e["tokens"] for e in episodes_data]).to(self.device)
-            mask_b = torch.cat([e["mask"] for e in episodes_data]).to(self.device)
+            all_masks = torch.cat([e["mask"] for e in episodes_data])
+            token_limit = int(all_masks.sum(dim=1).max()) if self.encoder.objective_refs else self.encoder.max_tokens
+            tokens_b = torch.cat([e["tokens"] for e in episodes_data])[:, :token_limit].to(self.device)
+            mask_b = all_masks[:, :token_limit].to(self.device)
             global_b = torch.cat([e["global"] for e in episodes_data]).to(self.device)
             actions_b = torch.cat([e["actions"] for e in episodes_data]).to(self.device)
             old_logprob_b = torch.cat([e["logprob"] for e in episodes_data]).to(self.device)
@@ -784,6 +847,12 @@ class PPOImprover:
 
             history["episode_reward"].append(iter_total_reward / num_parallel)
             history["best_objective"].append(float(iter_best_obj))
+            if training_instances:
+                history["mean_best_objective"].append(float(np.mean([e.best_obj for e in ep_states])))
+                history["invalid_action_rate"].append(invalid_actions / effective_batch)
+                history["no_change_action_rate"].append(no_change_actions / effective_batch)
+            if progress_callback is not None:
+                progress_callback(iteration, {key: values[-1] for key, values in history.items()})
 
             if self.device.type == "cuda" and iteration % 10 == 9:
                 torch.cuda.empty_cache()
@@ -858,6 +927,8 @@ class PPOImprover:
         best_eval = evaluate_solution(self.params, best_solution, preference, check_constraints=False)
         cost_scale = max(best_eval["cost"], 1.0)
         risk_scale = max(best_eval["risk"], 1.0)
+        if self.encoder.objective_refs is not None:
+            cost_scale, risk_scale = self.encoder.objective_refs
         history = [dict(best_eval)]
         trace: List[Dict[str, Any]] = []
         no_improve = 0
