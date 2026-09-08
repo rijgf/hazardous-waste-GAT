@@ -1,0 +1,88 @@
+{
+  "preference": [
+    0.75,
+    0.25
+  ],
+  "repeat": 2,
+  "seed": 2951447865,
+  "seconds": 1.3342414000071585,
+  "metrics": {
+    "cost": 1758.8294139999998,
+    "risk": 10.482592188369702,
+    "normalized_cost": 0.735252301246767,
+    "normalized_risk": 0.25442444520092594,
+    "weighted_objective_raw": 1321.7427085470922,
+    "weighted_objective_normalized": 0.6150453372353067,
+    "weighted_objective": 0.6150453372353067,
+    "cost_ref": 2392.144045,
+    "risk_ref": 41.20119896534043,
+    "fixed_cost": 200.0,
+    "distance_cost": 1427.1779999999999,
+    "processing_cost": 131.651414,
+    "transport_risk": 3.629047667298232,
+    "coload_risk": 5.02167252107147,
+    "producer_inventory_risk": 1.8318720000000002,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  },
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G3::S1",
+          "n::G2::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G1::S2",
+          "n::G2::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G1::S1",
+          "n::G3::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G2::S1",
+          "n::G3::S2",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "solution_id": "bff24a1d95e2ee45d713af039132848c681612a853867e2815d728d5cf32deb2",
+  "instance_id": "legacy-small-fixed--revision-v4",
+  "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+  "b_C": 2392.144045,
+  "b_R": 41.20119896534043,
+  "reference_plan_sha256": "7ddf960c830d47c963a4622f9e2a03bcc62d3e389f1a7501c22b11c56dba7f68",
+  "checkpoint": {
+    "experiment_alias": "New-S-v4",
+    "training_scale": "Test-1",
+    "sha256": "b83f71560f6afb15fec41f1b05d17866c3490c79b985dfb51e4949d6ba46f82e",
+    "checkpoint": "outputs/parameter_revision_v4/models/small_model.pt",
+    "training_record": "outputs/parameter_revision_v4/models/small.json"
+  },
+  "protocol_sha256": "e496b6bddc716cf80d821e887e25be51c4ffdb1c268460ad7b1f233cde883ebe"
+}

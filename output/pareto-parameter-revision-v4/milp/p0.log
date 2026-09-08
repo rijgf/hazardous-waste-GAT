@@ -1,0 +1,85 @@
+C:\Users\Yangfeifei\Documents\ChatGPT\Î£·ÏÆ·£¨transformer£©\run_pareto_milp.py:117: RuntimeWarning: Unrecognized options detected: {'random_seed', 'threads'}. These will be passed to HiGHS verbatim.
+  result = milp(c=np.array(model.costs, dtype=float),
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e-03, 2e+01]
+  Cost   [2e-03, 1e-01]
+  Bound  [1e+00, 2e+01]
+  RHS    [6e-01, 2e+01]
+Presolving model
+5121 rows, 1730 cols, 15796 nonzeros  0s
+4560 rows, 1518 cols, 14412 nonzeros  0s
+
+Solving MIP model with:
+   4560 rows
+   1518 cols (837 binary, 0 integer, 0 implied int., 681 continuous)
+   14412 nonzeros
+MIP-Timing:        0.26 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.3s
+         0       0         0   0.00%   0.3120089269    inf                  inf        0      0      6       128     0.3s
+ L       0       0         0   0.00%   0.3475973241    0.6882998862      49.50%     3908     79    134       596     1.5s
+ L       0       0         0   0.00%   0.3475973241    0.6840913696      49.19%     3908     79    134      2446     2.1s
+
+Symmetry detection completed in 0.0s
+Found 4 generator(s)
+
+ T      46       2        20  16.94%   0.3475973241    0.6649194071      47.72%     3823     42   1215     16209     4.7s
+       265      13       121  46.77%   0.3615413179    0.6649194071      45.63%     3973     52   6427     50956     9.8s
+       604      37       270  66.54%   0.368413224     0.6649194071      44.59%     4916     59   9808     81338    14.8s
+ L     888      48       397  67.24%   0.368413224     0.6649194071      44.59%     5604     57   8886     97472    17.8s
+      1471      84       642  71.20%   0.3695659662    0.6649194071      44.42%     5384     76   9359    120390    22.8s
+      2007     121       879  75.55%   0.3695659662    0.6649194071      44.42%     5699     74   9487    144841    27.8s
+      2688     153      1180  76.40%   0.3914213679    0.6649194071      41.13%     6822     91   9518    166930    33.2s
+      3431     176      1507  79.16%   0.3914213679    0.6649194071      41.13%     6754    114   9480    186135    38.2s
+      4049     198      1771  79.70%   0.393290183     0.6649194071      40.85%     5736    105   9625    205046    43.2s
+ L    4350     216      1900  80.89%   0.3983794809    0.6649194071      40.09%     5002     99   9285    215117    46.4s
+      5005     243      2184  83.42%   0.404731895     0.6649194071      39.13%     4194     62   9684    237207    51.4s
+      5700     262      2493  88.96%   0.4064996176    0.6649194071      38.86%     5280     66   9117    257628    56.5s
+      6261     273      2741  89.40%   0.4216810156    0.6649194071      36.58%     5554     92   9088    275802    61.5s
+      6893     288      3017  89.41%   0.4279777454    0.6649194071      35.63%     6837     83   9993    292981    66.5s
+ L    7290     288      3200  91.30%   0.4373790891    0.6649194071      34.22%     4381     82   9755    304791    70.6s
+      7784     283      3427  92.56%   0.4571016593    0.6649194071      31.25%     4276    113   9965    327857    75.7s
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+      8224     280      3624  93.12%   0.4665892184    0.6649194071      29.83%     4670     84   9393    347034    80.7s
+      8719     274      3845  93.30%   0.4718598684    0.6649194071      29.04%     4208    101   9988    364527    85.7s
+ L    9137     262      4045  94.41%   0.4881383434    0.6649194071      26.59%     3815     80   9514    380519    91.0s
+      9598     235      4273  96.31%   0.5168799264    0.6649194071      22.26%     3891     73   9870    399536    96.0s
+      9942     194      4452  97.74%   0.5217933768    0.6649194071      21.53%     3549     53   9885    414929   101.1s
+     10209     151      4595  99.05%   0.5449767886    0.6649194071      18.04%     3749     86   9754    429744   106.2s
+     10392      66      4724  99.59%   0.597177075     0.6649194071      10.19%     3082     54   9662    446443   111.2s
+     10479       0      4797 100.00%   0.6649194071    0.6649194071       0.00%     3894     87   7870    454867   113.4s
+
+Solving report
+  Status            Optimal
+  Primal bound      0.664919407059
+  Dual bound        0.664919407059
+  Gap               0%
+  P-D integral      39.1307408324
+  Solution status   feasible
+                    0.664919407059 (objective)
+                    0 (bound viol.)
+                    1.6364687383e-12 (int. viol.)
+                    0 (row viol.)
+  Timing            113.38 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 5
+  Nodes             10479
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     454867 (total)
+                    122344 (strong br.)
+                    29636 (separation)
+                    22858 (heuristics)
+{"preference_index": 0, "status": "optimal", "strict_feasible": true, "proven_optimal": true, "elapsed_seconds": 113.49284760002047}

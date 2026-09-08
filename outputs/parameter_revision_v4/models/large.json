@@ -1,0 +1,119 @@
+{
+  "model": "large",
+  "training_seed": 542170389,
+  "training_seconds": 1237.1172203999013,
+  "checkpoint_sha256": "61db3f4dcc6aa768f22dd36515449416facb603b934c9eaf9a5e0278838fab3a",
+  "dataset_manifest_sha256": "d60743ed6e0e50d6623e532d9716209a81d63afa515a2171f717f9b875f4b4d4",
+  "instance_episode_counts": {
+    "train-Test-4-011--revision-v4": 20,
+    "train-Test-4-010--revision-v4": 20,
+    "train-Test-4-009--revision-v4": 20,
+    "train-Test-4-015--revision-v4": 20,
+    "train-Test-4-020--revision-v4": 20,
+    "train-Test-4-021--revision-v4": 20,
+    "train-Test-4-018--revision-v4": 20,
+    "train-Test-4-008--revision-v4": 20,
+    "train-Test-4-005--revision-v4": 20,
+    "train-Test-4-000--revision-v4": 20,
+    "train-Test-4-016--revision-v4": 20,
+    "train-Test-4-023--revision-v4": 20,
+    "train-Test-4-022--revision-v4": 20,
+    "train-Test-4-003--revision-v4": 20,
+    "train-Test-4-002--revision-v4": 20,
+    "train-Test-4-019--revision-v4": 20,
+    "train-Test-4-013--revision-v4": 20,
+    "train-Test-4-004--revision-v4": 20,
+    "train-Test-4-006--revision-v4": 20,
+    "train-Test-4-017--revision-v4": 20,
+    "train-Test-4-012--revision-v4": 20,
+    "train-Test-4-014--revision-v4": 20,
+    "train-Test-4-007--revision-v4": 20,
+    "train-Test-4-001--revision-v4": 20
+  },
+  "algorithm": {
+    "train_iterations": 20,
+    "num_parallel_episodes": 24,
+    "episode_steps": 24,
+    "update_epochs": 24,
+    "gamma": 0.95,
+    "gae_lambda": 0.9,
+    "clip_ratio": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.02,
+    "value_coef": 0.5,
+    "repair_failure_penalty": 0.2,
+    "no_change_penalty": 0.01,
+    "eval_steps": 60,
+    "eval_candidate_samples": 32,
+    "evaluation_restarts": 3,
+    "preference_sampling": {
+      "endpoint_probability_each": 0.1,
+      "beta_concentration": 0.5
+    }
+  },
+  "network": {
+    "network_type": "full_transformer",
+    "embedding_dim": 48,
+    "transformer_layers": 1,
+    "attention_heads": 4,
+    "ff_hidden_dim": 96,
+    "dropout": 0.0,
+    "use_preference_token": true,
+    "use_preference_in_global": false,
+    "use_route_arc_tokens": true,
+    "use_facility_tokens": true,
+    "max_tokens": 896,
+    "operator_count": 8,
+    "object_count": 512,
+    "objective_normalization": "instance_reference"
+  },
+  "parameter_revision": {
+    "capacity_factor": 2.0,
+    "risk_total_ratio_range": [
+      3.0,
+      6.0
+    ],
+    "risk_strength_range": [
+      2.0,
+      5.0
+    ],
+    "changed_fields": [
+      "processing_capacity",
+      "coload_risk"
+    ]
+  },
+  "environment": {
+    "python": {
+      "version": "3.11.5 (tags/v3.11.5:cce6ba9, Aug 24 2023, 14:38:34) [MSC v.1936 64 bit (AMD64)]",
+      "implementation": "CPython",
+      "executable": "D:\\Program Files\\Python311\\python.exe"
+    },
+    "platform": {
+      "system": "Windows",
+      "release": "10",
+      "version": "10.0.26200",
+      "machine": "AMD64",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "description": "Windows-10-10.0.26200-SP0"
+    },
+    "packages": {
+      "matplotlib": "3.7.2",
+      "numpy": "1.25.2",
+      "pandas": "2.1.0",
+      "scipy": "1.16.0",
+      "torch": "2.5.1+cu121"
+    },
+    "torch_runtime": {
+      "cuda_available": true,
+      "cuda_version": "12.1",
+      "cudnn_version": 90100,
+      "device_count": 1,
+      "devices": [
+        "NVIDIA GeForce RTX 4070 Ti"
+      ],
+      "deterministic_algorithms": true,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true
+    }
+  }
+}

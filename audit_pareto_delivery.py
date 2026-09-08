@@ -51,6 +51,36 @@ def close(a, b, label, atol=1e-8, rtol=1e-10):
         raise AssertionError(f"{label}: recomputed={a!r}, recorded={b!r}")
 
 
+def assert_manuscript_row(text, values, label, *, first_cell_aliases=()):
+    """Require every expected cell, in order, in an actual manuscript table."""
+    expected = [str(value).strip() for value in values]
+    rows = [line.strip().split("|")[1:-1] for line in text.splitlines()
+            if line.strip().startswith("|") and line.strip().endswith("|")]
+    rows += [re.findall(r"<td(?:\s[^>]*)?>(.*?)</td>", row, re.DOTALL)
+             for row in re.findall(r"<tr(?:\s[^>]*)?>(.*?)</tr>", text, re.DOTALL)]
+    for row in rows:
+        cells = [cell.strip() for cell in row]
+        if cells and cells[0] in first_cell_aliases:
+            cells[0] = expected[0]
+        if cells == expected:
+            return
+    raise AssertionError(label)
+
+
+def assert_checkpoint_row(text, values, model_label, checkpoint_sha, *, checkpoint_alias=None):
+    """Accept a relocated full SHA only when its model label stays explicit."""
+    try:
+        assert_manuscript_row(text, [*values, checkpoint_sha], "legacy checkpoint " + model_label)
+        return
+    except AssertionError:
+        assert_manuscript_row(text, [*values, checkpoint_alias] if checkpoint_alias else values,
+                              "checkpoint training fields " + model_label)
+    associated = re.search(re.escape(model_label) + r"(?:（New-[SL]）)?\s*(?:完整)?SHA256\s*[:：]\s*`?"
+                           + re.escape(checkpoint_sha) + r"`?(?![0-9a-f])", text)
+    assert associated, (
+        "checkpoint SHA association " + model_label)
+
+
 def terminal_max(params, solution):
     raw, last = solution["raw"], params.periods[-1]
     amounts = [raw.get(("IG", node, last), 0.) for node in params.pickup_nodes]
@@ -600,10 +630,10 @@ class Auditor:
             diff += "†" if not mip["proven_optimal"] else ""
             row = ["PPO-Transformer", str(tuple(preference)), f'{selected["cost"]:.3f}', f'{selected["risk"]:.4f}',
                    f'{selected["J"]:.6f}', diff, f'{selected["three_restart_seconds"]:.2f}', "严格可行"]
-            assert "| " + " | ".join(row) + " |" in text, "table4 PPO manuscript row " + str(index)
+            assert_manuscript_row(text, row, "table4 PPO manuscript row " + str(index), first_cell_aliases=("PPO",))
             row = ["MILP", str(tuple(preference)), f'{mip["cost"]:.3f}', f'{mip["risk"]:.4f}', f'{mip["J"]:.6f}',
                    "—", f'{mip["seconds"]:.2f}', "已证最优" if mip["proven_optimal"] else "限时可行（未证最优）"]
-            assert "| " + " | ".join(row) + " |" in text, "table4 MILP manuscript row " + str(index)
+            assert_manuscript_row(text, row, "table4 MILP manuscript row " + str(index))
         summaries = {(r["scale"], r["model"], r["nsga_budget"]): r for r in report["coverage_summaries"]}
 
         def formatted(scale, model, budget):
@@ -614,25 +644,27 @@ class Auditor:
         for model, label in (("small", "Train-S"), ("large", "Train-L")):
             row = [label] + [value for scale in ("Test-1", "Test-2", "Test-3", "Test-4")
                               for value in formatted(scale, model, 40320)]
-            assert "<tr>" + "".join("<td>" + value + "</td>" for value in row) + "</tr>" in text, "table6 " + label
+            assert_manuscript_row(text, row, "table6 " + label)
         row = ["PPO（Train-L）与NSGA-II；L20，1实例", *formatted("Test-4", "large", 40320), *formatted("Test-4", "large", 120960)]
-        assert "<tr>" + "".join("<td>" + value + "</td>" for value in row) + "</tr>" in text, "table5"
+        assert_manuscript_row(text, row, "table5", first_cell_aliases=("PPO-L vs NSGA-II",))
         for forbidden in ("待填", "待核验", "两份模型各由一个训练实例", "每种50个未见实例"):
             assert forbidden not in text, "stale or unfinished manuscript claim: " + forbidden
         assert self.protocol_sha in text
         self.verified["main_manuscript_table_rows_verified"] = 13
         annex_count = 0
 
-        def has_markdown_row(values, label):
+        def has_markdown_row(values, label, *, first_cell_aliases=()):
             nonlocal annex_count
-            assert "| " + " | ".join(map(str, values)) + " |" in text, label
+            assert_manuscript_row(text, values, label, first_cell_aliases=first_cell_aliases)
             annex_count += 1
 
         for model, label in (("small", "S"), ("large", "L")):
             entry = self.protocol["registry"]["models"][model]
             training = read(ROOT / entry["training_record"])
-            has_markdown_row([f"PPO（Train-{label}）", 24, training["training_seed"],
-                              f'{training["training_seconds"]:.3f}', entry["sha256"]], "annex A1 model " + model)
+            assert_checkpoint_row(text, [f"PPO（Train-{label}）", 24, training["training_seed"],
+                                  f'{training["training_seconds"]:.3f}'], "Train-" + label, entry["sha256"],
+                                  checkpoint_alias=entry.get("experiment_alias", "New-" + label))
+            annex_count += 1
 
         def mean_sd(values):
             return f"{statistics.mean(values):.2f} ± {statistics.stdev(values):.2f}"
@@ -653,7 +685,7 @@ class Auditor:
                       f'{float(row["minimum_cost"]):.3f}', f'{float(row["risk_at_minimum_cost"]):.4f}',
                       f'{float(row["minimum_risk"]):.4f}', f'{float(row["cost_at_minimum_risk"]):.3f}',
                       f'{float(row["time_mean"]):.2f}']
-            has_markdown_row(values, "annex A3 sensitivity endpoint")
+            has_markdown_row(values, "annex A3 sensitivity endpoint", first_cell_aliases=("PPO-L",))
         self.verified["annex_manuscript_table_rows_verified"] = annex_count
 
     def figures(self):

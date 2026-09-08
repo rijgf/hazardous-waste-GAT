@@ -1,0 +1,437 @@
+{
+  "passed": true,
+  "formal_front_records": 63,
+  "formal_tasks": 60,
+  "front_points_replayed": 2971,
+  "coverage_pair_count": 27,
+  "coverage_valid": 27,
+  "small_ppo_runs": 15,
+  "milp_runs": 5,
+  "protocol_sha256": "e496b6bddc716cf80d821e887e25be51c4ffdb1c268460ad7b1f233cde883ebe",
+  "manuscript_sha256": "c7e183186517bc800549c40a2fb65487146a37c6a6c9b3aee6443b3b1e70d904",
+  "report_script": "report_pareto_experiments.py",
+  "report_script_sha256": "fdcd5d5af2acc4cac95f2e78582074ee17ff87b4ab7a151c430c8348e6e8b73f",
+  "report_entry_script": "report_parameter_revision.py",
+  "report_entry_script_sha256": "5cf287d767d52688f65e8205efde87e22dd8ec499542c1b24c79f111b70155ca",
+  "parameter_revision_evidence": {
+    "capacity_by_instance": {
+      "Test-1": [
+        {
+          "waste": "S1",
+          "average_period_generation": 4.519,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            9.038,
+            9.038
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 4.4275,
+          "eligible_facilities": [
+            "D1"
+          ],
+          "effective_capacity_each_period": [
+            8.855,
+            8.855
+          ]
+        }
+      ],
+      "Test-2": [
+        {
+          "waste": "S1",
+          "average_period_generation": 7.396000000000002,
+          "eligible_facilities": [
+            "D1"
+          ],
+          "effective_capacity_each_period": [
+            14.792000000000003,
+            14.792000000000003,
+            14.792000000000003
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 7.595999999999999,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            15.191999999999998,
+            15.191999999999998,
+            15.191999999999998
+          ]
+        }
+      ],
+      "Test-3": [
+        {
+          "waste": "S1",
+          "average_period_generation": 12.249000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            24.498000000000005,
+            24.498000000000005,
+            24.498000000000005
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 12.759000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            25.518000000000008,
+            25.518000000000008,
+            25.518000000000008
+          ]
+        },
+        {
+          "waste": "S3",
+          "average_period_generation": 12.794000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            25.588000000000008,
+            25.588000000000008,
+            25.588000000000008
+          ]
+        }
+      ],
+      "Test-4": [
+        {
+          "waste": "S1",
+          "average_period_generation": 25.54949999999999,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            51.09899999999998,
+            51.09899999999998,
+            51.09899999999998,
+            51.09899999999998
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 24.421999999999993,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            48.84399999999999,
+            48.84399999999999,
+            48.84399999999999,
+            48.84399999999999
+          ]
+        },
+        {
+          "waste": "S3",
+          "average_period_generation": 24.805999999999997,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            49.611999999999995,
+            49.611999999999995,
+            49.611999999999995,
+            49.611999999999995
+          ]
+        },
+        {
+          "waste": "S4",
+          "average_period_generation": 24.29325,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            48.5865,
+            48.5865,
+            48.5865,
+            48.5865
+          ]
+        }
+      ],
+      "small-fixed": [
+        {
+          "waste": "S1",
+          "average_period_generation": 3.9559999999999995,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            7.911999999999999,
+            7.911999999999999
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 3.5404999999999998,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            7.0809999999999995,
+            7.0809999999999995
+          ]
+        }
+      ]
+    },
+    "risk_by_instance": {
+      "Test-1": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          4.678101307243412,
+          4.678101307243412
+        ]
+      },
+      "Test-2": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          5.2293142733932285,
+          5.2293142733932285
+        ]
+      },
+      "Test-3": {
+        "compatible_pairs": 3,
+        "observed_total_ratio_range": [
+          4.185764238929069,
+          4.816286528038833
+        ]
+      },
+      "Test-4": {
+        "compatible_pairs": 6,
+        "observed_total_ratio_range": [
+          3.2442801739379092,
+          5.624984520152832
+        ]
+      },
+      "small-fixed": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          5.842114507122513,
+          5.842114507122513
+        ]
+      }
+    },
+    "capacity_scenario_factors": [
+      0.7,
+      0.8,
+      1.0,
+      1.2,
+      1.3
+    ],
+    "risk_total_ratio_range": [
+      3.0,
+      6.0
+    ],
+    "risk_strength_range": [
+      2.0,
+      5.0
+    ],
+    "risk_scope": "same-arc equal positive two-type loads, transport only; not whole-system risk",
+    "models_retrained": true,
+    "training_hyperparameters_changed": false
+  },
+  "nsga_search_diagnostics": [
+    {
+      "instance": "Test-1",
+      "instance_id": "test-Test-1-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 6833,
+      "invalid_attempt_rate": 0.05648974867724868,
+      "feasible_candidate_attempts": 114127,
+      "candidate_objective_evaluations": 10925,
+      "invalid_objective_evaluations": 4094,
+      "feasible_objective_evaluations_excluding_preparation": 6831,
+      "operator_failures": 6833,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 50,
+      "nonreference_unique_front_solutions": 47,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-1-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 16
+        },
+        {
+          "archive_id": "NSGA-Test-1-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 16
+        },
+        {
+          "archive_id": "NSGA-Test-1-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 18
+        }
+      ]
+    },
+    {
+      "instance": "Test-2",
+      "instance_id": "test-Test-2-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 15840,
+      "invalid_attempt_rate": 0.13095238095238096,
+      "feasible_candidate_attempts": 105120,
+      "candidate_objective_evaluations": 68604,
+      "invalid_objective_evaluations": 14286,
+      "feasible_objective_evaluations_excluding_preparation": 54318,
+      "operator_failures": 15840,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 232,
+      "nonreference_unique_front_solutions": 232,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-2-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 93
+        },
+        {
+          "archive_id": "NSGA-Test-2-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 87
+        },
+        {
+          "archive_id": "NSGA-Test-2-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 52
+        }
+      ]
+    },
+    {
+      "instance": "Test-3",
+      "instance_id": "test-Test-3-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 31533,
+      "invalid_attempt_rate": 0.2606894841269841,
+      "feasible_candidate_attempts": 89427,
+      "candidate_objective_evaluations": 58109,
+      "invalid_objective_evaluations": 25789,
+      "feasible_objective_evaluations_excluding_preparation": 32320,
+      "operator_failures": 31533,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 231,
+      "nonreference_unique_front_solutions": 231,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-3-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 63
+        },
+        {
+          "archive_id": "NSGA-Test-3-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 80
+        },
+        {
+          "archive_id": "NSGA-Test-3-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 88
+        }
+      ]
+    },
+    {
+      "instance": "Test-4",
+      "instance_id": "test-Test-4-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 10541,
+      "invalid_attempt_rate": 0.08714451058201059,
+      "feasible_candidate_attempts": 110419,
+      "candidate_objective_evaluations": 78401,
+      "invalid_objective_evaluations": 10181,
+      "feasible_objective_evaluations_excluding_preparation": 68220,
+      "operator_failures": 10541,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 152,
+      "nonreference_unique_front_solutions": 152,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-4-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 70
+        },
+        {
+          "archive_id": "NSGA-Test-4-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 19
+        },
+        {
+          "archive_id": "NSGA-Test-4-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 63
+        }
+      ]
+    },
+    {
+      "instance": "Test-4",
+      "instance_id": "test-Test-4-000--revision-v4",
+      "budget": 120960,
+      "runs": 3,
+      "candidate_attempts": 362880,
+      "invalid_candidate_attempts": 38567,
+      "invalid_attempt_rate": 0.10628031305114638,
+      "feasible_candidate_attempts": 324313,
+      "candidate_objective_evaluations": 210391,
+      "invalid_objective_evaluations": 34992,
+      "feasible_objective_evaluations_excluding_preparation": 175399,
+      "operator_failures": 38567,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 384,
+      "nonreference_unique_front_solutions": 384,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-4-r0-B120960",
+          "repeat": 0,
+          "nonreference_front_points": 130
+        },
+        {
+          "archive_id": "NSGA-Test-4-r1-B120960",
+          "repeat": 1,
+          "nonreference_front_points": 120
+        },
+        {
+          "archive_id": "NSGA-Test-4-r2-B120960",
+          "repeat": 2,
+          "nonreference_front_points": 134
+        }
+      ]
+    }
+  ],
+  "nsga_budget_response_interpretation": "本案例三次配对中，B1与B2的两方向覆盖率均相同，未观察到追加预算的覆盖收益；这不等于两档案的所有坐标或方案必然相同。",
+  "plot_script_sha256": "5413c035d222958b82f6d25e1d188141e14ce15077af23b5b981c12423815904",
+  "plot_variants_script_sha256": "acba3c839d32098216774aa849356788a7118bfb33f0778ba3e52b36b5e5c782",
+  "milp_cleanup_source_sha256": "9edaf492a4f4e1e028583992d25c84af0ac33a55f44862f05cba3caa2bd4a21c"
+}

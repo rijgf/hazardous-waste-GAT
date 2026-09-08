@@ -1,8 +1,20 @@
 # 本仓库的实验约定
 
-## 用户确认的默认冻结PPO模型（2026-09-08）
+## 当前参数修订后的冻结PPO模型（2026-09-08，优先于下方历史约定）
 
-用户明确要求：今后的实验使用本轮`reference_generalization_v2`训练得到的两份pt，保持冻结，不自行改用历史模型或新训练的模型。
+用户明确追加要求：处理能力与共载参数修订后，两个规模的PPO都必须重新训练。新训练已完成并通过独立训练来源核验；后续修订参数实验使用以下两份冻结模型，不覆盖旧模型：
+
+- 小规模：`outputs/parameter_revision_v4/models/small_model.pt`（`New-S-v4`）。
+- 大规模：`outputs/parameter_revision_v4/models/large_model.pt`（`New-L-v4`）。
+- 当前权威登记为`configs/ppo_models_parameter_revision_v4.json`，实验前校验其中的模型与数据清单哈希。旧`configs/frozen_ppo_models.json`保留用于v2/v3来源核验，不作为修订参数实验的默认登记。
+- 新训练集为`datasets/parameter_revision_v4/train/`，仍为两个规模各24个实例；网络、训练参数及种子保持旧规格，模型从头训练后冻结，不在测试上微调或按测试成绩选择检查点。
+- 后续实验仍按所需规模各1个实例；修订参数实验默认读取`datasets/parameter_revision_v4/test/<规模>/000.json`。表4另使用`output/pareto-parameter-revision-v4/instances/small-fixed.json`，不把它与Test-1混为同一个实例。
+- 新参数与公共参考方案规则见`docs/parameter_revision_v4_protocol.md`。每个实例/敏感性版本均读取自身预先绑定的b，输入、奖励和择优一致，搜索期间不重算b。不能将旧模型、旧参数实例及新结果静默混用。
+- 本轮正式实验与文稿已完成：60个前沿任务产生63份档案，另有15次小规模PPO和5组3600秒上限MILP；其中3组MILP已证最优、2组仅限时可行。含文稿的独立终验见`output/pareto-parameter-revision-v4/audit/independent_numerics.json`（PASS），须与实际文件哈希对应。完整终验命令为`py -B audit_parameter_revision.py --require-report`，不能把仅预检或不含文稿的审核冒充最终交付核验。
+
+## 历史冻结PPO模型（v2/v3来源保留，不再作为修订参数实验默认）
+
+参数修订前，用户曾确认使用`reference_generalization_v2`训练得到的两份pt。以下规则保留用于历史实验复现；修订参数实验遵循上方v4约定。
 
 - 小规模：`outputs/reference_generalization_v2/models/small_model.pt`（本轮结果中的`New-S`）。
 - 大规模：`outputs/reference_generalization_v2/models/large_model.pt`（本轮结果中的`New-L`）。

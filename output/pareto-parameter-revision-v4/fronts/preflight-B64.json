@@ -1,0 +1,143 @@
+{
+  "budget": 64,
+  "counts": {
+    "candidate_attempts": 64,
+    "candidate_objective_evaluations": 43,
+    "cache_hits": 21,
+    "invalid_candidates": 0,
+    "operator_failures": 10,
+    "invalid_candidate_attempts": 0,
+    "ppo_internal_objective_evaluations": 57
+  },
+  "seconds": 1.84706840000581,
+  "points": [
+    {
+      "cost": 51063.911981,
+      "risk": 15305.114872884924,
+      "normalized_cost": 0.9876884055885188,
+      "normalized_risk": 0.9942679666826603,
+      "weighted_objective_raw": 33184.51342694246,
+      "weighted_objective_normalized": 0.9909781861355895,
+      "weighted_objective": 0.9909781861355895,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 400.0,
+      "distance_cost": 46033.93199999999,
+      "processing_cost": 4629.979981,
+      "transport_risk": 1706.315444677492,
+      "coload_risk": 13598.471908207432,
+      "producer_inventory_risk": 0.32752,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "041eea592364dd292a0e290cb4d04e645b66df3f3ce6e27276743a5d1b1d20a2",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 123,
+        "operator_seed": 188495181,
+        "candidate_index": 26,
+        "operator_ok": true,
+        "operator_reason": "swap"
+      },
+      "solution_path": "solutions/test-Test-4-000--revision-v4/041eea592364dd292a0e290cb4d04e645b66df3f3ce6e27276743a5d1b1d20a2.json"
+    },
+    {
+      "cost": 51158.95275,
+      "risk": 13269.591119416851,
+      "normalized_cost": 0.9895267031642009,
+      "normalized_risk": 0.8620339991297286,
+      "weighted_objective_raw": 32214.271934708424,
+      "weighted_objective_normalized": 0.9257803511469647,
+      "weighted_objective": 0.9257803511469647,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 450.0,
+      "distance_cost": 45983.61,
+      "processing_cost": 4725.34275,
+      "transport_risk": 1543.8365701980636,
+      "coload_risk": 11718.335877052119,
+      "producer_inventory_risk": 1.516127,
+      "facility_inventory_risk": 5.902545166666672,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "d82c804022bf3277d2f4e9755f5ffd799570ec9ce9ba91b0a959b5c06229383f",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 123,
+        "operator_seed": 1961799640,
+        "candidate_index": 58,
+        "operator_ok": true,
+        "operator_reason": "swap"
+      },
+      "solution_path": "solutions/test-Test-4-000--revision-v4/d82c804022bf3277d2f4e9755f5ffd799570ec9ce9ba91b0a959b5c06229383f.json"
+    },
+    {
+      "cost": 52268.893895,
+      "risk": 12962.685314931095,
+      "normalized_cost": 1.0109954069370346,
+      "normalized_risk": 0.8420964414750802,
+      "weighted_objective_raw": 32615.789604965546,
+      "weighted_objective_normalized": 0.9265459242060574,
+      "weighted_objective": 0.9265459242060574,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 500.0,
+      "distance_cost": 47032.035,
+      "processing_cost": 4736.858895,
+      "transport_risk": 1527.8363032180084,
+      "coload_risk": 11429.317037213088,
+      "producer_inventory_risk": 0.0,
+      "facility_inventory_risk": 5.531974500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "168e1bf8e795f9709db2020e4b35b721307abe7a39e81c95b1295240fd23178e",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 123,
+        "operator_seed": 378632674,
+        "candidate_index": 63,
+        "operator_ok": true,
+        "operator_reason": "split_by_waste_type"
+      },
+      "solution_path": "solutions/test-Test-4-000--revision-v4/168e1bf8e795f9709db2020e4b35b721307abe7a39e81c95b1295240fd23178e.json"
+    }
+  ],
+  "stop_reason": "preflight_only",
+  "archive_id": "preflight-B64",
+  "task": {
+    "id": "preflight",
+    "kind": "PPO",
+    "model": "large",
+    "instance": "Test-4",
+    "repeat": -1,
+    "seed": 123
+  },
+  "instance_id": "test-Test-4-000--revision-v4",
+  "instance_sha256": "77a4f9aed9777d81ae330ce8d3b6866b197ab0334a298e440f6f8e36a86c42ea",
+  "b_C": 51700.426665000006,
+  "b_R": 15393.350068342135,
+  "reference_plan_sha256": "56c7d96819c4c9868ae0acf17f31003493e8a25b14037c364a8081e763cfb214",
+  "search_initial_plan_sha256": "56c7d96819c4c9868ae0acf17f31003493e8a25b14037c364a8081e763cfb214",
+  "protocol_sha256": "e496b6bddc716cf80d821e887e25be51c4ffdb1c268460ad7b1f233cde883ebe",
+  "strict_feasible_points": 3,
+  "status": "success",
+  "checkpoint": {
+    "experiment_alias": "New-L-v4",
+    "training_scale": "Test-4",
+    "sha256": "61db3f4dcc6aa768f22dd36515449416facb603b934c9eaf9a5e0278838fab3a",
+    "checkpoint": "outputs/parameter_revision_v4/models/large_model.pt",
+    "training_record": "outputs/parameter_revision_v4/models/large.json"
+  }
+}

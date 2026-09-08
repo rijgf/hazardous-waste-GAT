@@ -1,0 +1,81 @@
+{
+  "schema": "pareto-parameter-revision-milp-v4",
+  "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+  "reference_sha256": "7ddf960c830d47c963a4622f9e2a03bcc62d3e389f1a7501c22b11c56dba7f68",
+  "instance_seed": 3723524230,
+  "reference_seed": 3949079119,
+  "objective_refs": [
+    2392.144045,
+    41.20119896534043
+  ],
+  "preferences": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.75,
+      0.25
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.25,
+      0.75
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "solver_options": {
+    "time_limit": 3600.0,
+    "mip_rel_gap": 0.0,
+    "threads": 1,
+    "random_seed": 0,
+    "disp": true
+  },
+  "sources": {
+    "run_pareto_milp.py": "62bc0086d0a15ac4dd0c1ad0ab2d6f276243c93904102f25ffbcc2f5da621e7f",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6",
+    "sample_params.py": "121870fe103edd3f36373722c4442e9450b1b73cd2c367ea32c39e978576f8df",
+    "configs/model_config.json": "1fcfec53270256ad47c9b086b82a506bcb379183761bc12e7a21eeeaffdc3c51",
+    "src/heuristics.py": "ac464455a78607acea2b4cd302860b24c50156beaa6189b4be5ef17467a2264a",
+    "src/instance_generator.py": "d24c079055875077bcd2d47ee15b287bc281f803285edc0de3320c8463308ec9",
+    "src/reproducibility.py": "91518f0554199275bb44aab968d6a4df671e6f79c110b31f85b536cbd4549ff0",
+    "src/solution_utils.py": "2e8dcd6ba271adea2be76b524d78de0df766255297f55779a72a061665ce39ee",
+    "src/supplementary_experiment.py": "f058b6f9680f5f1fa18f904f1d5e4392604657c9fbca041141fc37a50284a5ba",
+    "run_pareto_experiments.py": "291a0caae4e11e79600309604519ecae9c6dc465956afd78689fd8ffe992bd14",
+    "src/pareto_experiment.py": "4ea667b52c5bd01a7b7123cbb358602999c760ae84f7aebee20c4aa1f9f4ee5a",
+    "src/ppo_improver.py": "025b0c9ecb3b686ea89fcf42929596d383c7791335dc77d7c53f01fb70d9571b",
+    "src/operators.py": "429bf3d42b96c630c08fe85209991c7cb385ccee582aaebbe225445c627851a9",
+    "src/parameter_revision.py": "74c1a13ea7dddc1a5860f8f9755f49f33b15aebbd386e815fb720cdc1eaa707c",
+    "run_parameter_revision.py": "9e0f01faef0ee428929e7425abe62b4f8483e98c62535ead85099bedbfd3cd6b"
+  },
+  "time_definition": "Model build, MILP solve, decode and strict validation; excludes shared case preparation and file serialization.",
+  "parallel_jobs": 5,
+  "instance_id": "legacy-small-fixed--revision-v4",
+  "main_protocol_sha256": "e496b6bddc716cf80d821e887e25be51c4ffdb1c268460ad7b1f233cde883ebe",
+  "parameter_revision": {
+    "capacity_factor": 2.0,
+    "risk_total_ratio_range": [
+      3.0,
+      6.0
+    ],
+    "risk_strength_range": [
+      2.0,
+      5.0
+    ],
+    "models_retrained": true,
+    "training_hyperparameters_changed": false,
+    "small_case_revised": true,
+    "source_protocol_sha256": "69b24fd138602e7b2de82063c92a7db5e9daa390fe2192373c4d95358acdb49a",
+    "old_artifact_snapshot_sha256": "3c4afe19f0df2e7edb5921f0e12f3ad4ed4df0fb6f92a3d12c9dde1f1887c54c",
+    "policy": "new instance versions and retrained then frozen models; original networks, non-revised parameters, algorithms, budgets and algorithm seeds unchanged",
+    "reference_policy": "rebind each new instance once after deterministic strict-feasible reference preparation; all algorithms share that reference",
+    "chemical_evidence": "https://www.epa.gov/hwpermitting/method-determining-compatibility-hazardous-wastes",
+    "evidence_limit": "Supports combination-specific hazards, not a universal numeric multiplier; Uniform(3,6) equal-load total transport ratio is a synthetic experiment assumption"
+  }
+}

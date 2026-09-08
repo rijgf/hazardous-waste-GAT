@@ -1,0 +1,1299 @@
+{
+  "instance_id": "train-Test-1-009--revision-v4",
+  "params": {
+    "producers": [
+      "G1",
+      "G2",
+      "G3"
+    ],
+    "waste_types": [
+      "S1",
+      "S2"
+    ],
+    "facilities": [
+      "D1",
+      "D2"
+    ],
+    "vehicles": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "periods": [
+      1,
+      2
+    ],
+    "generation": [
+      {
+        "key": [
+          "G1",
+          "S1",
+          1
+        ],
+        "value": 1.112
+      },
+      {
+        "key": [
+          "G1",
+          "S1",
+          2
+        ],
+        "value": 0.999
+      },
+      {
+        "key": [
+          "G1",
+          "S2",
+          1
+        ],
+        "value": 1.061
+      },
+      {
+        "key": [
+          "G1",
+          "S2",
+          2
+        ],
+        "value": 1.315
+      },
+      {
+        "key": [
+          "G2",
+          "S1",
+          1
+        ],
+        "value": 1.182
+      },
+      {
+        "key": [
+          "G2",
+          "S1",
+          2
+        ],
+        "value": 1.537
+      },
+      {
+        "key": [
+          "G2",
+          "S2",
+          1
+        ],
+        "value": 1.002
+      },
+      {
+        "key": [
+          "G2",
+          "S2",
+          2
+        ],
+        "value": 0.813
+      },
+      {
+        "key": [
+          "G3",
+          "S1",
+          1
+        ],
+        "value": 1.583
+      },
+      {
+        "key": [
+          "G3",
+          "S1",
+          2
+        ],
+        "value": 0.69
+      },
+      {
+        "key": [
+          "G3",
+          "S2",
+          1
+        ],
+        "value": 1.798
+      },
+      {
+        "key": [
+          "G3",
+          "S2",
+          2
+        ],
+        "value": 1.882
+      }
+    ],
+    "initial_producer_inventory": [
+      {
+        "key": [
+          "G1",
+          "S1"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "G1",
+          "S2"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "G2",
+          "S1"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "G2",
+          "S2"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "G3",
+          "S1"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "G3",
+          "S2"
+        ],
+        "value": 0.0
+      }
+    ],
+    "initial_facility_inventory": [
+      {
+        "key": [
+          "D1",
+          "S1"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "D1",
+          "S2"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "D2",
+          "S1"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "D2",
+          "S2"
+        ],
+        "value": 0.0
+      }
+    ],
+    "producer_capacity": {
+      "G1": 11.218,
+      "G2": 11.335,
+      "G3": 14.882
+    },
+    "facility_capacity": {
+      "D1": 22.461,
+      "D2": 22.461
+    },
+    "vehicle_capacity": 8.984,
+    "distance": [
+      {
+        "key": [
+          "D1",
+          "n::G1::S1"
+        ],
+        "value": 44.928
+      },
+      {
+        "key": [
+          "D1",
+          "n::G1::S2"
+        ],
+        "value": 48.769
+      },
+      {
+        "key": [
+          "D1",
+          "n::G2::S1"
+        ],
+        "value": 50.061
+      },
+      {
+        "key": [
+          "D1",
+          "n::G2::S2"
+        ],
+        "value": 75.184
+      },
+      {
+        "key": [
+          "D1",
+          "n::G3::S1"
+        ],
+        "value": 49.291
+      },
+      {
+        "key": [
+          "D1",
+          "n::G3::S2"
+        ],
+        "value": 59.122
+      },
+      {
+        "key": [
+          "D2",
+          "n::G1::S1"
+        ],
+        "value": 48.17
+      },
+      {
+        "key": [
+          "D2",
+          "n::G1::S2"
+        ],
+        "value": 64.338
+      },
+      {
+        "key": [
+          "D2",
+          "n::G2::S1"
+        ],
+        "value": 17.122
+      },
+      {
+        "key": [
+          "D2",
+          "n::G2::S2"
+        ],
+        "value": 51.037
+      },
+      {
+        "key": [
+          "D2",
+          "n::G3::S1"
+        ],
+        "value": 38.323
+      },
+      {
+        "key": [
+          "D2",
+          "n::G3::S2"
+        ],
+        "value": 53.047
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "D1"
+        ],
+        "value": 44.928
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "D2"
+        ],
+        "value": 48.17
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G2::S1"
+        ],
+        "value": 51.999
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G2::S2"
+        ],
+        "value": 49.453
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G3::S1"
+        ],
+        "value": 19.285
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G3::S2"
+        ],
+        "value": 17.315
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "D1"
+        ],
+        "value": 48.769
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "D2"
+        ],
+        "value": 64.338
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G2::S1"
+        ],
+        "value": 71.67
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G2::S2"
+        ],
+        "value": 71.187
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G3::S1"
+        ],
+        "value": 41.336
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G3::S2"
+        ],
+        "value": 36.359
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "D1"
+        ],
+        "value": 50.061
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "D2"
+        ],
+        "value": 17.122
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G1::S1"
+        ],
+        "value": 51.999
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G1::S2"
+        ],
+        "value": 71.67
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G3::S1"
+        ],
+        "value": 36.499
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G3::S2"
+        ],
+        "value": 51.12
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "D1"
+        ],
+        "value": 75.184
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "D2"
+        ],
+        "value": 51.037
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G1::S1"
+        ],
+        "value": 49.453
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G1::S2"
+        ],
+        "value": 71.187
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G3::S1"
+        ],
+        "value": 31.121
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G3::S2"
+        ],
+        "value": 36.328
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "D1"
+        ],
+        "value": 49.291
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "D2"
+        ],
+        "value": 38.323
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G1::S1"
+        ],
+        "value": 19.285
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G1::S2"
+        ],
+        "value": 41.336
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G2::S1"
+        ],
+        "value": 36.499
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G2::S2"
+        ],
+        "value": 31.121
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "D1"
+        ],
+        "value": 59.122
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "D2"
+        ],
+        "value": 53.047
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G1::S1"
+        ],
+        "value": 17.315
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G1::S2"
+        ],
+        "value": 36.359
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G2::S1"
+        ],
+        "value": 51.12
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G2::S2"
+        ],
+        "value": 36.328
+      }
+    ],
+    "accident_probability": [
+      {
+        "key": [
+          "D1",
+          "n::G1::S1"
+        ],
+        "value": 0.000649
+      },
+      {
+        "key": [
+          "D1",
+          "n::G1::S2"
+        ],
+        "value": 0.002306
+      },
+      {
+        "key": [
+          "D1",
+          "n::G2::S1"
+        ],
+        "value": 0.000978
+      },
+      {
+        "key": [
+          "D1",
+          "n::G2::S2"
+        ],
+        "value": 0.001714
+      },
+      {
+        "key": [
+          "D1",
+          "n::G3::S1"
+        ],
+        "value": 0.002499
+      },
+      {
+        "key": [
+          "D1",
+          "n::G3::S2"
+        ],
+        "value": 0.001046
+      },
+      {
+        "key": [
+          "D2",
+          "n::G1::S1"
+        ],
+        "value": 0.00158
+      },
+      {
+        "key": [
+          "D2",
+          "n::G1::S2"
+        ],
+        "value": 0.002109
+      },
+      {
+        "key": [
+          "D2",
+          "n::G2::S1"
+        ],
+        "value": 0.002089
+      },
+      {
+        "key": [
+          "D2",
+          "n::G2::S2"
+        ],
+        "value": 0.001623
+      },
+      {
+        "key": [
+          "D2",
+          "n::G3::S1"
+        ],
+        "value": 0.001793
+      },
+      {
+        "key": [
+          "D2",
+          "n::G3::S2"
+        ],
+        "value": 0.002852
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "D1"
+        ],
+        "value": 0.002441
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "D2"
+        ],
+        "value": 0.00286
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G2::S1"
+        ],
+        "value": 0.002951
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G2::S2"
+        ],
+        "value": 0.00232
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G3::S1"
+        ],
+        "value": 0.001126
+      },
+      {
+        "key": [
+          "n::G1::S1",
+          "n::G3::S2"
+        ],
+        "value": 0.001138
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "D1"
+        ],
+        "value": 0.000731
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "D2"
+        ],
+        "value": 0.002517
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G2::S1"
+        ],
+        "value": 0.002945
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G2::S2"
+        ],
+        "value": 0.001281
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G3::S1"
+        ],
+        "value": 0.002746
+      },
+      {
+        "key": [
+          "n::G1::S2",
+          "n::G3::S2"
+        ],
+        "value": 0.002026
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "D1"
+        ],
+        "value": 0.001327
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "D2"
+        ],
+        "value": 0.000793
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G1::S1"
+        ],
+        "value": 0.002798
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G1::S2"
+        ],
+        "value": 0.002267
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G3::S1"
+        ],
+        "value": 0.001413
+      },
+      {
+        "key": [
+          "n::G2::S1",
+          "n::G3::S2"
+        ],
+        "value": 0.002908
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "D1"
+        ],
+        "value": 0.00201
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "D2"
+        ],
+        "value": 0.002007
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G1::S1"
+        ],
+        "value": 0.002841
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G1::S2"
+        ],
+        "value": 0.002354
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G3::S1"
+        ],
+        "value": 0.002082
+      },
+      {
+        "key": [
+          "n::G2::S2",
+          "n::G3::S2"
+        ],
+        "value": 0.002659
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "D1"
+        ],
+        "value": 0.001326
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "D2"
+        ],
+        "value": 0.001992
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G1::S1"
+        ],
+        "value": 0.000869
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G1::S2"
+        ],
+        "value": 0.001449
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G2::S1"
+        ],
+        "value": 0.002888
+      },
+      {
+        "key": [
+          "n::G3::S1",
+          "n::G2::S2"
+        ],
+        "value": 0.001866
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "D1"
+        ],
+        "value": 0.001348
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "D2"
+        ],
+        "value": 0.000631
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G1::S1"
+        ],
+        "value": 0.002981
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G1::S2"
+        ],
+        "value": 0.002281
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G2::S1"
+        ],
+        "value": 0.002579
+      },
+      {
+        "key": [
+          "n::G3::S2",
+          "n::G2::S2"
+        ],
+        "value": 0.001437
+      }
+    ],
+    "vehicle_fixed_cost": 50.0,
+    "distance_cost": 3.0,
+    "processing_cost": [
+      {
+        "key": [
+          "D1",
+          "S1"
+        ],
+        "value": 14.947
+      },
+      {
+        "key": [
+          "D1",
+          "S2"
+        ],
+        "value": 11.04
+      },
+      {
+        "key": [
+          "D2",
+          "S1"
+        ],
+        "value": 12.664
+      },
+      {
+        "key": [
+          "D2",
+          "S2"
+        ],
+        "value": 8.354
+      }
+    ],
+    "technology": [
+      {
+        "key": [
+          "D1",
+          "S1"
+        ],
+        "value": 1
+      },
+      {
+        "key": [
+          "D1",
+          "S2"
+        ],
+        "value": 1
+      },
+      {
+        "key": [
+          "D2",
+          "S1"
+        ],
+        "value": 1
+      },
+      {
+        "key": [
+          "D2",
+          "S2"
+        ],
+        "value": 1
+      }
+    ],
+    "processing_capacity": [
+      {
+        "key": [
+          "D1",
+          "S1",
+          1
+        ],
+        "value": 3.5515
+      },
+      {
+        "key": [
+          "D1",
+          "S1",
+          2
+        ],
+        "value": 3.5515
+      },
+      {
+        "key": [
+          "D2",
+          "S1",
+          1
+        ],
+        "value": 3.5515
+      },
+      {
+        "key": [
+          "D2",
+          "S1",
+          2
+        ],
+        "value": 3.5515
+      },
+      {
+        "key": [
+          "D1",
+          "S2",
+          1
+        ],
+        "value": 3.9354999999999998
+      },
+      {
+        "key": [
+          "D1",
+          "S2",
+          2
+        ],
+        "value": 3.9354999999999998
+      },
+      {
+        "key": [
+          "D2",
+          "S2",
+          1
+        ],
+        "value": 3.9354999999999998
+      },
+      {
+        "key": [
+          "D2",
+          "S2",
+          2
+        ],
+        "value": 3.9354999999999998
+      }
+    ],
+    "compatibility": [
+      {
+        "key": [
+          "S1",
+          "S1"
+        ],
+        "value": 1
+      },
+      {
+        "key": [
+          "S1",
+          "S2"
+        ],
+        "value": 1
+      },
+      {
+        "key": [
+          "S2",
+          "S2"
+        ],
+        "value": 1
+      }
+    ],
+    "coload_risk": [
+      {
+        "key": [
+          "S1",
+          "S1"
+        ],
+        "value": 0.0
+      },
+      {
+        "key": [
+          "S1",
+          "S2"
+        ],
+        "value": 8.739483131651724
+      },
+      {
+        "key": [
+          "S2",
+          "S2"
+        ],
+        "value": 0.0
+      }
+    ],
+    "waste_consequence": {
+      "S1": 2.982,
+      "S2": 1.691
+    },
+    "producer_inventory_risk": [
+      {
+        "key": [
+          "G1",
+          "S1"
+        ],
+        "value": 0.737
+      },
+      {
+        "key": [
+          "G1",
+          "S2"
+        ],
+        "value": 0.219
+      },
+      {
+        "key": [
+          "G2",
+          "S1"
+        ],
+        "value": 0.731
+      },
+      {
+        "key": [
+          "G2",
+          "S2"
+        ],
+        "value": 0.809
+      },
+      {
+        "key": [
+          "G3",
+          "S1"
+        ],
+        "value": 0.507
+      },
+      {
+        "key": [
+          "G3",
+          "S2"
+        ],
+        "value": 0.515
+      }
+    ],
+    "facility_inventory_risk": [
+      {
+        "key": [
+          "D1",
+          "S1"
+        ],
+        "value": 0.561
+      },
+      {
+        "key": [
+          "D1",
+          "S2"
+        ],
+        "value": 0.178
+      },
+      {
+        "key": [
+          "D2",
+          "S1"
+        ],
+        "value": 0.51
+      },
+      {
+        "key": [
+          "D2",
+          "S2"
+        ],
+        "value": 0.66
+      }
+    ],
+    "min_pickup": 0.001,
+    "cost_weight": 1.0,
+    "risk_weight": 1.0,
+    "require_terminal_clear": true
+  },
+  "instance_sha256": "1703d6dd7612ba7878882327d214cbc8b9be75d25fd44c336f73e2faa64845d9",
+  "reference_plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G2::S1",
+          "n::G3::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G1::S1",
+          "n::G2::S2",
+          "n::G1::S2",
+          "n::G3::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G2::S1",
+          "n::G3::S1",
+          "n::G2::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G1::S1",
+          "n::G3::S2",
+          "n::G1::S2",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "reference_plan_sha256": "9dd0822c74acf9127f73c8b20f5c51a28fcbbf0a519a8c01c6b8bb8efcf24a69",
+  "search_initial_plan_sha256": "9dd0822c74acf9127f73c8b20f5c51a28fcbbf0a519a8c01c6b8bb8efcf24a69",
+  "b_C": 2673.959619,
+  "b_R": 31.217502566986038,
+  "reference_metrics": {
+    "cost": 2673.959619,
+    "risk": 31.217502566986038,
+    "normalized_cost": 2673.959619,
+    "normalized_risk": 31.217502566986038,
+    "weighted_objective_raw": 1352.5885607834932,
+    "weighted_objective_normalized": 1352.5885607834932,
+    "weighted_objective": 1352.5885607834932,
+    "cost_ref": 1.0,
+    "risk_ref": 1.0,
+    "fixed_cost": 200.0,
+    "distance_cost": 2303.4570000000003,
+    "processing_cost": 170.50261899999998,
+    "transport_risk": 7.6803712049351125,
+    "coload_risk": 23.537131362050925,
+    "producer_inventory_risk": 0.0,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  },
+  "base_instance_id": "train-Test-1-009",
+  "instance_seed": 167356335,
+  "reference_seed": 677858134,
+  "scenario_parameter": "baseline",
+  "scenario_multiplier": 1.0,
+  "source_instance_path": "datasets/reference_generalization_v2/train/Test-1/009.json",
+  "source_instance_sha256": "ec2e80b7ef698035d8545021feb6a6864f4e20192eb50827bbb877857450f1a8",
+  "original_params_sha256": "3618a6bebacae6fba0106332419dd09ff668501db0cba167fac71be79470c0b2",
+  "changed_fields": [
+    "processing_capacity",
+    "coload_risk"
+  ],
+  "parameter_revision": {
+    "capacity_factor": 2.0,
+    "capacity_definition": "sum over technology-compatible facilities / mean global generation per period",
+    "capacity_allocation": "equal effective capacity among technology-compatible facilities; no rounding",
+    "risk_total_ratio_range": [
+      3.0,
+      6.0
+    ],
+    "risk_parameter_seed": 1409297229,
+    "risk_calibration": "same arc, two equal positive loads; baseline transport plus additional coload risk; excludes inventory risk",
+    "risk_generation": "independent pair strengths Uniform(2,5); gamma=strength*(h_s+h_t)/2; no extremum calibration",
+    "pairs": [
+      {
+        "pair": [
+          "S1",
+          "S2"
+        ],
+        "old_gamma": 0.436,
+        "new_gamma": 8.739483131651724,
+        "equal_load_total_transport_risk_ratio": 4.740416491184131
+      }
+    ],
+    "capacity_by_waste": [
+      {
+        "waste": "S1",
+        "average_period_generation": 3.5515,
+        "eligible_facilities": [
+          "D1",
+          "D2"
+        ],
+        "capacity_per_eligible_facility": 3.5515,
+        "effective_capacity_each_period": 7.103
+      },
+      {
+        "waste": "S2",
+        "average_period_generation": 3.9354999999999998,
+        "eligible_facilities": [
+          "D1",
+          "D2"
+        ],
+        "capacity_per_eligible_facility": 3.9354999999999998,
+        "effective_capacity_each_period": 7.8709999999999996
+      }
+    ],
+    "empirical_status": "user-specified synthetic stress scenario, not a chemical safety calibration"
+  },
+  "reference_construction": {
+    "method": "all-period joint vehicle-facility assignment followed by alternating-producer routing",
+    "solver_seed": 0,
+    "time_limit_per_period": 60.0,
+    "seconds": 0.00585079996380955,
+    "purpose": "common reference only, no cost-risk optimization or benchmark warm start",
+    "periods": [
+      {
+        "period": 1,
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "assignment_variables": 42,
+        "assignment_constraints": 61
+      },
+      {
+        "period": 2,
+        "status": 0,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "assignment_variables": 42,
+        "assignment_constraints": 61
+      }
+    ]
+  },
+  "split": "train",
+  "scale": "Test-1",
+  "index": 9
+}
