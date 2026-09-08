@@ -1,0 +1,2279 @@
+{
+  "budget": 40320,
+  "counts": {
+    "candidate_attempts": 40320,
+    "candidate_objective_evaluations": 5522,
+    "cache_hits": 34798,
+    "invalid_candidates": 0,
+    "operator_failures": 8549,
+    "invalid_candidate_attempts": 0,
+    "ppo_internal_objective_evaluations": 33052
+  },
+  "seconds": 47.97723760001827,
+  "preparation_seconds": 0.0005161999724805355,
+  "points": [
+    {
+      "cost": 1436.519735,
+      "risk": 9.153870855499033,
+      "normalized_cost": 0.8227236689253439,
+      "normalized_risk": 0.557602476138044,
+      "weighted_objective_raw": 722.8368029277495,
+      "weighted_objective_normalized": 0.690163072531694,
+      "weighted_objective": 0.690163072531694,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 100.0,
+      "distance_cost": 1052.979,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 3.779659838028335,
+      "coload_risk": 0.228655017470698,
+      "producer_inventory_risk": 5.145556,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.4,
+          0.6
+        ],
+        "evaluation_seed": 826692453,
+        "operator_seed": 1235491056,
+        "candidate_index": 312,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588.json"
+    },
+    {
+      "cost": 1525.3907350000002,
+      "risk": 7.77841522444377,
+      "normalized_cost": 0.8736218733840974,
+      "normalized_risk": 0.47381743287039796,
+      "weighted_objective_raw": 766.584575112222,
+      "weighted_objective_normalized": 0.6737196531272477,
+      "weighted_objective": 0.6737196531272477,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 150.0,
+      "distance_cost": 1091.8500000000001,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.425352955748915,
+      "coload_risk": 0.207506268694855,
+      "producer_inventory_risk": 5.145556,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "1ac3e41e792a585af43bd8da55cd35e74c42645745a593eecbd129355ff11b3a",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.65,
+          0.35
+        ],
+        "evaluation_seed": 3320035570,
+        "operator_seed": 1910639394,
+        "candidate_index": 218,
+        "operator_ok": true,
+        "operator_reason": "swap"
+      },
+      "solution_path": "solutions/test-Test-1-000/1ac3e41e792a585af43bd8da55cd35e74c42645745a593eecbd129355ff11b3a.json"
+    },
+    {
+      "cost": 1586.2427350000003,
+      "risk": 7.607445766491557,
+      "normalized_cost": 0.9084730344796635,
+      "normalized_risk": 0.4634029323161473,
+      "weighted_objective_raw": 796.9250903832459,
+      "weighted_objective_normalized": 0.6859379833979055,
+      "weighted_objective": 0.6859379833979055,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 150.0,
+      "distance_cost": 1152.7020000000002,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.736703251349765,
+      "coload_risk": 0.239416515141791,
+      "producer_inventory_risk": 4.6313260000000005,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "b0b9bfc4b95e9297d191a3b64e20bb0c1351cb414489aed439b944f75155a4d2",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.6,
+          0.4
+        ],
+        "evaluation_seed": 1210501222,
+        "operator_seed": 1635457153,
+        "candidate_index": 686,
+        "operator_ok": true,
+        "operator_reason": "split_by_waste_type"
+      },
+      "solution_path": "solutions/test-Test-1-000/b0b9bfc4b95e9297d191a3b64e20bb0c1351cb414489aed439b944f75155a4d2.json"
+    },
+    {
+      "cost": 1636.4407350000004,
+      "risk": 7.264185224443771,
+      "normalized_cost": 0.9372224360552113,
+      "normalized_risk": 0.44249342515488443,
+      "weighted_objective_raw": 821.852460112222,
+      "weighted_objective_normalized": 0.6898579306050479,
+      "weighted_objective": 0.6898579306050479,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1152.9000000000003,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.425352955748915,
+      "coload_risk": 0.207506268694855,
+      "producer_inventory_risk": 4.6313260000000005,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "0b60eb70f8426a7f3468cfe7e9556f7bc74721856bc4699ec4d43ce7f9d47fbb",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.35,
+          0.65
+        ],
+        "evaluation_seed": 3953475107,
+        "operator_seed": 1259106017,
+        "candidate_index": 609,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/0b60eb70f8426a7f3468cfe7e9556f7bc74721856bc4699ec4d43ce7f9d47fbb.json"
+    },
+    {
+      "cost": 1736.952735,
+      "risk": 6.847930514993697,
+      "normalized_cost": 0.9947876747332751,
+      "normalized_risk": 0.4171375226784965,
+      "weighted_objective_raw": 871.9003327574969,
+      "weighted_objective_normalized": 0.7059625987058858,
+      "weighted_objective": 0.7059625987058858,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1253.412,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.425352955748915,
+      "coload_risk": 0.19833355924478202,
+      "producer_inventory_risk": 4.2242440000000006,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "0d345d362a7271174bc52c903d47bc62370dff86feb1d736d36a427a7b7a46a7",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.65,
+          0.35
+        ],
+        "evaluation_seed": 3320035570,
+        "operator_seed": 236267824,
+        "candidate_index": 341,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/0d345d362a7271174bc52c903d47bc62370dff86feb1d736d36a427a7b7a46a7.json"
+    },
+    {
+      "cost": 1784.2627350000002,
+      "risk": 6.761640835339921,
+      "normalized_cost": 1.021883060775332,
+      "normalized_risk": 0.41188123932038034,
+      "weighted_objective_raw": 895.5121879176701,
+      "weighted_objective_normalized": 0.7168821500478562,
+      "weighted_objective": 0.7168821500478562,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1300.7220000000002,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.340653841089665,
+      "coload_risk": 0.18413099425025498,
+      "producer_inventory_risk": 4.236856,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "1047ac4442e4de892a612c966556bda4124cfcf623c0584d183be1a21c90a0f7",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.4,
+          0.6
+        ],
+        "evaluation_seed": 826692453,
+        "operator_seed": 1084137522,
+        "candidate_index": 272,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/1047ac4442e4de892a612c966556bda4124cfcf623c0584d183be1a21c90a0f7.json"
+    },
+    {
+      "cost": 1797.8047350000002,
+      "risk": 6.676961057041483,
+      "normalized_cost": 1.0296388358288413,
+      "normalized_risk": 0.4067230221242459,
+      "weighted_objective_raw": 902.2408480285209,
+      "weighted_objective_normalized": 0.7181809289765436,
+      "weighted_objective": 0.7181809289765436,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1314.2640000000001,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.7367032513497653,
+      "coload_risk": 0.23024380569171798,
+      "producer_inventory_risk": 3.710014,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "49e8f0d9ec8a10d249922d7da1cbc788a1b0314d682bf06cde8985ac0d255d21",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 9231807,
+        "operator_seed": 14697404,
+        "candidate_index": 1809,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/49e8f0d9ec8a10d249922d7da1cbc788a1b0314d682bf06cde8985ac0d255d21.json"
+    },
+    {
+      "cost": 1845.1147350000003,
+      "risk": 6.516514528631521,
+      "normalized_cost": 1.0567342218708982,
+      "normalized_risk": 0.39694951942342904,
+      "weighted_objective_raw": 925.8156247643159,
+      "weighted_objective_normalized": 0.7268418706471635,
+      "weighted_objective": 0.7268418706471635,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1361.5740000000003,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.609757534381265,
+      "coload_risk": 0.18413099425025498,
+      "producer_inventory_risk": 3.7226260000000004,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "1d37c8a150de47b4afa756e42b2789c99105567bc456a66ec24cf1adca3977b7",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 9231807,
+        "operator_seed": 801470766,
+        "candidate_index": 149,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/1d37c8a150de47b4afa756e42b2789c99105567bc456a66ec24cf1adca3977b7.json"
+    },
+    {
+      "cost": 1848.0027350000003,
+      "risk": 6.333700514993698,
+      "normalized_cost": 1.0583882374043891,
+      "normalized_risk": 0.385813514962983,
+      "weighted_objective_raw": 927.168217757497,
+      "weighted_objective_normalized": 0.722100876183686,
+      "weighted_objective": 0.722100876183686,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1314.4620000000002,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.4253529557489153,
+      "coload_risk": 0.19833355924478202,
+      "producer_inventory_risk": 3.710014,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "142e4a11249322e46ce3c4c5d7a5ab6d4411aca5a324cda3f0697f74371d522a",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.3,
+          0.7
+        ],
+        "evaluation_seed": 1918743885,
+        "operator_seed": 1568433247,
+        "candidate_index": 949,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/142e4a11249322e46ce3c4c5d7a5ab6d4411aca5a324cda3f0697f74371d522a.json"
+    },
+    {
+      "cost": 1895.3127350000002,
+      "risk": 6.24741083533992,
+      "normalized_cost": 1.0854836234464458,
+      "normalized_risk": 0.38055723160486676,
+      "weighted_objective_raw": 950.78007291767,
+      "weighted_objective_normalized": 0.7330204275256562,
+      "weighted_objective": 0.7330204275256562,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1361.7720000000002,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.340653841089665,
+      "coload_risk": 0.18413099425025498,
+      "producer_inventory_risk": 3.7226260000000004,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "2d69841e07a57d81a4506553a20ec619abbc18fdef4babbf44a5f118717e4633",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 9231807,
+        "operator_seed": 1467607503,
+        "candidate_index": 131,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/2d69841e07a57d81a4506553a20ec619abbc18fdef4babbf44a5f118717e4633.json"
+    },
+    {
+      "cost": 1935.117735,
+      "risk": 5.900901617375595,
+      "normalized_cost": 1.108280745437654,
+      "normalized_risk": 0.359449833325865,
+      "weighted_objective_raw": 970.5093183086879,
+      "weighted_objective_normalized": 0.7338652893817594,
+      "weighted_objective": 0.7338652893817594,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1451.577,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.3947033614814153,
+      "coload_risk": 0.19065425589418,
+      "producer_inventory_risk": 3.3155440000000005,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "7c8a0c1ca5fc373a4d4d111475a948d959a06af0bddbe6aced4186340e40cafc",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.25,
+          0.75
+        ],
+        "evaluation_seed": 1223311387,
+        "operator_seed": 637528603,
+        "candidate_index": 235,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/7c8a0c1ca5fc373a4d4d111475a948d959a06af0bddbe6aced4186340e40cafc.json"
+    },
+    {
+      "cost": 1995.8247350000004,
+      "risk": 5.831156125889848,
+      "normalized_cost": 1.1430488621245098,
+      "normalized_risk": 0.3552013291284789,
+      "weighted_objective_raw": 1000.8279455629452,
+      "weighted_objective_normalized": 0.7491250956264943,
+      "weighted_objective": 0.7491250956264943,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1462.2840000000003,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.3406538410896656,
+      "coload_risk": 0.174958284800182,
+      "producer_inventory_risk": 3.3155440000000005,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "7281adff9d378d15d2fc02aa1e81caf8a2d3abde0f1aecbbe390b4f6f0d08f33",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.4,
+          0.6
+        ],
+        "evaluation_seed": 826692453,
+        "operator_seed": 466575248,
+        "candidate_index": 1775,
+        "operator_ok": true,
+        "operator_reason": "add_early_service"
+      },
+      "solution_path": "solutions/test-Test-1-000/7281adff9d378d15d2fc02aa1e81caf8a2d3abde0f1aecbbe390b4f6f0d08f33.json"
+    },
+    {
+      "cost": 1995.9697350000001,
+      "risk": 5.729932159423381,
+      "normalized_cost": 1.1431319065332204,
+      "normalized_risk": 0.3490353327716143,
+      "weighted_objective_raw": 1000.8498335797118,
+      "weighted_objective_normalized": 0.7460836196524173,
+      "weighted_objective": 0.7460836196524173,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1512.429,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.7060536570822653,
+      "coload_risk": 0.22256450234111602,
+      "producer_inventory_risk": 2.801314,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "423c07db59320d676f63a427f1e53a69105966a1cb64834eb09b54ef0290e558",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.25,
+          0.75
+        ],
+        "evaluation_seed": 1223311387,
+        "operator_seed": 893471581,
+        "candidate_index": 1160,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/423c07db59320d676f63a427f1e53a69105966a1cb64834eb09b54ef0290e558.json"
+    },
+    {
+      "cost": 2046.167735,
+      "risk": 5.386671617375596,
+      "normalized_cost": 1.171881308108768,
+      "normalized_risk": 0.3281258256103515,
+      "weighted_objective_raw": 1025.7772033086878,
+      "weighted_objective_normalized": 0.7500035668595597,
+      "weighted_objective": 0.7500035668595597,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1512.627,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.3947033614814157,
+      "coload_risk": 0.19065425589418,
+      "producer_inventory_risk": 2.801314,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "4eff3911be6c82a3ad1b80111fa0e24a9ca050a02c54087a4f255abebc051699",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.25,
+          0.75
+        ],
+        "evaluation_seed": 1223311387,
+        "operator_seed": 909536510,
+        "candidate_index": 607,
+        "operator_ok": true,
+        "operator_reason": "move_visit_period"
+      },
+      "solution_path": "solutions/test-Test-1-000/4eff3911be6c82a3ad1b80111fa0e24a9ca050a02c54087a4f255abebc051699.json"
+    },
+    {
+      "cost": 2093.7197350000006,
+      "risk": 5.239731252662491,
+      "normalized_cost": 1.1991152924053627,
+      "normalized_risk": 0.31917504265721053,
+      "weighted_objective_raw": 1049.4797331263314,
+      "weighted_objective_normalized": 0.7591451675312866,
+      "weighted_objective": 0.7591451675312866,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 150.0,
+      "distance_cost": 1660.1790000000003,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 3.1116884242599547,
+      "coload_risk": 0.276978828402536,
+      "producer_inventory_risk": 1.851064,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "ea8d5a02800e50d38ff4e677bd2efb20f81d858a298c625ed59e69caaf3ed658",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.2,
+          0.8
+        ],
+        "evaluation_seed": 225533723,
+        "operator_seed": 122730877,
+        "candidate_index": 689,
+        "operator_ok": true,
+        "operator_reason": "move_visit_period"
+      },
+      "solution_path": "solutions/test-Test-1-000/ea8d5a02800e50d38ff4e677bd2efb20f81d858a298c625ed59e69caaf3ed658.json"
+    },
+    {
+      "cost": 2143.9177350000004,
+      "risk": 4.424519702389725,
+      "normalized_cost": 1.2278646939809104,
+      "normalized_risk": 0.2695169268519874,
+      "weighted_objective_raw": 1074.171127351195,
+      "weighted_objective_normalized": 0.7486908104164489,
+      "weighted_objective": 0.7486908104164489,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 200.0,
+      "distance_cost": 1660.3770000000004,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.3722607124686053,
+      "coload_risk": 0.20119498992112,
+      "producer_inventory_risk": 1.851064,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "b15500a070e1abc104eea4f0938c7eed7e381f9a2cd59df618d7e9d800cc409d",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.2,
+          0.8
+        ],
+        "evaluation_seed": 225533723,
+        "operator_seed": 1167330186,
+        "candidate_index": 855,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/b15500a070e1abc104eea4f0938c7eed7e381f9a2cd59df618d7e9d800cc409d.json"
+    },
+    {
+      "cost": 2197.1097350000005,
+      "risk": 4.057235224443771,
+      "normalized_cost": 1.258328819416317,
+      "normalized_risk": 0.2471440162459017,
+      "weighted_objective_raw": 1100.5834851122222,
+      "weighted_objective_normalized": 0.7527364178311093,
+      "weighted_objective": 0.7527364178311093,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1663.5690000000004,
+      "processing_cost": 283.54073500000004,
+      "transport_risk": 2.425352955748915,
+      "coload_risk": 0.207506268694855,
+      "producer_inventory_risk": 1.424376,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "c6b6eea7377752bd2530a2dec46db75033ba67c32b7aba1bf836d3c2a8c7c5c1",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.15,
+          0.85
+        ],
+        "evaluation_seed": 1236586981,
+        "operator_seed": 319856693,
+        "candidate_index": 1711,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/c6b6eea7377752bd2530a2dec46db75033ba67c32b7aba1bf836d3c2a8c7c5c1.json"
+    },
+    {
+      "cost": 2254.967735,
+      "risk": 3.910289702389725,
+      "normalized_cost": 1.2914652566520242,
+      "normalized_risk": 0.23819291913647386,
+      "weighted_objective_raw": 1129.439012351195,
+      "weighted_objective_normalized": 0.764829087894249,
+      "weighted_objective": 0.764829087894249,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1721.4270000000004,
+      "processing_cost": 283.540735,
+      "transport_risk": 2.3722607124686053,
+      "coload_risk": 0.20119498992112,
+      "producer_inventory_risk": 1.336834,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "84241247433b30b9aefafdd5de76a99ada33e6a6e1a5c14fbf3b3b6ce68d42f6",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.2,
+          0.8
+        ],
+        "evaluation_seed": 225533723,
+        "operator_seed": 1197287088,
+        "candidate_index": 561,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/84241247433b30b9aefafdd5de76a99ada33e6a6e1a5c14fbf3b3b6ce68d42f6.json"
+    },
+    {
+      "cost": 2358.473735,
+      "risk": 3.4700110570414835,
+      "normalized_cost": 1.3507452191899467,
+      "normalized_risk": 0.21137361321526316,
+      "weighted_objective_raw": 1180.9718730285208,
+      "weighted_objective_normalized": 0.781059416202605,
+      "weighted_objective": 0.781059416202605,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 250.0,
+      "distance_cost": 1824.9330000000002,
+      "processing_cost": 283.540735,
+      "transport_risk": 2.7367032513497653,
+      "coload_risk": 0.23024380569171804,
+      "producer_inventory_risk": 0.5030640000000001,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "39cf1af571821b85f47faecc55f2cf3b37afc5ae083f5f53b10fd69599bdb0c1",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.15,
+          0.85
+        ],
+        "evaluation_seed": 1236586981,
+        "operator_seed": 982733550,
+        "candidate_index": 1699,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/39cf1af571821b85f47faecc55f2cf3b37afc5ae083f5f53b10fd69599bdb0c1.json"
+    },
+    {
+      "cost": 2408.6717350000004,
+      "risk": 3.1267505149936974,
+      "normalized_cost": 1.3794946207654946,
+      "normalized_risk": 0.19046410605400027,
+      "weighted_objective_raw": 1205.899242757497,
+      "weighted_objective_normalized": 0.7849793634097474,
+      "weighted_objective": 0.7849793634097474,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 300.0,
+      "distance_cost": 1825.131,
+      "processing_cost": 283.540735,
+      "transport_risk": 2.4253529557489153,
+      "coload_risk": 0.19833355924478202,
+      "producer_inventory_risk": 0.5030640000000001,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "170dcb644ebdcc8cf933d1ee154b93cfa0356132ff274715042716ec470a9001",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.05,
+          0.95
+        ],
+        "evaluation_seed": 2439122572,
+        "operator_seed": 555532554,
+        "candidate_index": 1092,
+        "operator_ok": true,
+        "operator_reason": "swap"
+      },
+      "solution_path": "solutions/test-Test-1-000/170dcb644ebdcc8cf933d1ee154b93cfa0356132ff274715042716ec470a9001.json"
+    },
+    {
+      "cost": 2560.348735000001,
+      "risk": 3.0332739679970206,
+      "normalized_cost": 1.4663630813171973,
+      "normalized_risk": 0.18477003904246173,
+      "weighted_objective_raw": 1281.691004483999,
+      "weighted_objective_normalized": 0.8255665601798295,
+      "weighted_objective": 0.8255665601798295,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 300.0,
+      "distance_cost": 1976.8080000000007,
+      "processing_cost": 283.540735,
+      "transport_risk": 2.3947033614814153,
+      "coload_risk": 0.135506606515605,
+      "producer_inventory_risk": 0.5030640000000001,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "5187c2e32d66d95d65f444b1867ff2d9796ae3a72bdb334f572bb80f72912d76",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.15,
+          0.85
+        ],
+        "evaluation_seed": 1236586981,
+        "operator_seed": 1876892900,
+        "candidate_index": 1412,
+        "operator_ok": true,
+        "operator_reason": "swap"
+      },
+      "solution_path": "solutions/test-Test-1-000/5187c2e32d66d95d65f444b1867ff2d9796ae3a72bdb334f572bb80f72912d76.json"
+    },
+    {
+      "cost": 2561.319397,
+      "risk": 2.815272516817842,
+      "normalized_cost": 1.4669189989161475,
+      "normalized_risk": 0.1714906132238013,
+      "weighted_objective_raw": 1282.067334758409,
+      "weighted_objective_normalized": 0.8192048060699744,
+      "weighted_objective": 0.8192048060699744,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 300.0,
+      "distance_cost": 1970.8980000000001,
+      "processing_cost": 290.421397,
+      "transport_risk": 2.2128615433761647,
+      "coload_risk": 0.099346973441677,
+      "producer_inventory_risk": 0.5030640000000001,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "15d9adc182389ce916ce3fb6b9bc5c241c888bda6454600f4cd3a484193d0ea3",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.0,
+          1.0
+        ],
+        "evaluation_seed": 550449429,
+        "operator_seed": 371654417,
+        "candidate_index": 1295,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-1-000/15d9adc182389ce916ce3fb6b9bc5c241c888bda6454600f4cd3a484193d0ea3.json"
+    },
+    {
+      "cost": 2775.9933970000006,
+      "risk": 2.771142003889782,
+      "normalized_cost": 1.589867105092273,
+      "normalized_risk": 0.16880242986723298,
+      "weighted_objective_raw": 1389.3822695019453,
+      "weighted_objective_normalized": 0.879334767479753,
+      "weighted_objective": 0.879334767479753,
+      "cost_ref": 1746.053735,
+      "risk_ref": 16.4164817181207,
+      "fixed_cost": 300.0,
+      "distance_cost": 2185.5720000000006,
+      "processing_cost": 290.421397,
+      "transport_risk": 2.1687310304481047,
+      "coload_risk": 0.099346973441677,
+      "producer_inventory_risk": 0.5030640000000001,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "66814cdcf2994214a87c6674d7bb22f5ca845cf0d6f338356e3bde8d25931ea7",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.0,
+          1.0
+        ],
+        "evaluation_seed": 550449429,
+        "operator_seed": 2090516095,
+        "candidate_index": 1164,
+        "operator_ok": true,
+        "operator_reason": "change_facility"
+      },
+      "solution_path": "solutions/test-Test-1-000/66814cdcf2994214a87c6674d7bb22f5ca845cf0d6f338356e3bde8d25931ea7.json"
+    }
+  ],
+  "final_solutions": [
+    {
+      "preference": [
+        0.0,
+        1.0
+      ],
+      "seed": 550449429,
+      "seconds": 2.4735693000257015,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G2::S2",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G2::S1",
+              "D2"
+            ]
+          }
+        ]
+      },
+      "solution_id": "66814cdcf2994214a87c6674d7bb22f5ca845cf0d6f338356e3bde8d25931ea7",
+      "metrics": {
+        "cost": 2775.9933970000006,
+        "risk": 2.771142003889782,
+        "normalized_cost": 1.589867105092273,
+        "normalized_risk": 0.16880242986723298,
+        "weighted_objective_raw": 2.771142003889782,
+        "weighted_objective_normalized": 0.16880242986723298,
+        "weighted_objective": 0.16880242986723298,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 300.0,
+        "distance_cost": 2185.5720000000006,
+        "processing_cost": 290.421397,
+        "transport_risk": 2.1687310304481047,
+        "coload_risk": 0.099346973441677,
+        "producer_inventory_risk": 0.5030640000000001,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.05,
+        0.95
+      ],
+      "seed": 2439122572,
+      "seconds": 2.286322099971585,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G3::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "b8ef8cebd731a09e470760e77d82e4a629467abed5734d049b9c8c4715b1df64",
+      "metrics": {
+        "cost": 2787.6437349999997,
+        "risk": 2.8057819066364686,
+        "normalized_cost": 1.596539487371504,
+        "normalized_risk": 0.17091249847641926,
+        "weighted_objective_raw": 142.04767956130462,
+        "weighted_objective_normalized": 0.2421938479211735,
+        "weighted_objective": 0.2421938479211735,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 300.0,
+        "distance_cost": 2204.1029999999996,
+        "processing_cost": 283.540735,
+        "transport_risk": 2.1617683480284153,
+        "coload_risk": 0.14094955860805303,
+        "producer_inventory_risk": 0.5030640000000001,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.1,
+        0.9
+      ],
+      "seed": 33951438,
+      "seconds": 2.548586899996735,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "e67ce0af4d2b0eddfc26edd6438ab668ccc36c6883f0dae853393fcdfc16cb4d",
+      "metrics": {
+        "cost": 2560.348735,
+        "risk": 3.033273967997021,
+        "normalized_cost": 1.4663630813171968,
+        "normalized_risk": 0.18477003904246173,
+        "weighted_objective_raw": 258.76482007119733,
+        "weighted_objective_normalized": 0.31292934326993527,
+        "weighted_objective": 0.31292934326993527,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 300.0,
+        "distance_cost": 1976.8080000000002,
+        "processing_cost": 283.540735,
+        "transport_risk": 2.3947033614814157,
+        "coload_risk": 0.135506606515605,
+        "producer_inventory_risk": 0.5030640000000001,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.15,
+        0.85
+      ],
+      "seed": 1236586981,
+      "seconds": 2.5019441000185907,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4a1155c903dfa2292503ec02e1d29b6c25fcbe6b99149e4b9cc1078e24346acf",
+      "metrics": {
+        "cost": 2408.6717350000004,
+        "risk": 3.1267505149936974,
+        "normalized_cost": 1.3794946207654946,
+        "normalized_risk": 0.19046410605400027,
+        "weighted_objective_raw": 363.9584981877447,
+        "weighted_objective_normalized": 0.3688186832607244,
+        "weighted_objective": 0.3688186832607244,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 300.0,
+        "distance_cost": 1825.1310000000003,
+        "processing_cost": 283.540735,
+        "transport_risk": 2.4253529557489153,
+        "coload_risk": 0.19833355924478202,
+        "producer_inventory_risk": 0.5030640000000001,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.2,
+        0.8
+      ],
+      "seed": 225533723,
+      "seconds": 2.4580697000492364,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "84241247433b30b9aefafdd5de76a99ada33e6a6e1a5c14fbf3b3b6ce68d42f6",
+      "metrics": {
+        "cost": 2254.967735,
+        "risk": 3.910289702389725,
+        "normalized_cost": 1.2914652566520242,
+        "normalized_risk": 0.23819291913647386,
+        "weighted_objective_raw": 454.1217787619118,
+        "weighted_objective_normalized": 0.44884738663958396,
+        "weighted_objective": 0.44884738663958396,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 250.0,
+        "distance_cost": 1721.4270000000004,
+        "processing_cost": 283.540735,
+        "transport_risk": 2.3722607124686053,
+        "coload_risk": 0.20119498992112,
+        "producer_inventory_risk": 1.336834,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "seed": 1223311387,
+      "seconds": 2.2469392999773845,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "afa2bf76c21f5e5326cd397c78c6446de60129b79d91f09a73239177b4204bef",
+      "metrics": {
+        "cost": 2046.167735,
+        "risk": 5.386671617375596,
+        "normalized_cost": 1.171881308108768,
+        "normalized_risk": 0.3281258256103515,
+        "weighted_objective_raw": 515.5819374630317,
+        "weighted_objective_normalized": 0.5390646962349557,
+        "weighted_objective": 0.5390646962349557,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 250.0,
+        "distance_cost": 1512.627,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.3947033614814157,
+        "coload_risk": 0.19065425589418,
+        "producer_inventory_risk": 2.801314,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.3,
+        0.7
+      ],
+      "seed": 1918743885,
+      "seconds": 2.394618400023319,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K2",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 1,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "785a8bd742ed57c3a1719de214e733ad8a7b720cc43cf446a1afa17bb434a51f",
+      "metrics": {
+        "cost": 1848.0027350000003,
+        "risk": 6.333700514993698,
+        "normalized_cost": 1.0583882374043891,
+        "normalized_risk": 0.385813514962983,
+        "weighted_objective_raw": 558.8344108604956,
+        "weighted_objective_normalized": 0.5875859316954049,
+        "weighted_objective": 0.5875859316954049,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 250.0,
+        "distance_cost": 1314.4620000000002,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.4253529557489153,
+        "coload_risk": 0.19833355924478202,
+        "producer_inventory_risk": 3.710014,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.35,
+        0.65
+      ],
+      "seed": 3953475107,
+      "seconds": 2.300953399972059,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4b5d9002a38b9df30e30ffe15984cf73eaf6ae25a2234334257b215ee2e8f159",
+      "metrics": {
+        "cost": 1525.3907350000004,
+        "risk": 7.77841522444377,
+        "normalized_cost": 0.8736218733840975,
+        "normalized_risk": 0.47381743287039796,
+        "weighted_objective_raw": 538.9427271458885,
+        "weighted_objective_normalized": 0.6137489870501928,
+        "weighted_objective": 0.6137489870501928,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 150.0,
+        "distance_cost": 1091.8500000000004,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.425352955748915,
+        "coload_risk": 0.207506268694855,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.4,
+        0.6
+      ],
+      "seed": 826692453,
+      "seconds": 2.345584800001234,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4ecc47bf5637092173e263bd11bdcd8e0eb8aea32decf9a1937b8df7840327e2",
+      "metrics": {
+        "cost": 1525.3907350000002,
+        "risk": 7.77841522444377,
+        "normalized_cost": 0.8736218733840974,
+        "normalized_risk": 0.47381743287039796,
+        "weighted_objective_raw": 614.8233431346664,
+        "weighted_objective_normalized": 0.6337392090758778,
+        "weighted_objective": 0.6337392090758778,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 150.0,
+        "distance_cost": 1091.8500000000001,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.425352955748915,
+        "coload_risk": 0.207506268694855,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.45,
+        0.55
+      ],
+      "seed": 1995583497,
+      "seconds": 2.1534962001023814,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4b5d9002a38b9df30e30ffe15984cf73eaf6ae25a2234334257b215ee2e8f159",
+      "metrics": {
+        "cost": 1525.3907350000004,
+        "risk": 7.77841522444377,
+        "normalized_cost": 0.8736218733840975,
+        "normalized_risk": 0.47381743287039796,
+        "weighted_objective_raw": 690.7039591234442,
+        "weighted_objective_normalized": 0.6537294311015628,
+        "weighted_objective": 0.6537294311015628,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 150.0,
+        "distance_cost": 1091.8500000000004,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.425352955748915,
+        "coload_risk": 0.207506268694855,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "seed": 9231807,
+      "seconds": 2.2776208999566734,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4ecc47bf5637092173e263bd11bdcd8e0eb8aea32decf9a1937b8df7840327e2",
+      "metrics": {
+        "cost": 1525.3907350000002,
+        "risk": 7.77841522444377,
+        "normalized_cost": 0.8736218733840974,
+        "normalized_risk": 0.47381743287039796,
+        "weighted_objective_raw": 766.584575112222,
+        "weighted_objective_normalized": 0.6737196531272477,
+        "weighted_objective": 0.6737196531272477,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 150.0,
+        "distance_cost": 1091.8500000000001,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.425352955748915,
+        "coload_risk": 0.207506268694855,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.55,
+        0.44999999999999996
+      ],
+      "seed": 2493186079,
+      "seconds": 2.195011799922213,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4b5d9002a38b9df30e30ffe15984cf73eaf6ae25a2234334257b215ee2e8f159",
+      "metrics": {
+        "cost": 1525.3907350000004,
+        "risk": 7.77841522444377,
+        "normalized_cost": 0.8736218733840975,
+        "normalized_risk": 0.47381743287039796,
+        "weighted_objective_raw": 842.465191101,
+        "weighted_objective_normalized": 0.6937098751529327,
+        "weighted_objective": 0.6937098751529327,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 150.0,
+        "distance_cost": 1091.8500000000004,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.425352955748915,
+        "coload_risk": 0.207506268694855,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.6,
+        0.4
+      ],
+      "seed": 1210501222,
+      "seconds": 2.116314999992028,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "4ecc47bf5637092173e263bd11bdcd8e0eb8aea32decf9a1937b8df7840327e2",
+      "metrics": {
+        "cost": 1525.3907350000002,
+        "risk": 7.77841522444377,
+        "normalized_cost": 0.8736218733840974,
+        "normalized_risk": 0.47381743287039796,
+        "weighted_objective_raw": 918.3458070897776,
+        "weighted_objective_normalized": 0.7137000971786176,
+        "weighted_objective": 0.7137000971786176,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 150.0,
+        "distance_cost": 1091.8500000000001,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 2.425352955748915,
+        "coload_risk": 0.207506268694855,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.65,
+        0.35
+      ],
+      "seed": 3320035570,
+      "seconds": 2.224851300008595,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "9ecef57ca23fe5e72d8f56dec37e0af05678b72289807981e396e3a15d7b5fe5",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 936.9416825494247,
+        "weighted_objective_normalized": 0.7299312514497889,
+        "weighted_objective": 0.7299312514497889,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.7796598380283353,
+        "coload_risk": 0.22865501747069802,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.7,
+        0.30000000000000004
+      ],
+      "seed": 620645465,
+      "seconds": 2.278337199939415,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 1008.3099757566497,
+        "weighted_objective_normalized": 0.7431873110891539,
+        "weighted_objective": 0.7431873110891539,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.779659838028335,
+        "coload_risk": 0.228655017470698,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "seed": 3848057347,
+      "seconds": 2.180683400016278,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "9c91ebd3a89a9639088a788356956c0f83084145567f153fb26145d83687dfe6",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 1079.6782689638749,
+        "weighted_objective_normalized": 0.756443370728519,
+        "weighted_objective": 0.756443370728519,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.7796598380283353,
+        "coload_risk": 0.22865501747069802,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.8,
+        0.19999999999999996
+      ],
+      "seed": 1375000349,
+      "seconds": 2.2560233999975026,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 1151.0465621711,
+        "weighted_objective_normalized": 0.7696994303678839,
+        "weighted_objective": 0.7696994303678839,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.779659838028335,
+        "coload_risk": 0.228655017470698,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.85,
+        0.15000000000000002
+      ],
+      "seed": 253994697,
+      "seconds": 2.1938417999772355,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 1222.414855378325,
+        "weighted_objective_normalized": 0.7829554900072488,
+        "weighted_objective": 0.7829554900072488,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.779659838028335,
+        "coload_risk": 0.228655017470698,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.9,
+        0.09999999999999998
+      ],
+      "seed": 1336605724,
+      "seconds": 2.1869699000380933,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 1293.78314858555,
+        "weighted_objective_normalized": 0.7962115496466139,
+        "weighted_objective": 0.7962115496466139,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.779659838028335,
+        "coload_risk": 0.228655017470698,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        0.95,
+        0.050000000000000044
+      ],
+      "seed": 1058457602,
+      "seconds": 2.1146880999440327,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S1",
+              "n::G2::S1",
+              "n::G1::S2",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "6a7527ad36117ad59bb39e31f69b5581e98fcc57b9fd4a73593a67187660e588",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 9.153870855499033,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.557602476138044,
+        "weighted_objective_raw": 1365.151441792775,
+        "weighted_objective_normalized": 0.8094676092859788,
+        "weighted_objective": 0.8094676092859788,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 3.779659838028335,
+        "coload_risk": 0.228655017470698,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    },
+    {
+      "preference": [
+        1.0,
+        0.0
+      ],
+      "seed": 343342072,
+      "seconds": 2.2144024999579415,
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G3::S1",
+              "n::G2::S2",
+              "n::G3::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G1::S2",
+              "n::G2::S1",
+              "n::G1::S1",
+              "D1"
+            ]
+          }
+        ]
+      },
+      "solution_id": "abefbb59812fbdccd51cc4c7d7f9b12b5f6e029c68f19f96ab69f58c97d103c2",
+      "metrics": {
+        "cost": 1436.519735,
+        "risk": 12.176248466750303,
+        "normalized_cost": 0.8227236689253439,
+        "normalized_risk": 0.7417087702360745,
+        "weighted_objective_raw": 1436.519735,
+        "weighted_objective_normalized": 0.8227236689253439,
+        "weighted_objective": 0.8227236689253439,
+        "cost_ref": 1746.053735,
+        "risk_ref": 16.4164817181207,
+        "fixed_cost": 100.0,
+        "distance_cost": 1052.979,
+        "processing_cost": 283.54073500000004,
+        "transport_risk": 6.444748580532925,
+        "coload_risk": 0.585943886217378,
+        "producer_inventory_risk": 5.145556,
+        "facility_inventory_risk": 0.0,
+        "violations": [],
+        "feasible": true
+      }
+    }
+  ],
+  "stop_reason": "all_21_weight_budgets_completed",
+  "archive_id": "PPO-Test-1-large-r2-B40320",
+  "task": {
+    "id": "PPO-Test-1-large-r2",
+    "kind": "PPO",
+    "instance": "Test-1",
+    "model": "large",
+    "repeat": 2,
+    "seed": 712353551
+  },
+  "instance_id": "test-Test-1-000",
+  "instance_sha256": "be7639e98ca9d2b5f5d299b58704d3a8259646cbc67c6ce891abdaebc38da29f",
+  "b_C": 1746.053735,
+  "b_R": 16.4164817181207,
+  "reference_plan_sha256": "6968fbafbd5055dc05e142a7121e190e7063252e6f38dc1d5f0500e05a256037",
+  "search_initial_plan_sha256": "6968fbafbd5055dc05e142a7121e190e7063252e6f38dc1d5f0500e05a256037",
+  "protocol_sha256": "69b24fd138602e7b2de82063c92a7db5e9daa390fe2192373c4d95358acdb49a",
+  "strict_feasible_points": 23,
+  "status": "success",
+  "checkpoint": {
+    "experiment_alias": "New-L",
+    "checkpoint": "outputs/reference_generalization_v2/models/large_model.pt",
+    "sha256": "29165c0a0b9d1c9b5e843f948049afb1bb94692e0dbe6aa161982b425f73bfef",
+    "training_scale": "Test-4",
+    "training_record": "outputs/reference_generalization_v2/models/large.json"
+  }
+}

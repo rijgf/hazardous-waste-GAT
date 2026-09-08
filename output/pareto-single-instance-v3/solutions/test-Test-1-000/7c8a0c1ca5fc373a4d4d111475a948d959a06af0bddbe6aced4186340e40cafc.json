@@ -1,0 +1,52 @@
+{
+  "instance_id": "test-Test-1-000",
+  "instance_sha256": "be7639e98ca9d2b5f5d299b58704d3a8259646cbc67c6ce891abdaebc38da29f",
+  "b_C": 1746.053735,
+  "b_R": 16.4164817181207,
+  "solution_id": "7c8a0c1ca5fc373a4d4d111475a948d959a06af0bddbe6aced4186340e40cafc",
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G3::S1",
+          "n::G1::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G3::S1",
+          "n::G2::S2",
+          "n::G3::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G1::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G2::S1",
+          "n::G1::S2",
+          "D1"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+# Preserve exact bytes used by the frozen-model and experiment SHA-256 locks.
+# In particular, legacy source files contain both CRLF and LF line endings.
+# Automatic checkout normalization must not invalidate a recorded protocol.
+*.py -text
+*.json -text
+*.csv -text
+*.pt -text
+*.md -text
+*.svg -text
+*.log -text

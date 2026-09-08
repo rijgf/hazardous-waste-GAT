@@ -1,0 +1,94 @@
+{
+  "variant": "New-S",
+  "scale": "Test-2",
+  "index": 8,
+  "preference": [
+    0.25,
+    0.75
+  ],
+  "restart": 2,
+  "seed": 3465875805,
+  "dataset_sha256": "b7323e6bb2abbc354a48528d4b8b5a1a32dacbd2271112e21f3d3e6ce525108b",
+  "checkpoint_sha256": "25b48dadc776f21a7e0aacfeea12f2cfe92632f1ba4fb3e0c856ac25b26ea565",
+  "b_C": 3077.868015,
+  "b_R": 73.12417672103709,
+  "seconds": 2.7223580999998376,
+  "cost": 2664.561242,
+  "risk": 27.24364365696871,
+  "weighted_objective_normalized": 0.4958542666077784,
+  "transport_risk": 10.203792631712414,
+  "coload_risk": 0.7137430252563001,
+  "producer_inventory_risk": 16.326107999999998,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G5::S2",
+          "n::G4::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G3::S2",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G1::S1",
+          "n::G5::S1",
+          "n::G6::S1",
+          "n::G2::S2",
+          "n::G4::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G6::S2",
+          "n::G3::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G5::S2",
+          "n::G1::S2",
+          "n::G4::S2",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "b6c18bb5329daa781bb0a016c8a426d2e8b7e60ed29bc63517f79da5b3043977",
+  "accepted_steps": 29
+}

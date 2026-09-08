@@ -1,0 +1,93 @@
+{
+  "variant": "Old-L",
+  "scale": "Test-3",
+  "index": 9,
+  "preference": [
+    0.5,
+    0.5
+  ],
+  "restart": 1,
+  "seed": 94265668,
+  "dataset_sha256": "bce3b15ba40774de6176225d0373c0d34a2776207dc412bcee45256f436943b8",
+  "checkpoint_sha256": "1b5fc32e6336d85054e2b1d41c9bf54e709f61f10b31b98c35f220e901be7fef",
+  "b_C": 5924.615617,
+  "b_R": 202.73325964610348,
+  "seconds": 4.885052400059067,
+  "cost": 4348.861927,
+  "risk": 127.8578135430364,
+  "weighted_objective_normalized": 0.6823514485200004,
+  "transport_risk": 46.92062074849887,
+  "coload_risk": 3.729243794537508,
+  "producer_inventory_risk": 77.20794900000001,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G9::S3",
+          "n::G4::S1",
+          "n::G8::S1",
+          "n::G7::S3",
+          "n::G2::S3",
+          "n::G4::S3",
+          "n::G10::S1",
+          "n::G6::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G3::S3",
+          "n::G1::S1",
+          "n::G6::S3",
+          "n::G5::S1",
+          "n::G3::S1",
+          "n::G9::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G7::S1",
+          "n::G10::S3",
+          "n::G1::S3",
+          "n::G5::S3",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G4::S2",
+          "n::G8::S2",
+          "n::G6::S2",
+          "n::G2::S2",
+          "n::G10::S2",
+          "n::G9::S2",
+          "n::G1::S2",
+          "n::G5::S2",
+          "n::G7::S2",
+          "n::G3::S2",
+          "n::G8::S3",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "090c5b128fc40990e91fa097c550d71c900d52b56f55d5b1ebc24b3e2ace9dd9",
+  "accepted_steps": 26
+}

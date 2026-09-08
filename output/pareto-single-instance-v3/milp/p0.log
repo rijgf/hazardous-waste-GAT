@@ -1,0 +1,59 @@
+C:\Users\Yangfeifei\Documents\ChatGPT\Î£·ÏÆ·£¨transformer£©\run_pareto_milp.py:117: RuntimeWarning: Unrecognized options detected: {'threads', 'random_seed'}. These will be passed to HiGHS verbatim.
+  result = milp(c=np.array(model.costs, dtype=float),
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e-03, 2e+01]
+  Cost   [3e-03, 2e-01]
+  Bound  [1e+00, 2e+01]
+  RHS    [6e-01, 2e+01]
+Presolving model
+5121 rows, 1730 cols, 15796 nonzeros  0s
+4564 rows, 1519 cols, 14423 nonzeros  0s
+
+Solving MIP model with:
+   4564 rows
+   1519 cols (837 binary, 0 integer, 0 implied int., 682 continuous)
+   14423 nonzeros
+MIP-Timing:         0.2 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.2s
+         0       0         0   0.00%   0.5388986528    inf                  inf        0      0      4       126     0.2s
+ R       0       0         0   0.00%   0.6125999108    1.201377598       49.01%     3953     85    208       854     1.4s
+ L       0       0         0   0.00%   0.6139115202    0.9025214905      31.98%     3920     83    208       949     2.0s
+ L       0       0         0   0.00%   0.6139115202    0.822036043       25.32%     3920     83    208      2655     2.7s
+
+Symmetry detection completed in 0.0s
+Found 4 generator(s)
+
+        69       0        35 100.00%   0.822036043     0.822036043        0.00%     2645     71   3609     38992     6.4s
+
+Solving report
+  Status            Optimal
+  Primal bound      0.822036043009
+  Dual bound        0.822036043009
+  Gap               0%
+  P-D integral      1.44263573983
+  Solution status   feasible
+                    0.822036043009 (objective)
+                    0 (bound viol.)
+                    2.22044604925e-16 (int. viol.)
+                    0 (row viol.)
+  Timing            6.42 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 3
+  Nodes             69
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     38992 (total)
+                    27725 (strong br.)
+                    1168 (separation)
+                    4627 (heuristics)
+{"preference_index": 0, "status": "optimal", "strict_feasible": true, "proven_optimal": true, "elapsed_seconds": 6.466917400015518}

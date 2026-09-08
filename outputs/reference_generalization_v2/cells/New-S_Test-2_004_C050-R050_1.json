@@ -1,0 +1,85 @@
+{
+  "variant": "New-S",
+  "scale": "Test-2",
+  "index": 4,
+  "preference": [
+    0.5,
+    0.5
+  ],
+  "restart": 1,
+  "seed": 2640790675,
+  "dataset_sha256": "0c39d28d8d143d1480dc95f03d0f9d1d967ce190993d9ed9f17db4cfd509d878",
+  "checkpoint_sha256": "25b48dadc776f21a7e0aacfeea12f2cfe92632f1ba4fb3e0c856ac25b26ea565",
+  "b_C": 3733.7222899999997,
+  "b_R": 47.566389314238265,
+  "seconds": 2.572418799973093,
+  "cost": 2361.2812249999997,
+  "risk": 32.853431025534114,
+  "weighted_objective_normalized": 0.6615529913045113,
+  "transport_risk": 11.194097802288272,
+  "coload_risk": 0.42238122324583904,
+  "producer_inventory_risk": 21.236952000000002,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K3",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G4::S2",
+          "n::G3::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G3::S1",
+          "n::G4::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G5::S2",
+          "n::G4::S1",
+          "n::G2::S2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G2::S1",
+          "n::G1::S1",
+          "n::G6::S1",
+          "n::G1::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G6::S2",
+          "n::G5::S1",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "cc8a701d4bf2817902749bd33f86b4718503ddf4f9efe20972e4a4ae838f404f",
+  "accepted_steps": 22
+}

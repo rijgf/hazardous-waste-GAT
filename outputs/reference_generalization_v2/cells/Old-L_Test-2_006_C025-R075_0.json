@@ -1,0 +1,100 @@
+{
+  "variant": "Old-L",
+  "scale": "Test-2",
+  "index": 6,
+  "preference": [
+    0.25,
+    0.75
+  ],
+  "restart": 0,
+  "seed": 1602731098,
+  "dataset_sha256": "1f176b41e99a24296d79a8f2fa759a4d325a5b60214853d6feab6f82e542e303",
+  "checkpoint_sha256": "1b5fc32e6336d85054e2b1d41c9bf54e709f61f10b31b98c35f220e901be7fef",
+  "b_C": 3072.946066,
+  "b_R": 61.03730860698835,
+  "seconds": 2.8211528999963775,
+  "cost": 3705.567298,
+  "risk": 25.510744038327672,
+  "weighted_objective_normalized": 0.6149319663101898,
+  "transport_risk": 11.369620964246346,
+  "coload_risk": 0.16979607408132502,
+  "producer_inventory_risk": 13.971327,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G4::S1",
+          "n::G6::S1",
+          "n::G1::S1",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G5::S2",
+          "n::G6::S2",
+          "n::G4::S2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G2::S1",
+          "n::G4::S2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G4::S1",
+          "n::G2::S2",
+          "n::G1::S1",
+          "n::G6::S1",
+          "n::G5::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G5::S2",
+          "n::G1::S2",
+          "n::G6::S2",
+          "n::G3::S1",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "65061143a3ca46278f42e65ad2d873b78d7221002867e621a8b870d078a83906",
+  "accepted_steps": 32
+}

@@ -1,0 +1,68 @@
+C:\Users\Yangfeifei\Documents\ChatGPT\Î£·ÏÆ·£¨transformer£©\run_pareto_milp.py:117: RuntimeWarning: Unrecognized options detected: {'random_seed', 'threads'}. These will be passed to HiGHS verbatim.
+  result = milp(c=np.array(model.costs, dtype=float),
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e-03, 2e+01]
+  Cost   [7e-05, 1e-01]
+  Bound  [1e+00, 2e+01]
+  RHS    [6e-01, 2e+01]
+Presolving model
+5121 rows, 1730 cols, 15796 nonzeros  0s
+4564 rows, 1519 cols, 14423 nonzeros  0s
+
+Solving MIP model with:
+   4564 rows
+   1519 cols (837 binary, 0 integer, 0 implied int., 682 continuous)
+   14423 nonzeros
+MIP-Timing:        0.19 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.2s
+         0       0         0   0.00%   0.4948179346    inf                  inf        0      0      2       197     0.2s
+ R       0       0         0   0.00%   0.5487987875    1.173838333       53.25%     5136    113    102      1095     1.0s
+ L       0       0         0   0.00%   0.549182201     0.9724798029      43.53%     5696    114    102      1234     1.6s
+ L       0       0         0   0.00%   0.549182201     0.8582781023      36.01%     5696    114    102      2631     2.1s
+
+Symmetry detection completed in 0.0s
+Found 4 generator(s)
+
+ T     118       9        53  39.26%   0.5503971814    0.8448760747      34.85%     5006     94   2720     33645     6.4s
+       397      35       175  50.88%   0.5558225398    0.8448760747      34.21%     4259    106   9043     80832    11.4s
+ B     643      53       283  52.88%   0.5600452767    0.8396813424      33.30%     4878     76   5623     94356    13.3s
+      1517      95       678  54.82%   0.5943280657    0.8396813424      29.22%     4632     65   8480    124159    18.3s
+      2326     134      1044  63.75%   0.6073273161    0.8396813424      27.67%     6003    122   9385    151073    23.3s
+      3131     158      1423  69.10%   0.6549906118    0.8396813424      22.00%     4225    146   9883    180515    28.3s
+      3829     150      1761  74.20%   0.7137843315    0.8396813424      14.99%     3337    108   9081    202432    33.4s
+      4680     139      2178  88.27%   0.7291127082    0.8396813424      13.17%     2692    112   9847    227868    38.5s
+      5174      72      2455  92.52%   0.7581389379    0.8396813424       9.71%     3632    121   9519    251320    43.5s
+      5310       0      2558 100.00%   0.8396813424    0.8396813424       0.00%     2945    107   9529    264928    45.8s
+
+Solving report
+  Status            Optimal
+  Primal bound      0.839681342379
+  Dual bound        0.839681342379
+  Gap               0%
+  P-D integral      11.1790364167
+  Solution status   feasible
+                    0.839681342379 (objective)
+                    0 (bound viol.)
+                    1.55245164289e-13 (int. viol.)
+                    0 (row viol.)
+  Timing            45.83 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 4
+  Nodes             5310
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     264928 (total)
+                    98055 (strong br.)
+                    17077 (separation)
+                    13674 (heuristics)
+{"preference_index": 1, "status": "optimal", "strict_feasible": true, "proven_optimal": true, "elapsed_seconds": 45.87457730004098}

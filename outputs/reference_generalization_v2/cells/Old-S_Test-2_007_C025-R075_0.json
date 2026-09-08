@@ -1,0 +1,97 @@
+{
+  "variant": "Old-S",
+  "scale": "Test-2",
+  "index": 7,
+  "preference": [
+    0.25,
+    0.75
+  ],
+  "restart": 0,
+  "seed": 828066478,
+  "dataset_sha256": "7d59c9e4dab6018b49c1e9ef6845ad1cef60b50388486c469716fc207c77a444",
+  "checkpoint_sha256": "b489641a0420eae4df2bf1cbf90bb468da4f26a5091382e137d30dfdfe22a4c6",
+  "b_C": 4507.231417999999,
+  "b_R": 69.07067759101002,
+  "seconds": 2.2711714999750257,
+  "cost": 3292.5232539999997,
+  "risk": 27.817575214736735,
+  "weighted_objective_normalized": 0.4846800329244004,
+  "transport_risk": 10.053324576419092,
+  "coload_risk": 0.682893638317639,
+  "producer_inventory_risk": 17.081357000000004,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G3::S2",
+          "n::G1::S1",
+          "n::G5::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G3::S1",
+          "n::G2::S1",
+          "n::G5::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G1::S2",
+          "n::G2::S2",
+          "n::G5::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G5::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G3::S1",
+          "n::G4::S2",
+          "n::G6::S2",
+          "n::G4::S1",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G1::S1",
+          "n::G6::S1",
+          "n::G3::S2",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "1dab211b8461bd3de8669c5a6a8063bdfb0c0b2663b009ff1c800ed00438508f",
+  "accepted_steps": 25
+}

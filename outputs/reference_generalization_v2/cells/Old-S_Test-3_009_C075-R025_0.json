@@ -1,0 +1,93 @@
+{
+  "variant": "Old-S",
+  "scale": "Test-3",
+  "index": 9,
+  "preference": [
+    0.75,
+    0.25
+  ],
+  "restart": 0,
+  "seed": 3652383304,
+  "dataset_sha256": "bce3b15ba40774de6176225d0373c0d34a2776207dc412bcee45256f436943b8",
+  "checkpoint_sha256": "b489641a0420eae4df2bf1cbf90bb468da4f26a5091382e137d30dfdfe22a4c6",
+  "b_C": 5924.615617,
+  "b_R": 202.73325964610348,
+  "seconds": 4.815240900032222,
+  "cost": 3887.7958049999997,
+  "risk": 138.75602306223763,
+  "weighted_objective_normalized": 0.6632646144316301,
+  "transport_risk": 49.290199441774305,
+  "coload_risk": 12.257874620463308,
+  "producer_inventory_risk": 77.20794900000001,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D3",
+          "n::G2::S3",
+          "n::G3::S1",
+          "n::G5::S1",
+          "n::G10::S1",
+          "n::G6::S1",
+          "n::G4::S3",
+          "D3"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G8::S3",
+          "n::G4::S2",
+          "n::G3::S2",
+          "n::G7::S2",
+          "n::G1::S3",
+          "n::G5::S3",
+          "n::G6::S2",
+          "n::G3::S3",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D3",
+          "n::G1::S1",
+          "n::G9::S3",
+          "n::G5::S2",
+          "n::G8::S2",
+          "n::G4::S1",
+          "n::G9::S1",
+          "D3"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D3",
+          "n::G2::S2",
+          "n::G6::S3",
+          "n::G7::S3",
+          "n::G8::S1",
+          "n::G10::S3",
+          "n::G7::S1",
+          "n::G1::S2",
+          "n::G2::S1",
+          "n::G9::S2",
+          "n::G10::S2",
+          "D3"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "ee8716c9df9a2f9c29472a6ea5e7ecb7c3f4de9b4990448a299e0f931e46eb9e",
+  "accepted_steps": 31
+}

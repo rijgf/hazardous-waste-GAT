@@ -1,0 +1,17 @@
+{
+  "training_device": "cuda",
+  "formal_evaluation_device": "cpu",
+  "evaluation_environment": {"CUDA_VISIBLE_DEVICES": "-1"},
+  "evaluation_workers": 8,
+  "torch_threads_per_worker": 1,
+  "discarded_pilot_directory": "gpu_concurrency_pilot",
+  "discarded_pilot_cells": 118,
+  "reason": "Eight-process GPU evaluation incurred substantial device-call overhead. A full-budget CPU runtime check on a TRAINING instance completed in 1.38 seconds versus about 22 seconds per GPU-concurrent evaluation. This was a runtime-only decision, without selecting on test objectives.",
+  "formal_evaluation_restarted_from_empty_cells": true,
+  "training_parameters_changed": false,
+  "checkpoint_weights_changed": false,
+  "evaluation_steps": 60,
+  "evaluation_candidate_samples": 32,
+  "mixed_device_cells_in_formal_results": false,
+  "note": "CPU and CUDA random streams are different. All four PPO variants are evaluated afresh on CPU with the same per-instance, preference and restart seed. GPU pilot records are retained but excluded. GA is likewise rerun for homogeneous timing conditions."
+}

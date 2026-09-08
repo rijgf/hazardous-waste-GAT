@@ -1,0 +1,107 @@
+{
+  "preference": [
+    0.0,
+    1.0
+  ],
+  "repeat": 0,
+  "seed": 1809039277,
+  "seconds": 2.3878081999719143,
+  "metrics": {
+    "cost": 2250.134207,
+    "risk": 3.7573001091904707,
+    "normalized_cost": 1.6246550785911391,
+    "normalized_risk": 0.34545065428216865,
+    "weighted_objective_raw": 3.7573001091904707,
+    "weighted_objective_normalized": 0.34545065428216865,
+    "weighted_objective": 0.34545065428216865,
+    "cost_ref": 1384.991951,
+    "risk_ref": 10.876517565143931,
+    "fixed_cost": 300.0,
+    "distance_cost": 1831.71,
+    "processing_cost": 118.42420700000001,
+    "transport_risk": 3.6113661091904707,
+    "coload_risk": 0.0,
+    "producer_inventory_risk": 0.145934,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  },
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G3::S1",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G1::S2",
+          "n::G2::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G1::S1",
+          "n::G3::S1",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G2::S2",
+          "n::G1::S2",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "solution_id": "ac7ac888f7629862f2a8676edf8ec1ce1f5ecb3884f8088e20e52d21ae432ad8",
+  "instance_id": "legacy-small-fixed",
+  "instance_sha256": "c61c8fc4c2d43afb69fb76d26a69ef7a246a77ff11b451396b302849988a803c",
+  "b_C": 1384.991951,
+  "b_R": 10.876517565143931,
+  "reference_plan_sha256": "5fdfb1130823c21856db79670ab76cbbbac336b68ac2548cdf8c3b81d1a791f3",
+  "checkpoint": {
+    "experiment_alias": "New-S",
+    "checkpoint": "outputs/reference_generalization_v2/models/small_model.pt",
+    "sha256": "25b48dadc776f21a7e0aacfeea12f2cfe92632f1ba4fb3e0c856ac25b26ea565",
+    "training_scale": "Test-1",
+    "training_record": "outputs/reference_generalization_v2/models/small.json"
+  },
+  "protocol_sha256": "69b24fd138602e7b2de82063c92a7db5e9daa390fe2192373c4d95358acdb49a"
+}

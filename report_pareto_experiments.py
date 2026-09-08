@@ -1,0 +1,485 @@
+"""Rebuild all v3 tables, replay evidence and the Markdown manuscript from raw runs."""
+from __future__ import annotations
+
+import csv
+import json
+from pathlib import Path
+import statistics
+
+from run_pareto_experiments import OUT, ROOT, read, write, load_protocol, checked_instance, SMALL_PREFS
+from src.pareto_experiment import ParetoArchive, coverage_pair
+from src.reproducibility import deserialize_plan, file_sha256, plan_sha256
+from src.solution_utils import evaluate_solution, route_plan_to_solution
+from hazardous_waste_model import pickup_type, display_node
+
+PAPER = ROOT/'供应链管理写作/数值实验与结果分析_论文稿.md'
+
+
+def csv_write(name, rows):
+    path=OUT/'tables'/name
+    path.parent.mkdir(parents=True,exist_ok=True)
+    with path.open('w',encoding='utf-8-sig',newline='') as handle:
+        writer=csv.DictWriter(handle,fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def stats(values, precision=4):
+    values=[value for value in values if value is not None]
+    if not values:
+        return 'NA'
+    mean=statistics.mean(values)
+    sd=f'{statistics.stdev(values):.{precision}f}' if len(values)>1 else 'NA'
+    return f'{mean:.{precision}f} ± {sd}'
+
+
+def finite_mean(values):
+    values=[value for value in values if value is not None]
+    return statistics.mean(values) if values else None
+
+
+def paired_status(rows):
+    valid=sum(row['status']=='valid' for row in rows)
+    return f'计划{len(rows)}，有效{valid}，失败{len(rows)-valid}'
+
+
+def display_difference(value):
+    return '0.000' if round(value,3)==0 else f'{value:.3f}'
+
+
+def experiment_section(task, budget):
+    if task['instance'].startswith(('capacity-','coload-')):
+        return 'sensitivity'
+    if task['instance']!='Test-4':
+        return 'generalization'
+    if task['kind']=='PPO':
+        return 'large_comparison;generalization;sensitivity_baseline' if task['model']=='large' else 'generalization'
+    return 'large_comparison;generalization' if budget==40320 else 'large_comparison'
+
+
+def markdown_table(headers, rows):
+    return '\n'.join(['| '+' | '.join(headers)+' |','| '+' | '.join(['---']*len(headers))+' |',
+                      *['| '+' | '.join(map(str,row))+' |' for row in rows]])
+
+
+def grouped_table(first, groups, rows):
+    lines=['<table>','<thead><tr><th rowspan="2">'+first+'</th>']
+    lines += [f'<th colspan="2">{group}</th>' for group in groups]
+    lines += ['</tr><tr>']
+    for _ in groups:
+        lines += ['<th>𝒞(N,P) ↓</th><th>𝒞(P,N) ↑</th>']
+    lines += ['</tr></thead>','<tbody>']
+    for row in rows:
+        lines += ['<tr>'+''.join(f'<td>{value}</td>' for value in row)+'</tr>']
+    lines += ['</tbody>','</table>']
+    return '\n'.join(lines)
+
+
+def build():
+    protocol=load_protocol()
+    protocol_hash=file_sha256(OUT/'protocol.json')
+    expected={task['id'] for task in protocol['tasks']}
+    actual={path.stem for path in (OUT/'completed').glob('*.json')}
+    if actual != expected:
+        raise RuntimeError(f'No partial manuscript: completed {len(actual)}/{len(expected)}')
+    fronts={}
+    front_checks={}
+    replayed=0
+    point_rows=[]
+    run_rows=[]
+    for task in protocol['tasks']:
+        data=read(OUT/f'instances/{task["instance"]}.json')
+        params,_,refs=checked_instance(data)
+        for budget in task.get('budgets',[40320]):
+            archive_id=f'{task["id"]}-B{budget}'
+            record=read(OUT/f'fronts/{archive_id}.json')
+            assert record['protocol_sha256']==protocol_hash
+            assert record['instance_sha256']==data['instance_sha256']
+            assert record['counts']['candidate_attempts']==budget
+            assert (record['b_C'],record['b_R'])==refs
+            archive=ParetoArchive(refs)
+            clear_points=0
+            for point in record['points']:
+                solution=read(OUT/point['solution_path'])
+                plan=deserialize_plan(solution['plan'])
+                assert plan_sha256(plan)==point['solution_id']==solution['solution_id']
+                replay_solution=route_plan_to_solution(params,plan)
+                metrics=evaluate_solution(params,replay_solution,(.5,.5),objective_refs=refs)
+                last=params.periods[-1]
+                terminal_values=[replay_solution['raw'].get(('IG',node,last),0) for node in params.pickup_nodes]
+                terminal_values += [replay_solution['raw'].get(('ID',facility,waste,last),0) for facility in params.facilities for waste in params.waste_types]
+                clear_points+=all(abs(value)<=1e-5 for value in terminal_values)
+                assert metrics['feasible']
+                assert abs(metrics['cost']-point['cost'])<1e-8 and abs(metrics['risk']-point['risk'])<1e-8
+                archive.add(point)
+                replayed+=1
+                point_rows.append({'archive_id':archive_id,'instance':task['instance'],'instance_id':data['instance_id'],
+                                   'experiment_section':experiment_section(task,budget),
+                                   'model':task.get('model',''),'algorithm':task['kind'],'repeat':task['repeat'],
+                                   'budget':budget,'b_C':refs[0],'b_R':refs[1],'solution_id':point['solution_id'],
+                                   'cost':point['cost'],'risk':point['risk'],'feasible':True,
+                                   'source':json.dumps(point['provenance'],ensure_ascii=False),'solution_path':point['solution_path']})
+            assert len(archive.sorted_points())==len(record['points'])
+            fronts[archive_id]=record
+            front_checks[archive_id]={'points':len(record['points']),'strict_feasible_points':sum(point['feasible'] for point in record['points']),
+                                      'terminal_clear_points':clear_points}
+            run_rows.append({'archive_id':archive_id,'instance':task['instance'],'model':task.get('model',''),
+                             'algorithm':task['kind'],'repeat':task['repeat'],'budget':budget,
+                             'seconds':record['seconds'],'points':len(record['points']),'status':record['status'],
+                             'strict_feasible_points':front_checks[archive_id]['strict_feasible_points'],'terminal_clear_points':clear_points,
+                             'preparation_seconds':record['preparation_seconds'], **record['counts'],
+                             'return_validation_evaluations':len(record.get('final_solutions',[])),
+                             'objective_evaluations_total_excluding_preparation':record['counts']['candidate_objective_evaluations']+record['counts']['ppo_internal_objective_evaluations']+len(record.get('final_solutions',[]))})
+    csv_write('frontier_points.csv',point_rows)
+    csv_write('frontier_runs.csv',run_rows)
+    pair_rows=[]
+    for scale in ('Test-1','Test-2','Test-3','Test-4'):
+        for model in ('small','large'):
+            for budget in ([40320,120960] if scale=='Test-4' and model=='large' else [40320]):
+                for repeat in range(3):
+                    p=fronts[f'PPO-{scale}-{model}-r{repeat}-B40320']
+                    n=fronts[f'NSGA-{scale}-r{repeat}-B{budget}']
+                    coverage=coverage_pair(p['points'],n['points'],(p['b_C'],p['b_R']))
+                    pair_rows.append({'instance':scale,'instance_id':p['instance_id'],'model':model,
+                                      'repeat':repeat,'nsga_budget':budget,'P_archive':p['archive_id'],'N_archive':n['archive_id'],
+                                      'n_P':coverage['n_A'],'n_N':coverage['n_B'],
+                                      'b_C':p['b_C'],'b_R':p['b_R'],
+                                      'N_covers_P_count':coverage['B_covers_A_count'],'P_covers_N_count':coverage['A_covers_B_count'],
+                                      'N_covers_P':coverage['B_covers_A'],'P_covers_N':coverage['A_covers_B'],
+                                      'tolerance':coverage['tolerance'],'status':coverage['status']})
+    csv_write('coverage_pairs.csv',pair_rows)
+    t5=[]
+    for budget in (40320,120960):
+        rows=[row for row in pair_rows if row['instance']=='Test-4' and row['model']=='large' and row['nsga_budget']==budget]
+        t5.extend([stats([row['N_covers_P'] for row in rows]),stats([row['P_covers_N'] for row in rows])])
+    b2_pairs=[row for row in pair_rows if row['nsga_budget']==120960]
+    b2_interpretation=('本案例B2下，三次PPO档案均未覆盖相应NSGA-II档案中的任何点，但NSGA-II对PPO的覆盖也均未达到1。追加演化预算改善了NSGA-II相对于固定PPO档案的覆盖表现，并不意味着其已完全支配PPO档案。'
+                       if all(row['status']=='valid' and row['P_covers_N']==0 and row['N_covers_P']<1 for row in b2_pairs)
+                       else '两方向覆盖需同时阅读，不因一个方向较高就断言某档案完全支配另一档案。')
+    t6=[]
+    for model,label in [('small','Train-S'),('large','Train-L')]:
+        row=[label]
+        for scale in ('Test-1','Test-2','Test-3','Test-4'):
+            matched=[item for item in pair_rows if item['instance']==scale and item['model']==model and item['nsga_budget']==40320]
+            row += [stats([x['N_covers_P'] for x in matched]),stats([x['P_covers_N'] for x in matched])]
+        t6.append(row)
+    scale_comparisons=[]
+    for scale in ('Test-1','Test-2','Test-3','Test-4'):
+        values={model:{direction:finite_mean(item[direction] for item in pair_rows
+                       if item['instance']==scale and item['model']==model and item['nsga_budget']==40320)
+                       for direction in ('P_covers_N','N_covers_P')} for model in ('small','large')}
+        s,l=values['small'],values['large']
+        if any(value is None for value in [*s.values(),*l.values()]):
+            scale_comparisons.append(f'{scale}存在空前沿或失败，未据缺失配对排序模型')
+        elif abs(s['P_covers_N']-l['P_covers_N'])<1e-12 and abs(s['N_covers_P']-l['N_covers_P'])<1e-12:
+            scale_comparisons.append(f'{scale}上两模型相对同一NSGA-II基线的两方向覆盖均值相同')
+        elif s['P_covers_N']>=l['P_covers_N'] and s['N_covers_P']<=l['N_covers_P']:
+            scale_comparisons.append(f'{scale}上Train-S覆盖NSGA-II的比例不低于Train-L，且被NSGA-II覆盖的比例不高于Train-L')
+        elif l['P_covers_N']>=s['P_covers_N'] and l['N_covers_P']<=s['N_covers_P']:
+            scale_comparisons.append(f'{scale}上Train-L覆盖NSGA-II的比例不低于Train-S，且被NSGA-II覆盖的比例不高于Train-S')
+        else:
+            scale_comparisons.append(f'{scale}上两方向覆盖指标出现交叉，不能据单一方向作模型排序')
+    small=[]
+    small_rows=[]
+    small_data=read(OUT/'instances/small-fixed.json')
+    small_params,_,small_refs=checked_instance(small_data)
+    for index,preference in enumerate(SMALL_PREFS):
+        records=[read(OUT/f'small/ppo-p{index}-r{repeat}.json') for repeat in range(3)]
+        for record in records:
+            assert record['protocol_sha256']==protocol_hash
+            plan=deserialize_plan(record['plan'])
+            metrics=evaluate_solution(small_params,route_plan_to_solution(small_params,plan),preference,objective_refs=small_refs)
+            assert metrics['feasible'] and abs(metrics['weighted_objective']-record['metrics']['weighted_objective'])<1e-9
+        selected=min(records,key=lambda record:(record['metrics']['weighted_objective'],record['repeat']))
+        mip=read(OUT/f'milp/validated/p{index}.json')
+        original_mip=read(OUT/f'milp/p{index}.json')
+        assert mip['original_result_sha256']==file_sha256(OUT/f'milp/p{index}.json')
+        assert mip['cleanup_source_sha256']==file_sha256(ROOT/'normalize_pareto_milp.py')
+        assert mip['original_protocol_file_sha256']==file_sha256(OUT/'milp/protocol.json')
+        assert mip['original_objective_consistent']==original_mip['objective_consistent']
+        assert mip['elapsed_seconds']==original_mip['elapsed_seconds'] and mip['solver']==original_mip['solver']
+        assert mip['additional_solver_calls']==0
+        assert mip['instance_sha256']==small_data['instance_sha256']
+        assert mip['reference_sha256']==small_data['reference_plan_sha256']
+        assert tuple(mip['objective_refs'])==small_refs and tuple(mip['preference'])==preference
+        assert mip['strict_feasible'] and mip['objective_consistent']
+        mp=read(OUT/'milp/protocol.json')
+        assert mp['solver_options']['time_limit']==3600
+        j=selected['metrics']['weighted_objective']
+        mj=mip['metrics']['weighted_objective']
+        difference=100*(j-mj)/mj if mj else j-mj
+        total=sum(record['seconds'] for record in records)
+        small.append({'preference':preference,'selected_repeat':selected['repeat'],'ppo':selected,
+                      'milp':mip,'difference':difference,'total_ppo_seconds':total})
+        m=selected['metrics']
+        small_rows.append(['PPO-Transformer',str(preference),f'{m["cost"]:.3f}',f'{m["risk"]:.4f}',
+                           f'{j:.6f}',display_difference(difference)+('†' if not mip['proven_optimal'] else ''),f'{total:.2f}','严格可行'])
+    for item in small:
+        mip=item['milp'];m=mip['metrics']
+        small_rows.append(['MILP',str(item['preference']),f'{m["cost"]:.3f}',f'{m["risk"]:.4f}',
+                           f'{m["weighted_objective"]:.6f}','—',f'{mip["elapsed_seconds"]:.2f}',
+                           '已证最优' if mip['proven_optimal'] else '限时可行（未证最优）'])
+    csv_write('table4_selected_solutions.csv',[{'preference':str(x['preference']),'selected_repeat':x['selected_repeat'],
+              'solution_id':x['ppo']['solution_id'],'ppo_cost':x['ppo']['metrics']['cost'],'ppo_risk':x['ppo']['metrics']['risk'],
+              'ppo_J':x['ppo']['metrics']['weighted_objective'],'milp_J':x['milp']['metrics']['weighted_objective'],
+              'relative_difference_percent':x['difference'],'ppo_total_seconds':x['total_ppo_seconds'],
+              'milp_seconds':x['milp']['elapsed_seconds'],'milp_proven_optimal':x['milp']['proven_optimal'],
+              'milp_cost':x['milp']['metrics']['cost'],'milp_risk':x['milp']['metrics']['risk'],
+              'milp_original_result_path':x['milp']['original_result_path'],
+              'milp_original_result_sha256':x['milp']['original_result_sha256'],
+              'milp_cleanup_seconds':x['milp']['cleanup_seconds'],
+              'milp_cleanup_source_sha256':x['milp']['cleanup_source_sha256'],
+              'milp_solver_objective_difference':x['milp']['solver_objective_difference']} for x in small])
+    scenario_rows=[]
+    scene_summary=[]
+    scene_sets={}
+    for scene in ['baseline','capacity-70','capacity-80','capacity-120','capacity-130',
+                  'coload-70','coload-80','coload-120','coload-130']:
+        source='Test-4' if scene=='baseline' else scene
+        data=read(OUT/f'instances/{source}.json')
+        union=ParetoArchive((data['b_C'],data['b_R']))
+        records=[fronts[f'PPO-{source}-large-r{repeat}-B40320'] for repeat in range(3)]
+        for record in records:
+            for point in record['points']:
+                union.add({**point,'archive_id':record['archive_id']})
+        points=union.sorted_points()
+        scene_sets[scene]=points
+        scenario_params,_,_=checked_instance(data)
+        peak_processing_utilization=0.
+        for point in points:
+            saved_plan=deserialize_plan(read(OUT/point['solution_path'])['plan'])
+            saved_solution=route_plan_to_solution(scenario_params,saved_plan)
+            peak_processing_utilization=max(peak_processing_utilization,
+                max(saved_solution['raw'].get(('p',j,s,t),0)/capacity for (j,s,t),capacity in scenario_params.processing_capacity.items()
+                    if scenario_params.technology[j,s]))
+            scenario_rows.append({'scenario':scene,'instance_id':data['instance_id'],'b_C':data['b_C'],'b_R':data['b_R'],
+                                  'solution_id':point['solution_id'],'cost':point['cost'],'risk':point['risk'],
+                                  'archive_id':point['archive_id'],'solution_path':point['solution_path']})
+        min_cost=min(points,key=lambda p:(p['cost'],p['risk'],p['solution_id']))
+        min_risk=min(points,key=lambda p:(p['risk'],p['cost'],p['solution_id']))
+        risk_plan=deserialize_plan(read(OUT/min_risk['solution_path'])['plan'])
+        periods=list(scenario_params.periods)
+        ordered_routes=sorted(risk_plan.items(),key=lambda item:(item[0][1],item[0][0]))
+        mixed_routes=[item for item in ordered_routes if len({pickup_type(node) for node in item[1][1:-1]})>1]
+        (example_vehicle,example_period),example_route=(mixed_routes or ordered_routes)[0]
+        risk_solution=route_plan_to_solution(scenario_params,risk_plan)
+        return_loads={waste:risk_solution['raw'].get(('F',example_route[-2],example_route[-1],waste,example_vehicle,example_period),0)
+                      for waste in scenario_params.waste_types}
+        return_loads={key:value for key,value in return_loads.items() if value>1e-9}
+        scene_summary.append({'scenario':scene,'b_C':data['b_C'],'b_R':data['b_R'],'points':len(points),
+                              'maximum_processing_utilization_in_union':peak_processing_utilization,
+                              'time_mean':statistics.mean(r['seconds'] for r in records),
+                              'minimum_cost':min_cost['cost'],'risk_at_minimum_cost':min_cost['risk'],
+                              'minimum_risk':min_risk['risk'],'cost_at_minimum_risk':min_risk['cost'],
+                              'minimum_cost_solution':min_cost['solution_id'],'minimum_risk_solution':min_risk['solution_id'],
+                              'vehicle_period_routes_at_minimum_risk':len(risk_plan),
+                              'service_visits_at_minimum_risk':sum(len(route)-2 for route in risk_plan.values()),
+                              'visits_by_period_at_minimum_risk':json.dumps({period:sum(len(route)-2 for (vehicle,t),route in risk_plan.items() if t==period) for period in periods}),
+                              'example_route_vehicle':example_vehicle,'example_route_period':example_period,
+                              'example_route':json.dumps(example_route,ensure_ascii=False),
+                              'example_route_mixed':bool(mixed_routes),'example_return_loads':json.dumps(return_loads),
+                              'transport_risk_at_minimum_risk':min_risk['transport_risk'],
+                              'coload_risk_at_minimum_risk':min_risk['coload_risk'],
+                              'producer_inventory_risk_at_minimum_risk':min_risk['producer_inventory_risk'],
+                              'facility_inventory_risk_at_minimum_risk':min_risk['facility_inventory_risk']})
+    csv_write('sensitivity_points.csv',scenario_rows)
+    csv_write('sensitivity_scenarios.csv',scene_summary)
+    from plot_pareto_sensitivity import plot
+    plot()
+    training={model:read(ROOT/entry['training_record']) for model,entry in protocol['registry']['models'].items()}
+    operations=[]
+    for model,label in [('small','Train-S'),('large','Train-L')]:
+        for scale in ('Test-1','Test-2','Test-3','Test-4'):
+            records=[fronts[f'PPO-{scale}-{model}-r{repeat}-B40320'] for repeat in range(3)]
+            success=sum(record['status']=='success' and bool(record['points']) for record in records)
+            points=[point for record in records for point in record['points']]
+            feasible_rate=f"{sum(point['feasible'] for point in points)/len(points)*100:.0f}%" if points else 'NA'
+            terminal_rate=f"{sum(front_checks[r['archive_id']]['terminal_clear_points'] for r in records)/len(points)*100:.0f}%" if points else 'NA'
+            operations.append([f'PPO（{label}）',scale,stats([r['seconds'] for r in records],2),
+                               stats([len(r['points']) for r in records],2),f'{success}/{len(records)}',feasible_rate,terminal_rate])
+    for scale in ('Test-1','Test-2','Test-3','Test-4'):
+        for budget in ([40320,120960] if scale=='Test-4' else [40320]):
+            records=[fronts[f'NSGA-{scale}-r{repeat}-B{budget}'] for repeat in range(3)]
+            success=sum(record['status']=='success' and bool(record['points']) for record in records)
+            points=[point for record in records for point in record['points']]
+            feasible_rate=f"{sum(point['feasible'] for point in points)/len(points)*100:.0f}%" if points else 'NA'
+            terminal_rate=f"{sum(front_checks[r['archive_id']]['terminal_clear_points'] for r in records)/len(points)*100:.0f}%" if points else 'NA'
+            operations.append([f'NSGA-II（B{1 if budget==40320 else 2}）',scale,stats([r['seconds'] for r in records],2),
+                               stats([len(r['points']) for r in records],2),f'{success}/{len(records)}',feasible_rate,terminal_rate])
+    capacity_identical=all([(p['solution_id'],p['cost'],p['risk']) for p in scene_sets[scene]]==
+                           [(p['solution_id'],p['cost'],p['risk']) for p in scene_sets['baseline']]
+                           for scene in ['capacity-70','capacity-80','capacity-120','capacity-130'])
+    optimum_items=[x for x in small if x['milp']['proven_optimal']]
+    exact_matches=sum(abs(x['difference'])<1e-4 for x in optimum_items)
+    limited_items=[x for x in small if not x['milp']['proven_optimal']]
+    small_limited_text='；'.join(f"偏好{x['preference']}下，PPO的最小J为{x['ppo']['metrics']['weighted_objective']:.6f}，"
+        f"MILP限时可行J为{x['milp']['metrics']['weighted_objective']:.6f}，相对该incumbent的差异为{display_difference(x['difference'])}%"
+        for x in limited_items) if limited_items else '五组MILP均取得最优性证明'
+    paired_valid=sum(row['status']=='valid' for row in pair_rows)
+    scenes={item['scenario']:item for item in scene_summary}
+    baseline=scenes['baseline']
+    base_params,_,_=checked_instance(read(OUT/'instances/Test-4.json'))
+    type_totals={waste:sum(base_params.generation[producer,waste,period] for producer in base_params.producers
+                           for period in base_params.periods) for waste in base_params.waste_types}
+    low_params,_,_=checked_instance(read(OUT/'instances/capacity-70.json'))
+    low_capacities={waste:min(low_params.processing_capacity[facility,waste,period] for facility in low_params.facilities
+                               for period in low_params.periods if low_params.technology[facility,waste])
+                    for waste in low_params.waste_types}
+    assert all(value==0 for value in base_params.initial_producer_inventory.values())
+    assert all(value==0 for value in base_params.initial_facility_inventory.values())
+    assert all(low_capacities[waste]>type_totals[waste] for waste in type_totals)
+    coload_interpretation=[]
+    route_interpretation=[]
+    for scene,label in [('baseline','基准'),('coload-70','共载系数−30%'),('coload-130','共载系数+30%')]:
+        item=scenes[scene]
+        route='→'.join(display_node(node) for node in json.loads(item['example_route']))
+        loads='、'.join(f'{waste}={amount:.4f}' for waste,amount in json.loads(item['example_return_loads']).items())
+        mixture='含兼容异类共载的首条路线' if item['example_route_mixed'] else '未发现异类共载，以下为首条单品类路线'
+        route_interpretation.append(f"{label}风险端点方案`{item['minimum_risk_solution'][:12]}`：{mixture}（按周期、车辆稳定排序），"
+            f"周期{item['example_route_period']}、车辆{item['example_route_vehicle']}执行{route}，返回设施前携带{loads}")
+    for scene,label in [('coload-70','下调30%'),('coload-130','上调30%')]:
+        item=scenes[scene]
+        coload_interpretation.append(f"共载风险系数{label}时，风险端点为(C,R)=({item['cost_at_minimum_risk']:.3f},{item['minimum_risk']:.4f})，"
+            f"相应运输、共载、产废端库存风险分别为{item['transport_risk_at_minimum_risk']:.4f}、{item['coload_risk_at_minimum_risk']:.4f}和{item['producer_inventory_risk_at_minimum_risk']:.4f}，"
+            f"使用{item['vehicle_period_routes_at_minimum_risk']}条车辆—周期路线、{item['service_visits_at_minimum_risk']}次实体服务，逐期服务次数为{item['visits_by_period_at_minimum_risk']}")
+    write(OUT/'results.json',{'protocol_sha256':protocol_hash,'table5':t5,'table6':t6,
+                             'coverage_valid':paired_valid,'coverage_planned':27,'front_records':len(fronts),
+                             'front_point_replays':replayed,'sensitivity_capacity_union_identical':capacity_identical,
+                             'small_selected':[{'preference':x['preference'],'J':x['ppo']['metrics']['weighted_objective'],
+                                               'difference':x['difference'],'repeat':x['selected_repeat']} for x in small]})
+    manuscript=fr'''# 四、数值实验与结果分析
+
+本节依次开展固定偏好下的小规模质量验证、大规模近似帕累托前沿比较、冻结模型跨规模案例测试和关键参数敏感性分析。小规模质量验证保留原固定实例；其余测试每种所需规模固定使用编号000的一个实例，不按测试结果更换。所有重复均为同一实例上的算法随机重复，不是独立实例样本。历史五偏好单目标GA结果及50实例汇总不并入本轮。
+
+## （一）实验设置与共同评价口径
+
+### 1. 实例、模型与归一化
+
+小规模质量验证的规模为3/2/2/3/2（依次为产废节点、废物品类、处理处置设施、车辆及周期），实例生成种子为3723524230，初始参考方案种子为3949079119。四个跨规模测试案例分别为Test-1（3/2/2/3/2）、Test-2（6/2/2/4/3）、Test-3（10/3/3/5/3）和Test-4（20/4/3/8/4），均读取已锁定测试库的000号实例。小规模质量验证的旧案例与Test-1虽具有相同规模，但实例身份不同。大规模主实验L20及敏感性分析共用Test-4基础实例。
+
+Train-S与Train-L分别是用户确认冻结的New-S、New-L检查点，每个模型已在对应规模的24个训练实例上训练；本轮没有训练、微调或检查点择优。每个实例在准备阶段与一份严格可行参考方案绑定，固定正值b_C、b_R，目标为
+
+$$J_{{\omega,i}}(x)=\omega_c C_i(x)/b_{{C,i}}+\omega_r R_i(x)/b_{{R,i}},\qquad \omega_c+\omega_r=1.$$
+
+PPO的目标输入、奖励规则及冻结搜索的加权择优均读取目标实例自身的同一组b，不使用1000/100旧编码，不随偏好、重复或当前解重新定标。测试b无需等于训练b。各算法共享实例、约束与评价器；PPO和NSGA-II共享公共参考起点，MILP仅共享实例及固定b，未声明使用该起点暖启动。NSGA-II按原始成本C和风险R搜索双目标。敏感性版本分别在自身参数下预先绑定b，跨版本只比较原始C、R及实际方案，不以不同b下的J排序。
+
+### 2. 搜索预算、档案与统计
+
+小规模设置五组偏好，每组PPO独立求解3次，每次60步、每步32个候选动作，取最小J实际方案。其他PPO实验的一次完整前沿包含21组偏好(k/20,1−k/20)，k=0,…,20；各偏好均从同一公共起点出发，共40320次候选尝试。外部档案保存初始方案及搜索发现的全部严格可行非支配候选，而不只保留21个末次方案；档案不反馈给原单偏好选解过程，因而未改变冻结策略的动作或搜索规则。
+
+NSGA-II使用种群100、交叉率0.90、个体变异率0.25，以及非支配等级—拥挤度二元锦标赛和父子代精英环境选择。每个“收运实体—周期”的基因表达服务开关、车辆、设施偏好及访问顺序；末期必访，前期服务独立可变，统一确定性修复允许同一实体跨周期再次全量服务。NSGA-II也维护仅供记录的外部非支配档案，不用档案改变环境选择。B1为40320次候选尝试，Test-4另续至B2=120960次；初始化新增个体、重复候选和修复失败均计入预算，半代耗尽时已评价的可行候选仍纳入档案。
+
+主指标采用弱覆盖率 𝒞(A,B)=#{{b∈B:存在a∈A满足C(a)≤C(b),R(a)≤R(b)}}/#B，以𝒞区别于经济成本C，相等目标点计入覆盖。判定使用未经展示舍入的C/b_C、R/b_R，统一容差10⁻⁸。两个档案先分别去重并剔除严格被支配点，不先合并算法解集；目标重合时按稳定方案标识保留代表。每个重复编号配对计算两个方向覆盖率，表内为3次完整前沿配对的均值±运行间样本标准差（ddof=1）。21偏好不构成21个统计样本。
+
+计算采用CPU冻结推理，每进程1线程，正式前沿批次16个并发任务；MILP另以单线程任务运行。时间为共享计算资源下的实际墙钟观测，包含一次完整前沿的全部搜索、严格候选核验及档案维护，不是独占机器速度基准。PPO计时包含各偏好的进度写盘；NSGA-II B2累计时间也包含B1中途快照写盘。模型加载、公共初始方案首次评价及最后预算快照导出不计入对应搜索段时间，任务总耗时与准备耗时另行保存在completed和frontier_runs记录中。Train-S、Train-L历史一次性训练耗时分别为{training['small']['training_seconds']:.3f} s和{training['large']['training_seconds']:.3f} s，不计入本轮推理时间。
+
+## （二）小规模固定偏好求解质量验证
+
+原小规模实例绑定b_C=1384.991951、b_R=10.876517565143931。本节仅比较当前冻结Train-S与MILP，不构建完整精确帕累托前沿。MILP每组单次求解，显式时限3600 s、相对gap目标0；原始变量、状态、界和墙钟时间均另存。PPO各偏好沿用已记录的3个原评估种子，模型改用登记的新冻结模型。
+
+**表4 小规模固定偏好下PPO-Transformer与MILP的求解结果**
+
+{markdown_table(['方法','偏好 (ωc,ωr)','成本 C','风险 R','目标值 J','相对MILP差异（%）','求解时间（s）','求解状态'],small_rows)}
+
+注：PPO每行对应3次运行中J最小的同一个实际方案，成本、风险与J不分别择优；并列按运行编号。PPO时间为3次完整搜索耗时之和。MILP时间沿用单次原求解运行的实际墙钟时间，不含之后离线数值规范化或独立审计；C、R与J来自同一个经验证的实际变量解。差异为100(J_PPO−J_MILP)/J_MILP，†仅表示相对限时可行incumbent的差异，不是最优性差距；最优性均依据求解日志而非是否接近某个已知目标判断。
+
+MILP数值交接采用统一离线规范化：对五组返回向量均将距整数不超过10⁻⁵的整数变量舍入，连续变量绝对值小于10⁻⁵时置零，其余连续量不变。两组限时解的原始近零弧变量及载量曾被路线评价器的存在性判断放大，故原始评价与求解器目标不一致；这些原始向量、指标与不一致标志完整保留在[原始MILP记录](../output/pareto-single-instance-v3/milp/)中，不用重建路线替代返回解。规范化后的[五组完整变量方案](../output/pareto-single-instance-v3/milp/validated/)均重新通过原完整MILP矩阵、变量界、整数性与共同严格可行检查，最大约束残差为{max(x['milp']['max_matrix_residual'] for x in small):.3g}，共同评价J与原求解器目标的最大绝对差为{max(abs(x['milp']['solver_objective_difference']) for x in small):.3g}。该步骤未新增搜索或提高最优性证明，后处理耗时另存cleanup_seconds，不计入表中求解时间；表中最优状态、界、gap与原3600 s预算均保持原记录。
+
+五组偏好中，MILP在{len(optimum_items)}组完成最优性证明，PPO在这些组中的{exact_matches}组达到相同目标（数值容差内）。纯成本偏好下风险不参与目标，成本相同的不同实际方案可以具有不同风险，表中未用其他方案的较小风险替换MILP返回解；纯风险偏好下成本同样只作为伴随指标报告，不参与该次目标。{small_limited_text}。对限时可行解仅比较当前incumbent质量，不将其作为全局最优基准。小规模表使用三次择优结果，不能将其解释为单次平均性能；该投入也必须和三次累计时间一并考虑。
+
+## （三）大规模近似帕累托前沿比较
+
+L20采用Test-4唯一固定案例test-Test-4-000，PPO使用Train-L。每次完整PPO前沿同时与相同重复编号的NSGA-II B1、B2档案比较；B2继续B1演化，不是额外一套独立重复。两方向分别统计，不能将覆盖率理解为成本或风险降低比例。
+
+**表5 大规模实例下PPO-Transformer与NSGA-II的双向覆盖率**
+
+{grouped_table('比较方法／固定实例',['B1：40320次尝试','B2：120960次尝试'],[['PPO（Train-L）与NSGA-II；L20，1实例',*t5]])}
+
+注：每格为同一固定案例3次完整前沿配对的均值±样本标准差；箭头仅表示从PPO角度阅读指标的方向。P表示PPO前沿，N表示对应预算的NSGA-II前沿。两组比较复用同一PPO档案，B2未给PPO增加重启。B1配对：{paired_status([row for row in pair_rows if row['instance']=='Test-4' and row['model']=='large' and row['nsga_budget']==40320])}；B2配对：{paired_status([row for row in pair_rows if row['nsga_budget']==120960])}。原始覆盖点数与分母见coverage_pairs.csv。失败配对记NA，若有失败则均值为有效配对条件下的统计，少于2个有效配对时SD记NA。
+
+B1下𝒞(N,P)与𝒞(P,N)分别为{t5[0]}和{t5[1]}，B2下分别为{t5[2]}和{t5[3]}。这些数值只描述两算法在本案例、当前编码与明确预算下发现的近似解集，不证明任何一方覆盖真实完整前沿。候选尝试预算相同也不代表目标评价次数或运行时间相同，判断投入需结合附表A2的完整前沿时间。
+
+{b2_interpretation}
+
+## （四）冻结模型跨规模案例测试
+
+两个冻结模型分别用于四个固定未见案例，每个模型—案例组合进行3次完整前沿求解，共24次PPO前沿。各规模共用同一套3次NSGA-II B1记录；Test-4的Train-L行与表5 B1数值完全一致，不重复计算或更换基线。训练数据与四个测试实例的规范参数哈希无交集，四种规模token需求上界48、113、242、758均小于896，动作对象需求12、36、90、320均小于512，未裁剪测试规模或动作对象。
+
+**表6 两种训练模型在四种测试规模上的双向覆盖率**
+
+{grouped_table('训练模型',['Test-1','Test-2','Test-3','Test-4'],t6)}
+
+注：两行×四组规模，每组两方向，共八个数值列。每格仅针对一个固定实例上的3次配对运行，均值±标准差反映算法随机性，不反映实例间变异。P为该行PPO模型档案，N为相同案例NSGA-II B1档案，不是将两个PPO模型互作覆盖基准。配对状态为{paired_status([row for row in pair_rows if row['nsga_budget']==40320])}；空前沿失败配对记NA，不代填0或1。
+
+{'；'.join(scale_comparisons)}。这比较的是各模型相对共同基线的覆盖表现，不等于两个PPO档案彼此的严格支配关系。
+
+本节据四个案例观察同一冻结策略在不同任务规模上的适应情况。表中跨规模数值同时受目标景观和相应NSGA-II解集影响，不能直接据其排列规模难度，也不能把相对基线覆盖率称为严格的泛化损失。每种训练规模只有一份固定检查点、每种测试规模只有一个实例，因此不据此推断训练规模的平均效应或跨实例统计优势。
+
+## （五）关键参数敏感性分析
+
+以test-Test-4-000为唯一基础网络，分别将现有处理能力或现有兼容异类共载风险系数乘以0.7、0.8、1.0、1.2、1.3。两个参数共用基准，总共9个参数版本；逐字段验证除指定参数外其余网络、产废量、技术匹配、兼容关系、车辆与库存容量均不变。每版本使用当前参数下预先绑定的b与同一Train-L，在固定配对种子下重新求解3个完整前沿。基准3次严格复用表5记录，其余8版本新增24次，合计27次记录。
+
+**图2 关键参数变化下的成本—风险近似帕累托前沿**
+
+![关键参数敏感性前沿](../output/pareto-single-instance-v3/figures/sensitivity.png)
+
+注：案例test-Test-4-000；Train-L；21组偏好，每组60步×32候选；每情景3次运行联合获得的近似前沿。两子图各展示−30%、−20%、基准、+20%、+30%五个情景，每一点对应已保存且严格可行的实际方案。各情景分别联合、去重和非支配筛选，不平均点坐标，也不跨情景筛除点。散点不表示点间插值可行；横轴为成本模型单位，纵轴为模型风险指标。全部9情景的3次运行均成功。
+
+{'处理能力五个水平的联合前沿及方案标识完全重合。这是当前宽松容量下的有效结果，未为制造显著变化而收紧基础案例。' if capacity_identical else '处理能力扰动下的曲线按实际求解结果展示，不通过改动未声明容量或追加搜索人为拉开差异。'} 预检中，基准参考方案最大处理能力利用率为50.00%，即使处理能力下调30%，该参考方案的最大利用率也仅为71.43%；车辆最大利用率约99.97%，两类约束的紧张程度并不相同。上述利用率对应预先固定的参考方案，不冒充所有最优方案的约束活跃性证明。
+
+即使某项处理能力约束未活跃，设施token中的处理能力与利用率输入仍可能随该参数改变，进而影响冻结策略的动作概率和有限预算搜索轨迹。因此，能力扰动下曲线的微小移动不能自动解释为可行域放松带来的系统收益，需要与约束利用率、实际方案和策略输入响应区分。
+
+本案例还可以给出超越参考方案的容量界：四类废物整个规划期的全系统总产量依次为{', '.join(f'{value:.3f}' for value in type_totals.values())}，而−30%版本任一具备处理技术的设施在单期的对应处理能力至少为{', '.join(f'{value:.4f}' for value in low_capacities.values())}，即各类全期总量的1.4倍。由于期初库存为0、库存与处理量非负且满足质量守恒，任一设施任一期的某类处理量不可能超过该类全系统全期产生量。因此，本次五个能力水平的处理能力上限均为冗余约束，它们的真实可行域及原始成本—风险目标并未改变。若近似前沿不同，应解释为容量token改变冻结策略的有限搜索表现，而不是系统处理能力放松的优化收益；本轮不据此得出实际处理瓶颈下的敏感性结论。
+
+联合前沿中，基准与处理能力下调30%版本的最大处理利用率分别为{scenes['baseline']['maximum_processing_utilization_in_union']*100:.2f}%与{scenes['capacity-70']['maximum_processing_utilization_in_union']*100:.2f}%。基准风险端点为(C,R)=({baseline['cost_at_minimum_risk']:.3f},{baseline['minimum_risk']:.4f})，运输、共载、产废端库存风险为{baseline['transport_risk_at_minimum_risk']:.4f}、{baseline['coload_risk_at_minimum_risk']:.4f}、{baseline['producer_inventory_risk_at_minimum_risk']:.4f}；使用{baseline['vehicle_period_routes_at_minimum_risk']}条车辆—周期路线、{baseline['service_visits_at_minimum_risk']}次实体服务，逐期服务次数为{baseline['visits_by_period_at_minimum_risk']}。{'；'.join(coload_interpretation)}。这些端点都是各情景实际联合档案中的单个方案；对不同方案的风险分项与服务安排作并列展示，并不能单独识别参数的因果效应。
+
+共载风险系数变化会同时改变同一方案的风险评价和重优化时的选解，因此不能把风险坐标下降全部归因于路线策略改善。各情景使用自身固定b，相同权重表示相对该情景参考方案的偏好，不意味着跨情景绝对目标系数相同。附表A3报告实际前沿端点，补充CSV记录端点风险分项与逐期服务次数，完整路线、车辆与周期记录可按方案标识回放；所有响应均限定于本冻结PPO求解协议，不视为精确最优响应。
+
+为核对实际共载组成，以下仅提取每个对应风险端点的一条稳定选定路线，并非把该路线当作整个方案：{'；'.join(route_interpretation)}。车辆在访问各实体时全量收取当期可用量；完整方案及其他车辆、周期的收运安排均由对应方案文件保留。
+
+## （六）结果范围与局限
+
+本轮使用5个固定基础实例（历史小案例加四个测试规模案例），敏感性的8个新增版本均来自同一Test-4基础网络，不是新增随机实例。小规模按固定偏好验证解质量，其他部分比较有明确尝试预算的近似解集。有限权重加权和可能遗漏非凸目标区域中的非支撑有效点，保存完整候选档案仍不构成全局帕累托完整性证明。
+
+这些案例和重复只支持当前模型、生成规则与预算下的描述性结论；3次重复不是跨实例样本。本轮未按结果更换实例、调整训练参数、微调检查点或追加某一情景预算。正式的多实例统计验证、更多训练种子及真实企业数据验证需另行安排。
+
+## 附录A 可复现参数与交付记录
+
+### A.1 冻结模型和参考尺度
+
+{markdown_table(['方法','训练实例数','训练seed','训练时间（s）','检查点SHA256'],[[f'PPO（Train-{label}）',24,training[model]['training_seed'],f"{training[model]['training_seconds']:.3f}",protocol['registry']['models'][model]['sha256']] for model,label in [('small','S'),('large','L')]])}
+
+训练参数保持已冻结的20轮×24个episode×24步，每轮24次更新；学习率0.0003、γ=0.95、GAE λ=0.90、截断0.20、熵系数0.02、价值损失系数0.50。网络为Full Transformer，48维嵌入、1层、4头、前馈96维、Dropout=0、最多896 token、8算子、512对象，偏好token开启。训练已完成，本轮仅加载冻结参数；两模型对应规范路径与哈希以configs/frozen_ppo_models.json为准。
+
+四个测试案例沿用同一锁定生成区间，仅改变五项规模字段：单节点—品类—周期产生量[0.5,2.0]，坐标[0,100]，路段事故概率[0.0005,0.003]，处理成本[4,20]；车辆、产废端库存、处理处置端库存和处理能力系数依次为1.8、2.5、3.0、2.0。废物后果系数[1,4]，产废端库存风险系数[0.2,1.0]，设施库存风险系数[0.1,0.8]，共载风险系数[0.05,0.5]；固定车辆启用成本50、单位距离成本3。兼容概率为1，技术匹配生成概率0.85且保障每类废物至少有可处理设施，初始库存为0并要求期末清零。上述为合成生成规则，完整实例参数和实际技术/兼容矩阵已随实例保存，尚未使用企业数据标定。
+
+### A.2 完整前沿运行时间、点数与可行性
+
+{markdown_table(['方法','固定测试规模','完整前沿时间（s）','前沿点数','成功/计划运行','交付点严格可行率','期末清零率'],operations)}
+
+注：时间和点数为同一案例3次运行的均值±样本标准差。NSGA-II B2时间是从同次运行开始累计至120960次尝试，包含B1，不是B1之后的增量。PPO小规模表4时间为三次累计，而本表前沿时间为一次完整21偏好前沿的运行均值，两者口径不同。candidate_attempts、candidate_objective_evaluations、ppo_internal_objective_evaluations、cache_hits与operator_failures分别保留；搜索段实际评价次数= candidate_objective_evaluations + ppo_internal_objective_evaluations + return_validation_evaluations，最后一项为PPO每偏好返回方案再验证，共21次（NSGA-II为0），不改变40320尝试预算。该总数不含公共参考准备或离线表图回放核验。invalid_candidate_attempts包含缓存命中的不可行尝试，invalid_candidates为新评价中不可行次数；动作无变化/修复返回失败与严格不可行不混为同一指标。
+
+### A.3 敏感性真实端点
+
+{markdown_table(['方法','情景','b_C','b_R','联合前沿点数','最低成本','对应风险','最低风险','对应成本','计算时间（s）'],[['PPO（Train-L）',x['scenario'],f"{x['b_C']:.3f}",f"{x['b_R']:.4f}",x['points'],f"{x['minimum_cost']:.3f}",f"{x['risk_at_minimum_cost']:.4f}",f"{x['minimum_risk']:.4f}",f"{x['cost_at_minimum_risk']:.3f}",f"{x['time_mean']:.2f}"] for x in scene_summary])}
+
+注：成本端点按(C,R,方案标识)排序，风险端点按(R,C,方案标识)排序，每对坐标属于同一实际方案。最低成本点不被预先规定为最大风险点，最低风险点也不被预先规定为最大成本点。计算时间为一次完整前沿的3次运行均值，不是3次累计。详细风险分项及端点方案标识见sensitivity_scenarios.csv。
+
+### A.4 文件对应与复现
+
+本轮协议为pareto-single-instance-v3，协议SHA256为`{protocol_hash}`。原始实例/参数版本、公共参考方案和固定b见[instances](../output/pareto-single-instance-v3/instances/)；全部前沿、方案、覆盖点计数、未舍入坐标及候选工作量保存在[实验目录](../output/pareto-single-instance-v3/)中。表4对应table4_selected_solutions.csv；表5和表6共用coverage_pairs.csv；图2对应sensitivity_points.csv，可编辑脚本为[plot_pareto_sensitivity.py](../plot_pareto_sensitivity.py)，另交付[SVG矢量图](../output/pareto-single-instance-v3/figures/sensitivity.svg)及350 dpi PNG。总计48次正式PPO前沿、12次NSGA-II运行（产生15个预算档案）、15次小规模PPO求解及5次3600 s上限MILP求解；基准敏感性3次为已有Train-L/Test-4记录的复用。
+
+方法组织参照Chen等（2026）多权重解集、双向覆盖与固定案例敏感性展示，但本研究不声称实现其邻域参数迁移。参考：[本地论文](<../参考文献/Chen 等 - 2026 - Integrated hybrid energy and time-of-use electricity tariffs for the resource-constrained project sc.pdf>)。本轮重新生成并核验全部表图，不将旧五偏好均值改名为帕累托实验。
+'''
+    PAPER.write_text(manuscript,encoding='utf8')
+    write(OUT/'report_verification.json',{'passed':True,'formal_front_records':len(fronts),
+          'formal_tasks':len(expected),'front_points_replayed':replayed,'coverage_pair_count':len(pair_rows),
+          'coverage_valid':paired_valid,'small_ppo_runs':15,'milp_runs':5,
+          'protocol_sha256':protocol_hash,'manuscript_sha256':file_sha256(PAPER),
+          'report_script_sha256':file_sha256(Path(__file__)),'plot_script_sha256':file_sha256(ROOT/'plot_pareto_sensitivity.py'),
+          'milp_cleanup_source_sha256':file_sha256(ROOT/'normalize_pareto_milp.py')})
+    print(json.dumps(read(OUT/'results.json'),ensure_ascii=False,indent=2))
+
+
+if __name__=='__main__':
+    build()
