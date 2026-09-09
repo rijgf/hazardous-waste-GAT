@@ -1,0 +1,316 @@
+{
+  "preference": [
+    0.0,
+    1.0
+  ],
+  "seed": 1142480955,
+  "seconds": 1.3332890999881784,
+  "metrics": {
+    "cost": 2897.3310360000005,
+    "risk": 5.190651764310155,
+    "normalized_cost": 1.2111858573299252,
+    "normalized_risk": 0.12598302706376754,
+    "weighted_objective_raw": 5.190651764310155,
+    "weighted_objective_normalized": 0.12598302706376754,
+    "weighted_objective": 0.12598302706376754,
+    "cost_ref": 2392.144045,
+    "risk_ref": 41.20119896534043,
+    "fixed_cost": 300.0,
+    "distance_cost": 2475.4170000000004,
+    "processing_cost": 121.91403600000001,
+    "transport_risk": 4.813029764310155,
+    "coload_risk": 0.0,
+    "producer_inventory_risk": 0.377622,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  },
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G1::S1",
+          "n::G2::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G1::S2",
+          "n::G3::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G3::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G3::S2",
+          "n::G1::S2",
+          "n::G2::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G1::S1",
+          "n::G3::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G2::S1",
+          "D2"
+        ]
+      }
+    ]
+  },
+  "solution_id": "8e046339411983dce1aef8ff2184b8a65b8107ad4361ddc26ad22cd79ee74e42",
+  "candidate_budget": 12000,
+  "actual_candidate_attempts": 1154,
+  "unused_candidate_budget": 10846,
+  "stop_reason": "positive_probability_action_space_exhausted",
+  "search_counts": {
+    "facility_attempts": 243,
+    "infeasible": 218,
+    "drop_attempts": 134,
+    "accepted_proposal": 24,
+    "early_operator_rejections": 204,
+    "masked_or_dead_end": 61,
+    "relocate_attempts": 231,
+    "swap_attempts": 280,
+    "rejected": 708,
+    "accepted_transitions": 13,
+    "add_attempts": 88,
+    "missing_edge": 91,
+    "two_opt_attempts": 178,
+    "no_change": 52,
+    "exhausted_batches": 1
+  },
+  "ledger_counts": {
+    "candidate_attempts": 1154,
+    "candidate_objective_evaluations": 173,
+    "cache_hits": 777,
+    "invalid_candidates": 37,
+    "operator_failures": 204,
+    "invalid_candidate_attempts": 218,
+    "ppo_internal_objective_evaluations": 0
+  },
+  "final_validation_evaluations": 1,
+  "preference_initialization_evaluations": 1,
+  "trace": [
+    {
+      "attempt": 8,
+      "solution_id": "b8a3f3c094b98e6a14351f52078becfc637f177790bcd0817798f6216ebcdc5c",
+      "action": {
+        "operator": 0,
+        "first": 5,
+        "second": 511,
+        "third": 511
+      },
+      "C": 2144.050045,
+      "R": 27.952745791475614,
+      "J": 0.6784449601816254
+    },
+    {
+      "attempt": 16,
+      "solution_id": "5691f7e4ce44b72f432325895f6dfae158fdc19aa0bc2567f428825fe86dd77a",
+      "action": {
+        "operator": 1,
+        "first": 3,
+        "second": 13,
+        "third": 19
+      },
+      "C": 2333.958045,
+      "R": 25.97421058797193,
+      "J": 0.6304236585401832
+    },
+    {
+      "attempt": 24,
+      "solution_id": "b061e38d85b8557094ca4b1f3fca09fc32c16f6f8830dc5d9865c836c9277a7d",
+      "action": {
+        "operator": 5,
+        "first": 5,
+        "second": 13,
+        "third": 13
+      },
+      "C": 2582.0520450000004,
+      "R": 24.10948474833747,
+      "J": 0.5851646397139807
+    },
+    {
+      "attempt": 32,
+      "solution_id": "998e840b83bfcb365906bef19cfe2765a4238dd40d73e070108e661b365177dd",
+      "action": {
+        "operator": 1,
+        "first": 11,
+        "second": 17,
+        "third": 21
+      },
+      "C": 2674.148045,
+      "R": 13.561066951067957,
+      "J": 0.3291425320529117
+    },
+    {
+      "attempt": 40,
+      "solution_id": "fafd685bb5d6389f4adfd754440da21574cd8c8d5b8b531dbd94106a0c44c116",
+      "action": {
+        "operator": 1,
+        "first": 4,
+        "second": 14,
+        "third": 18
+      },
+      "C": 2953.025141,
+      "R": 11.748020849810791,
+      "J": 0.285137839306413
+    },
+    {
+      "attempt": 56,
+      "solution_id": "eb6f3ee9491fe3dbf891f8dfc1efb62920e5c19f7d43cd5d545798f72435af96",
+      "action": {
+        "operator": 3,
+        "first": 5,
+        "second": 3,
+        "third": 511
+      },
+      "C": 2953.025141,
+      "R": 11.488096892852472,
+      "J": 0.2788291889883246
+    },
+    {
+      "attempt": 72,
+      "solution_id": "306d4c01279530f24857aa9307b58816301b6ea98524189797d3bad0f94b44fb",
+      "action": {
+        "operator": 0,
+        "first": 0,
+        "second": 511,
+        "third": 511
+      },
+      "C": 2679.44151,
+      "R": 10.981874539709512,
+      "J": 0.26654259622269155
+    },
+    {
+      "attempt": 80,
+      "solution_id": "8e80f1aa4d2062b84366311a3436e34ed7b3599151aa8bb1173c8036227646da",
+      "action": {
+        "operator": 0,
+        "first": 1,
+        "second": 511,
+        "third": 511
+      },
+      "C": 2599.3085100000003,
+      "R": 9.442684152889118,
+      "J": 0.22918469340740694
+    },
+    {
+      "attempt": 88,
+      "solution_id": "2c1f0af03165dafc45dbd3451f5a603ba03d60e7f6ed50300c59fd59b4e0024c",
+      "action": {
+        "operator": 2,
+        "first": 11,
+        "second": 8,
+        "third": 511
+      },
+      "C": 2660.78451,
+      "R": 5.679801752497463,
+      "J": 0.13785525409771368
+    },
+    {
+      "attempt": 96,
+      "solution_id": "0a032e4e4406871367a3fc9cc9c2c21f56efd970ee83122efd2f514ea1baf9a2",
+      "action": {
+        "operator": 0,
+        "first": 3,
+        "second": 511,
+        "third": 511
+      },
+      "C": 2533.9265100000002,
+      "R": 5.396315466433583,
+      "J": 0.13097471923021245
+    },
+    {
+      "attempt": 136,
+      "solution_id": "a09e5c3e9bbf2ad99cd73343eb1e216879ceea73179827bdf4658d4679215cdf",
+      "action": {
+        "operator": 5,
+        "first": 0,
+        "second": 12,
+        "third": 12
+      },
+      "C": 2807.510141,
+      "R": 5.261927254043134,
+      "J": 0.12771296433556728
+    },
+    {
+      "attempt": 184,
+      "solution_id": "9ac103df1a17e394ebf59295c41adc8de17f2eb514ab65d66b9dafc96fcf29f7",
+      "action": {
+        "operator": 4,
+        "first": 12,
+        "second": 18,
+        "third": 511
+      },
+      "C": 2755.7220360000006,
+      "R": 5.195993138287655,
+      "J": 0.12611266829051906
+    },
+    {
+      "attempt": 224,
+      "solution_id": "8e046339411983dce1aef8ff2184b8a65b8107ad4361ddc26ad22cd79ee74e42",
+      "action": {
+        "operator": 5,
+        "first": 1,
+        "second": 13,
+        "third": 13
+      },
+      "C": 2897.3310360000005,
+      "R": 5.190651764310155,
+      "J": 0.12598302706376754
+    }
+  ],
+  "batches": 145,
+  "action_log_path": "actions/small/p4-r2.jsonl.gz",
+  "action_log_sha256": "fece6f00e870cec68de2160058a3a8de453e0f356fd3ae6430a1b98c908b4e6d",
+  "repeat": 2,
+  "instance_id": "legacy-small-fixed--revision-v4",
+  "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+  "b_C": 2392.144045,
+  "b_R": 41.20119896534043,
+  "reference_plan_sha256": "7ddf960c830d47c963a4622f9e2a03bcc62d3e389f1a7501c22b11c56dba7f68",
+  "checkpoint": {
+    "experiment_alias": "New-S-v9",
+    "training_scale": "Test-1",
+    "sha256": "2d22202e39eeb681b38f1dd34dcf84f55c125828877cd66c1241ec2a7fdfcf00",
+    "checkpoint": "outputs/ppo_frontier_v9/models/small_model.pt",
+    "training_record": "outputs/ppo_frontier_v9/training/small/config.json",
+    "training_completed": "outputs/ppo_frontier_v9/training/small/completed.json",
+    "training_record_sha256": "c33a87fb2cd9bcf0206c0bd40d3124a750a76b518335c30917422f6a84db71dd",
+    "training_completed_sha256": "28aba4488257d8e24c5e38f220644a4d05c86c7a89c0366d6ba92076980e0cbc"
+  },
+  "protocol_sha256": "db90a62fa5dab3d2180e1f640239fba195fe6d9470382f6c91ecdcee96e68ce5"
+}

@@ -1,0 +1,185 @@
+{
+  "preference": [
+    1.0,
+    0.0
+  ],
+  "seed": 3447525709,
+  "seconds": 1.1896971000096528,
+  "metrics": {
+    "cost": 1666.733414,
+    "risk": 26.680656687758148,
+    "normalized_cost": 0.6967529474170943,
+    "normalized_risk": 0.6475699095602203,
+    "weighted_objective_raw": 1666.733414,
+    "weighted_objective_normalized": 0.6967529474170943,
+    "weighted_objective": 0.6967529474170943,
+    "cost_ref": 2392.144045,
+    "risk_ref": 41.20119896534043,
+    "fixed_cost": 150.0,
+    "distance_cost": 1385.082,
+    "processing_cost": 131.651414,
+    "transport_risk": 6.140228578503008,
+    "coload_risk": 18.70855610925514,
+    "producer_inventory_risk": 1.8318720000000002,
+    "facility_inventory_risk": 0.0,
+    "violations": [],
+    "feasible": true
+  },
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G2::S1",
+          "n::G3::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G2::S1",
+          "n::G3::S2",
+          "n::G2::S2",
+          "n::G1::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G1::S1",
+          "n::G3::S1",
+          "D1"
+        ]
+      }
+    ]
+  },
+  "solution_id": "5c81e62263e679dbe3e82dc1bfbff550d3caeb121287183c9a3185b82d133678",
+  "candidate_budget": 12000,
+  "actual_candidate_attempts": 1124,
+  "unused_candidate_budget": 10876,
+  "stop_reason": "positive_probability_action_space_exhausted",
+  "search_counts": {
+    "facility_attempts": 206,
+    "early_operator_rejections": 446,
+    "masked_or_dead_end": 72,
+    "infeasible": 186,
+    "two_opt_attempts": 222,
+    "accepted_proposal": 11,
+    "drop_attempts": 6,
+    "rejected": 481,
+    "swap_attempts": 271,
+    "missing_edge": 313,
+    "relocate_attempts": 293,
+    "accepted_transitions": 5,
+    "add_attempts": 126,
+    "no_change": 61,
+    "exhausted_batches": 1
+  },
+  "ledger_counts": {
+    "candidate_attempts": 1124,
+    "candidate_objective_evaluations": 68,
+    "cache_hits": 610,
+    "invalid_candidates": 14,
+    "operator_failures": 446,
+    "invalid_candidate_attempts": 186,
+    "ppo_internal_objective_evaluations": 0
+  },
+  "final_validation_evaluations": 1,
+  "preference_initialization_evaluations": 1,
+  "trace": [
+    {
+      "attempt": 8,
+      "solution_id": "ced2cae6209e11b13cd530c92d3768a1e0a5e3968ea649b342fbe0072ca174d0",
+      "action": {
+        "operator": 0,
+        "first": 0,
+        "second": 511,
+        "third": 511
+      },
+      "C": 2118.560414,
+      "R": 39.0641905698303,
+      "J": 0.8856324594784174
+    },
+    {
+      "attempt": 16,
+      "solution_id": "bac9c132359b1fb7832fc94e8d1047e832bca605377c2016e4786bb285213eea",
+      "action": {
+        "operator": 0,
+        "first": 1,
+        "second": 511,
+        "third": 511
+      },
+      "C": 2068.112414,
+      "R": 38.7835492942942,
+      "J": 0.8645434284455894
+    },
+    {
+      "attempt": 24,
+      "solution_id": "5ad3f50566c3a8a10702ead9e46641b8f54182fd3bdb83b31f2d2b89c55fd86f",
+      "action": {
+        "operator": 0,
+        "first": 5,
+        "second": 511,
+        "third": 511
+      },
+      "C": 1820.0184140000001,
+      "R": 29.14209896887153,
+      "J": 0.760831446502629
+    },
+    {
+      "attempt": 40,
+      "solution_id": "8eef7ed31f8082a8a1d9903dbf33cb8765853a1158ed5e7805ad7f82f6b8b826",
+      "action": {
+        "operator": 0,
+        "first": 3,
+        "second": 511,
+        "third": 511
+      },
+      "C": 1730.0244140000002,
+      "R": 29.02369260042857,
+      "J": 0.723210802299324
+    },
+    {
+      "attempt": 48,
+      "solution_id": "5c81e62263e679dbe3e82dc1bfbff550d3caeb121287183c9a3185b82d133678",
+      "action": {
+        "operator": 3,
+        "first": 11,
+        "second": 7,
+        "third": 511
+      },
+      "C": 1666.733414,
+      "R": 26.680656687758148,
+      "J": 0.6967529474170943
+    }
+  ],
+  "batches": 141,
+  "action_log_path": "actions/small/p0-r2.jsonl.gz",
+  "action_log_sha256": "97a5c5070348312c1b1210779514019e0d878afea47ad0227ded3f06ee13ed4f",
+  "repeat": 2,
+  "instance_id": "legacy-small-fixed--revision-v4",
+  "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+  "b_C": 2392.144045,
+  "b_R": 41.20119896534043,
+  "reference_plan_sha256": "7ddf960c830d47c963a4622f9e2a03bcc62d3e389f1a7501c22b11c56dba7f68",
+  "checkpoint": {
+    "experiment_alias": "New-S-v9",
+    "training_scale": "Test-1",
+    "sha256": "2d22202e39eeb681b38f1dd34dcf84f55c125828877cd66c1241ec2a7fdfcf00",
+    "checkpoint": "outputs/ppo_frontier_v9/models/small_model.pt",
+    "training_record": "outputs/ppo_frontier_v9/training/small/config.json",
+    "training_completed": "outputs/ppo_frontier_v9/training/small/completed.json",
+    "training_record_sha256": "c33a87fb2cd9bcf0206c0bd40d3124a750a76b518335c30917422f6a84db71dd",
+    "training_completed_sha256": "28aba4488257d8e24c5e38f220644a4d05c86c7a89c0366d6ba92076980e0cbc"
+  },
+  "protocol_sha256": "db90a62fa5dab3d2180e1f640239fba195fe6d9470382f6c91ecdcee96e68ce5"
+}

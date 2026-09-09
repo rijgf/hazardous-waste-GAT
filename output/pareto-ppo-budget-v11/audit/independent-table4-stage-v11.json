@@ -1,0 +1,1045 @@
+{
+  "status": "TABLE4_INPUT_STAGE_PASS_NOT_FINAL_MANUSCRIPT",
+  "date": "2026-09-10",
+  "protocol_sha256": "db90a62fa5dab3d2180e1f640239fba195fe6d9470382f6c91ecdcee96e68ce5",
+  "instance_file_sha256": "5347ae3c36b30f262558f5962b43c27d54b7872fc450fdc88a2c0210b6e80612",
+  "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+  "instance_id": "legacy-small-fixed--revision-v4",
+  "reference_plan_sha256": "7ddf960c830d47c963a4622f9e2a03bcc62d3e389f1a7501c22b11c56dba7f68",
+  "b_C": 2392.144045,
+  "b_R": 41.20119896534043,
+  "checkpoint": {
+    "experiment_alias": "New-S-v9",
+    "training_scale": "Test-1",
+    "sha256": "2d22202e39eeb681b38f1dd34dcf84f55c125828877cd66c1241ec2a7fdfcf00",
+    "checkpoint": "outputs/ppo_frontier_v9/models/small_model.pt",
+    "training_record": "outputs/ppo_frontier_v9/training/small/config.json",
+    "training_completed": "outputs/ppo_frontier_v9/training/small/completed.json",
+    "training_record_sha256": "c33a87fb2cd9bcf0206c0bd40d3124a750a76b518335c30917422f6a84db71dd",
+    "training_completed_sha256": "28aba4488257d8e24c5e38f220644a4d05c86c7a89c0366d6ba92076980e0cbc"
+  },
+  "sources": {
+    "run_ppo_budget_v11.py": "8a17359f2251bfa241b42886601b4405749b88b65f45b2f91de6a5dbb73b8bcf",
+    "report_ppo_budget_v11.py": "69674a6b6c7d5039eb671b36d16ceadce3002c6533e58202adb4cf0bb5e933c6",
+    "audit_ppo_budget_v11.py": "538e6afddd3bbdbe2c8fe03a47edd1dcb04941cec3cab593bb42bb3e3d40aebc",
+    "audit_scalar_advantage_v5.py": "a1f9ae38c0984f3622df97790101af3e5504bee3537d03ecebfd78ca6786d13c",
+    "normalize_pareto_milp.py": "9edaf492a4f4e1e028583992d25c84af0ac33a55f44862f05cba3caa2bd4a21c",
+    "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6"
+  },
+  "small_runs": [
+    {
+      "preference_index": 0,
+      "preference": [
+        1,
+        0
+      ],
+      "repeat": 0,
+      "seed": 2571384110,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p0-r0.json",
+      "result_sha256": "723ad46a3415bbf5a5b9e4f60497990e31f12f9ac573d89ab7ea89ef3ecb5744",
+      "solution_id": "1c6df97c52d9c7266398915dffe86f2eeaf8866e069da4056bffdd3395f0ec71",
+      "C": 1995.0084140000001,
+      "R": 35.21300493288676,
+      "J": 0.8339833958452114,
+      "seconds": 1.2040701000078116,
+      "actual_attempts": 1135,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p0-r0.jsonl.gz",
+        "sha256": "a0270400b42376c91647f1890033409b48815bdb8cc1974febde5dc64b02b2c2",
+        "attempts": 1135,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 0,
+      "preference": [
+        1,
+        0
+      ],
+      "repeat": 1,
+      "seed": 1602506532,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p0-r1.json",
+      "result_sha256": "cd4538ebfec63caac1482760f74d420ad3b2da30dbbd245656b5397509807e05",
+      "solution_id": "fc99d95311ebd644f92ec6dedbd63b1e7161e2d15203e2ae0c3e2ed08e293c98",
+      "C": 1623.8064140000001,
+      "R": 20.66328531884407,
+      "J": 0.6788079578209514,
+      "seconds": 1.1818568000016967,
+      "actual_attempts": 1124,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p0-r1.jsonl.gz",
+        "sha256": "48f311a168cedea3a9b6fadaf16267738eb9aaf9d357ba6a3599aba21c6b750e",
+        "attempts": 1124,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 0,
+      "preference": [
+        1,
+        0
+      ],
+      "repeat": 2,
+      "seed": 3447525709,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p0-r2.json",
+      "result_sha256": "a0482373b688902d4378364b996f5f0a6d31c1f9427b214827e3a9acc79aefc8",
+      "solution_id": "5c81e62263e679dbe3e82dc1bfbff550d3caeb121287183c9a3185b82d133678",
+      "C": 1666.733414,
+      "R": 26.680656687758148,
+      "J": 0.6967529474170943,
+      "seconds": 1.1896971000096528,
+      "actual_attempts": 1124,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p0-r2.jsonl.gz",
+        "sha256": "97a5c5070348312c1b1210779514019e0d878afea47ad0227ded3f06ee13ed4f",
+        "attempts": 1124,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 1,
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "repeat": 0,
+      "seed": 3229999428,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p1-r0.json",
+      "result_sha256": "443330cee2006aadb00249108a565338f98081ecd1ac15d4c32debc0f12d2254",
+      "solution_id": "f9c1805262be2a19d09a1f78a195897b6532aadac6c9a023dcb7cc2d25930160",
+      "C": 1666.733414,
+      "R": 17.978015457315667,
+      "J": 0.6316514356387053,
+      "seconds": 1.1984324000077322,
+      "actual_attempts": 1124,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p1-r0.jsonl.gz",
+        "sha256": "aeb873953e41699725e3ab781e93db43b652901d39543eef3d0d6a0bf28aac98",
+        "attempts": 1124,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 1,
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "repeat": 1,
+      "seed": 4248913066,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p1-r1.json",
+      "result_sha256": "89665b78dfb7a3ebfbcdf221f649ec2bceddef7c118a0845e0bfc9b554bd9d4a",
+      "solution_id": "f9c1805262be2a19d09a1f78a195897b6532aadac6c9a023dcb7cc2d25930160",
+      "C": 1666.733414,
+      "R": 17.978015457315667,
+      "J": 0.6316514356387053,
+      "seconds": 1.2146996999945259,
+      "actual_attempts": 1124,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p1-r1.jsonl.gz",
+        "sha256": "cca755641ae664c2cfcf7b1401d552ee8c64aa14a7131dc3f35b933f654a1d61",
+        "attempts": 1124,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 1,
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "repeat": 2,
+      "seed": 2951447865,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p1-r2.json",
+      "result_sha256": "3932f5bbdee6086d9ec118be11d67df7038cc744262c34d0c277f6a4aecc5679",
+      "solution_id": "f9c1805262be2a19d09a1f78a195897b6532aadac6c9a023dcb7cc2d25930160",
+      "C": 1666.733414,
+      "R": 17.978015457315667,
+      "J": 0.6316514356387053,
+      "seconds": 1.1782156999979634,
+      "actual_attempts": 1124,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p1-r2.jsonl.gz",
+        "sha256": "713f85fbfb4273ec2206068cb2e8c748906807526c4e09c97dfbbace386402e7",
+        "attempts": 1124,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 2,
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "repeat": 0,
+      "seed": 4084462614,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p2-r0.json",
+      "result_sha256": "dda6c59b5e3d8c7ed7fd10ac45219d685913cebffef56192a2eae8805b6041f5",
+      "solution_id": "66681bd0862668f890f0e2904c60bbbb807fd0404240e5defef0e55020cbbf0b",
+      "C": 1865.0474140000001,
+      "R": 7.38958919992616,
+      "J": 0.4795044437485662,
+      "seconds": 1.241007200005697,
+      "actual_attempts": 1123,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p2-r0.jsonl.gz",
+        "sha256": "26ee7a50cadccb195eaae0d06c43524114a7597f84445995744cea92f069927d",
+        "attempts": 1123,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 2,
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "repeat": 1,
+      "seed": 794579791,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p2-r1.json",
+      "result_sha256": "44bee537b977c79e9e31ab8eedb0a0abb68410603ceaffa7817e9e1df31caa51",
+      "solution_id": "0ca8a403be3dc031a31732bc3e519030649d2387943519aa8d7856e3ffbcd573",
+      "C": 1865.0474139999997,
+      "R": 7.38958919992616,
+      "J": 0.4795044437485661,
+      "seconds": 1.2286370000074385,
+      "actual_attempts": 1123,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p2-r1.jsonl.gz",
+        "sha256": "ac2225911196b0eb4270bbaff022828a459f691dd716371512d36983d4fadd7a",
+        "attempts": 1123,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 2,
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "repeat": 2,
+      "seed": 1716606784,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p2-r2.json",
+      "result_sha256": "54a21d895e8d8d178e08acd1b2bb8fe170a3cc8bc9ad8ba708ec1f90e129e158",
+      "solution_id": "0ca8a403be3dc031a31732bc3e519030649d2387943519aa8d7856e3ffbcd573",
+      "C": 1865.0474139999997,
+      "R": 7.38958919992616,
+      "J": 0.4795044437485661,
+      "seconds": 1.2392947000043932,
+      "actual_attempts": 1123,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p2-r2.jsonl.gz",
+        "sha256": "2bf7f152dafba064b3b16841303a4407858c96a9b82221c9c61e9630eaa7a4a6",
+        "attempts": 1123,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 3,
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "repeat": 0,
+      "seed": 2790166943,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p3-r0.json",
+      "result_sha256": "5c25974413c295994a7538245cc4141372e9acd640498e9fd6f56b5be0ad285c",
+      "solution_id": "8a55b5dd8e06f43db2d6bb89fbf9a4fadc7f6a210769545d08833e5804898186",
+      "C": 2117.2810360000003,
+      "R": 5.784017257720046,
+      "J": 0.3265629209473403,
+      "seconds": 1.3078172000095947,
+      "actual_attempts": 1147,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p3-r0.jsonl.gz",
+        "sha256": "16b18b5df5857349b95636842e162c3f9eae6e016b175fef502ca1006cf14867",
+        "attempts": 1147,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 3,
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "repeat": 1,
+      "seed": 14408268,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p3-r1.json",
+      "result_sha256": "7ffafa2b144de5ece3d6c8240accbe14a8ee08e93e7f279db3ac100b6ee6689e",
+      "solution_id": "318f58b37c61005515532696e2bce5b58fa91b44fc10cf4c3e101a82ef2b3a80",
+      "C": 2117.281036,
+      "R": 5.784017257720047,
+      "J": 0.3265629209473403,
+      "seconds": 1.340135199992801,
+      "actual_attempts": 1147,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p3-r1.jsonl.gz",
+        "sha256": "bd4798f6671baa0d80fe60cc0c6b6a6e7ae5160c343a9920e22ffe8a51d747da",
+        "attempts": 1147,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 3,
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "repeat": 2,
+      "seed": 1540054241,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p3-r2.json",
+      "result_sha256": "c14b618cfba59a0c1735f2bd0851c7df709d8a149dcf719666caff4ea11e6e38",
+      "solution_id": "95ee51c095d35d12c8f0d971b0c381c739f66aafa6a5c364964a265a2e704190",
+      "C": 1873.079036,
+      "R": 7.309276843732832,
+      "J": 0.3288065133589295,
+      "seconds": 1.2349239000031957,
+      "actual_attempts": 1118,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p3-r2.jsonl.gz",
+        "sha256": "03ee0cea230c6ca153e9a289b40a4985b23b4957318f296366c2fab024be6560",
+        "attempts": 1118,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 4,
+      "preference": [
+        0,
+        1
+      ],
+      "repeat": 0,
+      "seed": 1809039277,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p4-r0.json",
+      "result_sha256": "f9345a3e8c5ab3e61b5ee082060697bf8a9a51a85134f9ba0e08a697be0d77cb",
+      "solution_id": "73846611ed4622dba0c1a21a69ec6d28e3baa1989e211a10a5799fd1a69e0072",
+      "C": 2604.1350360000006,
+      "R": 4.455521412759978,
+      "J": 0.10814057660089174,
+      "seconds": 1.3307924999971874,
+      "actual_attempts": 1175,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p4-r0.jsonl.gz",
+        "sha256": "76d0e5ee8d5bd7f33b4d69255dc08ee21e0f918375a5cc54a69b57a28e3d61ab",
+        "attempts": 1175,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 4,
+      "preference": [
+        0,
+        1
+      ],
+      "repeat": 1,
+      "seed": 4194498594,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p4-r1.json",
+      "result_sha256": "8b98161a268d97609870da9d1cca87bbc6883848a88612915312e109bbfa51eb",
+      "solution_id": "a073e60c088d19583e14a20b0ce4e19d7b96a75d8fa132bebfb41646324af34d",
+      "C": 2604.135036,
+      "R": 4.455521412759979,
+      "J": 0.10814057660089176,
+      "seconds": 1.3222620000015013,
+      "actual_attempts": 1175,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p4-r1.jsonl.gz",
+        "sha256": "90f8e7005e3f4a24d497654c9ef54457c3fd481c430e68dfa4ec439c2eaa2178",
+        "attempts": 1175,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    },
+    {
+      "preference_index": 4,
+      "preference": [
+        0,
+        1
+      ],
+      "repeat": 2,
+      "seed": 1142480955,
+      "result_path": "output/pareto-ppo-budget-v11/small/ppo-p4-r2.json",
+      "result_sha256": "c8eb31a8b75412254d9fa70c1a2ac85464f1a777cb018d9150b2af2efba60117",
+      "solution_id": "8e046339411983dce1aef8ff2184b8a65b8107ad4361ddc26ad22cd79ee74e42",
+      "C": 2897.3310360000005,
+      "R": 5.190651764310155,
+      "J": 0.12598302706376754,
+      "seconds": 1.3332890999881784,
+      "actual_attempts": 1154,
+      "candidate_cap": 12000,
+      "stop_reason": "positive_probability_action_space_exhausted",
+      "log": {
+        "path": "actions/small/p4-r2.jsonl.gz",
+        "sha256": "fece6f00e870cec68de2160058a3a8de453e0f356fd3ae6430a1b98c908b4e6d",
+        "attempts": 1154,
+        "cap": 12000,
+        "stop_reason": "positive_probability_action_space_exhausted",
+        "same_state_duplicate_actions": 0
+      }
+    }
+  ],
+  "table4_selected": [
+    {
+      "preference_index": 0,
+      "preference": [
+        1,
+        0
+      ],
+      "selected_repeat": 1,
+      "solution_id": "fc99d95311ebd644f92ec6dedbd63b1e7161e2d15203e2ae0c3e2ed08e293c98",
+      "PPO_C": 1623.8064140000001,
+      "PPO_R": 20.66328531884407,
+      "PPO_J": 0.6788079578209514,
+      "PPO_three_run_seconds": 3.575624000019161,
+      "PPO_actual_attempts": 3383,
+      "MILP_C": 1590.5830000001201,
+      "MILP_R": 19.649907276364164,
+      "MILP_J": 0.664919407058583,
+      "MILP_historical_seconds": 75.61998560000211,
+      "relative_difference_percent": 2.08875701550169,
+      "MILP_report_proven_optimal": true,
+      "MILP_source_flag_reconciled": false
+    },
+    {
+      "preference_index": 1,
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "selected_repeat": 0,
+      "solution_id": "f9c1805262be2a19d09a1f78a195897b6532aadac6c9a023dcb7cc2d25930160",
+      "PPO_C": 1666.733414,
+      "PPO_R": 17.978015457315667,
+      "PPO_J": 0.6316514356387053,
+      "PPO_three_run_seconds": 3.5913478000002215,
+      "PPO_actual_attempts": 3372,
+      "MILP_C": 1646.2065589999995,
+      "MILP_R": 12.8276875142116,
+      "MILP_J": 0.5939646468482355,
+      "MILP_historical_seconds": 141.10714069999813,
+      "relative_difference_percent": 6.344954870706172,
+      "MILP_report_proven_optimal": true,
+      "MILP_source_flag_reconciled": false
+    },
+    {
+      "preference_index": 2,
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "selected_repeat": 1,
+      "solution_id": "0ca8a403be3dc031a31732bc3e519030649d2387943519aa8d7856e3ffbcd573",
+      "PPO_C": 1865.0474139999997,
+      "PPO_R": 7.38958919992616,
+      "PPO_J": 0.4795044437485661,
+      "PPO_three_run_seconds": 3.708938900017529,
+      "PPO_actual_attempts": 3369,
+      "MILP_C": 1802.091648,
+      "MILP_R": 7.960401963045898,
+      "MILP_J": 0.473272723855458,
+      "MILP_historical_seconds": 211.97089169999526,
+      "relative_difference_percent": 1.3167291455848487,
+      "MILP_report_proven_optimal": true,
+      "MILP_source_flag_reconciled": false
+    },
+    {
+      "preference_index": 3,
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "selected_repeat": 0,
+      "solution_id": "8a55b5dd8e06f43db2d6bb89fbf9a4fadc7f6a210769545d08833e5804898186",
+      "PPO_C": 2117.2810360000003,
+      "PPO_R": 5.784017257720046,
+      "PPO_J": 0.3265629209473403,
+      "PPO_three_run_seconds": 3.8828763000055915,
+      "PPO_actual_attempts": 3412,
+      "MILP_C": 2117.2810023737557,
+      "MILP_R": 5.784016375362677,
+      "MILP_J": 0.32656290137123994,
+      "MILP_historical_seconds": 3258.312619000004,
+      "relative_difference_percent": 0.000005994587955232789,
+      "MILP_report_proven_optimal": true,
+      "MILP_source_flag_reconciled": true
+    },
+    {
+      "preference_index": 4,
+      "preference": [
+        0,
+        1
+      ],
+      "selected_repeat": 0,
+      "solution_id": "73846611ed4622dba0c1a21a69ec6d28e3baa1989e211a10a5799fd1a69e0072",
+      "PPO_C": 2604.1350360000006,
+      "PPO_R": 4.455521412759978,
+      "PPO_J": 0.10814057660089174,
+      "PPO_three_run_seconds": 3.986343599986867,
+      "PPO_actual_attempts": 3504,
+      "MILP_C": 2604.135025335422,
+      "MILP_R": 4.4555209486577585,
+      "MILP_J": 0.10814056533660256,
+      "MILP_historical_seconds": 3165.3573365000047,
+      "relative_difference_percent": 0.000010416340202129805,
+      "MILP_report_proven_optimal": true,
+      "MILP_source_flag_reconciled": false
+    }
+  ],
+  "milp_independent_checks": [
+    {
+      "preference_index": 0,
+      "preference": [
+        1,
+        0
+      ],
+      "raw_sha256": "1fceabbac6dcaefe081adf000ab44d0c263327f21520c5d76e5c532a8c3d2717",
+      "normalized_sha256": "0b8198cf07eba4af287e5cfc07fc58bd53fa67cfc8db652bdcc1e261fe8b9cef",
+      "solver": {
+        "status": 0,
+        "success": true,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "fun": 0.6649194070585239,
+        "mip_gap": 0,
+        "mip_dual_bound": 0.6649194070585239,
+        "mip_node_count": 10479
+      },
+      "raw_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "normalized_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "C": 1590.5830000001201,
+      "R": 19.649907276364164,
+      "J": 0.664919407058583,
+      "historical_elapsed_seconds": 75.61998560000211,
+      "raw_residuals": {
+        "row": 3.2301272767654154e-11,
+        "bound": 1.3669423370998858e-11,
+        "integer": 1.6364687382974807e-12
+      },
+      "normalized_residuals": {
+        "row": 1.0259348925956147e-11,
+        "bound": 0,
+        "integer": 0
+      },
+      "original_linear_objective": 0.664919407058524,
+      "cleaned_linear_objective": 0.6649194070585829,
+      "normalized_common_minus_solver": 5.906386491005833e-14,
+      "normalized_vector_sha256": "aa8f8857f9b985fb85e1245328815fd9a00be055c75a2002f55f1ee60ff469a5",
+      "changed_variable_count": 67,
+      "variables": 2194,
+      "rows": 6248,
+      "read_only_report_verdict": {
+        "schema": "v11-report-reused-milp-handoff-v1",
+        "source_flags": {
+          "raw_proven_optimal": true,
+          "raw_objective_consistent": true,
+          "normalized_proven_optimal": true,
+          "normalized_objective_consistent": true
+        },
+        "report_proven_optimal": true,
+        "reconciled_source_flag": false,
+        "checks": {
+          "same_solver_record": true,
+          "optimal_termination": true,
+          "zero_reported_gap": true,
+          "primal_dual_agreement": true,
+          "declared_cleanup_tolerances": true,
+          "strict_normalized_feasible": true,
+          "normalized_objective_consistent": true,
+          "full_matrix_within_tolerance": true,
+          "variable_bounds_within_tolerance": true,
+          "integrality_within_tolerance": true,
+          "original_linear_matches_solver": true,
+          "cleaned_linear_matches_common": true,
+          "common_matches_solver": true,
+          "difference_field_consistent": true,
+          "no_additional_solver_calls": true,
+          "source_flag_preserved": true
+        },
+        "failed_checks": [],
+        "solver_status": 0,
+        "solver_success": true,
+        "solver_gap": 0,
+        "solver_objective": 0.6649194070585239,
+        "solver_dual_bound": 0.6649194070585239,
+        "normalized_objective": 0.664919407058583,
+        "normalized_minus_solver": 5.906386491005833e-14,
+        "max_matrix_residual": 1.0259348925956147e-11,
+        "max_bound_residual": 0,
+        "max_integer_residual": 0,
+        "feasibility_tolerance": 0.00001,
+        "objective_tolerance": 1e-7,
+        "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag"
+      }
+    },
+    {
+      "preference_index": 1,
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "raw_sha256": "a5720b79fa451ef4f1434d521386c3996f47bb5ad9761ed5bc1fef9b81d58246",
+      "normalized_sha256": "3c439ea9c73d4b2e07b8ed02af975042ade8627de3a4fde4e9721a231e04a9d3",
+      "solver": {
+        "status": 0,
+        "success": true,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "fun": 0.5939646468482354,
+        "mip_gap": 0,
+        "mip_dual_bound": 0.5939646468482354,
+        "mip_node_count": 22387
+      },
+      "raw_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "normalized_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "C": 1646.2065589999995,
+      "R": 12.8276875142116,
+      "J": 0.5939646468482355,
+      "historical_elapsed_seconds": 141.10714069999813,
+      "raw_residuals": {
+        "row": 6.539213615042172e-14,
+        "bound": 2.220446049250313e-16,
+        "integer": 7.538414337204813e-14
+      },
+      "normalized_residuals": {
+        "row": 6.539213615042172e-14,
+        "bound": 0,
+        "integer": 0
+      },
+      "original_linear_objective": 0.5939646468482354,
+      "cleaned_linear_objective": 0.5939646468482354,
+      "normalized_common_minus_solver": 1.1102230246251565e-16,
+      "normalized_vector_sha256": "bc8ee9df962122170638c8893b1489bd76c89b3809945e0d2a69a17357af8e0b",
+      "changed_variable_count": 4,
+      "variables": 2194,
+      "rows": 6248,
+      "read_only_report_verdict": {
+        "schema": "v11-report-reused-milp-handoff-v1",
+        "source_flags": {
+          "raw_proven_optimal": true,
+          "raw_objective_consistent": true,
+          "normalized_proven_optimal": true,
+          "normalized_objective_consistent": true
+        },
+        "report_proven_optimal": true,
+        "reconciled_source_flag": false,
+        "checks": {
+          "same_solver_record": true,
+          "optimal_termination": true,
+          "zero_reported_gap": true,
+          "primal_dual_agreement": true,
+          "declared_cleanup_tolerances": true,
+          "strict_normalized_feasible": true,
+          "normalized_objective_consistent": true,
+          "full_matrix_within_tolerance": true,
+          "variable_bounds_within_tolerance": true,
+          "integrality_within_tolerance": true,
+          "original_linear_matches_solver": true,
+          "cleaned_linear_matches_common": true,
+          "common_matches_solver": true,
+          "difference_field_consistent": true,
+          "no_additional_solver_calls": true,
+          "source_flag_preserved": true
+        },
+        "failed_checks": [],
+        "solver_status": 0,
+        "solver_success": true,
+        "solver_gap": 0,
+        "solver_objective": 0.5939646468482354,
+        "solver_dual_bound": 0.5939646468482354,
+        "normalized_objective": 0.5939646468482355,
+        "normalized_minus_solver": 1.1102230246251565e-16,
+        "max_matrix_residual": 6.539213615042172e-14,
+        "max_bound_residual": 0,
+        "max_integer_residual": 0,
+        "feasibility_tolerance": 0.00001,
+        "objective_tolerance": 1e-7,
+        "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag"
+      }
+    },
+    {
+      "preference_index": 2,
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "raw_sha256": "bfbc1d27d73fdc8bcc1e2b1d304d2fa6980ae7e06fb648d6919762805cd60d10",
+      "normalized_sha256": "ff4c2c3c53eac749358342473a360cbcb1e2647b6c639a98c0843c799d8b41ae",
+      "solver": {
+        "status": 0,
+        "success": true,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "fun": 0.473272723855458,
+        "mip_gap": 0,
+        "mip_dual_bound": 0.473272723855458,
+        "mip_node_count": 36458
+      },
+      "raw_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "normalized_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "C": 1802.091648,
+      "R": 7.960401963045898,
+      "J": 0.473272723855458,
+      "historical_elapsed_seconds": 211.97089169999526,
+      "raw_residuals": {
+        "row": 3.774758283725532e-15,
+        "bound": 0,
+        "integer": 1.9984014443252818e-15
+      },
+      "normalized_residuals": {
+        "row": 3.774758283725532e-15,
+        "bound": 0,
+        "integer": 0
+      },
+      "original_linear_objective": 0.473272723855458,
+      "cleaned_linear_objective": 0.47327272385545804,
+      "normalized_common_minus_solver": 0,
+      "normalized_vector_sha256": "df829e5774736133ce86d3fa7a0d28571da1712b6c8dc15d239bc46e928e2717",
+      "changed_variable_count": 2,
+      "variables": 2194,
+      "rows": 6248,
+      "read_only_report_verdict": {
+        "schema": "v11-report-reused-milp-handoff-v1",
+        "source_flags": {
+          "raw_proven_optimal": true,
+          "raw_objective_consistent": true,
+          "normalized_proven_optimal": true,
+          "normalized_objective_consistent": true
+        },
+        "report_proven_optimal": true,
+        "reconciled_source_flag": false,
+        "checks": {
+          "same_solver_record": true,
+          "optimal_termination": true,
+          "zero_reported_gap": true,
+          "primal_dual_agreement": true,
+          "declared_cleanup_tolerances": true,
+          "strict_normalized_feasible": true,
+          "normalized_objective_consistent": true,
+          "full_matrix_within_tolerance": true,
+          "variable_bounds_within_tolerance": true,
+          "integrality_within_tolerance": true,
+          "original_linear_matches_solver": true,
+          "cleaned_linear_matches_common": true,
+          "common_matches_solver": true,
+          "difference_field_consistent": true,
+          "no_additional_solver_calls": true,
+          "source_flag_preserved": true
+        },
+        "failed_checks": [],
+        "solver_status": 0,
+        "solver_success": true,
+        "solver_gap": 0,
+        "solver_objective": 0.473272723855458,
+        "solver_dual_bound": 0.473272723855458,
+        "normalized_objective": 0.473272723855458,
+        "normalized_minus_solver": 0,
+        "max_matrix_residual": 3.774758283725532e-15,
+        "max_bound_residual": 0,
+        "max_integer_residual": 0,
+        "feasibility_tolerance": 0.00001,
+        "objective_tolerance": 1e-7,
+        "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag"
+      }
+    },
+    {
+      "preference_index": 3,
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "raw_sha256": "78291c0926501d63506538ae590a86c3e86133b95efbaf891b30d67c785dab85",
+      "normalized_sha256": "90b4e9fed437d1274ab1e73d1dfdbf88efc209a2dbbae72684404b5389e8d5f4",
+      "solver": {
+        "status": 0,
+        "success": true,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "fun": 0.32656291494585427,
+        "mip_gap": 0,
+        "mip_dual_bound": 0.32656291494585427,
+        "mip_node_count": 654840
+      },
+      "raw_flags": {
+        "proven_optimal": false,
+        "objective_consistent": false
+      },
+      "normalized_flags": {
+        "proven_optimal": false,
+        "objective_consistent": true
+      },
+      "C": 2117.2810023737557,
+      "R": 5.784016375362677,
+      "J": 0.32656290137123994,
+      "historical_elapsed_seconds": 3258.312619000004,
+      "raw_residuals": {
+        "row": 1.0658141036401503e-14,
+        "bound": 2.220446049250313e-16,
+        "integer": 6.535595014067752e-7
+      },
+      "normalized_residuals": {
+        "row": 0.000007106806013013056,
+        "bound": 0,
+        "integer": 0
+      },
+      "original_linear_objective": 0.3265629149458543,
+      "cleaned_linear_objective": 0.3265629013712399,
+      "normalized_common_minus_solver": -1.3574614321498757e-8,
+      "normalized_vector_sha256": "1a33d08bfa1cfaa94012e38704a869716643cbe9e6d30784ec1d31d7324b74d6",
+      "changed_variable_count": 12,
+      "variables": 2194,
+      "rows": 6248,
+      "read_only_report_verdict": {
+        "schema": "v11-report-reused-milp-handoff-v1",
+        "source_flags": {
+          "raw_proven_optimal": false,
+          "raw_objective_consistent": false,
+          "normalized_proven_optimal": false,
+          "normalized_objective_consistent": true
+        },
+        "report_proven_optimal": true,
+        "reconciled_source_flag": true,
+        "checks": {
+          "same_solver_record": true,
+          "optimal_termination": true,
+          "zero_reported_gap": true,
+          "primal_dual_agreement": true,
+          "declared_cleanup_tolerances": true,
+          "strict_normalized_feasible": true,
+          "normalized_objective_consistent": true,
+          "full_matrix_within_tolerance": true,
+          "variable_bounds_within_tolerance": true,
+          "integrality_within_tolerance": true,
+          "original_linear_matches_solver": true,
+          "cleaned_linear_matches_common": true,
+          "common_matches_solver": true,
+          "difference_field_consistent": true,
+          "no_additional_solver_calls": true,
+          "source_flag_preserved": true
+        },
+        "failed_checks": [],
+        "solver_status": 0,
+        "solver_success": true,
+        "solver_gap": 0,
+        "solver_objective": 0.32656291494585427,
+        "solver_dual_bound": 0.32656291494585427,
+        "normalized_objective": 0.32656290137123994,
+        "normalized_minus_solver": -1.3574614321498757e-8,
+        "max_matrix_residual": 0.000007106806013013056,
+        "max_bound_residual": 0,
+        "max_integer_residual": 0,
+        "feasibility_tolerance": 0.00001,
+        "objective_tolerance": 1e-7,
+        "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag"
+      }
+    },
+    {
+      "preference_index": 4,
+      "preference": [
+        0,
+        1
+      ],
+      "raw_sha256": "c149226f57cf1e68ff17f77ddf78ab91ab4846e0c3802e2b6cccfd4801eb7ba5",
+      "normalized_sha256": "7ac313906dae686f1163c2bf8e804a6732f4f365e415bfcab045cd86cf05c8f3",
+      "solver": {
+        "status": 0,
+        "success": true,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "fun": 0.10814057337910472,
+        "mip_gap": 0,
+        "mip_dual_bound": 0.10814057337910471,
+        "mip_node_count": 604342
+      },
+      "raw_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "normalized_flags": {
+        "proven_optimal": true,
+        "objective_consistent": true
+      },
+      "C": 2604.135025335422,
+      "R": 4.4555209486577585,
+      "J": 0.10814056533660256,
+      "historical_elapsed_seconds": 3165.3573365000047,
+      "raw_residuals": {
+        "row": 4.227729277772596e-13,
+        "bound": 2.3314683517128287e-14,
+        "integer": 9.638187510258785e-7
+      },
+      "normalized_residuals": {
+        "row": 0.000002858686396933763,
+        "bound": 0,
+        "integer": 0
+      },
+      "original_linear_objective": 0.10814057337910471,
+      "cleaned_linear_objective": 0.10814056533660255,
+      "normalized_common_minus_solver": -8.042502164240517e-9,
+      "normalized_vector_sha256": "8d8bebcc3537b95ebe571db64ae6d855e0848246c9d1c03799f389fade55842a",
+      "changed_variable_count": 40,
+      "variables": 2194,
+      "rows": 6248,
+      "read_only_report_verdict": {
+        "schema": "v11-report-reused-milp-handoff-v1",
+        "source_flags": {
+          "raw_proven_optimal": true,
+          "raw_objective_consistent": true,
+          "normalized_proven_optimal": true,
+          "normalized_objective_consistent": true
+        },
+        "report_proven_optimal": true,
+        "reconciled_source_flag": false,
+        "checks": {
+          "same_solver_record": true,
+          "optimal_termination": true,
+          "zero_reported_gap": true,
+          "primal_dual_agreement": true,
+          "declared_cleanup_tolerances": true,
+          "strict_normalized_feasible": true,
+          "normalized_objective_consistent": true,
+          "full_matrix_within_tolerance": true,
+          "variable_bounds_within_tolerance": true,
+          "integrality_within_tolerance": true,
+          "original_linear_matches_solver": true,
+          "cleaned_linear_matches_common": true,
+          "common_matches_solver": true,
+          "difference_field_consistent": true,
+          "no_additional_solver_calls": true,
+          "source_flag_preserved": true
+        },
+        "failed_checks": [],
+        "solver_status": 0,
+        "solver_success": true,
+        "solver_gap": 0,
+        "solver_objective": 0.10814057337910472,
+        "solver_dual_bound": 0.10814057337910471,
+        "normalized_objective": 0.10814056533660256,
+        "normalized_minus_solver": -8.042502164240517e-9,
+        "max_matrix_residual": 0.000002858686396933763,
+        "max_bound_residual": 0,
+        "max_integer_residual": 0,
+        "feasibility_tolerance": 0.00001,
+        "objective_tolerance": 1e-7,
+        "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag"
+      }
+    }
+  ],
+  "full_MILP_PPO_final_plans": {
+    "solutions": 12,
+    "variables": 2194,
+    "rows": 6248,
+    "violated_rows": 0,
+    "max_row_residual": 8.881784197001252e-16,
+    "max_bound_residual": 0,
+    "max_integrality_residual": 0,
+    "max_cost_difference": 4.547473508864641e-13,
+    "max_risk_difference": 7.105427357601002e-15,
+    "seconds": 0.017549700001836754
+  },
+  "historical_milp_files_sha256": {
+    "milp/case.json": "78e3dc92316913a76e6271196ed06fb2d09c78fbc8cb21bc9beceebbd2e3fc97",
+    "milp/environment.json": "6302a9e6b2f8b3f79fcc8a3ae205d9cb765c5f23e9bfac7ac752d3631578aa99",
+    "milp/p0.json": "1fceabbac6dcaefe081adf000ab44d0c263327f21520c5d76e5c532a8c3d2717",
+    "milp/p0.log": "b86c448d537a961d1cc13fc8ac4f03eeeecba5a40e373040ea5706413d4d82a4",
+    "milp/p1.json": "a5720b79fa451ef4f1434d521386c3996f47bb5ad9761ed5bc1fef9b81d58246",
+    "milp/p1.log": "c337252ffdb19131be01487cee63b9a453db6db27995c93a032bc8de3b994a6c",
+    "milp/p2.json": "bfbc1d27d73fdc8bcc1e2b1d304d2fa6980ae7e06fb648d6919762805cd60d10",
+    "milp/p2.log": "2e57d41bd56120dd7ffe6d9cee794a1cf90e282772b9be0acc5569b78a926cfb",
+    "milp/p3.json": "78291c0926501d63506538ae590a86c3e86133b95efbaf891b30d67c785dab85",
+    "milp/p3.log": "b5c6341640967a6017ccc4ff54126ffce97ddaa481069cc099838c8540d1953d",
+    "milp/p4.json": "c149226f57cf1e68ff17f77ddf78ab91ab4846e0c3802e2b6cccfd4801eb7ba5",
+    "milp/p4.log": "05370b32dd24fcd920ee4d46fd28370eb67afdf6c09aff00a42ebf9b94239a60",
+    "milp/protocol.json": "b69117bdb7957cc16d66660af10ef2d9764635d4808abbca2737f0b8dd513620",
+    "milp/validated/p0.json": "0b8198cf07eba4af287e5cfc07fc58bd53fa67cfc8db652bdcc1e261fe8b9cef",
+    "milp/validated/p1.json": "3c439ea9c73d4b2e07b8ed02af975042ade8627de3a4fde4e9721a231e04a9d3",
+    "milp/validated/p2.json": "ff4c2c3c53eac749358342473a360cbcb1e2647b6c639a98c0843c799d8b41ae",
+    "milp/validated/p3.json": "90b4e9fed437d1274ab1e73d1dfdbf88efc209a2dbbae72684404b5389e8d5f4",
+    "milp/validated/p4.json": "7ac313906dae686f1163c2bf8e804a6732f4f365e415bfcab045cd86cf05c8f3"
+  },
+  "counts": {
+    "PPO_runs": 15,
+    "candidate_logs": 15,
+    "actual_candidates": 17040,
+    "candidate_cap": 180000,
+    "early_stopped_runs": 15,
+    "unique_PPO_final_plans": 12,
+    "historical_MILP_runs": 5,
+    "new_solver_calls": 0
+  },
+  "limitations": [
+    "No final manuscript built or published by this audit.",
+    "Report optimality handoff computed read-only, original flags untouched.",
+    "No neural probability reexecution; gzip/count/uniqueness check uses audit helper.",
+    "Raw and cleaned MILP vectors rebuilt independently without normalize_record or optimization."
+  ]
+}
+

@@ -1,0 +1,990 @@
+{
+  "passed": true,
+  "formal_front_records": 63,
+  "formal_tasks": 60,
+  "front_points_replayed": 5844,
+  "coverage_pair_count": 27,
+  "coverage_valid": 27,
+  "small_ppo_runs": 15,
+  "milp_runs": 5,
+  "protocol_sha256": "db90a62fa5dab3d2180e1f640239fba195fe6d9470382f6c91ecdcee96e68ce5",
+  "manuscript_sha256": "198666d3bdb2b55b1ce4e69babca519533f8cbf8f391509ddf68bd01776a9324",
+  "manuscript_path": "供应链管理写作/数值实验与结果分析_论文稿.md",
+  "ppo_work": {
+    "groups": [
+      {
+        "label": "48次完整PPO前沿",
+        "preference_runs": 1008,
+        "candidate_cap": 12096000,
+        "actual_candidate_attempts": 9589192,
+        "unused_candidate_budget": 2506808,
+        "exhausted_preference_runs": 259,
+        "minimum_attempts": 1116,
+        "maximum_attempts": 12000
+      },
+      {
+        "label": "15次小规模PPO",
+        "preference_runs": 15,
+        "candidate_cap": 180000,
+        "actual_candidate_attempts": 17040,
+        "unused_candidate_budget": 162960,
+        "exhausted_preference_runs": 15,
+        "minimum_attempts": 1118,
+        "maximum_attempts": 1175
+      }
+    ],
+    "front_preference_rows": 1008,
+    "small_preference_rows": 15
+  },
+  "execution_summary": {
+    "device": "cpu",
+    "threads_per_worker": 1,
+    "workers": "16",
+    "batches": 1,
+    "source_files": [
+      "execution-7eb4fa5574aa4ec7b535eaf6519f3b03.json"
+    ],
+    "orchestration": {
+      "actual_tasks": [
+        {
+          "task_id": "PPO-Test-1-small-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-1-small-r0.json",
+          "sha256": "ab816e1dc63c583f33a59d629abfc61196c3ec691feec2fb43a7ff9f9144a1b0"
+        },
+        {
+          "task_id": "PPO-Test-1-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-1-large-r0.json",
+          "sha256": "c3b46c029e0e35fc8eddef73ba872d5527e851f004d71099518d73682a2d29dc"
+        },
+        {
+          "task_id": "PPO-Test-1-small-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-1-small-r1.json",
+          "sha256": "b780ce61c2ffb3b6f9dc2dbe1940cbe830a30aeb70c3c3ead3e1f950835af019"
+        },
+        {
+          "task_id": "PPO-Test-1-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-1-large-r1.json",
+          "sha256": "a7e2dad6265c5bdaabf437e573e767ae0cbec7c89aa3bd1ab2a543b520cff2d1"
+        },
+        {
+          "task_id": "PPO-Test-1-small-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-1-small-r2.json",
+          "sha256": "528e7691427cb3904ff9fb8ab899f9e41ed7b851b8b69750abbcf9ce794c1afd"
+        },
+        {
+          "task_id": "PPO-Test-1-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-1-large-r2.json",
+          "sha256": "ec3914700465e051e27180702a785ee53909a1359fef16f1cf7d17c86fa83beb"
+        },
+        {
+          "task_id": "PPO-Test-2-small-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-2-small-r0.json",
+          "sha256": "83d092d6a9a0b378c0e5a7f5b218474094b78fe0345eafa544c6b6f8c05a86c3"
+        },
+        {
+          "task_id": "PPO-Test-2-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-2-large-r0.json",
+          "sha256": "15ab7a07a1de1426cce9665ffbc700b36de2f38c992db02b449a885e80d4797f"
+        },
+        {
+          "task_id": "PPO-Test-2-small-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-2-small-r1.json",
+          "sha256": "2b4028a0172055c9452f2cf01c014f7031dd04484284ca69d1aa7e8476e0fffe"
+        },
+        {
+          "task_id": "PPO-Test-2-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-2-large-r1.json",
+          "sha256": "91f3fda7df0e4ee52f37d4b44be371ab072b5279d923a3ea449bdaa75325b1e4"
+        },
+        {
+          "task_id": "PPO-Test-2-small-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-2-small-r2.json",
+          "sha256": "aebdd1f410fce0d9aa631398566b88fc761a71707f76a6801f2662c04d6297e3"
+        },
+        {
+          "task_id": "PPO-Test-2-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-2-large-r2.json",
+          "sha256": "5e862bd9e12710652e8aa6f7061374df8861bc27f6dc4a1a5066217a3789b784"
+        },
+        {
+          "task_id": "PPO-Test-3-small-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-3-small-r0.json",
+          "sha256": "c17b9464054eead7320c26bdbb82b474735de4828e2fb41211756936618974d8"
+        },
+        {
+          "task_id": "PPO-Test-3-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-3-large-r0.json",
+          "sha256": "bf95dcfeebfe49d4b104aa3d564f994efa509004f8c7ef231c4975083120d272"
+        },
+        {
+          "task_id": "PPO-Test-3-small-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-3-small-r1.json",
+          "sha256": "063b6448805dd4b5411ebde488342010fcb1ccd9e269fb5ab262cf69975d2901"
+        },
+        {
+          "task_id": "PPO-Test-3-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-3-large-r1.json",
+          "sha256": "a114ff4d3c75b7ab579fb2cf74fd7dcb7c2816690fc39c931b96ccee23adc995"
+        },
+        {
+          "task_id": "PPO-Test-3-small-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-3-small-r2.json",
+          "sha256": "d810eaafff3ac84fe3c5dfcdda1d32efaf3bafaf9a0618ae05f22af5fa277354"
+        },
+        {
+          "task_id": "PPO-Test-3-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-3-large-r2.json",
+          "sha256": "e743c64e365d5310d7cff9b32b3fa50407effd552343bbf31db7f9edd5ac4f0d"
+        },
+        {
+          "task_id": "PPO-Test-4-small-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-4-small-r0.json",
+          "sha256": "5b3c2951cc616f72c6cb4cc7985f7f41fbc0a7459e3dfb52287795b34c7b8fb0"
+        },
+        {
+          "task_id": "PPO-Test-4-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-4-large-r0.json",
+          "sha256": "20f4dc8b2eedc9abc0add453bdcbf1b48a04550f947da27e2c3f846019fd79e3"
+        },
+        {
+          "task_id": "PPO-Test-4-small-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-4-small-r1.json",
+          "sha256": "cb81563e4bef892674b7089f3f95b65bb517160943352e8fcc984215605f819d"
+        },
+        {
+          "task_id": "PPO-Test-4-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-4-large-r1.json",
+          "sha256": "67a5db28ad259b44c9338df5d66976b56b75d57c5f2b92d59297536e192f9d16"
+        },
+        {
+          "task_id": "PPO-Test-4-small-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-4-small-r2.json",
+          "sha256": "7d2e69f76ff88a49e34a3541a45b6eecf80ca2a87627a6515f389eca2a2253f7"
+        },
+        {
+          "task_id": "PPO-Test-4-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-Test-4-large-r2.json",
+          "sha256": "a4f5a74c9ffbaf0ec3f15b243a65f87bb1a49c8acdbe89dc8d7c8c173dae5c7a"
+        },
+        {
+          "task_id": "PPO-capacity-70-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-70-large-r0.json",
+          "sha256": "f048d60f203abb7eeb0907a57214e9ad1745f3c4d9282d53dc09fa24854b9281"
+        },
+        {
+          "task_id": "PPO-capacity-70-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-70-large-r1.json",
+          "sha256": "cd75c61e142b2f33a83d0aea4f9357c61a5e1bf8d0aac03954f11cff95f9517d"
+        },
+        {
+          "task_id": "PPO-capacity-70-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-70-large-r2.json",
+          "sha256": "dc43aec6abe597d48e033f900ac0ad0af28b532765a1ac63b5a190ac4bba34be"
+        },
+        {
+          "task_id": "PPO-capacity-80-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-80-large-r0.json",
+          "sha256": "4b88b97b9759b243c4312df17dcc7d063b53e05b14a3a8f1aadae3f21197166f"
+        },
+        {
+          "task_id": "PPO-capacity-80-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-80-large-r1.json",
+          "sha256": "63e2241013801c6de8e953f2ce9f660a75b8c99f18652b50b25e6d427bb8ac32"
+        },
+        {
+          "task_id": "PPO-capacity-80-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-80-large-r2.json",
+          "sha256": "44541f40c68d0ce4609d4ecd4445d22be156d61ceff66151b5ed1937a8abb0aa"
+        },
+        {
+          "task_id": "PPO-capacity-120-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-120-large-r0.json",
+          "sha256": "dce04461f00b5398bfadfae7bcf40d3a1bee3a99f65381da1956d098f8c7e24b"
+        },
+        {
+          "task_id": "PPO-capacity-120-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-120-large-r1.json",
+          "sha256": "9971c05be3878dede49c49fd792b8d41934c1f151969713212bb243b916a9567"
+        },
+        {
+          "task_id": "PPO-capacity-120-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-120-large-r2.json",
+          "sha256": "4505cce5f6c5f4b3f29674a860f5ac51f989e70a74c7f6c3737e1df06792a36c"
+        },
+        {
+          "task_id": "PPO-capacity-130-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-130-large-r0.json",
+          "sha256": "88cf60af03431316c99482dc1510d1ec8b2f5f78b23381a31b4c123e0f7d9cb4"
+        },
+        {
+          "task_id": "PPO-capacity-130-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-130-large-r1.json",
+          "sha256": "9679a7e5ddcc4af74ed697117e27998a7d7b2974952d024af5270b9ddbf04d4a"
+        },
+        {
+          "task_id": "PPO-capacity-130-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-capacity-130-large-r2.json",
+          "sha256": "a01e3d8c9d9c9b5b3dce2134254bce66b9c601091ffbbee3d5f3231bed57aee4"
+        },
+        {
+          "task_id": "PPO-coload-70-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-70-large-r0.json",
+          "sha256": "cb5c137c85f66463fa1b304909584ef0c520160fec67c42af18b9108ce31999d"
+        },
+        {
+          "task_id": "PPO-coload-70-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-70-large-r1.json",
+          "sha256": "5df20e1094a152adf7be6bcef52e688778ea3866f2a00c714c9f06e9de27a2d0"
+        },
+        {
+          "task_id": "PPO-coload-70-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-70-large-r2.json",
+          "sha256": "29aaf41221f21132b0532044c24e125bbd1bb4e4b98a2ee72ddd72f1d1b8f7a4"
+        },
+        {
+          "task_id": "PPO-coload-80-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-80-large-r0.json",
+          "sha256": "44cb87f63e8a364fbbe52d36c6ac65da9b0c1041db08180008274fe3e8553d0d"
+        },
+        {
+          "task_id": "PPO-coload-80-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-80-large-r1.json",
+          "sha256": "015a8e414bee4411f6383203866242dd0315a6b81761a05fd9e8fe45b43217e8"
+        },
+        {
+          "task_id": "PPO-coload-80-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-80-large-r2.json",
+          "sha256": "a8236e8eda57d0f40be5f451190db44d8ddaa86ba9bb1d32eb99d0139aa954b7"
+        },
+        {
+          "task_id": "PPO-coload-120-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-120-large-r0.json",
+          "sha256": "8dbf9282d527f55584d2138ffaaeb382749fe6dfb3cd2c4a25bc33b93c47d065"
+        },
+        {
+          "task_id": "PPO-coload-120-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-120-large-r1.json",
+          "sha256": "a694c7b618cff01a94676c3ce8cb94e05255e5cf0d4d4aca830cf8150035fbd5"
+        },
+        {
+          "task_id": "PPO-coload-120-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-120-large-r2.json",
+          "sha256": "6fd1f9c64304514801da4744ba33f435c9a64f41915b5451a2611e285875056d"
+        },
+        {
+          "task_id": "PPO-coload-130-large-r0",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-130-large-r0.json",
+          "sha256": "a4572f3cc311df006cf8bb641f8547fb67ab51e504a58b59a556e9e205196e29"
+        },
+        {
+          "task_id": "PPO-coload-130-large-r1",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-130-large-r1.json",
+          "sha256": "f04d302055fb0833267fd04a2a9d7bef2354485fb1fdb9715c47a2b8ae108c62"
+        },
+        {
+          "task_id": "PPO-coload-130-large-r2",
+          "path": "output/pareto-ppo-budget-v11/actual_execution/PPO-coload-130-large-r2.json",
+          "sha256": "c3456200855ab58c67e4eae0612e78c6e6d586c66132892eb5443de3d0d87557"
+        }
+      ],
+      "metadata_warnings": []
+    },
+    "nsga_reused": true,
+    "nsga_workers": 16,
+    "nsga_execution_source": "output/pareto-parameter-revision-v4/execution.json",
+    "nsga_execution_sha256": "fd8a0221967b0de3c00c1d7418a1006b387b6e2522700e75a536d5a739dc6269"
+  },
+  "new_ppo_front_runs": 48,
+  "reused_nsga_runs": 12,
+  "reused_nsga_front_archives": 15,
+  "milp_optimality_verdicts": [
+    {
+      "schema": "v11-report-reused-milp-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.6649194070585239,
+      "solver_dual_bound": 0.6649194070585239,
+      "normalized_objective": 0.664919407058583,
+      "normalized_minus_solver": 5.906386491005833e-14,
+      "max_matrix_residual": 1.0259348925956147e-11,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        1.0,
+        0.0
+      ],
+      "preference_index": 0,
+      "original_result_path": "milp/p0.json",
+      "original_result_sha256": "1fceabbac6dcaefe081adf000ab44d0c263327f21520c5d76e5c532a8c3d2717",
+      "normalized_result_path": "milp/validated/p0.json",
+      "normalized_result_sha256": "0b8198cf07eba4af287e5cfc07fc58bd53fa67cfc8db652bdcc1e261fe8b9cef"
+    },
+    {
+      "schema": "v11-report-reused-milp-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.5939646468482354,
+      "solver_dual_bound": 0.5939646468482354,
+      "normalized_objective": 0.5939646468482355,
+      "normalized_minus_solver": 1.1102230246251565e-16,
+      "max_matrix_residual": 6.539213615042172e-14,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "preference_index": 1,
+      "original_result_path": "milp/p1.json",
+      "original_result_sha256": "a5720b79fa451ef4f1434d521386c3996f47bb5ad9761ed5bc1fef9b81d58246",
+      "normalized_result_path": "milp/validated/p1.json",
+      "normalized_result_sha256": "3c439ea9c73d4b2e07b8ed02af975042ade8627de3a4fde4e9721a231e04a9d3"
+    },
+    {
+      "schema": "v11-report-reused-milp-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.473272723855458,
+      "solver_dual_bound": 0.473272723855458,
+      "normalized_objective": 0.473272723855458,
+      "normalized_minus_solver": 0.0,
+      "max_matrix_residual": 3.774758283725532e-15,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "preference_index": 2,
+      "original_result_path": "milp/p2.json",
+      "original_result_sha256": "bfbc1d27d73fdc8bcc1e2b1d304d2fa6980ae7e06fb648d6919762805cd60d10",
+      "normalized_result_path": "milp/validated/p2.json",
+      "normalized_result_sha256": "ff4c2c3c53eac749358342473a360cbcb1e2647b6c639a98c0843c799d8b41ae"
+    },
+    {
+      "schema": "v11-report-reused-milp-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": false,
+        "raw_objective_consistent": false,
+        "normalized_proven_optimal": false,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": true,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.32656291494585427,
+      "solver_dual_bound": 0.32656291494585427,
+      "normalized_objective": 0.32656290137123994,
+      "normalized_minus_solver": -1.3574614321498757e-08,
+      "max_matrix_residual": 7.106806013013056e-06,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "preference_index": 3,
+      "original_result_path": "milp/p3.json",
+      "original_result_sha256": "78291c0926501d63506538ae590a86c3e86133b95efbaf891b30d67c785dab85",
+      "normalized_result_path": "milp/validated/p3.json",
+      "normalized_result_sha256": "90b4e9fed437d1274ab1e73d1dfdbf88efc209a2dbbae72684404b5389e8d5f4"
+    },
+    {
+      "schema": "v11-report-reused-milp-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.10814057337910472,
+      "solver_dual_bound": 0.10814057337910471,
+      "normalized_objective": 0.10814056533660256,
+      "normalized_minus_solver": -8.042502164240517e-09,
+      "max_matrix_residual": 2.858686396933763e-06,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.0,
+        1.0
+      ],
+      "preference_index": 4,
+      "original_result_path": "milp/p4.json",
+      "original_result_sha256": "c149226f57cf1e68ff17f77ddf78ab91ab4846e0c3802e2b6cccfd4801eb7ba5",
+      "normalized_result_path": "milp/validated/p4.json",
+      "normalized_result_sha256": "7ac313906dae686f1163c2bf8e804a6732f4f365e415bfcab045cd86cf05c8f3"
+    }
+  ],
+  "report_script": "report_ppo_budget_v11.py",
+  "report_script_sha256": "69674a6b6c7d5039eb671b36d16ceadce3002c6533e58202adb4cf0bb5e933c6",
+  "report_entry_script": "report_ppo_budget_v11.py",
+  "report_entry_script_sha256": "69674a6b6c7d5039eb671b36d16ceadce3002c6533e58202adb4cf0bb5e933c6",
+  "parameter_revision_evidence": {
+    "capacity_by_instance": {
+      "Test-1": [
+        {
+          "waste": "S1",
+          "average_period_generation": 4.519,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            9.038,
+            9.038
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 4.4275,
+          "eligible_facilities": [
+            "D1"
+          ],
+          "effective_capacity_each_period": [
+            8.855,
+            8.855
+          ]
+        }
+      ],
+      "Test-2": [
+        {
+          "waste": "S1",
+          "average_period_generation": 7.396000000000002,
+          "eligible_facilities": [
+            "D1"
+          ],
+          "effective_capacity_each_period": [
+            14.792000000000003,
+            14.792000000000003,
+            14.792000000000003
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 7.595999999999999,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            15.191999999999998,
+            15.191999999999998,
+            15.191999999999998
+          ]
+        }
+      ],
+      "Test-3": [
+        {
+          "waste": "S1",
+          "average_period_generation": 12.249000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            24.498000000000005,
+            24.498000000000005,
+            24.498000000000005
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 12.759000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            25.518000000000008,
+            25.518000000000008,
+            25.518000000000008
+          ]
+        },
+        {
+          "waste": "S3",
+          "average_period_generation": 12.794000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            25.588000000000008,
+            25.588000000000008,
+            25.588000000000008
+          ]
+        }
+      ],
+      "Test-4": [
+        {
+          "waste": "S1",
+          "average_period_generation": 25.54949999999999,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            51.09899999999998,
+            51.09899999999998,
+            51.09899999999998,
+            51.09899999999998
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 24.421999999999993,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            48.84399999999999,
+            48.84399999999999,
+            48.84399999999999,
+            48.84399999999999
+          ]
+        },
+        {
+          "waste": "S3",
+          "average_period_generation": 24.805999999999997,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            49.611999999999995,
+            49.611999999999995,
+            49.611999999999995,
+            49.611999999999995
+          ]
+        },
+        {
+          "waste": "S4",
+          "average_period_generation": 24.29325,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            48.5865,
+            48.5865,
+            48.5865,
+            48.5865
+          ]
+        }
+      ],
+      "small-fixed": [
+        {
+          "waste": "S1",
+          "average_period_generation": 3.9559999999999995,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            7.911999999999999,
+            7.911999999999999
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 3.5404999999999998,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            7.0809999999999995,
+            7.0809999999999995
+          ]
+        }
+      ]
+    },
+    "risk_by_instance": {
+      "Test-1": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          4.678101307243412,
+          4.678101307243412
+        ]
+      },
+      "Test-2": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          5.2293142733932285,
+          5.2293142733932285
+        ]
+      },
+      "Test-3": {
+        "compatible_pairs": 3,
+        "observed_total_ratio_range": [
+          4.185764238929069,
+          4.816286528038833
+        ]
+      },
+      "Test-4": {
+        "compatible_pairs": 6,
+        "observed_total_ratio_range": [
+          3.2442801739379092,
+          5.624984520152832
+        ]
+      },
+      "small-fixed": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          5.842114507122513,
+          5.842114507122513
+        ]
+      }
+    },
+    "capacity_scenario_factors": [
+      0.7,
+      0.8,
+      1.0,
+      1.2,
+      1.3
+    ],
+    "risk_total_ratio_range": [
+      3.0,
+      6.0
+    ],
+    "risk_strength_range": [
+      2.0,
+      5.0
+    ],
+    "risk_scope": "same-arc equal positive two-type loads, transport only; not whole-system risk",
+    "models_retrained_this_round": false,
+    "historical_v9_models_retrained": true,
+    "historical_v4_training_hyperparameters_changed": false,
+    "current_v9_uses_optimized_architecture_and_training": true
+  },
+  "nsga_search_diagnostics": [
+    {
+      "instance": "Test-1",
+      "instance_id": "test-Test-1-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 6833,
+      "invalid_attempt_rate": 0.05648974867724868,
+      "feasible_candidate_attempts": 114127,
+      "candidate_objective_evaluations": 10925,
+      "invalid_objective_evaluations": 4094,
+      "feasible_objective_evaluations_excluding_preparation": 6831,
+      "operator_failures": 6833,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 50,
+      "nonreference_unique_front_solutions": 47,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-1-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 16
+        },
+        {
+          "archive_id": "NSGA-Test-1-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 16
+        },
+        {
+          "archive_id": "NSGA-Test-1-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 18
+        }
+      ]
+    },
+    {
+      "instance": "Test-2",
+      "instance_id": "test-Test-2-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 15840,
+      "invalid_attempt_rate": 0.13095238095238096,
+      "feasible_candidate_attempts": 105120,
+      "candidate_objective_evaluations": 68604,
+      "invalid_objective_evaluations": 14286,
+      "feasible_objective_evaluations_excluding_preparation": 54318,
+      "operator_failures": 15840,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 232,
+      "nonreference_unique_front_solutions": 232,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-2-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 93
+        },
+        {
+          "archive_id": "NSGA-Test-2-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 87
+        },
+        {
+          "archive_id": "NSGA-Test-2-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 52
+        }
+      ]
+    },
+    {
+      "instance": "Test-3",
+      "instance_id": "test-Test-3-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 31533,
+      "invalid_attempt_rate": 0.2606894841269841,
+      "feasible_candidate_attempts": 89427,
+      "candidate_objective_evaluations": 58109,
+      "invalid_objective_evaluations": 25789,
+      "feasible_objective_evaluations_excluding_preparation": 32320,
+      "operator_failures": 31533,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 231,
+      "nonreference_unique_front_solutions": 231,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-3-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 63
+        },
+        {
+          "archive_id": "NSGA-Test-3-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 80
+        },
+        {
+          "archive_id": "NSGA-Test-3-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 88
+        }
+      ]
+    },
+    {
+      "instance": "Test-4",
+      "instance_id": "test-Test-4-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 10541,
+      "invalid_attempt_rate": 0.08714451058201059,
+      "feasible_candidate_attempts": 110419,
+      "candidate_objective_evaluations": 78401,
+      "invalid_objective_evaluations": 10181,
+      "feasible_objective_evaluations_excluding_preparation": 68220,
+      "operator_failures": 10541,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 152,
+      "nonreference_unique_front_solutions": 152,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-4-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 70
+        },
+        {
+          "archive_id": "NSGA-Test-4-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 19
+        },
+        {
+          "archive_id": "NSGA-Test-4-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 63
+        }
+      ]
+    },
+    {
+      "instance": "Test-4",
+      "instance_id": "test-Test-4-000--revision-v4",
+      "budget": 120960,
+      "runs": 3,
+      "candidate_attempts": 362880,
+      "invalid_candidate_attempts": 38567,
+      "invalid_attempt_rate": 0.10628031305114638,
+      "feasible_candidate_attempts": 324313,
+      "candidate_objective_evaluations": 210391,
+      "invalid_objective_evaluations": 34992,
+      "feasible_objective_evaluations_excluding_preparation": 175399,
+      "operator_failures": 38567,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 384,
+      "nonreference_unique_front_solutions": 384,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-4-r0-B120960",
+          "repeat": 0,
+          "nonreference_front_points": 130
+        },
+        {
+          "archive_id": "NSGA-Test-4-r1-B120960",
+          "repeat": 1,
+          "nonreference_front_points": 120
+        },
+        {
+          "archive_id": "NSGA-Test-4-r2-B120960",
+          "repeat": 2,
+          "nonreference_front_points": 134
+        }
+      ]
+    }
+  ],
+  "nsga_budget_response_interpretation": "本案例三次配对中，B1与B2的两方向覆盖率均相同，未观察到追加预算的覆盖收益；这不等于两档案的所有坐标或方案必然相同。",
+  "plot_script_sha256": "5413c035d222958b82f6d25e1d188141e14ce15077af23b5b981c12423815904",
+  "plot_variants_script_sha256": "476581b03c56710270e54dac03989487c03cad7a1f5adcb3e39308ecc339d332",
+  "interpolation_source_sha256": "acba3c839d32098216774aa849356788a7118bfb33f0778ba3e52b36b5e5c782",
+  "milp_cleanup_source_sha256": "9edaf492a4f4e1e028583992d25c84af0ac33a55f44862f05cba3caa2bd4a21c"
+}

@@ -1,0 +1,228 @@
+{
+  "status": "STAGED_COMPLETENESS_PASS_NOT_FORMAL_DELIVERY",
+  "stage_sha256": {
+    "independent-generalization-stage-v11": "c93e8f0495167e92fc25f56191c070a66419571f1d37d3a654c4219af92931ee",
+    "independent-table4-stage-v11": "1db6971e6a3267aa1fe693f2e71eed0e4d0ba38f0d1e65f30b1ddc5185128b7a",
+    "independent-sensitivity-part1-v11": "d8ef2d198e5c151bfb934b3d8694dad2b58d98052e0465042b487d46e4be6883",
+    "independent-sensitivity-part2-v11": "664592159722600b38c1bb3150a7e2363a434016c444e127f93036a57a94af40",
+    "independent-sensitivity-part3-v11": "6d971dfda9fde06ad84071098bcfa5f9c3ff0458fae214877813f0be5f5235ac"
+  },
+  "rechecked_file_count": 7031,
+  "rechecked_file_manifest_sha256": "3a66d798341294fbeb3a34e808d64f3dd8ad06f37d2d413ba54b1e43f7f6949a",
+  "csv_row_counts": {
+    "coverage_pairs.csv": 27,
+    "frontier_points.csv": 5844,
+    "frontier_runs.csv": 63,
+    "ppo_preference_work.csv": 1008,
+    "sensitivity_points.csv": 1445,
+    "sensitivity_scenarios.csv": 9,
+    "small_ppo_work.csv": 15,
+    "table4_selected_solutions.csv": 5
+  },
+  "derived_sensitivity": {
+    "baseline": {
+      "union_points": 114,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9904603130499213,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 13973.628992999998,
+      "risk_min": 350.12233935812645,
+      "min_risk_component_share": 0.4886539958502891,
+      "visits": {
+        "1": 48,
+        "2": 47,
+        "3": 60,
+        "4": 80
+      }
+    },
+    "capacity-70": {
+      "union_points": 198,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9851772991564985,
+      "reference_vehicle_utilization": 0.6436566327217262,
+      "cost_min": 18108.27838300001,
+      "risk_min": 466.2278323464033,
+      "min_risk_component_share": 0.6260988672639627,
+      "visits": {
+        "1": 54,
+        "2": 50,
+        "3": 58,
+        "4": 80
+      }
+    },
+    "capacity-80": {
+      "union_points": 215,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9974613053803949,
+      "reference_vehicle_utilization": 0.7146045489210892,
+      "cost_min": 16962.26452300001,
+      "risk_min": 434.1802925706285,
+      "min_risk_component_share": 0.550937982082504,
+      "visits": {
+        "1": 45,
+        "2": 51,
+        "3": 57,
+        "4": 80
+      }
+    },
+    "capacity-120": {
+      "union_points": 154,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.8253835942082678,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 12631.456434,
+      "risk_min": 305.5399571780468,
+      "min_risk_component_share": 0.4457636801941312,
+      "visits": {
+        "1": 52,
+        "2": 49,
+        "3": 53,
+        "4": 80
+      }
+    },
+    "capacity-130": {
+      "union_points": 139,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.7618925484999395,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 12672.492579999998,
+      "risk_min": 285.1504166434005,
+      "min_risk_component_share": 0.4032754865252609,
+      "visits": {
+        "1": 50,
+        "2": 45,
+        "3": 53,
+        "4": 80
+      }
+    },
+    "coload-70": {
+      "union_points": 150,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9904603130499213,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 14640.908697000003,
+      "risk_min": 326.8565439131464,
+      "min_risk_component_share": 0.4409723172906841,
+      "visits": {
+        "1": 29,
+        "2": 43,
+        "3": 46,
+        "4": 80
+      }
+    },
+    "coload-80": {
+      "union_points": 193,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9904603130499213,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 14236.337994000003,
+      "risk_min": 310.903361965084,
+      "min_risk_component_share": 0.4585803499000786,
+      "visits": {
+        "1": 53,
+        "2": 56,
+        "3": 58,
+        "4": 80
+      }
+    },
+    "coload-120": {
+      "union_points": 123,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9904603130499213,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 14287.162513999998,
+      "risk_min": 385.0772737034104,
+      "min_risk_component_share": 0.48114392097644104,
+      "visits": {
+        "1": 49,
+        "2": 44,
+        "3": 51,
+        "4": 80
+      }
+    },
+    "coload-130": {
+      "union_points": 159,
+      "max_processing_utilization": 1,
+      "reference_processing_utilization": 0.9904603130499213,
+      "reference_vehicle_utilization": 0.7947265712619441,
+      "cost_min": 14720.439686000002,
+      "risk_min": 350.4946388261337,
+      "min_risk_component_share": 0.4718631229387307,
+      "visits": {
+        "1": 51,
+        "2": 45,
+        "3": 57,
+        "4": 80
+      }
+    }
+  },
+  "derived_prose_percentages": {
+    "cap70_cost_percent": 29.588944948168017,
+    "cap130_cost_percent": -9.31137082322564,
+    "cap70_risk_percent": 33.161406724612654,
+    "cap130_risk_percent": -18.55692008508738
+  },
+  "tables": {
+    "count": 7,
+    "widths": [
+      8,
+      5,
+      9,
+      5,
+      7,
+      10,
+      6
+    ],
+    "body_rows": [
+      10,
+      1,
+      2,
+      2,
+      13,
+      9,
+      2
+    ]
+  },
+  "math_blocks": 3,
+  "valid_local_links": 20,
+  "artifact_sha256": {
+    "output/pareto-ppo-budget-v11/数值实验与结果分析_论文稿.md": "8d94beb7a58c447a6c71db821712d75a3a9b83793ddc0d4f9078e5d930d505f7",
+    "output/pareto-ppo-budget-v11/results.json": "51f36e9082ecbeb3bc9cf50f257fc4aa8800f4053d06bef8d47fe51bc795fbaf",
+    "output/pareto-ppo-budget-v11/report_verification.json": "c369139cf880dc49d7e6bf3cfbed0239149a0e414712dca11c06cbc84b454d86",
+    "output/pareto-ppo-budget-v11/tables/coverage_pairs.csv": "f5ecfe4b85fa12610a314866c99e9dfe25c0313d9954061acc0c77572d60afca",
+    "output/pareto-ppo-budget-v11/tables/frontier_points.csv": "986bcc0feeb91ac23f7d9c46cb7133ab5a03a62a780cc35617e45c2a2aa34c2f",
+    "output/pareto-ppo-budget-v11/tables/frontier_runs.csv": "cd15d646bcf2935eeb88db4f758937adf46563b071f87e33ff2e0a50ddd2c24b",
+    "output/pareto-ppo-budget-v11/tables/ppo_preference_work.csv": "24e9a73562a71d1108bf43275e791802d56519ee331d67cf5a8e414018e90470",
+    "output/pareto-ppo-budget-v11/tables/sensitivity_points.csv": "b809b231ff86af2de371d578109dbc7fecebbc9788ade0abe8997354b3737a74",
+    "output/pareto-ppo-budget-v11/tables/sensitivity_scenarios.csv": "b0e66305d61eb51320e87743c641521deec061a0b1b91bd962596daff272edf5",
+    "output/pareto-ppo-budget-v11/tables/small_ppo_work.csv": "39cf7a0853946e026f4c3f89be3a6e7b8eddf98d7f366ee384cf8b45a457959f",
+    "output/pareto-ppo-budget-v11/tables/table4_selected_solutions.csv": "ce5680da3796afae9bbbf39a94691e3cadf9d77907261111da1345c668ce8e44",
+    "output/pareto-ppo-budget-v11/figures/sensitivity.png": "c6f44e78af62581fe88c2c714daf05a73bee7bc045af563c03babefd2ad32611",
+    "output/pareto-ppo-budget-v11/figures/sensitivity.svg": "648df7e40e280958ed459b8b2d9aca7e67fa7c751556449a9dfff1cfa4795135",
+    "output/pareto-ppo-budget-v11/figures/sensitivity_line.png": "ee3f3a4ea3630d8396d6c643c29deb525d8781396459afd8d646cade9cd2fb23",
+    "output/pareto-ppo-budget-v11/figures/sensitivity_line.svg": "5c1e9f2c54c5bdad7cf7637d374c08937203f6b3f65314e0deb7269a27259498",
+    "output/pareto-ppo-budget-v11/figures/sensitivity_smooth.png": "b7cdb3dad64242a1c3c5832a6064ee37cceda4c71995792978c63ab095594ed3",
+    "output/pareto-ppo-budget-v11/figures/sensitivity_smooth.svg": "ed471ff3dad1394c70a343454b7107daa715d665e99fcd7b9baf947b4eda1935",
+    "output/pareto-ppo-budget-v11/figures/sensitivity_variants.json": "07400dd55c756094a4ec754732270e2a87fdea08dde9e7a4174eb0e85afdfed3"
+  },
+  "limitations": [
+    "Staged manuscript only; formal publication and final report-bearing numeric audit pending.",
+    "Stored plans, not all rejected candidates, were replayed through full MILP; probabilities were not independently rerun."
+  ],
+  "table_cell_check": "PASS: table4 raw selected plans and MILP values; table5/6 independent 27 paired coverage; A2 raw run means/sample SD; A3 independent union CSV; A5 actual complete log counts; A1 historical training completed metadata.",
+  "scope_counts": {
+    "new_PPO_fronts": 48,
+    "reused_NSGA_fronts": 15,
+    "complete_PPO_logs": 1023,
+    "actual_PPO_attempts": 9606232,
+    "unique_saved_and_final_plans_full_MILP": 6390,
+    "instances": 13,
+    "violated_rows": 0,
+    "max_row_residual": 1.7763568394002505e-14
+  },
+  "visual_verification": {
+    "method": "Independently viewed all three PNG images using view_image, structural Markdown checks; not a screenshot of the Codex Markdown preview.",
+    "result": "PASS",
+    "formula_images": false
+  }
+}

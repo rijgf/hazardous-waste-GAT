@@ -1,0 +1,31 @@
+{
+  "registry_version": 1,
+  "status": "user_requested_v9_two_models_frozen_after_training",
+  "objective_normalization": "instance_reference",
+  "path_base": "repository_root",
+  "dataset_manifest": "datasets/parameter_revision_v4/manifest.json",
+  "dataset_manifest_sha256": "d60743ed6e0e50d6623e532d9716209a81d63afa515a2171f717f9b875f4b4d4",
+  "architecture": "conditional_objects_v8c",
+  "models": {
+    "small": {
+      "experiment_alias": "New-S-v9",
+      "training_scale": "Test-1",
+      "sha256": "2d22202e39eeb681b38f1dd34dcf84f55c125828877cd66c1241ec2a7fdfcf00",
+      "checkpoint": "outputs/ppo_frontier_v9/models/small_model.pt",
+      "training_record": "outputs/ppo_frontier_v9/training/small/config.json",
+      "training_completed": "outputs/ppo_frontier_v9/training/small/completed.json",
+      "training_record_sha256": "c33a87fb2cd9bcf0206c0bd40d3124a750a76b518335c30917422f6a84db71dd",
+      "training_completed_sha256": "28aba4488257d8e24c5e38f220644a4d05c86c7a89c0366d6ba92076980e0cbc"
+    },
+    "large": {
+      "experiment_alias": "New-L-v9",
+      "training_scale": "Test-4",
+      "sha256": "0269a9a52a6e25ef1ed9d89ba8861ba35aa09e5d9b37643410baea1ee64fce54",
+      "checkpoint": "outputs/ppo_frontier_v9/models/large_model.pt",
+      "training_record": "outputs/ppo_frontier_v9/training/large/config.json",
+      "training_completed": "outputs/ppo_frontier_v9/training/large/completed.json",
+      "training_record_sha256": "b0804ec7d3dbe3b55e669038b6624e9b14b25b24702e2543502d838b711a51c2",
+      "training_completed_sha256": "00dcdff75cd03ac363cb89172e47c304159a1646413fd0122a2c0bb87fb2cb92"
+    }
+  }
+}

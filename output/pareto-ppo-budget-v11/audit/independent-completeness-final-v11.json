@@ -1,0 +1,375 @@
+{
+  "schema": "independent-v11-delivery-completeness-v1",
+  "status": "PASS",
+  "role": "Independent read-only delivery auditor; scholar-verify completeness",
+  "date": "2026-09-10",
+  "scope": "Frozen V9 two-checkpoint inference, 12000 candidate cap per preference; all required single-instance case experiments and formal Markdown delivery. Git transfer checked by root separately.",
+  "critical_issues": [],
+  "warnings": [],
+  "formal_independent_recheck": {
+    "status": "FORMAL_RECHECK_PASS",
+    "stage_sha256": {
+      "independent-generalization-stage-v11": "c93e8f0495167e92fc25f56191c070a66419571f1d37d3a654c4219af92931ee",
+      "independent-table4-stage-v11": "1db6971e6a3267aa1fe693f2e71eed0e4d0ba38f0d1e65f30b1ddc5185128b7a",
+      "independent-sensitivity-part1-v11": "d8ef2d198e5c151bfb934b3d8694dad2b58d98052e0465042b487d46e4be6883",
+      "independent-sensitivity-part2-v11": "664592159722600b38c1bb3150a7e2363a434016c444e127f93036a57a94af40",
+      "independent-sensitivity-part3-v11": "6d971dfda9fde06ad84071098bcfa5f9c3ff0458fae214877813f0be5f5235ac"
+    },
+    "rechecked_file_count": 7031,
+    "rechecked_file_manifest_sha256": "3a66d798341294fbeb3a34e808d64f3dd8ad06f37d2d413ba54b1e43f7f6949a",
+    "csv_row_counts": {
+      "coverage_pairs.csv": 27,
+      "frontier_points.csv": 5844,
+      "frontier_runs.csv": 63,
+      "ppo_preference_work.csv": 1008,
+      "sensitivity_points.csv": 1445,
+      "sensitivity_scenarios.csv": 9,
+      "small_ppo_work.csv": 15,
+      "table4_selected_solutions.csv": 5
+    },
+    "derived_sensitivity": {
+      "baseline": {
+        "union_points": 114,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9904603130499213,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 13973.628992999998,
+        "risk_min": 350.12233935812645,
+        "min_risk_component_share": 0.4886539958502891,
+        "visits": {
+          "1": 48,
+          "2": 47,
+          "3": 60,
+          "4": 80
+        }
+      },
+      "capacity-70": {
+        "union_points": 198,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9851772991564985,
+        "reference_vehicle_utilization": 0.6436566327217262,
+        "cost_min": 18108.27838300001,
+        "risk_min": 466.2278323464033,
+        "min_risk_component_share": 0.6260988672639627,
+        "visits": {
+          "1": 54,
+          "2": 50,
+          "3": 58,
+          "4": 80
+        }
+      },
+      "capacity-80": {
+        "union_points": 215,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9974613053803949,
+        "reference_vehicle_utilization": 0.7146045489210892,
+        "cost_min": 16962.26452300001,
+        "risk_min": 434.1802925706285,
+        "min_risk_component_share": 0.550937982082504,
+        "visits": {
+          "1": 45,
+          "2": 51,
+          "3": 57,
+          "4": 80
+        }
+      },
+      "capacity-120": {
+        "union_points": 154,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.8253835942082678,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 12631.456434,
+        "risk_min": 305.5399571780468,
+        "min_risk_component_share": 0.4457636801941312,
+        "visits": {
+          "1": 52,
+          "2": 49,
+          "3": 53,
+          "4": 80
+        }
+      },
+      "capacity-130": {
+        "union_points": 139,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.7618925484999395,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 12672.492579999998,
+        "risk_min": 285.1504166434005,
+        "min_risk_component_share": 0.4032754865252609,
+        "visits": {
+          "1": 50,
+          "2": 45,
+          "3": 53,
+          "4": 80
+        }
+      },
+      "coload-70": {
+        "union_points": 150,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9904603130499213,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 14640.908697000003,
+        "risk_min": 326.8565439131464,
+        "min_risk_component_share": 0.4409723172906841,
+        "visits": {
+          "1": 29,
+          "2": 43,
+          "3": 46,
+          "4": 80
+        }
+      },
+      "coload-80": {
+        "union_points": 193,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9904603130499213,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 14236.337994000003,
+        "risk_min": 310.903361965084,
+        "min_risk_component_share": 0.4585803499000786,
+        "visits": {
+          "1": 53,
+          "2": 56,
+          "3": 58,
+          "4": 80
+        }
+      },
+      "coload-120": {
+        "union_points": 123,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9904603130499213,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 14287.162513999998,
+        "risk_min": 385.0772737034104,
+        "min_risk_component_share": 0.48114392097644104,
+        "visits": {
+          "1": 49,
+          "2": 44,
+          "3": 51,
+          "4": 80
+        }
+      },
+      "coload-130": {
+        "union_points": 159,
+        "max_processing_utilization": 1,
+        "reference_processing_utilization": 0.9904603130499213,
+        "reference_vehicle_utilization": 0.7947265712619441,
+        "cost_min": 14720.439686000002,
+        "risk_min": 350.4946388261337,
+        "min_risk_component_share": 0.4718631229387307,
+        "visits": {
+          "1": 51,
+          "2": 45,
+          "3": 57,
+          "4": 80
+        }
+      }
+    },
+    "derived_prose_percentages": {
+      "cap70_cost_percent": 29.588944948168017,
+      "cap130_cost_percent": -9.31137082322564,
+      "cap70_risk_percent": 33.161406724612654,
+      "cap130_risk_percent": -18.55692008508738
+    },
+    "tables": {
+      "count": 7,
+      "widths": [
+        8,
+        5,
+        9,
+        5,
+        7,
+        10,
+        6
+      ],
+      "body_rows": [
+        10,
+        1,
+        2,
+        2,
+        13,
+        9,
+        2
+      ]
+    },
+    "math_blocks": 3,
+    "valid_local_links": 20,
+    "artifact_sha256": {
+      "供应链管理写作/数值实验与结果分析_论文稿.md": "198666d3bdb2b55b1ce4e69babca519533f8cbf8f391509ddf68bd01776a9324",
+      "output/pareto-ppo-budget-v11/results.json": "51f36e9082ecbeb3bc9cf50f257fc4aa8800f4053d06bef8d47fe51bc795fbaf",
+      "output/pareto-ppo-budget-v11/report_verification.json": "00ed43152b43df7759cdaeb9627c9768d8a579cbb08e9cf22b9e0d7508fc23bf",
+      "output/pareto-ppo-budget-v11/tables/coverage_pairs.csv": "f5ecfe4b85fa12610a314866c99e9dfe25c0313d9954061acc0c77572d60afca",
+      "output/pareto-ppo-budget-v11/tables/frontier_points.csv": "986bcc0feeb91ac23f7d9c46cb7133ab5a03a62a780cc35617e45c2a2aa34c2f",
+      "output/pareto-ppo-budget-v11/tables/frontier_runs.csv": "cd15d646bcf2935eeb88db4f758937adf46563b071f87e33ff2e0a50ddd2c24b",
+      "output/pareto-ppo-budget-v11/tables/ppo_preference_work.csv": "24e9a73562a71d1108bf43275e791802d56519ee331d67cf5a8e414018e90470",
+      "output/pareto-ppo-budget-v11/tables/sensitivity_points.csv": "b809b231ff86af2de371d578109dbc7fecebbc9788ade0abe8997354b3737a74",
+      "output/pareto-ppo-budget-v11/tables/sensitivity_scenarios.csv": "b0e66305d61eb51320e87743c641521deec061a0b1b91bd962596daff272edf5",
+      "output/pareto-ppo-budget-v11/tables/small_ppo_work.csv": "39cf7a0853946e026f4c3f89be3a6e7b8eddf98d7f366ee384cf8b45a457959f",
+      "output/pareto-ppo-budget-v11/tables/table4_selected_solutions.csv": "ce5680da3796afae9bbbf39a94691e3cadf9d77907261111da1345c668ce8e44",
+      "output/pareto-ppo-budget-v11/figures/sensitivity.png": "c6f44e78af62581fe88c2c714daf05a73bee7bc045af563c03babefd2ad32611",
+      "output/pareto-ppo-budget-v11/figures/sensitivity.svg": "06746bc9b45def2c230f60da931125eb0904c205cc23ee6646a42e2117bd2751",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_line.png": "ee3f3a4ea3630d8396d6c643c29deb525d8781396459afd8d646cade9cd2fb23",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_line.svg": "f354c1edc8d57ba001c290704d9809f7c6e37c0a352751bc1154ac35e41eb931",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_smooth.png": "b7cdb3dad64242a1c3c5832a6064ee37cceda4c71995792978c63ab095594ed3",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_smooth.svg": "2dbb58cc3dd85441a4f1f014086fd7d4a14eb98a88f0f4b239a02fe3663b66bc",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_variants.json": "d633c2d0b7910fafe3901d52d9e161f69e57a6433502c80497aa2c9510083036"
+    },
+    "limitations": [
+      "Final formal binding and numerical audit are provided in final_numeric_and_artifact_binding; staged-only language from the reusable checker is superseded.",
+      "Stored plans, not all rejected candidates, were replayed through full MILP; probabilities were not independently rerun."
+    ]
+  },
+  "historical_reuse_and_model_lock": {
+    "status": "PASS",
+    "checked_file_count": 2222,
+    "hash_manifest_digest": "ea0fe11baa8a8a4bbf9ae74fb2fdbb8054a03656447e42bedbe21dbf71c31705",
+    "NSGA_front_files": 15,
+    "NSGA_solution_files": 1046,
+    "NSGA_completion_sources_and_wrappers": 12,
+    "MILP_reused_files": 18,
+    "frozen_models": {
+      "small": {
+        "experiment_alias": "New-S-v9",
+        "training_scale": "Test-1",
+        "sha256": "2d22202e39eeb681b38f1dd34dcf84f55c125828877cd66c1241ec2a7fdfcf00",
+        "checkpoint": "outputs/ppo_frontier_v9/models/small_model.pt",
+        "training_record": "outputs/ppo_frontier_v9/training/small/config.json",
+        "training_completed": "outputs/ppo_frontier_v9/training/small/completed.json",
+        "training_record_sha256": "c33a87fb2cd9bcf0206c0bd40d3124a750a76b518335c30917422f6a84db71dd",
+        "training_completed_sha256": "28aba4488257d8e24c5e38f220644a4d05c86c7a89c0366d6ba92076980e0cbc"
+      },
+      "large": {
+        "experiment_alias": "New-L-v9",
+        "training_scale": "Test-4",
+        "sha256": "0269a9a52a6e25ef1ed9d89ba8861ba35aa09e5d9b37643410baea1ee64fce54",
+        "checkpoint": "outputs/ppo_frontier_v9/models/large_model.pt",
+        "training_record": "outputs/ppo_frontier_v9/training/large/config.json",
+        "training_completed": "outputs/ppo_frontier_v9/training/large/completed.json",
+        "training_record_sha256": "b0804ec7d3dbe3b55e669038b6624e9b14b25b24702e2543502d838b711a51c2",
+        "training_completed_sha256": "00dcdff75cd03ac363cb89172e47c304159a1646413fd0122a2c0bb87fb2cb92"
+      }
+    },
+    "note": "Fronts/solutions/MILP byte-identical. New NSGA completion files are explicit source-linked no-rerun wrappers, not claimed byte copies."
+  },
+  "final_numeric_and_artifact_binding": {
+    "numeric_status": "PASS",
+    "formal_binding": {
+      "manuscript_sha256": "198666d3bdb2b55b1ce4e69babca519533f8cbf8f391509ddf68bd01776a9324",
+      "report_verification_sha256": "00ed43152b43df7759cdaeb9627c9768d8a579cbb08e9cf22b9e0d7508fc23bf"
+    },
+    "final_file_sha256": {
+      "供应链管理写作/数值实验与结果分析_论文稿.md": "198666d3bdb2b55b1ce4e69babca519533f8cbf8f391509ddf68bd01776a9324",
+      "output/pareto-ppo-budget-v11/report_verification.json": "00ed43152b43df7759cdaeb9627c9768d8a579cbb08e9cf22b9e0d7508fc23bf",
+      "output/pareto-ppo-budget-v11/results.json": "51f36e9082ecbeb3bc9cf50f257fc4aa8800f4053d06bef8d47fe51bc795fbaf",
+      "output/pareto-ppo-budget-v11/audit/numerics-with-report.json": "3fc7bdeef3a49a91d551081e86dcf849c6000a1d2f8269339382920eb3b513db",
+      "output/pareto-ppo-budget-v11/protocol.json": "db90a62fa5dab3d2180e1f640239fba195fe6d9470382f6c91ecdcee96e68ce5",
+      "output/pareto-ppo-budget-v11/milp/report_optimality_verdicts.json": "b05e83159c7cfd88e82ab0c6621cf3fb4b5f4759dc033904b7fc0344371e27c2",
+      "output/pareto-ppo-budget-v11/audit/visual-qa-v11.md": "be695c9333f583717d812f8e2fedd83dc8f2e04b3845b384e08ed719fe252c4f",
+      "output/pareto-ppo-budget-v11/audit/independent-staged-completeness-v11.md": "70f3cae6a51f27b5c57a56ebc0527817a0ea9f91e4177ef847b375235ec59b4a",
+      "output/pareto-ppo-budget-v11/audit/independent-staged-completeness-v11.json": "c4d6df28adfbdc91285effd82724492fea975c7b0ee8314b816d86eebc498105",
+      "output/pareto-ppo-budget-v11/tables/coverage_pairs.csv": "f5ecfe4b85fa12610a314866c99e9dfe25c0313d9954061acc0c77572d60afca",
+      "output/pareto-ppo-budget-v11/tables/frontier_points.csv": "986bcc0feeb91ac23f7d9c46cb7133ab5a03a62a780cc35617e45c2a2aa34c2f",
+      "output/pareto-ppo-budget-v11/tables/frontier_runs.csv": "cd15d646bcf2935eeb88db4f758937adf46563b071f87e33ff2e0a50ddd2c24b",
+      "output/pareto-ppo-budget-v11/tables/ppo_preference_work.csv": "24e9a73562a71d1108bf43275e791802d56519ee331d67cf5a8e414018e90470",
+      "output/pareto-ppo-budget-v11/tables/sensitivity_points.csv": "b809b231ff86af2de371d578109dbc7fecebbc9788ade0abe8997354b3737a74",
+      "output/pareto-ppo-budget-v11/tables/sensitivity_scenarios.csv": "b0e66305d61eb51320e87743c641521deec061a0b1b91bd962596daff272edf5",
+      "output/pareto-ppo-budget-v11/tables/small_ppo_work.csv": "39cf7a0853946e026f4c3f89be3a6e7b8eddf98d7f366ee384cf8b45a457959f",
+      "output/pareto-ppo-budget-v11/tables/table4_selected_solutions.csv": "ce5680da3796afae9bbbf39a94691e3cadf9d77907261111da1345c668ce8e44",
+      "output/pareto-ppo-budget-v11/figures/sensitivity.png": "c6f44e78af62581fe88c2c714daf05a73bee7bc045af563c03babefd2ad32611",
+      "output/pareto-ppo-budget-v11/figures/sensitivity.svg": "06746bc9b45def2c230f60da931125eb0904c205cc23ee6646a42e2117bd2751",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_line.png": "ee3f3a4ea3630d8396d6c643c29deb525d8781396459afd8d646cade9cd2fb23",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_line.svg": "f354c1edc8d57ba001c290704d9809f7c6e37c0a352751bc1154ac35e41eb931",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_smooth.png": "b7cdb3dad64242a1c3c5832a6064ee37cceda4c71995792978c63ab095594ed3",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_smooth.svg": "2dbb58cc3dd85441a4f1f014086fd7d4a14eb98a88f0f4b239a02fe3663b66bc",
+      "output/pareto-ppo-budget-v11/figures/sensitivity_variants.json": "d633c2d0b7910fafe3901d52d9e161f69e57a6433502c80497aa2c9510083036",
+      "output/pareto-ppo-budget-v11/audit/packaging-final-check.md": "078085326bd5058f08670b638f6ef66e1db752f46652a089a1934c0bb88ce6f5"
+    },
+    "numeric_scope": {
+      "fronts": 63,
+      "logs": 1023,
+      "instances": 13,
+      "unique_plans": 6390,
+      "max_row_residual": 1.7763568394002505e-14
+    },
+    "initial_numeric_not_authoritative_for_final": true,
+    "images": {
+      "sensitivity.png": {
+        "sha256": "c6f44e78af62581fe88c2c714daf05a73bee7bc045af563c03babefd2ad32611",
+        "pixels": [
+          4321,
+          1736
+        ],
+        "dpi": [
+          350.012,
+          350.012
+        ]
+      },
+      "sensitivity_line.png": {
+        "sha256": "ee3f3a4ea3630d8396d6c643c29deb525d8781396459afd8d646cade9cd2fb23",
+        "pixels": [
+          4321,
+          1736
+        ],
+        "dpi": [
+          350.012,
+          350.012
+        ]
+      },
+      "sensitivity_smooth.png": {
+        "sha256": "b7cdb3dad64242a1c3c5832a6064ee37cceda4c71995792978c63ab095594ed3",
+        "pixels": [
+          4321,
+          1736
+        ],
+        "dpi": [
+          350.012,
+          350.012
+        ]
+      }
+    },
+    "source_dependency_sha256": {
+      "audit_scalar_advantage_v5.py": "a1f9ae38c0984f3622df97790101af3e5504bee3537d03ecebfd78ca6786d13c",
+      "normalize_pareto_milp.py": "9edaf492a4f4e1e028583992d25c84af0ac33a55f44862f05cba3caa2bd4a21c",
+      "run_frontier_v9_milp.py": "ec389be50c57e01ade32fa33f31ec03fd271ccbf1176b6c0946fe92b6b78c629",
+      "report_ppo_budget_v11.py": "69674a6b6c7d5039eb671b36d16ceadce3002c6533e58202adb4cf0bb5e933c6",
+      "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f",
+      "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6"
+    }
+  },
+  "accepted_user_overrides": [
+    "No retraining: use frozen V9 small/large PTs.",
+    "PPO cap only changed to 12000 per preference /252000 per complete front, all three repetitions.",
+    "NSGA original candidate budgets retained and historical front reuse authorized; not converted from Chen iterations.",
+    "MILP five historical raw and normalized records reused; same base/scenario instances and fixed b.",
+    "Markdown only; no Word/PDF rewriting."
+  ],
+  "requirements_verified": {
+    "table4": "15 new small PPO runs, five preferences, three runs each; selected actual minimum-J plan with same C/R, cumulative three-run time; five reused 3600s-limit MILP provenance/normalization/verdicts checked.",
+    "table5": "Test-4 large model three complete PPO fronts paired to both historical NSGA budgets; six directed pairs; same PPO reused without duplicate solve.",
+    "table6": "Two frozen models x four fixed scale instances x three repeats =24 new PPO fronts; 24 paired coverage records, with three Test-4/large/B1 shared with table5.",
+    "sensitivity": "Nine scenarios x three runs; baseline three reuse Test-4/large, 24 new nonbaseline fronts; 1445 jointly nondominated saved points across nine scenario unions.",
+    "figures": "Original scatter, line and PCHIP PNG/SVG; all observed knots retained, no extrapolation/no new feasible claims; exact final hashes locked.",
+    "appendices": "Training provenance, times, point counts, success/feasibility/terminal-clear rates, endpoints, route and risk decomposition, action-work CSVs, sources and limitations present.",
+    "constraints": "Independent stage full MILP replay on 6390 instance-deduplicated saved and final plans from 13 cases; 0 violations; reused five MILP returned vectors separately checked under declared tolerances.",
+    "logs": "1023 complete gzip/CRC logs; counts and same-input duplicate action checks; exact model/instance/b/preference/seed/execution origins bound; 9606232 actual candidates."
+  },
+  "disclosed_limits": [
+    "Fixed single instances and Test-4-informed algorithm design are exploratory, not unbiased multi-instance generalization.",
+    "PPO and NSGA candidate caps differ and historical wall times have different CPU contention; no fair-budget or speedup claim.",
+    "Full MILP replay concerns saved/front/final plans, not all rejected intermediate candidates.",
+    "Recorded action probability fields were checked, not all network joint probabilities independently reexecuted; three Test-4 p10 accepted trajectories were physically replayed in a separate stage.",
+    "PNG visual inspection plus Markdown structure/link checks, not direct visual capture of Codex native Markdown preview.",
+    "MILP report-layer optimality is a numerical-tolerance handoff from existing solver zero-gap termination; p3 original false flag preserved, no new exact proof.",
+    "Git commit/push is not performed by this auditor; root handles separately."
+  ],
+  "packaging_review": {
+    "source": "audit/packaging-final-check.md",
+    "reported_by": "root",
+    "result": "171 tests PASS in clean actual Git-index export; load_protocol PASS",
+    "independently_reran_tests": false
+  },
+  "audit_process_notes": [
+    "Only in-memory diagnostic Python was used; no new solver/search/optimizer calls.",
+    "In-memory checker development required corrections for angle-bracket Markdown links, unseparated numeric formatting, an initial Python list-expression syntax typo, and source-linked NSGA completion wrappers; corrected checks completed successfully.",
+    "Initial staged prose miscount of 21 links corrected to actual 20, consistent with machine JSON; V11 report object uses non-null hash binding rather than a report_checked Boolean."
+  ]
+}

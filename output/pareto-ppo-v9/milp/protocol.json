@@ -1,0 +1,58 @@
+{
+  "schema": "ppo-frontier-v9-fresh-milp",
+  "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+  "reference_sha256": "7ddf960c830d47c963a4622f9e2a03bcc62d3e389f1a7501c22b11c56dba7f68",
+  "instance_seed": 3723524230,
+  "reference_seed": 3949079119,
+  "objective_refs": [
+    2392.144045,
+    41.20119896534043
+  ],
+  "preferences": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.75,
+      0.25
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.25,
+      0.75
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "solver_options": {
+    "time_limit": 3600.0,
+    "mip_rel_gap": 0.0,
+    "threads": 1,
+    "random_seed": 0,
+    "disp": true
+  },
+  "sources": {
+    "run_pareto_milp.py": "62bc0086d0a15ac4dd0c1ad0ab2d6f276243c93904102f25ffbcc2f5da621e7f",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6",
+    "sample_params.py": "121870fe103edd3f36373722c4442e9450b1b73cd2c367ea32c39e978576f8df",
+    "configs/model_config.json": "1fcfec53270256ad47c9b086b82a506bcb379183761bc12e7a21eeeaffdc3c51",
+    "src/heuristics.py": "ac464455a78607acea2b4cd302860b24c50156beaa6189b4be5ef17467a2264a",
+    "src/instance_generator.py": "d24c079055875077bcd2d47ee15b287bc281f803285edc0de3320c8463308ec9",
+    "src/reproducibility.py": "91518f0554199275bb44aab968d6a4df671e6f79c110b31f85b536cbd4549ff0",
+    "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f",
+    "src/supplementary_experiment.py": "f058b6f9680f5f1fa18f904f1d5e4392604657c9fbca041141fc37a50284a5ba",
+    "run_frontier_v9_milp.py": "ec389be50c57e01ade32fa33f31ec03fd271ccbf1176b6c0946fe92b6b78c629"
+  },
+  "time_definition": "Model build, MILP solve, decode and strict validation; excludes shared case preparation and file serialization.",
+  "parallel_jobs": 5,
+  "instance_id": "legacy-small-fixed--revision-v4",
+  "source_instance_path": "output/pareto-parameter-revision-v4/instances/small-fixed.json",
+  "source_instance_sha256": "5347ae3c36b30f262558f5962b43c27d54b7872fc450fdc88a2c0210b6e80612",
+  "independent_of_ppo_and_nsga_budgets": true
+}

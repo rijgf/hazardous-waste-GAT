@@ -1,0 +1,776 @@
+{
+  "passed": true,
+  "formal_front_records": 63,
+  "formal_tasks": 60,
+  "front_points_replayed": 3165,
+  "coverage_pair_count": 27,
+  "coverage_valid": 27,
+  "small_ppo_runs": 15,
+  "milp_runs": 5,
+  "protocol_sha256": "5452d423c3293be00e5e5ce578b57e2e4cb0bb2c248b5d3ba32e5b555bf59ce5",
+  "manuscript_sha256": "60a436e7d0264149fa29e80f13392078022f221113982c3f3125264360f36861",
+  "manuscript_path": "供应链管理写作/数值实验与结果分析_论文稿.md",
+  "ppo_work": {
+    "groups": [
+      {
+        "label": "48次完整PPO前沿",
+        "preference_runs": 1008,
+        "candidate_cap": 1935360,
+        "actual_candidate_attempts": 1845401,
+        "unused_candidate_budget": 89959,
+        "exhausted_preference_runs": 145,
+        "minimum_attempts": 1116,
+        "maximum_attempts": 1920
+      },
+      {
+        "label": "15次小规模PPO",
+        "preference_runs": 15,
+        "candidate_cap": 28800,
+        "actual_candidate_attempts": 17040,
+        "unused_candidate_budget": 11760,
+        "exhausted_preference_runs": 15,
+        "minimum_attempts": 1118,
+        "maximum_attempts": 1175
+      }
+    ],
+    "front_preference_rows": 1008,
+    "small_preference_rows": 15
+  },
+  "execution_summary": {
+    "device": "cpu",
+    "threads_per_worker": 1,
+    "workers": "1/3",
+    "batches": 12,
+    "source_files": [
+      "execution-1788961252062748200.json",
+      "execution-1788963669598736600.json",
+      "execution-1788963669674316300.json",
+      "execution-1788963669683438500.json",
+      "execution-1788963669691593800.json",
+      "execution-1788963669728527500.json",
+      "execution-1788963669734508200.json",
+      "execution-1788963669751224800.json",
+      "execution-1788963669775941300.json",
+      "execution-1788963669776954100.json",
+      "execution-1788963669778985900.json",
+      "execution-1788963669787892600.json"
+    ],
+    "orchestration": {
+      "initial_worker_limit": 3,
+      "auxiliary_launcher_count": 12,
+      "declared_concurrent_task_upper_bound": 15,
+      "verified_peak_concurrent_tasks": null,
+      "observed_auxiliary_launcher_peak": 12,
+      "source_path": "output/pareto-ppo-v9/orchestration/coload-aux-20260909T142107Z/manifest.json",
+      "source_sha256": "32aedb3717515eeea44e99721d861cb278bd31ffd805ee330136882758234cbd",
+      "execution_links_path": "output/pareto-ppo-v9/orchestration/coload-aux-20260909T142107Z/execution_links.json",
+      "execution_links_sha256": "53ebbe4bd9b86c6f8f83b5dfe14d0168fe1a19171ea43511bc34ed4058e622b8",
+      "metadata_warnings": [
+        {
+          "code": "missing_original_execution_record",
+          "task_id": "PPO-coload-130-large-r2",
+          "alternative_provenance": "exact command/PID/UTC interval, stdout/stderr, completion and 21 preference action logs",
+          "cause": "not established; do not assert timestamp collision as fact"
+        }
+      ],
+      "source_script_sha256": "77b8dc3aeaf652da842b0d5ce51a4e29128d28b655cb74d900334234b994c3ef",
+      "peak_scope": "Global active solver count only; launcher PID peak is not used as a substitute"
+    },
+    "nsga_reused": true,
+    "nsga_workers": 16,
+    "nsga_execution_source": "output/pareto-parameter-revision-v4/execution.json",
+    "nsga_execution_sha256": "fd8a0221967b0de3c00c1d7418a1006b387b6e2522700e75a536d5a739dc6269"
+  },
+  "new_ppo_front_runs": 48,
+  "reused_nsga_runs": 12,
+  "reused_nsga_front_archives": 15,
+  "milp_optimality_verdicts": [
+    {
+      "schema": "v9-report-optimality-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.6649194070585239,
+      "solver_dual_bound": 0.6649194070585239,
+      "normalized_objective": 0.664919407058583,
+      "normalized_minus_solver": 5.906386491005833e-14,
+      "max_matrix_residual": 1.0259348925956147e-11,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        1.0,
+        0.0
+      ],
+      "preference_index": 0,
+      "original_result_path": "milp/p0.json",
+      "original_result_sha256": "1fceabbac6dcaefe081adf000ab44d0c263327f21520c5d76e5c532a8c3d2717",
+      "normalized_result_path": "milp/validated/p0.json",
+      "normalized_result_sha256": "0b8198cf07eba4af287e5cfc07fc58bd53fa67cfc8db652bdcc1e261fe8b9cef"
+    },
+    {
+      "schema": "v9-report-optimality-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.5939646468482354,
+      "solver_dual_bound": 0.5939646468482354,
+      "normalized_objective": 0.5939646468482355,
+      "normalized_minus_solver": 1.1102230246251565e-16,
+      "max_matrix_residual": 6.539213615042172e-14,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.75,
+        0.25
+      ],
+      "preference_index": 1,
+      "original_result_path": "milp/p1.json",
+      "original_result_sha256": "a5720b79fa451ef4f1434d521386c3996f47bb5ad9761ed5bc1fef9b81d58246",
+      "normalized_result_path": "milp/validated/p1.json",
+      "normalized_result_sha256": "3c439ea9c73d4b2e07b8ed02af975042ade8627de3a4fde4e9721a231e04a9d3"
+    },
+    {
+      "schema": "v9-report-optimality-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.473272723855458,
+      "solver_dual_bound": 0.473272723855458,
+      "normalized_objective": 0.473272723855458,
+      "normalized_minus_solver": 0.0,
+      "max_matrix_residual": 3.774758283725532e-15,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.5,
+        0.5
+      ],
+      "preference_index": 2,
+      "original_result_path": "milp/p2.json",
+      "original_result_sha256": "bfbc1d27d73fdc8bcc1e2b1d304d2fa6980ae7e06fb648d6919762805cd60d10",
+      "normalized_result_path": "milp/validated/p2.json",
+      "normalized_result_sha256": "ff4c2c3c53eac749358342473a360cbcb1e2647b6c639a98c0843c799d8b41ae"
+    },
+    {
+      "schema": "v9-report-optimality-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": false,
+        "raw_objective_consistent": false,
+        "normalized_proven_optimal": false,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": true,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.32656291494585427,
+      "solver_dual_bound": 0.32656291494585427,
+      "normalized_objective": 0.32656290137123994,
+      "normalized_minus_solver": -1.3574614321498757e-08,
+      "max_matrix_residual": 7.106806013013056e-06,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.25,
+        0.75
+      ],
+      "preference_index": 3,
+      "original_result_path": "milp/p3.json",
+      "original_result_sha256": "78291c0926501d63506538ae590a86c3e86133b95efbaf891b30d67c785dab85",
+      "normalized_result_path": "milp/validated/p3.json",
+      "normalized_result_sha256": "90b4e9fed437d1274ab1e73d1dfdbf88efc209a2dbbae72684404b5389e8d5f4"
+    },
+    {
+      "schema": "v9-report-optimality-handoff-v1",
+      "source_flags": {
+        "raw_proven_optimal": true,
+        "raw_objective_consistent": true,
+        "normalized_proven_optimal": true,
+        "normalized_objective_consistent": true
+      },
+      "report_proven_optimal": true,
+      "reconciled_source_flag": false,
+      "checks": {
+        "same_solver_record": true,
+        "optimal_termination": true,
+        "zero_reported_gap": true,
+        "primal_dual_agreement": true,
+        "declared_cleanup_tolerances": true,
+        "strict_normalized_feasible": true,
+        "normalized_objective_consistent": true,
+        "full_matrix_within_tolerance": true,
+        "variable_bounds_within_tolerance": true,
+        "integrality_within_tolerance": true,
+        "original_linear_matches_solver": true,
+        "cleaned_linear_matches_common": true,
+        "common_matches_solver": true,
+        "difference_field_consistent": true,
+        "no_additional_solver_calls": true,
+        "source_flag_preserved": true
+      },
+      "failed_checks": [],
+      "solver_status": 0,
+      "solver_success": true,
+      "solver_gap": 0.0,
+      "solver_objective": 0.10814057337910472,
+      "solver_dual_bound": 0.10814057337910471,
+      "normalized_objective": 0.10814056533660256,
+      "normalized_minus_solver": -8.042502164240517e-09,
+      "max_matrix_residual": 2.858686396933763e-06,
+      "max_bound_residual": 0.0,
+      "max_integer_residual": 0.0,
+      "feasibility_tolerance": 1e-05,
+      "objective_tolerance": 1e-07,
+      "interpretation": "Report-layer handoff of the existing solver proof, not a new solve or overwritten source flag",
+      "preference": [
+        0.0,
+        1.0
+      ],
+      "preference_index": 4,
+      "original_result_path": "milp/p4.json",
+      "original_result_sha256": "c149226f57cf1e68ff17f77ddf78ab91ab4846e0c3802e2b6cccfd4801eb7ba5",
+      "normalized_result_path": "milp/validated/p4.json",
+      "normalized_result_sha256": "7ac313906dae686f1163c2bf8e804a6732f4f365e415bfcab045cd86cf05c8f3"
+    }
+  ],
+  "report_script": "report_ppo_frontier_v9.py",
+  "report_script_sha256": "0ccf5b86cee6da30fcd2b82cdda0673c6be394dbc018ab28a949087f206e752f",
+  "report_entry_script": "report_ppo_frontier_v9.py",
+  "report_entry_script_sha256": "0ccf5b86cee6da30fcd2b82cdda0673c6be394dbc018ab28a949087f206e752f",
+  "parameter_revision_evidence": {
+    "capacity_by_instance": {
+      "Test-1": [
+        {
+          "waste": "S1",
+          "average_period_generation": 4.519,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            9.038,
+            9.038
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 4.4275,
+          "eligible_facilities": [
+            "D1"
+          ],
+          "effective_capacity_each_period": [
+            8.855,
+            8.855
+          ]
+        }
+      ],
+      "Test-2": [
+        {
+          "waste": "S1",
+          "average_period_generation": 7.396000000000002,
+          "eligible_facilities": [
+            "D1"
+          ],
+          "effective_capacity_each_period": [
+            14.792000000000003,
+            14.792000000000003,
+            14.792000000000003
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 7.595999999999999,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            15.191999999999998,
+            15.191999999999998,
+            15.191999999999998
+          ]
+        }
+      ],
+      "Test-3": [
+        {
+          "waste": "S1",
+          "average_period_generation": 12.249000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            24.498000000000005,
+            24.498000000000005,
+            24.498000000000005
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 12.759000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            25.518000000000008,
+            25.518000000000008,
+            25.518000000000008
+          ]
+        },
+        {
+          "waste": "S3",
+          "average_period_generation": 12.794000000000002,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            25.588000000000008,
+            25.588000000000008,
+            25.588000000000008
+          ]
+        }
+      ],
+      "Test-4": [
+        {
+          "waste": "S1",
+          "average_period_generation": 25.54949999999999,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            51.09899999999998,
+            51.09899999999998,
+            51.09899999999998,
+            51.09899999999998
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 24.421999999999993,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            48.84399999999999,
+            48.84399999999999,
+            48.84399999999999,
+            48.84399999999999
+          ]
+        },
+        {
+          "waste": "S3",
+          "average_period_generation": 24.805999999999997,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            49.611999999999995,
+            49.611999999999995,
+            49.611999999999995,
+            49.611999999999995
+          ]
+        },
+        {
+          "waste": "S4",
+          "average_period_generation": 24.29325,
+          "eligible_facilities": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "effective_capacity_each_period": [
+            48.5865,
+            48.5865,
+            48.5865,
+            48.5865
+          ]
+        }
+      ],
+      "small-fixed": [
+        {
+          "waste": "S1",
+          "average_period_generation": 3.9559999999999995,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            7.911999999999999,
+            7.911999999999999
+          ]
+        },
+        {
+          "waste": "S2",
+          "average_period_generation": 3.5404999999999998,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "effective_capacity_each_period": [
+            7.0809999999999995,
+            7.0809999999999995
+          ]
+        }
+      ]
+    },
+    "risk_by_instance": {
+      "Test-1": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          4.678101307243412,
+          4.678101307243412
+        ]
+      },
+      "Test-2": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          5.2293142733932285,
+          5.2293142733932285
+        ]
+      },
+      "Test-3": {
+        "compatible_pairs": 3,
+        "observed_total_ratio_range": [
+          4.185764238929069,
+          4.816286528038833
+        ]
+      },
+      "Test-4": {
+        "compatible_pairs": 6,
+        "observed_total_ratio_range": [
+          3.2442801739379092,
+          5.624984520152832
+        ]
+      },
+      "small-fixed": {
+        "compatible_pairs": 1,
+        "observed_total_ratio_range": [
+          5.842114507122513,
+          5.842114507122513
+        ]
+      }
+    },
+    "capacity_scenario_factors": [
+      0.7,
+      0.8,
+      1.0,
+      1.2,
+      1.3
+    ],
+    "risk_total_ratio_range": [
+      3.0,
+      6.0
+    ],
+    "risk_strength_range": [
+      2.0,
+      5.0
+    ],
+    "risk_scope": "same-arc equal positive two-type loads, transport only; not whole-system risk",
+    "models_retrained": true,
+    "historical_v4_training_hyperparameters_changed": false,
+    "current_v9_uses_optimized_architecture_and_training": true
+  },
+  "nsga_search_diagnostics": [
+    {
+      "instance": "Test-1",
+      "instance_id": "test-Test-1-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 6833,
+      "invalid_attempt_rate": 0.05648974867724868,
+      "feasible_candidate_attempts": 114127,
+      "candidate_objective_evaluations": 10925,
+      "invalid_objective_evaluations": 4094,
+      "feasible_objective_evaluations_excluding_preparation": 6831,
+      "operator_failures": 6833,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 50,
+      "nonreference_unique_front_solutions": 47,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-1-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 16
+        },
+        {
+          "archive_id": "NSGA-Test-1-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 16
+        },
+        {
+          "archive_id": "NSGA-Test-1-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 18
+        }
+      ]
+    },
+    {
+      "instance": "Test-2",
+      "instance_id": "test-Test-2-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 15840,
+      "invalid_attempt_rate": 0.13095238095238096,
+      "feasible_candidate_attempts": 105120,
+      "candidate_objective_evaluations": 68604,
+      "invalid_objective_evaluations": 14286,
+      "feasible_objective_evaluations_excluding_preparation": 54318,
+      "operator_failures": 15840,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 232,
+      "nonreference_unique_front_solutions": 232,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-2-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 93
+        },
+        {
+          "archive_id": "NSGA-Test-2-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 87
+        },
+        {
+          "archive_id": "NSGA-Test-2-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 52
+        }
+      ]
+    },
+    {
+      "instance": "Test-3",
+      "instance_id": "test-Test-3-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 31533,
+      "invalid_attempt_rate": 0.2606894841269841,
+      "feasible_candidate_attempts": 89427,
+      "candidate_objective_evaluations": 58109,
+      "invalid_objective_evaluations": 25789,
+      "feasible_objective_evaluations_excluding_preparation": 32320,
+      "operator_failures": 31533,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 231,
+      "nonreference_unique_front_solutions": 231,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-3-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 63
+        },
+        {
+          "archive_id": "NSGA-Test-3-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 80
+        },
+        {
+          "archive_id": "NSGA-Test-3-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 88
+        }
+      ]
+    },
+    {
+      "instance": "Test-4",
+      "instance_id": "test-Test-4-000--revision-v4",
+      "budget": 40320,
+      "runs": 3,
+      "candidate_attempts": 120960,
+      "invalid_candidate_attempts": 10541,
+      "invalid_attempt_rate": 0.08714451058201059,
+      "feasible_candidate_attempts": 110419,
+      "candidate_objective_evaluations": 78401,
+      "invalid_objective_evaluations": 10181,
+      "feasible_objective_evaluations_excluding_preparation": 68220,
+      "operator_failures": 10541,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 152,
+      "nonreference_unique_front_solutions": 152,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-4-r0-B40320",
+          "repeat": 0,
+          "nonreference_front_points": 70
+        },
+        {
+          "archive_id": "NSGA-Test-4-r1-B40320",
+          "repeat": 1,
+          "nonreference_front_points": 19
+        },
+        {
+          "archive_id": "NSGA-Test-4-r2-B40320",
+          "repeat": 2,
+          "nonreference_front_points": 63
+        }
+      ]
+    },
+    {
+      "instance": "Test-4",
+      "instance_id": "test-Test-4-000--revision-v4",
+      "budget": 120960,
+      "runs": 3,
+      "candidate_attempts": 362880,
+      "invalid_candidate_attempts": 38567,
+      "invalid_attempt_rate": 0.10628031305114638,
+      "feasible_candidate_attempts": 324313,
+      "candidate_objective_evaluations": 210391,
+      "invalid_objective_evaluations": 34992,
+      "feasible_objective_evaluations_excluding_preparation": 175399,
+      "operator_failures": 38567,
+      "reference_only_run_count": 0,
+      "reference_only_archive_ids": [],
+      "nonreference_front_point_occurrences": 384,
+      "nonreference_unique_front_solutions": 384,
+      "nonreference_front_points_by_run": [
+        {
+          "archive_id": "NSGA-Test-4-r0-B120960",
+          "repeat": 0,
+          "nonreference_front_points": 130
+        },
+        {
+          "archive_id": "NSGA-Test-4-r1-B120960",
+          "repeat": 1,
+          "nonreference_front_points": 120
+        },
+        {
+          "archive_id": "NSGA-Test-4-r2-B120960",
+          "repeat": 2,
+          "nonreference_front_points": 134
+        }
+      ]
+    }
+  ],
+  "nsga_budget_response_interpretation": "相对B1，B2在三次配对的两方向覆盖指标中均未出现对NSGA-II不利的变化，且至少一项严格改善；这里的追加预算收益仅指相对于同一PPO档案的覆盖表现，不证明其已覆盖真实完整前沿。",
+  "plot_script_sha256": "5413c035d222958b82f6d25e1d188141e14ce15077af23b5b981c12423815904",
+  "plot_variants_script_sha256": "476581b03c56710270e54dac03989487c03cad7a1f5adcb3e39308ecc339d332",
+  "interpolation_source_sha256": "acba3c839d32098216774aa849356788a7118bfb33f0778ba3e52b36b5e5c782",
+  "milp_cleanup_source_sha256": "9edaf492a4f4e1e028583992d25c84af0ac33a55f44862f05cba3caa2bd4a21c"
+}
