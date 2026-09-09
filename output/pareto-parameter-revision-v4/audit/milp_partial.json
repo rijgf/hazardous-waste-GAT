@@ -1,0 +1,257 @@
+{
+  "schema": "independent-parameter-revision-audit-v4",
+  "audited_at_utc": "2026-09-08T13:29:20.610030+00:00",
+  "auditor_sha256": "dc49e1376e3fa7587442787e842fd27db076ebe3cbf2cc27ba08501ab50730dc",
+  "protocol_sha256": "e496b6bddc716cf80d821e887e25be51c4ffdb1c268460ad7b1f233cde883ebe",
+  "scope": "Only all five revised MILP outputs: source and protocol identities, raw and uniformly normalized complete vectors, original matrix/bounds/integrality, cost/risk/J, fixed b, objective consistency and original solver status/time. No full frontier, coverage, CSV, figure or manuscript acceptance is implied.",
+  "status": "PARTIAL PASS",
+  "verified": {
+    "bound_instance_versions": 1,
+    "milp_full_vectors_replayed": 5,
+    "milp_independent_uniform_normalizations": 5
+  },
+  "errors": [],
+  "missing": [],
+  "delivery_evidence_sha256": {
+    "供应链管理写作/数值实验与结果分析_论文稿.md": "7678bdce50d32e41035c564a7a7d9b8e9d866777ad15e706133d27d466951f21",
+    "report_pareto_experiments.py": "93cf60293fd575648b60b87f4e76139a7d3fd8ac3eb19131476748acced3182a",
+    "plot_pareto_sensitivity.py": "5413c035d222958b82f6d25e1d188141e14ce15077af23b5b981c12423815904",
+    "normalize_pareto_milp.py": "9edaf492a4f4e1e028583992d25c84af0ac33a55f44862f05cba3caa2bd4a21c",
+    "audit_parameter_revision.py": "dc49e1376e3fa7587442787e842fd27db076ebe3cbf2cc27ba08501ab50730dc",
+    "configs/ppo_models_parameter_revision_v4.json": "a8adf58e88955e65520cea65c7fd88f542be3d512a67f70d62776b952d0db2e5",
+    "report_parameter_revision.py": "5cf287d767d52688f65e8205efde87e22dd8ec499542c1b24c79f111b70155ca",
+    "output/pareto-parameter-revision-v4/milp/protocol.json": "25af81bd0763196937b519a1b5d195bf1b4c5f0ec03799e65f6faf6ec7ace671",
+    "output/pareto-parameter-revision-v4/milp/p0.json": "9bfd93ad9f0cd909db369ed09e611db5e4f7d8ac8839e8637c202da01703378a",
+    "output/pareto-parameter-revision-v4/milp/p1.json": "9ddb41d49c2853293e0aaed54265964b31cbc2ee1a74d92b4f9ce3798f2129ae",
+    "output/pareto-parameter-revision-v4/milp/p2.json": "df74ef674a059a1a27c7c1980a827f45d913bfbe83c7c8020d14be5f01a9ba6c",
+    "output/pareto-parameter-revision-v4/milp/p3.json": "48ea0f4127b3a791a92b557197b57cdbcac5d57ae4244ed9a2faed36f55dc7bc",
+    "output/pareto-parameter-revision-v4/milp/p4.json": "4d75e91f12de6b146556b0aeb22a6e66876453de76342b238a632e89940c812f",
+    "output/pareto-parameter-revision-v4/milp/validated/p0.json": "2285be17cf962c746584c600b8f87adce68da6acf479ea02ee253518584ac71d",
+    "output/pareto-parameter-revision-v4/milp/validated/p1.json": "eae692a744166617f1b973a5f2bd0a19db6dededc53b235b510fbf27f991c2cc",
+    "output/pareto-parameter-revision-v4/milp/validated/p2.json": "203aff6fff20328e024cc9c3a56ea4f329fc53c4846335fbc42801d953829feb",
+    "output/pareto-parameter-revision-v4/milp/validated/p3.json": "bcbf3980e2176fb61a66b3bdcf0dcd7af712c49440e6483b9601ab4099e993e1",
+    "output/pareto-parameter-revision-v4/milp/validated/p4.json": "16bb287f8c21d3a7cfa41d52f6565379db41531ddf09413088f119a578bd9215"
+  },
+  "coverage_pairs": [],
+  "coverage_summaries": [],
+  "small_ppo_runs": [],
+  "small_selected": [],
+  "milp": [
+    {
+      "preference_index": 0,
+      "cost": 1590.58300000012,
+      "risk": 19.649907276364164,
+      "J": 0.6649194070585829,
+      "seconds": 113.49284760002047,
+      "max_matrix_bound_integrality_residual": 3.2301272767654154e-11,
+      "normalized_max_matrix_bound_integrality_residual": 1.0259348925956147e-11,
+      "normalized_solver_objective_difference": 5.906386491005833e-14,
+      "normalization_changed_variables": 67,
+      "original_objective_consistent": true,
+      "original_decoded_objective": 0.6649194070585829,
+      "validated_record_path": "output\\pareto-parameter-revision-v4\\milp\\validated\\p0.json",
+      "validated_record_sha256": "2285be17cf962c746584c600b8f87adce68da6acf479ea02ee253518584ac71d",
+      "proven_optimal": true,
+      "status": "optimal"
+    },
+    {
+      "preference_index": 1,
+      "cost": 1646.2065589999995,
+      "risk": 12.8276875142116,
+      "J": 0.5939646468482355,
+      "seconds": 206.85932079993654,
+      "max_matrix_bound_integrality_residual": 7.538414337204813e-14,
+      "normalized_max_matrix_bound_integrality_residual": 6.539213615042172e-14,
+      "normalized_solver_objective_difference": 1.1102230246251565e-16,
+      "normalization_changed_variables": 4,
+      "original_objective_consistent": true,
+      "original_decoded_objective": 0.5939646468482355,
+      "validated_record_path": "output\\pareto-parameter-revision-v4\\milp\\validated\\p1.json",
+      "validated_record_sha256": "eae692a744166617f1b973a5f2bd0a19db6dededc53b235b510fbf27f991c2cc",
+      "proven_optimal": true,
+      "status": "optimal"
+    },
+    {
+      "preference_index": 2,
+      "cost": 1802.091648,
+      "risk": 7.960401963045898,
+      "J": 0.473272723855458,
+      "seconds": 309.14467419998255,
+      "max_matrix_bound_integrality_residual": 3.774758283725532e-15,
+      "normalized_max_matrix_bound_integrality_residual": 3.774758283725532e-15,
+      "normalized_solver_objective_difference": 0.0,
+      "normalization_changed_variables": 2,
+      "original_objective_consistent": true,
+      "original_decoded_objective": 0.473272723855458,
+      "validated_record_path": "output\\pareto-parameter-revision-v4\\milp\\validated\\p2.json",
+      "validated_record_sha256": "203aff6fff20328e024cc9c3a56ea4f329fc53c4846335fbc42801d953829feb",
+      "proven_optimal": true,
+      "status": "optimal"
+    },
+    {
+      "preference_index": 3,
+      "cost": 2117.281002373755,
+      "risk": 5.784016375362677,
+      "J": 0.3265629013712399,
+      "seconds": 3600.324603499961,
+      "max_matrix_bound_integrality_residual": 6.535595014067752e-07,
+      "normalized_max_matrix_bound_integrality_residual": 7.106806013013056e-06,
+      "normalized_solver_objective_difference": -1.3574614321498757e-08,
+      "normalization_changed_variables": 12,
+      "original_objective_consistent": false,
+      "original_decoded_objective": 0.3539193225436113,
+      "validated_record_path": "output\\pareto-parameter-revision-v4\\milp\\validated\\p3.json",
+      "validated_record_sha256": "bcbf3980e2176fb61a66b3bdcf0dcd7af712c49440e6483b9601ab4099e993e1",
+      "proven_optimal": false,
+      "status": "solver_status_1"
+    },
+    {
+      "preference_index": 4,
+      "cost": 2604.135035999983,
+      "risk": 4.455521412759399,
+      "J": 0.10814057660087768,
+      "seconds": 3600.204901000019,
+      "max_matrix_bound_integrality_residual": 4.103957110346168e-12,
+      "normalized_max_matrix_bound_integrality_residual": 1.680433570072637e-12,
+      "normalized_solver_objective_difference": 5.925815393936773e-15,
+      "normalization_changed_variables": 28,
+      "original_objective_consistent": true,
+      "original_decoded_objective": 0.10814057660087768,
+      "validated_record_path": "output\\pareto-parameter-revision-v4\\milp\\validated\\p4.json",
+      "validated_record_sha256": "16bb287f8c21d3a7cfa41d52f6565379db41531ddf09413088f119a578bd9215",
+      "proven_optimal": false,
+      "status": "solver_status_1"
+    }
+  ],
+  "processing_capacity_on_delivered_front_solutions": [],
+  "shared_auditor_sha256": "05fa190ffda18f4cd172ea7424d0edfd82611dfeb8458b164c23784195dba0f1",
+  "training_lineage": [],
+  "revised_baseline_records": [
+    {
+      "instance_id": "legacy-small-fixed--revision-v4",
+      "instance_sha256": "8f966b0d0e55e4a728a58d208164db958e7d346d707f4a63ecf530671ca34ee8",
+      "source_instance_path": "output/pareto-single-instance-v3/instances/small-fixed.json",
+      "changed_fields": [
+        "processing_capacity",
+        "coload_risk"
+      ],
+      "b_C": 2392.144045,
+      "b_R": 41.20119896534043,
+      "parameter_seed": 2684310424,
+      "pair_calibration": [
+        {
+          "pair": [
+            "S1",
+            "S2"
+          ],
+          "old_gamma": 0.421,
+          "new_gamma": 13.722552513185203,
+          "independently_replayed_strength": 4.842114507122513,
+          "equal_load_total_transport_risk_ratio": 5.842114507122513
+        }
+      ],
+      "effective_capacity": [
+        {
+          "waste_type": "S1",
+          "generation_each_period": [
+            3.523,
+            4.388999999999999
+          ],
+          "average_period_generation": 3.9559999999999995,
+          "eligible_facilities": [
+            "D1",
+            "D2"
+          ],
+          "capacity_per_eligible_facility": 3.9559999999999995,
+          "effective_capacity_each_period": [
+            7.911999999999999,
+            7.911999999999999
+          ],
+          "effective_capacity_to_average_generation": 2.0,
+          "initial_inventory": 0.0,
+          "suffix_necessary_conditions": [
+            {
+              "first_period": 1,
+              "generated_mass_requiring_future_processing": 7.911999999999999,
+              "future_effective_capacity": 15.823999999999998,
+              "slack": 7.911999999999999,
+              "necessary_condition_pass": true
+            },
+            {
+              "first_period": 2,
+              "generated_mass_requiring_future_processing": 4.388999999999999,
+              "future_effective_capacity": 7.911999999999999,
+              "slack": 3.5229999999999997,
+              "necessary_condition_pass": true
+            }
+          ],
+          "all_suffix_necessary_conditions_pass": true,
+          "scope": "Necessary only: passing does not prove route, vehicle or inventory feasibility."
+        },
+        {
+          "waste_type": "S2",
+          "generation_each_period": [
+            3.423,
+            3.658
+          ],
+          "average_period_generation": 3.5404999999999998,
+          "eligible_facilities": [
+            "D2"
+          ],
+          "capacity_per_eligible_facility": 7.0809999999999995,
+          "effective_capacity_each_period": [
+            7.0809999999999995,
+            7.0809999999999995
+          ],
+          "effective_capacity_to_average_generation": 2.0,
+          "initial_inventory": 0.0,
+          "suffix_necessary_conditions": [
+            {
+              "first_period": 1,
+              "generated_mass_requiring_future_processing": 7.0809999999999995,
+              "future_effective_capacity": 14.161999999999999,
+              "slack": 7.0809999999999995,
+              "necessary_condition_pass": true
+            },
+            {
+              "first_period": 2,
+              "generated_mass_requiring_future_processing": 3.658,
+              "future_effective_capacity": 7.0809999999999995,
+              "slack": 3.4229999999999996,
+              "necessary_condition_pass": true
+            }
+          ],
+          "all_suffix_necessary_conditions_pass": true,
+          "scope": "Necessary only: passing does not prove route, vehicle or inventory feasibility."
+        }
+      ],
+      "reference_capacity_usage": {
+        "maximum_eligible_cell_utilization": 0.8905460060667342,
+        "maximum_effective_system_utilization": 0.554726996966633,
+        "minimum_eligible_cell_slack": 0.4329999999999994,
+        "binding_eligible_cells": 0
+      }
+    }
+  ],
+  "effective_capacity_and_suffix_conditions": {},
+  "actual_processing_capacity_on_fronts_and_small_solutions": {
+    "small-fixed": {
+      "unique_solutions": 5,
+      "maximum_eligible_cell_utilization": 1.0000000000014488,
+      "maximum_effective_system_utilization": 1.0000000000014488,
+      "minimum_eligible_cell_slack": -1.0259348925956147e-11,
+      "solutions_with_binding_eligible_cell": 3
+    }
+  },
+  "encoder_capacity_checks": [
+    {
+      "instance": "small-fixed",
+      "safe_token_bound": 48,
+      "safe_object_bound": 12,
+      "checkpoint_token_capacity": 896,
+      "checkpoint_object_capacity": 512,
+      "reference_features_normalized_to_one": true
+    }
+  ],
+  "capacity_interpretation": "Effective-capacity and necessary suffix checks do not prove global redundancy or feasibility. Actual archived flows are measured separately; binding and slack are observations, not optimality claims."
+}

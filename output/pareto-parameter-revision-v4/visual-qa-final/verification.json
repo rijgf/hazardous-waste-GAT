@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Offline Markdown compatibility preview and visual inspection; not a screenshot of the native Codex Markdown panel.",
+  "paper": "供应链管理写作/数值实验与结果分析_论文稿.md",
+  "paper_sha256": "32bc87406ece7c231f090fe8e9f5e98700de6b43dc363a2ab4a5e9514c38f50a",
+  "sensitivity_png_sha256": "8972c81f2f9bb022a2b59dec1c07b5d7fc0b620847f8b40ab0ece7e10a4326f2",
+  "renderer": "GFM tables and local images; HTML blocks suppressed and no math extension",
+  "viewports": [1440, 900],
+  "screenshots_visually_reviewed": {
+    "1440": "after-1440-01.png through after-1440-11.png",
+    "900": "after-900-01.png through after-900-13.png"
+  },
+  "screenshots_reviewed_count": 24,
+  "tables_per_viewport": 6,
+  "formula_images_per_viewport": 3,
+  "broken_images": 0,
+  "raw_math_or_html_artifacts": false,
+  "page_horizontal_overflow": false,
+  "visual_findings": "Formula glyphs, table headers and values, two-panel figure axes and legends are visible. Narrow tables wrap within cells without losing values. The full-resolution sensitivity PNG was also inspected separately.",
+  "independent_numerical_audit": "../audit/independent_numerics.json",
+  "independent_numerical_audit_sha256": "7bba2f17d485341bb55bf89087f35cea1931d62c645342afc4e00cbebdc64367"
+}

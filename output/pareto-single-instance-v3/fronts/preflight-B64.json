@@ -1,0 +1,75 @@
+{
+  "budget": 64,
+  "counts": {
+    "candidate_attempts": 64,
+    "candidate_objective_evaluations": 62,
+    "cache_hits": 2,
+    "invalid_candidates": 0,
+    "operator_failures": 2,
+    "invalid_candidate_attempts": 0,
+    "ppo_internal_objective_evaluations": 65
+  },
+  "seconds": 1.196573399938643,
+  "points": [
+    {
+      "cost": 16784.144181000003,
+      "risk": 1084.2347933035317,
+      "normalized_cost": 0.9179586672559034,
+      "normalized_risk": 0.8822122341160213,
+      "weighted_objective_raw": 8934.189487151767,
+      "weighted_objective_normalized": 0.9000854506859624,
+      "weighted_objective": 0.9000854506859624,
+      "cost_ref": 18284.204703000003,
+      "risk_ref": 1228.995417854228,
+      "fixed_cost": 300.0,
+      "distance_cost": 12505.602000000004,
+      "processing_cost": 3978.5421810000007,
+      "transport_risk": 554.9659543235593,
+      "coload_risk": 202.6194809799724,
+      "producer_inventory_risk": 326.649358,
+      "facility_inventory_risk": 0.0,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "f870ddb17ed9a3d34fc2afbac5dc2fefe44a2209a0e6f42ec770335fbb844874",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 123,
+        "operator_seed": 2091241709,
+        "candidate_index": 51,
+        "operator_ok": true,
+        "operator_reason": "relocate"
+      },
+      "solution_path": "solutions/test-Test-4-000/f870ddb17ed9a3d34fc2afbac5dc2fefe44a2209a0e6f42ec770335fbb844874.json"
+    }
+  ],
+  "stop_reason": "preflight_only",
+  "archive_id": "preflight-B64",
+  "task": {
+    "id": "preflight",
+    "kind": "PPO",
+    "model": "large",
+    "instance": "Test-4",
+    "repeat": -1,
+    "seed": 123
+  },
+  "instance_id": "test-Test-4-000",
+  "instance_sha256": "9d2a7c8f44d3ee84b76e6c59c278f625b9eb920dd0cfda0a365b0f253d1391e4",
+  "b_C": 18284.204703000003,
+  "b_R": 1228.995417854228,
+  "reference_plan_sha256": "b78d436ce30a11c4f98f0891ebf3f36208e7407e9357d7ce67821ded6a53079d",
+  "search_initial_plan_sha256": "b78d436ce30a11c4f98f0891ebf3f36208e7407e9357d7ce67821ded6a53079d",
+  "protocol_sha256": "69b24fd138602e7b2de82063c92a7db5e9daa390fe2192373c4d95358acdb49a",
+  "strict_feasible_points": 1,
+  "status": "success",
+  "checkpoint": {
+    "experiment_alias": "New-L",
+    "checkpoint": "outputs/reference_generalization_v2/models/large_model.pt",
+    "sha256": "29165c0a0b9d1c9b5e843f948049afb1bb94692e0dbe6aa161982b425f73bfef",
+    "training_scale": "Test-4",
+    "training_record": "outputs/reference_generalization_v2/models/large.json"
+  }
+}

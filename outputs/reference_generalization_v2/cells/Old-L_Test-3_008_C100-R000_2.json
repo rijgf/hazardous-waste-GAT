@@ -1,0 +1,85 @@
+{
+  "variant": "Old-L",
+  "scale": "Test-3",
+  "index": 8,
+  "preference": [
+    1.0,
+    0.0
+  ],
+  "restart": 2,
+  "seed": 4136026805,
+  "dataset_sha256": "e4304697447d1edfb99a25a991c7ca3ad325062ca1b41fb6c01113500ed927d1",
+  "checkpoint_sha256": "1b5fc32e6336d85054e2b1d41c9bf54e709f61f10b31b98c35f220e901be7fef",
+  "b_C": 6564.151243000002,
+  "b_R": 223.38651329328894,
+  "seconds": 5.4545785000082105,
+  "cost": 4424.5272429999995,
+  "risk": 151.76815363421915,
+  "weighted_objective_normalized": 0.6740440735149585,
+  "transport_risk": 67.41804477355109,
+  "coload_risk": 11.488728860668068,
+  "producer_inventory_risk": 72.86138,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G8::S2",
+          "n::G5::S2",
+          "n::G9::S2",
+          "n::G2::S1",
+          "n::G10::S2",
+          "n::G3::S2",
+          "n::G1::S1",
+          "n::G6::S3",
+          "n::G8::S3",
+          "n::G2::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G7::S3",
+          "n::G1::S3",
+          "n::G3::S3",
+          "n::G4::S3",
+          "n::G2::S3",
+          "n::G4::S2",
+          "n::G10::S3",
+          "n::G7::S1",
+          "n::G5::S3",
+          "n::G10::S1",
+          "n::G9::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G5::S1",
+          "n::G9::S3",
+          "n::G8::S1",
+          "n::G6::S1",
+          "n::G7::S2",
+          "n::G6::S2",
+          "n::G3::S1",
+          "n::G4::S1",
+          "n::G1::S2",
+          "D1"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "99fb88a7f8aa80a7941b0be04e41df29ae923fa33230c6e7cb5b219dc88f6c3b",
+  "accepted_steps": 25
+}

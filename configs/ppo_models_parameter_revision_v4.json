@@ -1,0 +1,24 @@
+{
+  "registry_version": 1,
+  "status": "retrained_for_user_parameter_revision_frozen_after_training",
+  "objective_normalization": "instance_reference",
+  "path_base": "repository_root",
+  "dataset_manifest": "datasets/parameter_revision_v4/manifest.json",
+  "dataset_manifest_sha256": "d60743ed6e0e50d6623e532d9716209a81d63afa515a2171f717f9b875f4b4d4",
+  "models": {
+    "small": {
+      "experiment_alias": "New-S-v4",
+      "training_scale": "Test-1",
+      "sha256": "b83f71560f6afb15fec41f1b05d17866c3490c79b985dfb51e4949d6ba46f82e",
+      "checkpoint": "outputs/parameter_revision_v4/models/small_model.pt",
+      "training_record": "outputs/parameter_revision_v4/models/small.json"
+    },
+    "large": {
+      "experiment_alias": "New-L-v4",
+      "training_scale": "Test-4",
+      "sha256": "61db3f4dcc6aa768f22dd36515449416facb603b934c9eaf9a5e0278838fab3a",
+      "checkpoint": "outputs/parameter_revision_v4/models/large_model.pt",
+      "training_record": "outputs/parameter_revision_v4/models/large.json"
+    }
+  }
+}

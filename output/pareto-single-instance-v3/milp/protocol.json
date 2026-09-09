@@ -1,0 +1,53 @@
+{
+  "schema": "pareto-historical-milp-v1",
+  "instance_sha256": "c61c8fc4c2d43afb69fb76d26a69ef7a246a77ff11b451396b302849988a803c",
+  "reference_sha256": "5fdfb1130823c21856db79670ab76cbbbac336b68ac2548cdf8c3b81d1a791f3",
+  "instance_seed": 3723524230,
+  "reference_seed": 3949079119,
+  "objective_refs": [
+    1384.991951,
+    10.876517565143931
+  ],
+  "preferences": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.75,
+      0.25
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.25,
+      0.75
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "solver_options": {
+    "time_limit": 3600.0,
+    "mip_rel_gap": 0.0,
+    "threads": 1,
+    "random_seed": 0,
+    "disp": true
+  },
+  "sources": {
+    "run_pareto_milp.py": "62bc0086d0a15ac4dd0c1ad0ab2d6f276243c93904102f25ffbcc2f5da621e7f",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6",
+    "sample_params.py": "121870fe103edd3f36373722c4442e9450b1b73cd2c367ea32c39e978576f8df",
+    "configs/model_config.json": "1fcfec53270256ad47c9b086b82a506bcb379183761bc12e7a21eeeaffdc3c51",
+    "src/heuristics.py": "ac464455a78607acea2b4cd302860b24c50156beaa6189b4be5ef17467a2264a",
+    "src/instance_generator.py": "d24c079055875077bcd2d47ee15b287bc281f803285edc0de3320c8463308ec9",
+    "src/reproducibility.py": "91518f0554199275bb44aab968d6a4df671e6f79c110b31f85b536cbd4549ff0",
+    "src/solution_utils.py": "2e8dcd6ba271adea2be76b524d78de0df766255297f55779a72a061665ce39ee",
+    "src/supplementary_experiment.py": "f058b6f9680f5f1fa18f904f1d5e4392604657c9fbca041141fc37a50284a5ba"
+  },
+  "time_definition": "Model build, MILP solve, decode and strict validation; excludes shared case preparation and file serialization.",
+  "parallel_jobs": 5
+}

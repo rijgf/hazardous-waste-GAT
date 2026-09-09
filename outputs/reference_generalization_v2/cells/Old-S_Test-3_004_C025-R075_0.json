@@ -1,0 +1,164 @@
+{
+  "variant": "Old-S",
+  "scale": "Test-3",
+  "index": 4,
+  "preference": [
+    0.25,
+    0.75
+  ],
+  "restart": 0,
+  "seed": 2429289080,
+  "dataset_sha256": "f87d88a8c9060fc68c4285e494600140b1df4c15e02f1041ea19e971ee156dba",
+  "checkpoint_sha256": "b489641a0420eae4df2bf1cbf90bb468da4f26a5091382e137d30dfdfe22a4c6",
+  "b_C": 6269.871853999999,
+  "b_R": 250.59844423691698,
+  "seconds": 5.222238899907097,
+  "cost": 5792.109740999999,
+  "risk": 75.25042135713005,
+  "weighted_objective_normalized": 0.4561622410249948,
+  "transport_risk": 25.650835239650725,
+  "coload_risk": 3.30104411747931,
+  "producer_inventory_risk": 46.29854200000001,
+  "facility_inventory_risk": 0.0,
+  "feasible": true,
+  "plan": {
+    "schema": "route-plan-v1",
+    "routes": [
+      {
+        "vehicle": "K1",
+        "period": 1,
+        "route": [
+          "D1",
+          "n::G5::S1",
+          "n::G10::S2",
+          "n::G8::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 1,
+        "route": [
+          "D2",
+          "n::G2::S3",
+          "n::G1::S3",
+          "n::G4::S3",
+          "n::G9::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 1,
+        "route": [
+          "D3",
+          "n::G1::S1",
+          "n::G2::S1",
+          "D3"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 2,
+        "route": [
+          "D2",
+          "n::G10::S3",
+          "n::G7::S3",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G3::S2",
+          "n::G10::S2",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K5",
+        "period": 2,
+        "route": [
+          "D1",
+          "n::G5::S1",
+          "n::G8::S1",
+          "D1"
+        ]
+      },
+      {
+        "vehicle": "K1",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G8::S3",
+          "n::G6::S2",
+          "n::G3::S2",
+          "n::G4::S2",
+          "n::G3::S3",
+          "n::G9::S2",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K2",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G8::S2",
+          "n::G2::S2",
+          "n::G5::S2",
+          "n::G10::S1",
+          "n::G9::S3",
+          "n::G6::S1",
+          "n::G7::S2",
+          "n::G9::S1",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K3",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G1::S2",
+          "n::G7::S1",
+          "n::G1::S3",
+          "n::G4::S1",
+          "n::G2::S3",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K4",
+        "period": 3,
+        "route": [
+          "D2",
+          "n::G10::S3",
+          "n::G6::S3",
+          "n::G3::S1",
+          "n::G5::S3",
+          "n::G4::S3",
+          "n::G7::S3",
+          "D2"
+        ]
+      },
+      {
+        "vehicle": "K5",
+        "period": 3,
+        "route": [
+          "D1",
+          "n::G5::S1",
+          "n::G10::S2",
+          "n::G1::S1",
+          "n::G2::S1",
+          "n::G8::S1",
+          "D1"
+        ]
+      }
+    ]
+  },
+  "plan_sha256": "67e8bea43adef40c5040183a9711acf633ff0bf2beee6981dcbf14b931d114c8",
+  "accepted_steps": 41
+}

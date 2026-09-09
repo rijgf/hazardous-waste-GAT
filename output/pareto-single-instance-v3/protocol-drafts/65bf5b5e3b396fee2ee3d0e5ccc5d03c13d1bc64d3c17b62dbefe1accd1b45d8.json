@@ -1,0 +1,752 @@
+{
+  "protocol": "pareto-single-instance-v3",
+  "sources": {
+    "run_pareto_experiments.py": "eb9e98324f8668d61940f3677a2f9f15df5a06c5c525489e0afcb3ccf7774d43",
+    "src/pareto_experiment.py": "eeb93cee952317566e359515818c86927f3908e22b8358297841544f68d6fd5a",
+    "src/ppo_improver.py": "025b0c9ecb3b686ea89fcf42929596d383c7791335dc77d7c53f01fb70d9571b",
+    "src/operators.py": "429bf3d42b96c630c08fe85209991c7cb385ccee582aaebbe225445c627851a9",
+    "src/heuristics.py": "ac464455a78607acea2b4cd302860b24c50156beaa6189b4be5ef17467a2264a",
+    "src/solution_utils.py": "2e8dcd6ba271adea2be76b524d78de0df766255297f55779a72a061665ce39ee",
+    "src/reproducibility.py": "91518f0554199275bb44aab968d6a4df671e6f79c110b31f85b536cbd4549ff0",
+    "src/instance_generator.py": "d24c079055875077bcd2d47ee15b287bc281f803285edc0de3320c8463308ec9",
+    "sample_params.py": "121870fe103edd3f36373722c4442e9450b1b73cd2c367ea32c39e978576f8df",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6"
+  },
+  "registry_sha256": "e3342d378fb19aeb1963b0bba7bb10f291a49dc4b8a6b9ea489b3e514ee370f5",
+  "registry": {
+    "registry_version": 1,
+    "user_confirmed_on": "2026-09-08",
+    "status": "user_confirmed_default_frozen",
+    "path_base": "repository_root",
+    "experiment": "reference_generalization_v2",
+    "objective_normalization": "instance_reference",
+    "objective_refs_policy": "Use the target instance's persisted positive b_C and b_R. Do not recompute them per preference, restart, search start or incumbent.",
+    "loading_api": "PPOImprover.from_frozen_checkpoint",
+    "allow_training_or_overwriting_without_explicit_user_request": false,
+    "on_missing_or_hash_mismatch": "stop_and_notify_user",
+    "dataset_manifest": "datasets/reference_generalization_v2/manifest.json",
+    "dataset_manifest_sha256": "b339346dc6b580afeca787cc4590ddbb8734b748e0b8e9cfa38cdb2807ac9d51",
+    "models": {
+      "small": {
+        "experiment_alias": "New-S",
+        "checkpoint": "outputs/reference_generalization_v2/models/small_model.pt",
+        "sha256": "25b48dadc776f21a7e0aacfeea12f2cfe92632f1ba4fb3e0c856ac25b26ea565",
+        "training_scale": "Test-1",
+        "training_record": "outputs/reference_generalization_v2/models/small.json"
+      },
+      "large": {
+        "experiment_alias": "New-L",
+        "checkpoint": "outputs/reference_generalization_v2/models/large_model.pt",
+        "sha256": "29165c0a0b9d1c9b5e843f948049afb1bb94692e0dbe6aa161982b425f73bfef",
+        "training_scale": "Test-4",
+        "training_record": "outputs/reference_generalization_v2/models/large.json"
+      }
+    }
+  },
+  "dataset_manifest_sha256": "b339346dc6b580afeca787cc4590ddbb8734b748e0b8e9cfa38cdb2807ac9d51",
+  "instances": {
+    "Test-1": "08840f9f1068f0450835364e0af2f624aafc20b9534ff01c11e3d68592b9ecf7",
+    "Test-2": "a6a722b58749ba372ed61dfe5e9070d379b7f27e669d4a24b2f4993880156d5a",
+    "Test-3": "b4ae685517986faed26b4ca1d3c49f7aaa311606ce137ee897f05bcf7f85efc2",
+    "Test-4": "af68bdf664254ee84650aff4226db46e8f58d8622439a5934cec734a308938fb",
+    "small-fixed": "d52b5d45978849fa66bf5680c00307c1282c737df6b7bdefdf01857f85239d73",
+    "capacity-70": "2f077d745b3dbcb001e5df5f1321f9462f99de679a98007b4283d7f691ed04a6",
+    "capacity-80": "079e60b288fe1b6b72f8a2cfa21951ecef3bdbf4c5c643080406dd72522b0301",
+    "capacity-120": "cfab96d7a82f2ac470194572e7fd0c25a1cd4e358ffe62e2ebe9e8dc8a309f23",
+    "capacity-130": "6e5a0c70cf97f59aad6a3ab658e206f234c934b0833baee9ac0da43207c29df6",
+    "coload-70": "66f7c8c175054fa803b44b026ee304bca7a24f507ad2e49dab93bc87d5dc8526",
+    "coload-80": "36a5f92da0cc9c8b1368d3eeb7d073f7089b9a7a3434aefbfcbeeddc5adcae66",
+    "coload-120": "147ecb642f7ad488d03580bc9a31c50bd2e15bb61baa3782cc484a2a8c9990fd",
+    "coload-130": "99b059bdf28c1d9cf4690efe3620b8bd4dcf8caee69c4529fd9e1eb35c751ea5"
+  },
+  "tasks": [
+    {
+      "id": "NSGA-Test-1-r0",
+      "kind": "NSGA",
+      "instance": "Test-1",
+      "repeat": 0,
+      "budgets": [
+        40320
+      ],
+      "seed": 917460617
+    },
+    {
+      "id": "PPO-Test-1-small-r0",
+      "kind": "PPO",
+      "instance": "Test-1",
+      "model": "small",
+      "repeat": 0,
+      "seed": 1159715317
+    },
+    {
+      "id": "PPO-Test-1-large-r0",
+      "kind": "PPO",
+      "instance": "Test-1",
+      "model": "large",
+      "repeat": 0,
+      "seed": 1386597060
+    },
+    {
+      "id": "NSGA-Test-1-r1",
+      "kind": "NSGA",
+      "instance": "Test-1",
+      "repeat": 1,
+      "budgets": [
+        40320
+      ],
+      "seed": 2962845680
+    },
+    {
+      "id": "PPO-Test-1-small-r1",
+      "kind": "PPO",
+      "instance": "Test-1",
+      "model": "small",
+      "repeat": 1,
+      "seed": 2837354623
+    },
+    {
+      "id": "PPO-Test-1-large-r1",
+      "kind": "PPO",
+      "instance": "Test-1",
+      "model": "large",
+      "repeat": 1,
+      "seed": 217184417
+    },
+    {
+      "id": "NSGA-Test-1-r2",
+      "kind": "NSGA",
+      "instance": "Test-1",
+      "repeat": 2,
+      "budgets": [
+        40320
+      ],
+      "seed": 4194359457
+    },
+    {
+      "id": "PPO-Test-1-small-r2",
+      "kind": "PPO",
+      "instance": "Test-1",
+      "model": "small",
+      "repeat": 2,
+      "seed": 3031125589
+    },
+    {
+      "id": "PPO-Test-1-large-r2",
+      "kind": "PPO",
+      "instance": "Test-1",
+      "model": "large",
+      "repeat": 2,
+      "seed": 712353551
+    },
+    {
+      "id": "NSGA-Test-2-r0",
+      "kind": "NSGA",
+      "instance": "Test-2",
+      "repeat": 0,
+      "budgets": [
+        40320
+      ],
+      "seed": 2043402836
+    },
+    {
+      "id": "PPO-Test-2-small-r0",
+      "kind": "PPO",
+      "instance": "Test-2",
+      "model": "small",
+      "repeat": 0,
+      "seed": 118316448
+    },
+    {
+      "id": "PPO-Test-2-large-r0",
+      "kind": "PPO",
+      "instance": "Test-2",
+      "model": "large",
+      "repeat": 0,
+      "seed": 1636418034
+    },
+    {
+      "id": "NSGA-Test-2-r1",
+      "kind": "NSGA",
+      "instance": "Test-2",
+      "repeat": 1,
+      "budgets": [
+        40320
+      ],
+      "seed": 4011954633
+    },
+    {
+      "id": "PPO-Test-2-small-r1",
+      "kind": "PPO",
+      "instance": "Test-2",
+      "model": "small",
+      "repeat": 1,
+      "seed": 717713710
+    },
+    {
+      "id": "PPO-Test-2-large-r1",
+      "kind": "PPO",
+      "instance": "Test-2",
+      "model": "large",
+      "repeat": 1,
+      "seed": 3074135097
+    },
+    {
+      "id": "NSGA-Test-2-r2",
+      "kind": "NSGA",
+      "instance": "Test-2",
+      "repeat": 2,
+      "budgets": [
+        40320
+      ],
+      "seed": 125321654
+    },
+    {
+      "id": "PPO-Test-2-small-r2",
+      "kind": "PPO",
+      "instance": "Test-2",
+      "model": "small",
+      "repeat": 2,
+      "seed": 389768197
+    },
+    {
+      "id": "PPO-Test-2-large-r2",
+      "kind": "PPO",
+      "instance": "Test-2",
+      "model": "large",
+      "repeat": 2,
+      "seed": 190072956
+    },
+    {
+      "id": "NSGA-Test-3-r0",
+      "kind": "NSGA",
+      "instance": "Test-3",
+      "repeat": 0,
+      "budgets": [
+        40320
+      ],
+      "seed": 3315507841
+    },
+    {
+      "id": "PPO-Test-3-small-r0",
+      "kind": "PPO",
+      "instance": "Test-3",
+      "model": "small",
+      "repeat": 0,
+      "seed": 1372359132
+    },
+    {
+      "id": "PPO-Test-3-large-r0",
+      "kind": "PPO",
+      "instance": "Test-3",
+      "model": "large",
+      "repeat": 0,
+      "seed": 3707457095
+    },
+    {
+      "id": "NSGA-Test-3-r1",
+      "kind": "NSGA",
+      "instance": "Test-3",
+      "repeat": 1,
+      "budgets": [
+        40320
+      ],
+      "seed": 575534284
+    },
+    {
+      "id": "PPO-Test-3-small-r1",
+      "kind": "PPO",
+      "instance": "Test-3",
+      "model": "small",
+      "repeat": 1,
+      "seed": 484779320
+    },
+    {
+      "id": "PPO-Test-3-large-r1",
+      "kind": "PPO",
+      "instance": "Test-3",
+      "model": "large",
+      "repeat": 1,
+      "seed": 2276932999
+    },
+    {
+      "id": "NSGA-Test-3-r2",
+      "kind": "NSGA",
+      "instance": "Test-3",
+      "repeat": 2,
+      "budgets": [
+        40320
+      ],
+      "seed": 458912264
+    },
+    {
+      "id": "PPO-Test-3-small-r2",
+      "kind": "PPO",
+      "instance": "Test-3",
+      "model": "small",
+      "repeat": 2,
+      "seed": 3833677594
+    },
+    {
+      "id": "PPO-Test-3-large-r2",
+      "kind": "PPO",
+      "instance": "Test-3",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1567147103
+    },
+    {
+      "id": "NSGA-Test-4-r0",
+      "kind": "NSGA",
+      "instance": "Test-4",
+      "repeat": 0,
+      "budgets": [
+        40320,
+        120960
+      ],
+      "seed": 3855387571
+    },
+    {
+      "id": "PPO-Test-4-small-r0",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "small",
+      "repeat": 0,
+      "seed": 2623966033
+    },
+    {
+      "id": "PPO-Test-4-large-r0",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "NSGA-Test-4-r1",
+      "kind": "NSGA",
+      "instance": "Test-4",
+      "repeat": 1,
+      "budgets": [
+        40320,
+        120960
+      ],
+      "seed": 2965243709
+    },
+    {
+      "id": "PPO-Test-4-small-r1",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "small",
+      "repeat": 1,
+      "seed": 636549603
+    },
+    {
+      "id": "PPO-Test-4-large-r1",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "NSGA-Test-4-r2",
+      "kind": "NSGA",
+      "instance": "Test-4",
+      "repeat": 2,
+      "budgets": [
+        40320,
+        120960
+      ],
+      "seed": 878663078
+    },
+    {
+      "id": "PPO-Test-4-small-r2",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "small",
+      "repeat": 2,
+      "seed": 2763200161
+    },
+    {
+      "id": "PPO-Test-4-large-r2",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-capacity-70-large-r0",
+      "kind": "PPO",
+      "instance": "capacity-70",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-capacity-70-large-r1",
+      "kind": "PPO",
+      "instance": "capacity-70",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-capacity-70-large-r2",
+      "kind": "PPO",
+      "instance": "capacity-70",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-capacity-80-large-r0",
+      "kind": "PPO",
+      "instance": "capacity-80",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-capacity-80-large-r1",
+      "kind": "PPO",
+      "instance": "capacity-80",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-capacity-80-large-r2",
+      "kind": "PPO",
+      "instance": "capacity-80",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-capacity-120-large-r0",
+      "kind": "PPO",
+      "instance": "capacity-120",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-capacity-120-large-r1",
+      "kind": "PPO",
+      "instance": "capacity-120",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-capacity-120-large-r2",
+      "kind": "PPO",
+      "instance": "capacity-120",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-capacity-130-large-r0",
+      "kind": "PPO",
+      "instance": "capacity-130",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-capacity-130-large-r1",
+      "kind": "PPO",
+      "instance": "capacity-130",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-capacity-130-large-r2",
+      "kind": "PPO",
+      "instance": "capacity-130",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-coload-70-large-r0",
+      "kind": "PPO",
+      "instance": "coload-70",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-coload-70-large-r1",
+      "kind": "PPO",
+      "instance": "coload-70",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-coload-70-large-r2",
+      "kind": "PPO",
+      "instance": "coload-70",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-coload-80-large-r0",
+      "kind": "PPO",
+      "instance": "coload-80",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-coload-80-large-r1",
+      "kind": "PPO",
+      "instance": "coload-80",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-coload-80-large-r2",
+      "kind": "PPO",
+      "instance": "coload-80",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-coload-120-large-r0",
+      "kind": "PPO",
+      "instance": "coload-120",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-coload-120-large-r1",
+      "kind": "PPO",
+      "instance": "coload-120",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-coload-120-large-r2",
+      "kind": "PPO",
+      "instance": "coload-120",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    },
+    {
+      "id": "PPO-coload-130-large-r0",
+      "kind": "PPO",
+      "instance": "coload-130",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-coload-130-large-r1",
+      "kind": "PPO",
+      "instance": "coload-130",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-coload-130-large-r2",
+      "kind": "PPO",
+      "instance": "coload-130",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    }
+  ],
+  "preferences": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.05,
+      0.95
+    ],
+    [
+      0.1,
+      0.9
+    ],
+    [
+      0.15,
+      0.85
+    ],
+    [
+      0.2,
+      0.8
+    ],
+    [
+      0.25,
+      0.75
+    ],
+    [
+      0.3,
+      0.7
+    ],
+    [
+      0.35,
+      0.65
+    ],
+    [
+      0.4,
+      0.6
+    ],
+    [
+      0.45,
+      0.55
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.55,
+      0.44999999999999996
+    ],
+    [
+      0.6,
+      0.4
+    ],
+    [
+      0.65,
+      0.35
+    ],
+    [
+      0.7,
+      0.30000000000000004
+    ],
+    [
+      0.75,
+      0.25
+    ],
+    [
+      0.8,
+      0.19999999999999996
+    ],
+    [
+      0.85,
+      0.15000000000000002
+    ],
+    [
+      0.9,
+      0.09999999999999998
+    ],
+    [
+      0.95,
+      0.050000000000000044
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "ppo_steps": 60,
+  "ppo_candidates_per_step": 32,
+  "repeats": 3,
+  "nsga": {
+    "population": 100,
+    "crossover": 0.9,
+    "mutation": 0.25,
+    "cache_entries": 2048
+  },
+  "tolerance_normalized": 1e-08,
+  "small_preferences": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.75,
+      0.25
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.25,
+      0.75
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "small_seeds": [
+    [
+      2571384110,
+      1602506532,
+      3447525709
+    ],
+    [
+      3229999428,
+      4248913066,
+      2951447865
+    ],
+    [
+      4084462614,
+      794579791,
+      1716606784
+    ],
+    [
+      2790166943,
+      14408268,
+      1540054241
+    ],
+    [
+      1809039277,
+      4194498594,
+      1142480955
+    ]
+  ],
+  "milp_time_limit": 3600,
+  "cpu_threads_per_worker": 1,
+  "environment": {
+    "python": {
+      "version": "3.11.5 (tags/v3.11.5:cce6ba9, Aug 24 2023, 14:38:34) [MSC v.1936 64 bit (AMD64)]",
+      "implementation": "CPython",
+      "executable": "D:\\Program Files\\Python311\\python.exe"
+    },
+    "platform": {
+      "system": "Windows",
+      "release": "10",
+      "version": "10.0.26200",
+      "machine": "AMD64",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "description": "Windows-10-10.0.26200-SP0"
+    },
+    "packages": {
+      "matplotlib": "3.7.2",
+      "numpy": "1.25.2",
+      "pandas": "2.1.0",
+      "scipy": "1.16.0",
+      "torch": "2.5.1+cu121"
+    },
+    "torch_runtime": {
+      "cuda_available": true,
+      "cuda_version": "12.1",
+      "cudnn_version": 90100,
+      "device_count": 0,
+      "devices": [],
+      "deterministic_algorithms": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false
+    }
+  },
+  "test_instances_per_scale": 1,
+  "scenario_reference_policy": "each scenario binds own positive b before all searches"
+}
