@@ -1,0 +1,135 @@
+{
+  "args": {
+    "mode": "evaluate",
+    "id": "critic_mlp_r0",
+    "seed": 3381415411,
+    "device": "cuda",
+    "dimension": 96,
+    "layers": 1,
+    "updates": 32,
+    "rollout": 32,
+    "epochs": 3,
+    "minibatch": 96,
+    "horizon": 1024,
+    "lr": 0.0003,
+    "entropy": 0.003,
+    "checkpoint": "output/ppo-objects-v8/train/critic_mlp96/large_model.pt",
+    "budget": 12000,
+    "width": 8,
+    "temperature": 2.0,
+    "audit": false,
+    "unique": false,
+    "memoize": false,
+    "variant": "b",
+    "masks": "processing",
+    "mixed_horizons": false,
+    "object_ablation": "none"
+  },
+  "exploratory": true,
+  "operator_vocabulary": [
+    "drop",
+    "relocate",
+    "swap",
+    "two_opt",
+    "facility",
+    "add"
+  ],
+  "critic_head": "Linear(d,d) -> GELU -> Linear(d,1); shared context already has GELU",
+  "object_heads": [
+    512,
+    512,
+    512
+  ],
+  "object_selection": "network logits + hard semantic/edge masks",
+  "objective": "preference[0] * C / instance.b_C + preference[1] * R / instance.b_R",
+  "repair": false,
+  "heuristic_insertion": false,
+  "NSGA_warm_start": false,
+  "sources": {
+    "run_ppo_objects_v8v.py": "1840b79c0b7ce34e7a95b9e7e921f974a9bf9820a807c326c3e4e3d7d43b05ec",
+    "src/ppo_objects_v7.py": "bce069b2779f5896ec232839b7d8f82540601943abbc2084fed834bdde3643a2",
+    "src/ppo_objects_v7b.py": "76b72cfeb3c8b4bbfa951387337ebcc67272b1bafc6267981db385cc63680ee6",
+    "src/ppo_objects_v8.py": "a63b1283dfba53fdd737ea8077fd24aba0a9f78424ea52f45496c74c2232402e",
+    "src/ppo_objects_v8c.py": "3e0a742fbfe3ee4ec91d1e44c3abac8322a34f58d2c927353e918671f76f594d",
+    "src/ppo_objects_v8v.py": "6ec024fd6312c2a4be9333b94d4267231146cb49fb4d5687ec4f9242c24e64e6",
+    "src/ppo_unique_sampling.py": "dabb8f5b51631bc8e974845582e5adca764ba0ee907f12f8063450f32082ee73",
+    "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6",
+    "sample_params.py": "121870fe103edd3f36373722c4442e9450b1b73cd2c367ea32c39e978576f8df"
+  },
+  "checkpoint": {
+    "path": "output/ppo-objects-v8/train/critic_mlp96/large_model.pt",
+    "sha256": "62f2d906993c9a2f14b1fee24e150d91e27eb856aaaa87771141d6b22b7191ec"
+  },
+  "benchmark": {
+    "preference": [
+      0.5,
+      0.5
+    ],
+    "b_C": 51700.426665000006,
+    "b_R": 15393.350068342135,
+    "rows": [
+      {
+        "budget": 40320,
+        "repeat": 0,
+        "cost": 24941.90289900001,
+        "risk": 1081.6478210387115,
+        "J": 0.27634924582427933,
+        "archive_sha256": "72379aca4fcaf60697f59d0cdf4d6122985b9227169d763f971312530d77cb78",
+        "solution_id": "97653e248a442353430140a9bf351210f41b223029caa31f31e05cc4b2647b1f"
+      },
+      {
+        "budget": 40320,
+        "repeat": 1,
+        "cost": 23368.514610000002,
+        "risk": 991.1352046460792,
+        "J": 0.258192859390634,
+        "archive_sha256": "44f1a0ce55a2122c456551ce4e7168efa714e1776d82c4c1701f075774f1844a",
+        "solution_id": "25043b39ea271ce334412678369e055e5912f58977eec618d5188cf9c4c88ab1"
+      },
+      {
+        "budget": 40320,
+        "repeat": 2,
+        "cost": 23770.799364000006,
+        "risk": 1145.3291679802364,
+        "J": 0.26709185573649286,
+        "archive_sha256": "a748b97e5af3d1567fb77c53597a717efcacef3ced18e17099e89324659e00eb",
+        "solution_id": "f83855b944c2f580e438e4fe6521733b6f02d073b92e6cbe5e4d22d36d75a360"
+      },
+      {
+        "budget": 120960,
+        "repeat": 0,
+        "cost": 21155.200565000006,
+        "risk": 910.1568436517006,
+        "J": 0.23415737440659048,
+        "archive_sha256": "90a16103e70627e70fe0f7d06d00eb92dd2c55ad5e641230e06bed69ae61939e",
+        "solution_id": "2c27decd927f7eed0d0b8e05058936fb31aa58284c261e4c202ed8796e6fdb19"
+      },
+      {
+        "budget": 120960,
+        "repeat": 1,
+        "cost": 21166.016787999994,
+        "risk": 738.4098542231773,
+        "J": 0.2286833693057271,
+        "archive_sha256": "ef95933ed218107075b5b2f9a2468465025953e78a1ced0ba90e5a8025d68ab5",
+        "solution_id": "64f3849595f4c422f68ee05e9a36d48c3785b70378590d9f7c4fa267896e0a51"
+      },
+      {
+        "budget": 120960,
+        "repeat": 2,
+        "cost": 21785.087061,
+        "risk": 948.2625735503655,
+        "J": 0.24148680323590996,
+        "archive_sha256": "2b0c3be9a9bd83a1c8a8439157b32598507dd70b0b31e5fa2024af151304840b",
+        "solution_id": "08a43482687a2bb847f0a730ae02ca0568b698fbb68ddea49d9ec72e1a3b5d57"
+      }
+    ],
+    "target_J": 0.2286833693057271,
+    "instance_file_sha256": "25481fb03b90c6b872920415e34e2c6de3a304325eee76d1958c2218883ff0ca"
+  },
+  "input_sha256": "25481fb03b90c6b872920415e34e2c6de3a304325eee76d1958c2218883ff0ca",
+  "feasibility_masks": "processing",
+  "sampling": "three separately parameterized conditional 512 heads, preceding choices and raw edge inputs; no cheapest insertion",
+  "object_heads_used": true,
+  "candidate_pool": "network samples width tuples from SAME state, choose best feasible strict improvement"
+}

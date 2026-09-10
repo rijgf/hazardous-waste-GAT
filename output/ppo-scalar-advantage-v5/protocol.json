@@ -1,0 +1,456 @@
+{
+  "protocol": "ppo-scalar-advantage-v5-large-only",
+  "change": "scalarize vector GAE with each sample preference BEFORE common scalar whitening",
+  "base_protocol_sha256": "e496b6bddc716cf80d821e887e25be51c4ffdb1c268460ad7b1f233cde883ebe",
+  "preserved_inputs_sha256": "cb7439b98cbc6f23ddd7c8c17bb1b4ef6c1f4dcc16f801e919a0ea0dfcc99056",
+  "sources": {
+    "run_pareto_experiments.py": "291a0caae4e11e79600309604519ecae9c6dc465956afd78689fd8ffe992bd14",
+    "src/pareto_experiment.py": "4ea667b52c5bd01a7b7123cbb358602999c760ae84f7aebee20c4aa1f9f4ee5a",
+    "src/ppo_improver.py": "d81f21c416efdcc6f7bb6a3c89d93eea49cd90b71006e2c98c9a54f0d647a6c2",
+    "src/operators.py": "429bf3d42b96c630c08fe85209991c7cb385ccee582aaebbe225445c627851a9",
+    "src/heuristics.py": "ac464455a78607acea2b4cd302860b24c50156beaa6189b4be5ef17467a2264a",
+    "src/solution_utils.py": "2e8dcd6ba271adea2be76b524d78de0df766255297f55779a72a061665ce39ee",
+    "src/reproducibility.py": "91518f0554199275bb44aab968d6a4df671e6f79c110b31f85b536cbd4549ff0",
+    "src/instance_generator.py": "d24c079055875077bcd2d47ee15b287bc281f803285edc0de3320c8463308ec9",
+    "sample_params.py": "121870fe103edd3f36373722c4442e9450b1b73cd2c367ea32c39e978576f8df",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6",
+    "src/parameter_revision.py": "74c1a13ea7dddc1a5860f8f9755f49f33b15aebbd386e815fb720cdc1eaa707c",
+    "run_parameter_revision.py": "9e0f01faef0ee428929e7425abe62b4f8483e98c62535ead85099bedbfd3cd6b",
+    "run_scalar_advantage_v5.py": "8b8b42919a689b24c3fb60066542cb76e665afd46e795624b56ab1695a45c5f3",
+    "output/ppo-scalar-advantage-v5/source-before/src/ppo_improver.py": "025b0c9ecb3b686ea89fcf42929596d383c7791335dc77d7c53f01fb70d9571b"
+  },
+  "dataset_manifest_sha256": "d60743ed6e0e50d6623e532d9716209a81d63afa515a2171f717f9b875f4b4d4",
+  "training_seed": 542170389,
+  "algorithm": {
+    "train_iterations": 20,
+    "num_parallel_episodes": 24,
+    "episode_steps": 24,
+    "update_epochs": 24,
+    "gamma": 0.95,
+    "gae_lambda": 0.9,
+    "clip_ratio": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.02,
+    "value_coef": 0.5,
+    "repair_failure_penalty": 0.2,
+    "no_change_penalty": 0.01,
+    "eval_steps": 60,
+    "eval_candidate_samples": 32,
+    "evaluation_restarts": 3,
+    "preference_sampling": {
+      "endpoint_probability_each": 0.1,
+      "beta_concentration": 0.5
+    }
+  },
+  "network": {
+    "network_type": "full_transformer",
+    "embedding_dim": 48,
+    "transformer_layers": 1,
+    "attention_heads": 4,
+    "ff_hidden_dim": 96,
+    "dropout": 0.0,
+    "use_preference_token": true,
+    "use_preference_in_global": false,
+    "use_route_arc_tokens": true,
+    "use_facility_tokens": true,
+    "max_tokens": 896,
+    "operator_count": 8,
+    "object_count": 512,
+    "objective_normalization": "instance_reference"
+  },
+  "training_instances": [
+    {
+      "path": "train/Test-4/000.json",
+      "sha256": "66ce67809189f3c1def13a45f1d6444044a7207d919f0ec85f3884f5705a2e57",
+      "instance_id": "train-Test-4-000--revision-v4",
+      "instance_sha256": "e3114e1978d69d8b1723661c2faac3a6fc7dfa7492ab04d4a95dfd98147c6c8f",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 0,
+      "b_C": 57297.88472399996,
+      "b_R": 14064.60948505783
+    },
+    {
+      "path": "train/Test-4/001.json",
+      "sha256": "346f630798a369398d7c417b7ed68226154415501bfa92616308789072035431",
+      "instance_id": "train-Test-4-001--revision-v4",
+      "instance_sha256": "34856bdb71fa430c68aad1634d7d0633959f2887fcdbd89281a2d2394b0694a9",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 1,
+      "b_C": 55673.023257,
+      "b_R": 18259.895974513125
+    },
+    {
+      "path": "train/Test-4/002.json",
+      "sha256": "6f6def6e598f378c18d1262289fc0ae7d90d2a32fd635846067dcf3715c5eb67",
+      "instance_id": "train-Test-4-002--revision-v4",
+      "instance_sha256": "7311c1be90726e17c69d09704c874aa7241c1efb4eaacd05960e4e4da4b7715e",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 2,
+      "b_C": 57067.33093299998,
+      "b_R": 14917.59291561095
+    },
+    {
+      "path": "train/Test-4/003.json",
+      "sha256": "6236c129dce90be90dc5abd5c1a2ef09d6feb2028b90943f25a6340584dfb99f",
+      "instance_id": "train-Test-4-003--revision-v4",
+      "instance_sha256": "f71ef70bb234c81c05e1f21de37d2e7bbf25a64cc2acc5ec5735aaee95a41cb2",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 3,
+      "b_C": 58669.18608499998,
+      "b_R": 23130.655301140665
+    },
+    {
+      "path": "train/Test-4/004.json",
+      "sha256": "2eb9b92c9eca07cdcae107207db6461c2a6e81cf884a89430de403be980a4b49",
+      "instance_id": "train-Test-4-004--revision-v4",
+      "instance_sha256": "5ee32d22769b43b03d94d156f7413da82e063cd036382d8a353d7ec0d353ce99",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 4,
+      "b_C": 57673.35083400004,
+      "b_R": 14924.318494216277
+    },
+    {
+      "path": "train/Test-4/005.json",
+      "sha256": "08dac4441587f51238aa48eb465cdbaedf30dfca911369b45b37ee790d0c1935",
+      "instance_id": "train-Test-4-005--revision-v4",
+      "instance_sha256": "3b9a35ccf571a9d4a0bae3877e08dfccde4d4f76d6efb66193adf649b88a1cb9",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 5,
+      "b_C": 56647.80584100001,
+      "b_R": 19063.957420791434
+    },
+    {
+      "path": "train/Test-4/006.json",
+      "sha256": "a3e5bbe3c7a5558b4e6e9df596ca73f891a82fe3971fb49b937128e6d2063096",
+      "instance_id": "train-Test-4-006--revision-v4",
+      "instance_sha256": "bc83ee9a54cf85b3ea46a4f4e0514ce0337be5e753009f9f1b988fa118c33fb2",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 6,
+      "b_C": 57117.44716200003,
+      "b_R": 14507.774418353774
+    },
+    {
+      "path": "train/Test-4/007.json",
+      "sha256": "728ac0fc54faffb3fc4f184af35954aaeac003d4f7f68472be8fd80ad9406ea3",
+      "instance_id": "train-Test-4-007--revision-v4",
+      "instance_sha256": "47e5db65af8c01098b3007603bde7693f26b734cdd3c8083c1036266d3990012",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 7,
+      "b_C": 54052.295019,
+      "b_R": 21348.662098073757
+    },
+    {
+      "path": "train/Test-4/008.json",
+      "sha256": "fbe29e352f09ecbc9bd0bae34f00d54564acfe41dab50288a5cf3027370b898a",
+      "instance_id": "train-Test-4-008--revision-v4",
+      "instance_sha256": "11921100103d6b2b3f5ec6fc622f680a259a4f96973e41f5e68d29e790818d49",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 8,
+      "b_C": 61509.73653700003,
+      "b_R": 18559.69842399679
+    },
+    {
+      "path": "train/Test-4/009.json",
+      "sha256": "b3e527352b66dfac68be5df7d61be5ff6ffb207612e2a414847e511987490139",
+      "instance_id": "train-Test-4-009--revision-v4",
+      "instance_sha256": "c017c3e9c85f58136355991731407d7669adfa3c0cc17fe9d5cc93cb76d5a87e",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 9,
+      "b_C": 56363.208973,
+      "b_R": 14592.449207031697
+    },
+    {
+      "path": "train/Test-4/010.json",
+      "sha256": "ed79955d7b6786d0f915298d776c39d4b856f43ee182d2eda5a4e507725961e5",
+      "instance_id": "train-Test-4-010--revision-v4",
+      "instance_sha256": "d7e748769c606dae65f5168a7a2107cbb240db79151c64909a54a730df5c92f3",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 10,
+      "b_C": 57720.084871000035,
+      "b_R": 19904.246538224674
+    },
+    {
+      "path": "train/Test-4/011.json",
+      "sha256": "282354a5ed33716363c183cca5744541c3721f977a96dc406a2ba58e32f62966",
+      "instance_id": "train-Test-4-011--revision-v4",
+      "instance_sha256": "5693f8f0e9d5a6e27611f825ba2b3d76c816007b4a746e03105fee6529c095d7",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 11,
+      "b_C": 57131.90019899998,
+      "b_R": 10428.139069217712
+    },
+    {
+      "path": "train/Test-4/012.json",
+      "sha256": "a8ecc3a4d6965d3c94c7c1d498cf93b115cd64b72903b8a683c8ca1571f587f8",
+      "instance_id": "train-Test-4-012--revision-v4",
+      "instance_sha256": "41463f3beeadf900e2c5e3c3addf69091880e9cdb1bb788eeb49e06325a6496c",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 12,
+      "b_C": 59589.71843399999,
+      "b_R": 16862.940485900006
+    },
+    {
+      "path": "train/Test-4/013.json",
+      "sha256": "53797940332cde1ace0c61d43550c9dbd1d17c42ce060e0982d00f69db765d12",
+      "instance_id": "train-Test-4-013--revision-v4",
+      "instance_sha256": "f27672346600749a341f574bdb0b2a1d6d0f65ca5af9374bbbf6d595262cae8a",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 13,
+      "b_C": 61075.36319599998,
+      "b_R": 13931.647029161484
+    },
+    {
+      "path": "train/Test-4/014.json",
+      "sha256": "0d14d6b90bc1f72904b7d2f4cdf69c937bd2e05fdb36f74c7b0224658cafa7c3",
+      "instance_id": "train-Test-4-014--revision-v4",
+      "instance_sha256": "e988d83676ae1d975a37da8e0c5a8954d703d706485f5bd47a186a462913bc3b",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 14,
+      "b_C": 58345.628717999985,
+      "b_R": 23946.62980130603
+    },
+    {
+      "path": "train/Test-4/015.json",
+      "sha256": "755037798fc517e3b9ff515f0841cc092cbd596268bde27e2cdb4f595107d0b1",
+      "instance_id": "train-Test-4-015--revision-v4",
+      "instance_sha256": "6875227ecf7b7eb0decb5cea8e477ac2c3ffffe151d3a8a2b9f0abc7aa8a624a",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 15,
+      "b_C": 58794.48041200004,
+      "b_R": 24061.34631354321
+    },
+    {
+      "path": "train/Test-4/016.json",
+      "sha256": "10461cac47ac647d775fba1c5b145bc793a1e4ec926150394da689f09a100507",
+      "instance_id": "train-Test-4-016--revision-v4",
+      "instance_sha256": "865c2f0a01dc84f8d6282f99565a9a2c026655060be7b9c6fd288f8b32d1e07f",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 16,
+      "b_C": 56277.67810700003,
+      "b_R": 11430.839858801275
+    },
+    {
+      "path": "train/Test-4/017.json",
+      "sha256": "07e56c21682d1aedf7e818b623989e1b6708d22b54e9be3b70093b3ad6e90c59",
+      "instance_id": "train-Test-4-017--revision-v4",
+      "instance_sha256": "5ee857f5acb0d58e660b2a2d7d71ce86318a0dd2e4bb718d42223a0fd8e56f32",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 17,
+      "b_C": 58851.56999599998,
+      "b_R": 26751.900108191992
+    },
+    {
+      "path": "train/Test-4/018.json",
+      "sha256": "875b820894a54a3a6a03719731308ee29cc333e31bb24a00f23874255ed28261",
+      "instance_id": "train-Test-4-018--revision-v4",
+      "instance_sha256": "4b774e0228e489aed50075b01eae3dad45a7781e9e9a75cc85d2cbedfac11f44",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 18,
+      "b_C": 56104.44919999999,
+      "b_R": 22021.989684815046
+    },
+    {
+      "path": "train/Test-4/019.json",
+      "sha256": "d08bcc5d85078fc3bea0c3fc4fbe7642981d0efa6186d6890efa23d7129c9f58",
+      "instance_id": "train-Test-4-019--revision-v4",
+      "instance_sha256": "c8adc90c9fe7be8e7dd2b877a3212a96b6125884899fbc4cbb2eeedead48fc3f",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 19,
+      "b_C": 56931.26818000002,
+      "b_R": 14283.639685436385
+    },
+    {
+      "path": "train/Test-4/020.json",
+      "sha256": "1609428224be5e204adf50aee513f0529235d73e6a49087e76f77e3dc44eb2c7",
+      "instance_id": "train-Test-4-020--revision-v4",
+      "instance_sha256": "c3c5a201f228233b57b935010cc511ac6e17b975ee26ad1a4d6d8e7222a5478d",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 20,
+      "b_C": 55481.79601600006,
+      "b_R": 17766.817937275657
+    },
+    {
+      "path": "train/Test-4/021.json",
+      "sha256": "d374636eb98d010604d6d37b6565a3e80401ec64fd82e5f3fec58f421ba94686",
+      "instance_id": "train-Test-4-021--revision-v4",
+      "instance_sha256": "1b73668b7b81ffadcbe22ac1f6b3bbbc237d2f9e0e223c3dc6db5f1c12de96cf",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 21,
+      "b_C": 55070.39607199998,
+      "b_R": 29646.099138122903
+    },
+    {
+      "path": "train/Test-4/022.json",
+      "sha256": "760e50ae58fb22e881a2a46f6a44a39421f2b819b2cc0020f80cf24d8ffe52b6",
+      "instance_id": "train-Test-4-022--revision-v4",
+      "instance_sha256": "3f99b1a02bd4290cf6e505dd7ed5a9ac0a9ca0e57a91bc9915d247bd8cff4901",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 22,
+      "b_C": 57313.13059199999,
+      "b_R": 15268.17504109314
+    },
+    {
+      "path": "train/Test-4/023.json",
+      "sha256": "13945a24b0e631d5214e2fdb9f143642aad7283dcc8634920a10f82090ad3683",
+      "instance_id": "train-Test-4-023--revision-v4",
+      "instance_sha256": "1b69b8f01fb9baad4287701227e30475d599bb1d44c3921b6a8552cde006062c",
+      "split": "train",
+      "scale": "Test-4",
+      "index": 23,
+      "b_C": 58264.916481000044,
+      "b_R": 8759.798989912495
+    }
+  ],
+  "instance_path": "output/pareto-parameter-revision-v4/instances/Test-4.json",
+  "instance_sha256": "25481fb03b90c6b872920415e34e2c6de3a304325eee76d1958c2218883ff0ca",
+  "tasks": [
+    {
+      "id": "PPO-Test-4-large-r0",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "large",
+      "repeat": 0,
+      "seed": 2210471576
+    },
+    {
+      "id": "PPO-Test-4-large-r1",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "large",
+      "repeat": 1,
+      "seed": 4213990414
+    },
+    {
+      "id": "PPO-Test-4-large-r2",
+      "kind": "PPO",
+      "instance": "Test-4",
+      "model": "large",
+      "repeat": 2,
+      "seed": 1610673647
+    }
+  ],
+  "preferences": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.05,
+      0.95
+    ],
+    [
+      0.1,
+      0.9
+    ],
+    [
+      0.15,
+      0.85
+    ],
+    [
+      0.2,
+      0.8
+    ],
+    [
+      0.25,
+      0.75
+    ],
+    [
+      0.3,
+      0.7
+    ],
+    [
+      0.35,
+      0.65
+    ],
+    [
+      0.4,
+      0.6
+    ],
+    [
+      0.45,
+      0.55
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.55,
+      0.44999999999999996
+    ],
+    [
+      0.6,
+      0.4
+    ],
+    [
+      0.65,
+      0.35
+    ],
+    [
+      0.7,
+      0.30000000000000004
+    ],
+    [
+      0.75,
+      0.25
+    ],
+    [
+      0.8,
+      0.19999999999999996
+    ],
+    [
+      0.85,
+      0.15000000000000002
+    ],
+    [
+      0.9,
+      0.09999999999999998
+    ],
+    [
+      0.95,
+      0.050000000000000044
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "ppo_steps": 60,
+  "ppo_candidates_per_step": 32,
+  "repeats": 3,
+  "nsga_budgets": [
+    40320,
+    120960
+  ],
+  "tolerance": 1e-08,
+  "execution": {
+    "training_device": "cuda",
+    "evaluation_device": "cpu",
+    "threads_per_worker": 1,
+    "evaluation_workers": 3,
+    "timing_note": "new run concurrency differs from historical 16-task batch; not an isolated speed comparison"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "frozen_after_final_training_iteration",
+  "scope": "large Test-4 comparison only; v4 pair remains historical default for other experiments",
+  "objective_normalization": "instance_reference",
+  "dataset_manifest": "datasets/parameter_revision_v4/manifest.json",
+  "dataset_manifest_sha256": "d60743ed6e0e50d6623e532d9716209a81d63afa515a2171f717f9b875f4b4d4",
+  "models": {
+    "large": {
+      "experiment_alias": "New-L-v5-scalar-advantage",
+      "checkpoint": "outputs/ppo_scalar_advantage_v5/models/large_model.pt",
+      "sha256": "574d50293757caa8d704466fa0c38f953feb295f02485283e3969f409a86914a",
+      "training_record": "output/ppo-scalar-advantage-v5/training_record.json",
+      "training_scale": "Test-4"
+    }
+  }
+}

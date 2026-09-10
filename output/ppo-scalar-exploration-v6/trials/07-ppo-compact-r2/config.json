@@ -1,0 +1,95 @@
+{
+  "args": {
+    "id": "07-ppo-compact-r2",
+    "method": "ppo_compact",
+    "budget": 8000,
+    "seed": 958147205,
+    "width": 8,
+    "guidance": 0.5,
+    "shake_after": 600,
+    "audit": true
+  },
+  "benchmark": {
+    "preference": [
+      0.5,
+      0.5
+    ],
+    "b_C": 51700.426665000006,
+    "b_R": 15393.350068342135,
+    "rows": [
+      {
+        "budget": 40320,
+        "repeat": 0,
+        "cost": 24941.90289900001,
+        "risk": 1081.6478210387115,
+        "J": 0.27634924582427933,
+        "archive_sha256": "72379aca4fcaf60697f59d0cdf4d6122985b9227169d763f971312530d77cb78",
+        "solution_id": "97653e248a442353430140a9bf351210f41b223029caa31f31e05cc4b2647b1f"
+      },
+      {
+        "budget": 40320,
+        "repeat": 1,
+        "cost": 23368.514610000002,
+        "risk": 991.1352046460792,
+        "J": 0.258192859390634,
+        "archive_sha256": "44f1a0ce55a2122c456551ce4e7168efa714e1776d82c4c1701f075774f1844a",
+        "solution_id": "25043b39ea271ce334412678369e055e5912f58977eec618d5188cf9c4c88ab1"
+      },
+      {
+        "budget": 40320,
+        "repeat": 2,
+        "cost": 23770.799364000006,
+        "risk": 1145.3291679802364,
+        "J": 0.26709185573649286,
+        "archive_sha256": "a748b97e5af3d1567fb77c53597a717efcacef3ced18e17099e89324659e00eb",
+        "solution_id": "f83855b944c2f580e438e4fe6521733b6f02d073b92e6cbe5e4d22d36d75a360"
+      },
+      {
+        "budget": 120960,
+        "repeat": 0,
+        "cost": 21155.200565000006,
+        "risk": 910.1568436517006,
+        "J": 0.23415737440659048,
+        "archive_sha256": "90a16103e70627e70fe0f7d06d00eb92dd2c55ad5e641230e06bed69ae61939e",
+        "solution_id": "2c27decd927f7eed0d0b8e05058936fb31aa58284c261e4c202ed8796e6fdb19"
+      },
+      {
+        "budget": 120960,
+        "repeat": 1,
+        "cost": 21166.016787999994,
+        "risk": 738.4098542231773,
+        "J": 0.2286833693057271,
+        "archive_sha256": "ef95933ed218107075b5b2f9a2468465025953e78a1ced0ba90e5a8025d68ab5",
+        "solution_id": "64f3849595f4c422f68ee05e9a36d48c3785b70378590d9f7c4fa267896e0a51"
+      },
+      {
+        "budget": 120960,
+        "repeat": 2,
+        "cost": 21785.087061,
+        "risk": 948.2625735503655,
+        "J": 0.24148680323590996,
+        "archive_sha256": "2b0c3be9a9bd83a1c8a8439157b32598507dd70b0b31e5fa2024af151304840b",
+        "solution_id": "08a43482687a2bb847f0a730ae02ca0568b698fbb68ddea49d9ec72e1a3b5d57"
+      }
+    ],
+    "target_J": 0.2286833693057271,
+    "instance_file_sha256": "25481fb03b90c6b872920415e34e2c6de3a304325eee76d1958c2218883ff0ca"
+  },
+  "sources": {
+    "run_ppo_scalar_exploration.py": "fad77dd3b13eea585da5d87c6ff614a1e1b911beac79a23a84cf3f19191f8304",
+    "src/compact_search.py": "79d9315ed49a6b979ef81392cbe3fbe96978923cafc2959f61769ecf7518d224",
+    "src/ppo_improver.py": "025b0c9ecb3b686ea89fcf42929596d383c7791335dc77d7c53f01fb70d9571b",
+    "src/operators.py": "429bf3d42b96c630c08fe85209991c7cb385ccee582aaebbe225445c627851a9",
+    "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f",
+    "hazardous_waste_model.py": "021d3ebf56ed7b3952f8d18a852092ddb9abe20a64cf41621151d15951d081a6"
+  },
+  "start": "common_reference_plan_only",
+  "exploratory": true,
+  "checkpoint": {
+    "experiment_alias": "New-L-v4",
+    "training_scale": "Test-4",
+    "sha256": "61db3f4dcc6aa768f22dd36515449416facb603b934c9eaf9a5e0278838fab3a",
+    "checkpoint": "outputs/parameter_revision_v4/models/large_model.pt",
+    "training_record": "outputs/parameter_revision_v4/models/large.json"
+  }
+}

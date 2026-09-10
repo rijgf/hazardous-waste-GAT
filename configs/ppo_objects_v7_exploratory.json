@@ -1,0 +1,32 @@
+{
+  "status": "exploratory_single_test4_point_not_replacement_for_v4_defaults",
+  "alias": "PPO-full-objects-v7b",
+  "checkpoint": "output/ppo-objects-v7/train/v7b_capacity_context/large_model.pt",
+  "sha256": "7d0cf70b185ec544b5bf52677566ff4ce35f208261ab39ed6f2f9187f44acc40",
+  "encoder_variant": "b",
+  "objective_normalization": "instance_reference",
+  "preference": [0.5, 0.5],
+  "temperature": 2.0,
+  "candidate_budget": 12000,
+  "candidate_pool_width": 8,
+  "object_heads": [512, 512, 512],
+  "object_ablation": "none",
+  "test_instance": "output/pareto-parameter-revision-v4/instances/Test-4.json",
+  "seeds": [3381415411, 3078273277, 958147205],
+  "b_C": 51700.426665000006,
+  "b_R": 15393.350068342135,
+  "dataset_manifest": "datasets/parameter_revision_v4/manifest.json",
+  "dataset_manifest_sha256": "d60743ed6e0e50d6623e532d9716209a81d63afa515a2171f717f9b875f4b4d4",
+  "training_record": "output/ppo-objects-v7/train/v7b_capacity_context/config.json",
+  "training_completed": "output/ppo-objects-v7/train/v7b_capacity_context/completed.json",
+  "protocol": "docs/ppo_objects_v7_protocol.md",
+  "report": "output/ppo-objects-v7/results.md",
+  "audit": "output/ppo-objects-v7/audit.json",
+  "limitations": [
+    "Training uses only the original 24 large TRAIN instances, with each instance's fixed b.",
+    "The 0.5/0.5 specialist is not validated for other preferences or a full frontier.",
+    "Architecture, temperature and budget were explored using this fixed test instance; this is not unbiased generalization evidence.",
+    "All objects are selected by neural logits with hard masks; no cheapest insertion or repair-based reassignment.",
+    "Original v4 small/large checkpoints and historical NSGA results remain unchanged."
+  ]
+}

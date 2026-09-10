@@ -1,0 +1,6892 @@
+{
+  "config": {
+    "width": 1,
+    "temperature": 1.0,
+    "repeat": 0,
+    "preference_index": 10,
+    "label": "width1-T1",
+    "runner_sha256": "ae62df0c670ef7f7484caffc2e188032fc519c4f581feb93023ce5e1d73d63fe",
+    "budget": 1920,
+    "horizon": 1024,
+    "protocol_sha256": "5958a8b00dee3c91e3c28509c0e56ff7defd721384536264331b502cce2384f5",
+    "device": "cpu",
+    "threads": 1
+  },
+  "result": {
+    "preference": [
+      0.5,
+      0.5
+    ],
+    "seed": 3381415411,
+    "seconds": 35.113363900003606,
+    "metrics": {
+      "cost": 25804.091766999987,
+      "risk": 3126.8631954909765,
+      "normalized_cost": 0.49910790744921957,
+      "normalized_risk": 0.20313077930460785,
+      "weighted_objective_raw": 14465.477481245482,
+      "weighted_objective_normalized": 0.3511193433769137,
+      "weighted_objective": 0.3511193433769137,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 850.0,
+      "distance_cost": 20079.101999999988,
+      "processing_cost": 4874.989766999998,
+      "transport_risk": 368.4681781973972,
+      "coload_risk": 2606.204185793579,
+      "producer_inventory_risk": 141.82566500000001,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true
+    },
+    "plan": {
+      "schema": "route-plan-v1",
+      "routes": [
+        {
+          "vehicle": "K1",
+          "period": 1,
+          "route": [
+            "D2",
+            "n::G12::S1",
+            "n::G4::S1",
+            "n::G7::S3",
+            "n::G6::S3",
+            "n::G7::S1",
+            "n::G5::S3",
+            "n::G18::S1",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K1",
+          "period": 2,
+          "route": [
+            "D2",
+            "n::G3::S1",
+            "n::G16::S1",
+            "n::G17::S1",
+            "n::G19::S1",
+            "n::G9::S1",
+            "n::G10::S1",
+            "n::G15::S1",
+            "n::G1::S3",
+            "n::G16::S3",
+            "n::G19::S3",
+            "n::G8::S1",
+            "n::G14::S4",
+            "n::G10::S2",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K2",
+          "period": 2,
+          "route": [
+            "D1",
+            "n::G12::S2",
+            "n::G16::S2",
+            "n::G17::S4",
+            "n::G18::S4",
+            "n::G6::S2",
+            "n::G18::S2",
+            "D1"
+          ]
+        },
+        {
+          "vehicle": "K3",
+          "period": 2,
+          "route": [
+            "D3",
+            "n::G16::S4",
+            "n::G10::S4",
+            "n::G2::S2",
+            "D3"
+          ]
+        },
+        {
+          "vehicle": "K4",
+          "period": 2,
+          "route": [
+            "D2",
+            "n::G8::S3",
+            "n::G9::S3",
+            "n::G3::S2",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K1",
+          "period": 3,
+          "route": [
+            "D2",
+            "n::G3::S1",
+            "n::G17::S1",
+            "n::G8::S1",
+            "n::G1::S1",
+            "n::G20::S1",
+            "n::G15::S3",
+            "n::G11::S1",
+            "n::G18::S3",
+            "n::G5::S1",
+            "n::G7::S2",
+            "n::G1::S4",
+            "n::G9::S2",
+            "n::G10::S4",
+            "n::G12::S3",
+            "n::G20::S4",
+            "n::G3::S4",
+            "n::G18::S4",
+            "n::G5::S3",
+            "n::G6::S4",
+            "n::G17::S4",
+            "n::G8::S2",
+            "n::G13::S1",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K2",
+          "period": 3,
+          "route": [
+            "D1",
+            "n::G13::S2",
+            "n::G2::S4",
+            "n::G19::S3",
+            "n::G2::S3",
+            "n::G5::S2",
+            "n::G4::S3",
+            "n::G9::S4",
+            "n::G10::S3",
+            "n::G12::S4",
+            "n::G17::S2",
+            "n::G19::S4",
+            "n::G7::S3",
+            "n::G20::S3",
+            "n::G14::S2",
+            "n::G8::S4",
+            "n::G9::S3",
+            "D1"
+          ]
+        },
+        {
+          "vehicle": "K3",
+          "period": 3,
+          "route": [
+            "D1",
+            "n::G13::S4",
+            "n::G3::S3",
+            "n::G13::S3",
+            "n::G20::S2",
+            "n::G4::S2",
+            "D1"
+          ]
+        },
+        {
+          "vehicle": "K4",
+          "period": 3,
+          "route": [
+            "D3",
+            "n::G11::S4",
+            "n::G15::S4",
+            "n::G14::S3",
+            "n::G19::S2",
+            "n::G1::S2",
+            "n::G17::S3",
+            "n::G11::S2",
+            "D3"
+          ]
+        },
+        {
+          "vehicle": "K5",
+          "period": 3,
+          "route": [
+            "D3",
+            "n::G15::S2",
+            "n::G18::S2",
+            "n::G4::S4",
+            "n::G7::S4",
+            "D3"
+          ]
+        },
+        {
+          "vehicle": "K1",
+          "period": 4,
+          "route": [
+            "D3",
+            "n::G11::S2",
+            "n::G13::S2",
+            "n::G14::S2",
+            "n::G2::S2",
+            "n::G20::S4",
+            "n::G1::S3",
+            "n::G5::S4",
+            "n::G11::S3",
+            "n::G12::S3",
+            "n::G13::S4",
+            "n::G3::S3",
+            "n::G9::S2",
+            "n::G8::S2",
+            "n::G16::S3",
+            "n::G7::S2",
+            "n::G6::S4",
+            "n::G2::S4",
+            "n::G5::S2",
+            "n::G6::S3",
+            "n::G19::S2",
+            "n::G17::S3",
+            "n::G3::S2",
+            "n::G16::S4",
+            "n::G14::S4",
+            "D3"
+          ]
+        },
+        {
+          "vehicle": "K2",
+          "period": 4,
+          "route": [
+            "D2",
+            "n::G11::S1",
+            "n::G19::S1",
+            "n::G17::S1",
+            "n::G15::S1",
+            "n::G2::S3",
+            "n::G20::S3",
+            "n::G19::S4",
+            "n::G18::S4",
+            "n::G17::S4",
+            "n::G16::S2",
+            "n::G14::S3",
+            "n::G13::S3",
+            "n::G12::S4",
+            "n::G10::S4",
+            "n::G9::S3",
+            "n::G8::S3",
+            "n::G15::S3",
+            "n::G17::S2",
+            "n::G19::S3",
+            "n::G1::S2",
+            "n::G3::S4",
+            "n::G7::S4",
+            "n::G8::S4",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K3",
+          "period": 4,
+          "route": [
+            "D2",
+            "n::G5::S1",
+            "n::G18::S1",
+            "n::G7::S3",
+            "n::G16::S1",
+            "n::G10::S3",
+            "n::G18::S3",
+            "n::G7::S1",
+            "n::G4::S1",
+            "n::G6::S1",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K4",
+          "period": 4,
+          "route": [
+            "D2",
+            "n::G4::S4",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K5",
+          "period": 4,
+          "route": [
+            "D2",
+            "n::G3::S1",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K6",
+          "period": 4,
+          "route": [
+            "D2",
+            "n::G13::S1",
+            "n::G2::S1",
+            "n::G4::S3",
+            "n::G12::S1",
+            "n::G1::S4",
+            "n::G10::S1",
+            "n::G1::S1",
+            "n::G14::S1",
+            "n::G10::S2",
+            "n::G12::S2",
+            "n::G8::S1",
+            "n::G5::S3",
+            "n::G18::S2",
+            "n::G11::S4",
+            "n::G4::S2",
+            "n::G9::S1",
+            "n::G20::S2",
+            "n::G9::S4",
+            "n::G15::S4",
+            "n::G6::S2",
+            "n::G15::S2",
+            "D2"
+          ]
+        },
+        {
+          "vehicle": "K7",
+          "period": 4,
+          "route": [
+            "D2",
+            "n::G20::S1",
+            "D2"
+          ]
+        }
+      ]
+    },
+    "solution_id": "1808dfc04a6940d89660a8244af94a5b6bb70a90b05f7c899762359f0767fd81",
+    "candidate_budget": 1920,
+    "actual_candidate_attempts": 1920,
+    "unused_candidate_budget": 0,
+    "stop_reason": "candidate_budget_reached",
+    "search_counts": {
+      "drop_attempts": 1356,
+      "accepted_proposal": 291,
+      "accepted_transitions": 291,
+      "rejected": 1476,
+      "relocate_attempts": 406,
+      "infeasible": 121,
+      "early_operator_rejections": 32,
+      "no_change": 12,
+      "two_opt_attempts": 47,
+      "add_attempts": 49,
+      "swap_attempts": 45,
+      "facility_attempts": 17,
+      "masked_or_dead_end": 7,
+      "missing_edge": 13
+    },
+    "ledger_counts": {
+      "candidate_attempts": 1920,
+      "candidate_objective_evaluations": 1484,
+      "cache_hits": 404,
+      "invalid_candidates": 120,
+      "operator_failures": 32,
+      "invalid_candidate_attempts": 121,
+      "ppo_internal_objective_evaluations": 0
+    },
+    "final_validation_evaluations": 1,
+    "preference_initialization_evaluations": 1,
+    "trace": [
+      {
+        "attempt": 1,
+        "solution_id": "95c7cdc82a315a2ca86d61b9a6b247f013276b86b524b2f585df6734974c280f",
+        "action": {
+          "operator": 0,
+          "first": 109,
+          "second": 511,
+          "third": 511
+        },
+        "C": 51424.273665000015,
+        "R": 15173.23497120094,
+        "J": 0.9901796153083261
+      },
+      {
+        "attempt": 2,
+        "solution_id": "af935ceeccf9adcd650f42ccfb73dbc7b3acb38b03ffe618f75f173ac6d12c37",
+        "action": {
+          "operator": 0,
+          "first": 150,
+          "second": 511,
+          "third": 511
+        },
+        "C": 51222.17706600001,
+        "R": 15212.046088690562,
+        "J": 0.9894857644566355
+      },
+      {
+        "attempt": 3,
+        "solution_id": "a8cee0b68de9e488b715d581a75866d87d1fbbaf6b9ca8bf1e0fb45ee3bf5524",
+        "action": {
+          "operator": 0,
+          "first": 34,
+          "second": 511,
+          "third": 511
+        },
+        "C": 51193.32306600001,
+        "R": 15190.533276691614,
+        "J": 0.9885079448747947
+      },
+      {
+        "attempt": 5,
+        "solution_id": "2507c40c76fddd95428278e004482d081426a3653796eb614f4eeed3ccc46696",
+        "action": {
+          "operator": 0,
+          "first": 64,
+          "second": 511,
+          "third": 511
+        },
+        "C": 51177.516066000004,
+        "R": 15190.853338878678,
+        "J": 0.9883654699146064
+      },
+      {
+        "attempt": 6,
+        "solution_id": "ae7d5cb5b4db5573861243001c3b84b28d2617a131b3fbf7819b2489480f6a54",
+        "action": {
+          "operator": 0,
+          "first": 215,
+          "second": 511,
+          "third": 511
+        },
+        "C": 51067.444756,
+        "R": 15030.245636276217,
+        "J": 0.9820841707808838
+      },
+      {
+        "attempt": 7,
+        "solution_id": "7ba41b07c367f15f921be6a83539497787e8d3c48bf3a67787391608d0c3367d",
+        "action": {
+          "operator": 0,
+          "first": 43,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50980.483756,
+        "R": 14983.661814096946,
+        "J": 0.9797300471046116
+      },
+      {
+        "attempt": 8,
+        "solution_id": "f87545590d9cac9d2b243cee75a11f5a86928b6d3792fdea16ee768ebe1717a2",
+        "action": {
+          "operator": 0,
+          "first": 42,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50961.289756,
+        "R": 14930.25731321747,
+        "J": 0.9778097585929876
+      },
+      {
+        "attempt": 9,
+        "solution_id": "b682abe6e5b1be6a0493c4c55503f5b9b9e731bf2685a7d7720304095ada2df0",
+        "action": {
+          "operator": 0,
+          "first": 99,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50962.814646000006,
+        "R": 14784.95340065358,
+        "J": 0.973104808427687
+      },
+      {
+        "attempt": 10,
+        "solution_id": "89f429f14133ee73982409a80761851a2e9044e9746046d1a977be1879496b3b",
+        "action": {
+          "operator": 0,
+          "first": 129,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50838.143646000004,
+        "R": 14793.671379135887,
+        "J": 0.9721822762383594
+      },
+      {
+        "attempt": 11,
+        "solution_id": "64e795d30d2653fa4e9244abf436251cb9584e57ff6931ec9715136302f05e82",
+        "action": {
+          "operator": 0,
+          "first": 190,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50389.250502,
+        "R": 14764.416252541036,
+        "J": 0.966890733616989
+      },
+      {
+        "attempt": 12,
+        "solution_id": "33289ab7d62c8706ea2af36bd8cac32a417f6cf82ecf91375063f146d1c30ff9",
+        "action": {
+          "operator": 0,
+          "first": 223,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50259.985336000005,
+        "R": 14584.775257665535,
+        "J": 0.9598055777856589
+      },
+      {
+        "attempt": 13,
+        "solution_id": "9c5d8ba5f5d4126019702bc0ee0bd74f6833f05706cbc2e5ffb3974c0e973163",
+        "action": {
+          "operator": 0,
+          "first": 19,
+          "second": 511,
+          "third": 511
+        },
+        "C": 50095.534272000004,
+        "R": 14409.06236805941,
+        "J": 0.9525077265945849
+      },
+      {
+        "attempt": 14,
+        "solution_id": "4f4c6782735cf8d68c99ab07e4085199cc38599cc5bb8962e210e4d31a6a731b",
+        "action": {
+          "operator": 0,
+          "first": 94,
+          "second": 511,
+          "third": 511
+        },
+        "C": 49699.786272000005,
+        "R": 14374.02065361243,
+        "J": 0.9475421985875857
+      },
+      {
+        "attempt": 15,
+        "solution_id": "feb1dc383b6fdc74c872685160e7f93f856f1f40cf4bfe3a50f4257f250786ff",
+        "action": {
+          "operator": 0,
+          "first": 66,
+          "second": 511,
+          "third": 511
+        },
+        "C": 49673.840997,
+        "R": 14368.59029309792,
+        "J": 0.9471148926642248
+      },
+      {
+        "attempt": 16,
+        "solution_id": "d110866557039d5ec4bf69f2ea8eb86116c62a71b1b2045346748b7df77737e0",
+        "action": {
+          "operator": 0,
+          "first": 106,
+          "second": 511,
+          "third": 511
+        },
+        "C": 49600.607049,
+        "R": 14275.521048781753,
+        "J": 0.9433836057252726
+      },
+      {
+        "attempt": 17,
+        "solution_id": "ffa6c3919a79f45161eac8d0244e7dd4fa399f3007ed0c883c23daac9161f716",
+        "action": {
+          "operator": 0,
+          "first": 197,
+          "second": 511,
+          "third": 511
+        },
+        "C": 49462.526049,
+        "R": 14269.757831107017,
+        "J": 0.9418610122645765
+      },
+      {
+        "attempt": 18,
+        "solution_id": "318186bada77dab75f73d48c0ff932b6da990572c6d9c541eb7ab4dfbe311e17",
+        "action": {
+          "operator": 0,
+          "first": 17,
+          "second": 511,
+          "third": 511
+        },
+        "C": 49176.845048999996,
+        "R": 14131.69464584679,
+        "J": 0.934613655303194
+      },
+      {
+        "attempt": 19,
+        "solution_id": "c4c6e062e0a0e06986f86386f2fe47d9b735566a149e48890928df01c12935a2",
+        "action": {
+          "operator": 0,
+          "first": 212,
+          "second": 511,
+          "third": 511
+        },
+        "C": 48695.807049,
+        "R": 14090.513562874643,
+        "J": 0.928623862913522
+      },
+      {
+        "attempt": 20,
+        "solution_id": "f3551c65d95fb734842d597a5a32157a6b8b274f33a253ffd6bd1147eca3ba93",
+        "action": {
+          "operator": 0,
+          "first": 192,
+          "second": 511,
+          "third": 511
+        },
+        "C": 48410.696049,
+        "R": 14066.404290254764,
+        "J": 0.9250834191533159
+      },
+      {
+        "attempt": 21,
+        "solution_id": "b4d0ffb373e7b99ec967e0a1b979ac0defa524aaade5df8b32f49be57aeea6bb",
+        "action": {
+          "operator": 0,
+          "first": 131,
+          "second": 511,
+          "third": 511
+        },
+        "C": 48311.250577000006,
+        "R": 13994.887945725312,
+        "J": 0.9217987097169501
+      },
+      {
+        "attempt": 23,
+        "solution_id": "4f9c3d7d7fdfff11c4e51f7f08d52ada0b0e3ac331709cb8737217e681dc083e",
+        "action": {
+          "operator": 0,
+          "first": 216,
+          "second": 511,
+          "third": 511
+        },
+        "C": 48019.755577,
+        "R": 13999.141450729423,
+        "J": 0.9191177928731132
+      },
+      {
+        "attempt": 24,
+        "solution_id": "785a7bd2e8d55e6fbd89de432e66c417f968ee837ed34338fdfcbeb21b877aee",
+        "action": {
+          "operator": 0,
+          "first": 169,
+          "second": 511,
+          "third": 511
+        },
+        "C": 47940.43857700001,
+        "R": 13860.711110318854,
+        "J": 0.9138542770353437
+      },
+      {
+        "attempt": 25,
+        "solution_id": "f528eab16d86e13d27f2d67a76f7bfe715b0b61f2528a572ee186f94488dbd4b",
+        "action": {
+          "operator": 0,
+          "first": 162,
+          "second": 511,
+          "third": 511
+        },
+        "C": 47648.344996,
+        "R": 13754.941359386707,
+        "J": 0.9075938444361032
+      },
+      {
+        "attempt": 26,
+        "solution_id": "749999d98f1eb6145a8b401859378a80454a5c9ff0c6262d713974902ca439ab",
+        "action": {
+          "operator": 0,
+          "first": 81,
+          "second": 511,
+          "third": 511
+        },
+        "C": 47542.828756,
+        "R": 13646.44478294452,
+        "J": 0.9030492484304992
+      },
+      {
+        "attempt": 27,
+        "solution_id": "35b142254223391e46106c4ca0871cdf0d6d3bfaaa96b15ece2edb0f50cd8637",
+        "action": {
+          "operator": 0,
+          "first": 90,
+          "second": 511,
+          "third": 511
+        },
+        "C": 47516.646475,
+        "R": 13535.958198659375,
+        "J": 0.8992072605253583
+      },
+      {
+        "attempt": 28,
+        "solution_id": "1aee06b9fd36159d11d2a64f17d9e6265a11d78d7766441133650670d27cb008",
+        "action": {
+          "operator": 1,
+          "first": 249,
+          "second": 344,
+          "third": 303
+        },
+        "C": 47514.64366700001,
+        "R": 13374.658240002513,
+        "J": 0.8939486171335267
+      },
+      {
+        "attempt": 29,
+        "solution_id": "d48989a8d199718797dc6770096c180413c6bcfd00cb4f9a305098ef6ae31ab7",
+        "action": {
+          "operator": 0,
+          "first": 79,
+          "second": 511,
+          "third": 511
+        },
+        "C": 47322.26866700001,
+        "R": 13334.620273884984,
+        "J": 0.8907876437206315
+      },
+      {
+        "attempt": 30,
+        "solution_id": "d99b46aa6c356b11643a2e1abccc725c9158cbec741d28de14a54bb07fc0cd9a",
+        "action": {
+          "operator": 0,
+          "first": 155,
+          "second": 511,
+          "third": 511
+        },
+        "C": 47175.354233,
+        "R": 13211.455635454522,
+        "J": 0.8853662401252536
+      },
+      {
+        "attempt": 31,
+        "solution_id": "3bccc4ac114ad05dd4455c373e54f527eb5ab4c73114d1b7dae800c074ab184e",
+        "action": {
+          "operator": 0,
+          "first": 83,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46984.302232999995,
+        "R": 13125.19020908988,
+        "J": 0.8807165216256992
+      },
+      {
+        "attempt": 32,
+        "solution_id": "066264550aa22ef3c09ad3dcf81da68a4ca95e6fdba60d5e0fcc56ca80edba56",
+        "action": {
+          "operator": 0,
+          "first": 39,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46968.717232999996,
+        "R": 13105.676403446436,
+        "J": 0.8799319587124829
+      },
+      {
+        "attempt": 34,
+        "solution_id": "d7d95d5603a144cd00267608dc519628f48253680ca7699284dd4f34b3d131c4",
+        "action": {
+          "operator": 0,
+          "first": 179,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46959.495232999994,
+        "R": 13041.14768900857,
+        "J": 0.8777467786178517
+      },
+      {
+        "attempt": 37,
+        "solution_id": "675e1a1dd453cf673a8553413c0ed4ca0ac47d3e713819ff2ae9ff9a34724a80",
+        "action": {
+          "operator": 0,
+          "first": 49,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46873.476232999994,
+        "R": 13043.617725496955,
+        "J": 0.8769951108954019
+      },
+      {
+        "attempt": 38,
+        "solution_id": "28ccfe2a24cea4cb7ebc75691c6841a2bd98e664694e7c551ba05dee3f8900ac",
+        "action": {
+          "operator": 0,
+          "first": 15,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46749.254306999996,
+        "R": 13006.608379284811,
+        "J": 0.8745916269758017
+      },
+      {
+        "attempt": 39,
+        "solution_id": "b6a8f4079a78c46db6de6d208c75fd6d79681553b153f01e2c8da5682efdd758",
+        "action": {
+          "operator": 0,
+          "first": 172,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46460.621306999994,
+        "R": 13018.361954577325,
+        "J": 0.8721820027918272
+      },
+      {
+        "attempt": 40,
+        "solution_id": "94837f6dbe4bdd8fceeab43b05516de5fb865937d9721ebfa8c7cb761f07f53a",
+        "action": {
+          "operator": 0,
+          "first": 53,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46256.52530699999,
+        "R": 13023.220722636854,
+        "J": 0.8703659903104242
+      },
+      {
+        "attempt": 42,
+        "solution_id": "9786fb0f5c23a60e880bec89d8726986968fa2bc5d05aef1f87a54f870712ed0",
+        "action": {
+          "operator": 0,
+          "first": 51,
+          "second": 511,
+          "third": 511
+        },
+        "C": 46125.91138699999,
+        "R": 12890.522569705738,
+        "J": 0.8647925672086566
+      },
+      {
+        "attempt": 44,
+        "solution_id": "de924c7ba98a8eb7ac5f0d9760e948aae4b42703fc57409d6611506348323470",
+        "action": {
+          "operator": 0,
+          "first": 67,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45859.84779699999,
+        "R": 12691.179752977845,
+        "J": 0.8557444742511549
+      },
+      {
+        "attempt": 45,
+        "solution_id": "8bf491d7d51c453843d28ab97e9405ed5530351be83636f822a29b86db6b2d5a",
+        "action": {
+          "operator": 0,
+          "first": 196,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45699.25479699999,
+        "R": 12697.834424427607,
+        "J": 0.8544075173770906
+      },
+      {
+        "attempt": 46,
+        "solution_id": "17522c6ad801f4789e68cd8ca6904a1a8c84f4351b232a10eb11875a7df22ccf",
+        "action": {
+          "operator": 0,
+          "first": 132,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45399.46179699999,
+        "R": 12699.841643199563,
+        "J": 0.8515733868673159
+      },
+      {
+        "attempt": 47,
+        "solution_id": "28fd9f8dbde2a3063d02c05d7248b1e565b432df9d85e63696552fd63b611764",
+        "action": {
+          "operator": 0,
+          "first": 35,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45391.52189699999,
+        "R": 12698.990411426612,
+        "J": 0.8514689499652723
+      },
+      {
+        "attempt": 48,
+        "solution_id": "1e97936f0886a6e4398012086bc9c6a9092bfccdca626291eeb0a29b7de3c324",
+        "action": {
+          "operator": 0,
+          "first": 74,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45389.55689699999,
+        "R": 12667.277442016353,
+        "J": 0.8504198595840815
+      },
+      {
+        "attempt": 49,
+        "solution_id": "37e467c4087d573ff1e39f99cabfb59715bd82497780df17693732f1c0eba4de",
+        "action": {
+          "operator": 0,
+          "first": 29,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45247.35089699999,
+        "R": 12415.07891462918,
+        "J": 0.8408527699188022
+      },
+      {
+        "attempt": 50,
+        "solution_id": "1f4cb31a60953996e9abd746d07f4bde1a8e5d0ae3867bbc6413ff6ae73ff832",
+        "action": {
+          "operator": 0,
+          "first": 65,
+          "second": 511,
+          "third": 511
+        },
+        "C": 45189.51689699999,
+        "R": 12413.758214944468,
+        "J": 0.8402505531332803
+      },
+      {
+        "attempt": 51,
+        "solution_id": "239099501449756f245bb89bd0951cd17d76f120c2175996d9df7c72e5b1bb37",
+        "action": {
+          "operator": 0,
+          "first": 202,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44965.74218699999,
+        "R": 12244.629573620045,
+        "J": 0.8325928436705703
+      },
+      {
+        "attempt": 52,
+        "solution_id": "5b829ddf2bdcc27371e52bf225a93b1b87384e2192885a00fbafaa01d7270e3f",
+        "action": {
+          "operator": 0,
+          "first": 4,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44893.607186999994,
+        "R": 12240.729457841797,
+        "J": 0.8317685370283192
+      },
+      {
+        "attempt": 53,
+        "solution_id": "8d2b3b9841a45dba3bf29cc09f30914f8a8da0cf66f8af9f459b0b061532af51",
+        "action": {
+          "operator": 0,
+          "first": 8,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44796.800186999986,
+        "R": 12259.757043027666,
+        "J": 0.8314503524641226
+      },
+      {
+        "attempt": 54,
+        "solution_id": "1b3491336dc21ca4b50b09507c9252e9fbea562db40867f44d65501e652e281f",
+        "action": {
+          "operator": 0,
+          "first": 114,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44571.25418699999,
+        "R": 12255.635041248737,
+        "J": 0.8291351854857509
+      },
+      {
+        "attempt": 56,
+        "solution_id": "365c5b2744e6f5d2e1ef8eaa8a46441971fc897079b333d06099d42f10ee49ba",
+        "action": {
+          "operator": 0,
+          "first": 222,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44569.73818799999,
+        "R": 12226.356994965789,
+        "J": 0.8281695275360463
+      },
+      {
+        "attempt": 57,
+        "solution_id": "11d912016ee7ec97899e1a5e5acc2c251f98a1848fe15897274cf1545b4e9024",
+        "action": {
+          "operator": 0,
+          "first": 45,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44520.539695999985,
+        "R": 12186.580725694657,
+        "J": 0.8264017287812742
+      },
+      {
+        "attempt": 58,
+        "solution_id": "62ff95802d55242564f117775abdd06ae09c1a002001599d20abb7a1670b8b53",
+        "action": {
+          "operator": 0,
+          "first": 31,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44457.611695999985,
+        "R": 12174.449307480554,
+        "J": 0.8253990984261812
+      },
+      {
+        "attempt": 59,
+        "solution_id": "fc70bd8d7cd6cea9f3cbde156c10df5cc0b61e1b19ea16e85e73ba01c6c22728",
+        "action": {
+          "operator": 0,
+          "first": 46,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44242.925884999975,
+        "R": 12189.504400601798,
+        "J": 0.8238118633513387
+      },
+      {
+        "attempt": 60,
+        "solution_id": "b1910dfa7e4ecb724b342bf8a2c0826df5005c7cbe5f9cfacb14bfa18c54805d",
+        "action": {
+          "operator": 0,
+          "first": 104,
+          "second": 511,
+          "third": 511
+        },
+        "C": 44072.41788499997,
+        "R": 12186.701708473227,
+        "J": 0.8220718276122077
+      },
+      {
+        "attempt": 62,
+        "solution_id": "c1dae2e01bcba0a3987e2d54fb4f6c66a0771a8ae78b257484ffcfd16f697feb",
+        "action": {
+          "operator": 0,
+          "first": 62,
+          "second": 511,
+          "third": 511
+        },
+        "C": 43876.211884999975,
+        "R": 12146.941163091871,
+        "J": 0.8188828152727973
+      },
+      {
+        "attempt": 63,
+        "solution_id": "2f4311d16ec7f95c32969ea8c1fbe59b93a5fd349f100f27df464aaa23b18f35",
+        "action": {
+          "operator": 0,
+          "first": 11,
+          "second": 511,
+          "third": 511
+        },
+        "C": 43819.943278999985,
+        "R": 12135.492271396144,
+        "J": 0.8179667581084927
+      },
+      {
+        "attempt": 65,
+        "solution_id": "dae4181c59f846ae80c8dbed6588a4d00c883bae0225da47b2bc5aece533b2c3",
+        "action": {
+          "operator": 0,
+          "first": 75,
+          "second": 511,
+          "third": 511
+        },
+        "C": 43673.48146499999,
+        "R": 12052.315368814163,
+        "J": 0.8138485958257107
+      },
+      {
+        "attempt": 66,
+        "solution_id": "d92bbba9cbaa983b4f1080f1d61ac130ca1b637f2bb67c19df1b00c83e067965",
+        "action": {
+          "operator": 1,
+          "first": 103,
+          "second": 329,
+          "third": 86
+        },
+        "C": 43273.34567699999,
+        "R": 11817.189355571238,
+        "J": 0.8023415832354247
+      },
+      {
+        "attempt": 68,
+        "solution_id": "93c1e11523b2f2c37fa5b54b4c898f1b650054c5ec02b3d7550e48c7ead7753f",
+        "action": {
+          "operator": 1,
+          "first": 10,
+          "second": 320,
+          "third": 44
+        },
+        "C": 43136.68067699999,
+        "R": 11792.842856011508,
+        "J": 0.8002290700956725
+      },
+      {
+        "attempt": 69,
+        "solution_id": "f751dc64d18add763e6a5e2447b364d502c19744407f91d9da03614e0dd36bd1",
+        "action": {
+          "operator": 0,
+          "first": 47,
+          "second": 511,
+          "third": 511
+        },
+        "C": 43125.728664999995,
+        "R": 11790.640619164602,
+        "J": 0.8000516200067743
+      },
+      {
+        "attempt": 71,
+        "solution_id": "ff68307fec4992bdb0d7678d2b8092de52779ab5bf1fe3813b9e03c68a131450",
+        "action": {
+          "operator": 0,
+          "first": 25,
+          "second": 511,
+          "third": 511
+        },
+        "C": 42960.86366499999,
+        "R": 11794.1072371829,
+        "J": 0.7985697952493271
+      },
+      {
+        "attempt": 72,
+        "solution_id": "be2b150ad351506d3f1c3aaec59c38fff18eed8907b4235f66f94cc809669a01",
+        "action": {
+          "operator": 0,
+          "first": 92,
+          "second": 511,
+          "third": 511
+        },
+        "C": 42731.333665,
+        "R": 11757.974343006073,
+        "J": 0.7951763349357842
+      },
+      {
+        "attempt": 73,
+        "solution_id": "4a225bb4227a5361f9b9ad8d0c0909fc930c6b3437a3ff05cdd697068c1dd272",
+        "action": {
+          "operator": 1,
+          "first": 188,
+          "second": 336,
+          "third": 164
+        },
+        "C": 42673.679664999996,
+        "R": 11679.136216221961,
+        "J": 0.7920579721089829
+      },
+      {
+        "attempt": 74,
+        "solution_id": "5c5d8b98bc410face96c37512687f1b4f25178d86ad9cf5431440c3a19aff1a9",
+        "action": {
+          "operator": 0,
+          "first": 228,
+          "second": 511,
+          "third": 511
+        },
+        "C": 42525.284665,
+        "R": 11704.487000583556,
+        "J": 0.7914462621979371
+      },
+      {
+        "attempt": 75,
+        "solution_id": "cda5734149e69771586b4816b0aaf0aff0a11e201ed31c055657e66585f5a999",
+        "action": {
+          "operator": 0,
+          "first": 139,
+          "second": 511,
+          "third": 511
+        },
+        "C": 42186.305807,
+        "R": 11693.341226141687,
+        "J": 0.7878059316161902
+      },
+      {
+        "attempt": 77,
+        "solution_id": "9f35fbe036424a38b4ac25ca6750c411351c443831a168d12e4e43d628ac5aa4",
+        "action": {
+          "operator": 0,
+          "first": 76,
+          "second": 511,
+          "third": 511
+        },
+        "C": 42135.593807,
+        "R": 11702.628620765825,
+        "J": 0.7876171598407209
+      },
+      {
+        "attempt": 78,
+        "solution_id": "be93c1a11f58668c8870711b0b8c591adbf36fea040c00598baa48cc652bbb85",
+        "action": {
+          "operator": 0,
+          "first": 2,
+          "second": 511,
+          "third": 511
+        },
+        "C": 42022.649806999994,
+        "R": 11685.759386779813,
+        "J": 0.7859769281045428
+      },
+      {
+        "attempt": 80,
+        "solution_id": "1b8ce2e265be13722528de1b0b96024480061001aa66df9fcc34026767a01f6b",
+        "action": {
+          "operator": 0,
+          "first": 36,
+          "second": 511,
+          "third": 511
+        },
+        "C": 41956.571807,
+        "R": 11687.458272503462,
+        "J": 0.7853930636099734
+      },
+      {
+        "attempt": 81,
+        "solution_id": "1b4b074e7c4099ff26497ac1af1b5567c6e586b1d01e9db26c0a4e5e9362526d",
+        "action": {
+          "operator": 0,
+          "first": 111,
+          "second": 511,
+          "third": 511
+        },
+        "C": 41893.643807,
+        "R": 11667.086979334557,
+        "J": 0.7841227892749079
+      },
+      {
+        "attempt": 83,
+        "solution_id": "224a7d46d6287c147a5e7aeaf9eecbbbb1ed524dbc46409dfb463dd0be94bb94",
+        "action": {
+          "operator": 0,
+          "first": 13,
+          "second": 511,
+          "third": 511
+        },
+        "C": 41845.826807,
+        "R": 11681.139056604523,
+        "J": 0.7841167796520052
+      },
+      {
+        "attempt": 89,
+        "solution_id": "6934b3c0b8e8f525b3c499da9c2cd6f4aaa4af6fda841608741baaff8ef020db",
+        "action": {
+          "operator": 0,
+          "first": 48,
+          "second": 511,
+          "third": 511
+        },
+        "C": 41462.948807,
+        "R": 11638.498876131156,
+        "J": 0.7790289086845488
+      },
+      {
+        "attempt": 91,
+        "solution_id": "9e567b8777df953c270d2743a18fb417b326e20d0d0806e208e66af9c02b0b6c",
+        "action": {
+          "operator": 0,
+          "first": 232,
+          "second": 511,
+          "third": 511
+        },
+        "C": 41375.003807,
+        "R": 11652.467062674772,
+        "J": 0.7786320922564582
+      },
+      {
+        "attempt": 92,
+        "solution_id": "1cd49657810becf7570bcd594befc958effa6f477eefaa14fcb63cf06dd06674",
+        "action": {
+          "operator": 0,
+          "first": 78,
+          "second": 511,
+          "third": 511
+        },
+        "C": 41112.299807,
+        "R": 11607.219710834841,
+        "J": 0.7746217510798215
+      },
+      {
+        "attempt": 93,
+        "solution_id": "f73bce095d0b2e265227bd779b043096d3a31c1bd6597a844a8f52717d5325c7",
+        "action": {
+          "operator": 0,
+          "first": 71,
+          "second": 511,
+          "third": 511
+        },
+        "C": 40923.584807,
+        "R": 11586.609837684688,
+        "J": 0.7721272286304961
+      },
+      {
+        "attempt": 95,
+        "solution_id": "24f6d7af87c1338a9f6575dc76011bfd849d9743edaa222183c7e82ae2b3e3b0",
+        "action": {
+          "operator": 0,
+          "first": 70,
+          "second": 511,
+          "third": 511
+        },
+        "C": 40726.536701000005,
+        "R": 11615.190456163711,
+        "J": 0.7711498997082226
+      },
+      {
+        "attempt": 97,
+        "solution_id": "3cb05307c585ee1e1ab50b459e6b2fc7514e2acaa1cb150d71c927e2a106ca11",
+        "action": {
+          "operator": 0,
+          "first": 221,
+          "second": 511,
+          "third": 511
+        },
+        "C": 40611.215025000005,
+        "R": 11591.860168482284,
+        "J": 0.7692768081362497
+      },
+      {
+        "attempt": 98,
+        "solution_id": "3a47e204fe8b3bd84c6b4ae857f04141b26325d689b6a6d56d91cbee976278ed",
+        "action": {
+          "operator": 0,
+          "first": 93,
+          "second": 511,
+          "third": 511
+        },
+        "C": 40545.21202500001,
+        "R": 11597.049637981787,
+        "J": 0.7688070485751287
+      },
+      {
+        "attempt": 99,
+        "solution_id": "b218fdaeb6c20da36e3817c60e6a7799310ada667de6b49a1cccf949bd06759e",
+        "action": {
+          "operator": 0,
+          "first": 102,
+          "second": 511,
+          "third": 511
+        },
+        "C": 40411.772025000006,
+        "R": 11594.085708993036,
+        "J": 0.7674202639489378
+      },
+      {
+        "attempt": 100,
+        "solution_id": "4d400618f4ab0f1c7ef24a6dcca461a019539a14fcfef085a7506ad3f5252707",
+        "action": {
+          "operator": 0,
+          "first": 56,
+          "second": 511,
+          "third": 511
+        },
+        "C": 40247.702025000006,
+        "R": 11595.556832514696,
+        "J": 0.7658813109449163
+      },
+      {
+        "attempt": 102,
+        "solution_id": "e611df7ea084941b465fcc0900582e89683024b17ae7595ab5cbaa92c494144e",
+        "action": {
+          "operator": 0,
+          "first": 52,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39980.71102500002,
+        "R": 11606.2205055932,
+        "J": 0.7636455869862123
+      },
+      {
+        "attempt": 104,
+        "solution_id": "e67c58550a3db9c7d27c561a65dafb4758e481efccf34df9d5fe158c8705ccda",
+        "action": {
+          "operator": 1,
+          "first": 98,
+          "second": 328,
+          "third": 134
+        },
+        "C": 39864.779025000025,
+        "R": 11563.328192059227,
+        "J": 0.7611311878236122
+      },
+      {
+        "attempt": 105,
+        "solution_id": "56142c5cc8b1594d4e651b912702a9002238279c552174d9dbc76a210fda3cae",
+        "action": {
+          "operator": 0,
+          "first": 87,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39744.891537000025,
+        "R": 11477.532684255064,
+        "J": 0.7571849721283161
+      },
+      {
+        "attempt": 106,
+        "solution_id": "a0ef1a7115e962e8189bd18c9720136aba6f59e7cd8f5afbf79ea914b076bb79",
+        "action": {
+          "operator": 0,
+          "first": 72,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39592.17953700001,
+        "R": 11496.896635557414,
+        "J": 0.7563370504103133
+      },
+      {
+        "attempt": 107,
+        "solution_id": "87a43669e77a1b3bf55b2c333ecc139e9d8d1862648e346d2b1c1b0e3aacb1c2",
+        "action": {
+          "operator": 0,
+          "first": 33,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39449.055537000015,
+        "R": 11482.817673301573,
+        "J": 0.7544955772482844
+      },
+      {
+        "attempt": 108,
+        "solution_id": "99d8a26e9b8686e01e86b4c872e1bda81e892cea3d52ad79fc297c5e78535860",
+        "action": {
+          "operator": 0,
+          "first": 184,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39282.42053700001,
+        "R": 11517.384155159338,
+        "J": 0.754006806688828
+      },
+      {
+        "attempt": 110,
+        "solution_id": "1356aaf80e4303e5dc9dd3f92c4bda34d8c6aa3f9c53156ce4042a98d85bbd9a",
+        "action": {
+          "operator": 0,
+          "first": 23,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39176.699131000016,
+        "R": 11450.86673131029,
+        "J": 0.7508237748009801
+      },
+      {
+        "attempt": 112,
+        "solution_id": "86e2f16f6b2611a132024b3006ac13c441504d8a05cc3ac6eb2cca3ee070ed9c",
+        "action": {
+          "operator": 0,
+          "first": 55,
+          "second": 511,
+          "third": 511
+        },
+        "C": 39171.64713100001,
+        "R": 11438.510509765789,
+        "J": 0.7503735670710904
+      },
+      {
+        "attempt": 115,
+        "solution_id": "aabf2b23ee6259898d8e8b22f7d9ed359ad077297704e65c7bc5a9bff8e05848",
+        "action": {
+          "operator": 1,
+          "first": 250,
+          "second": 344,
+          "third": 286
+        },
+        "C": 39208.51113100001,
+        "R": 11404.535034633616,
+        "J": 0.7496265061227116
+      },
+      {
+        "attempt": 116,
+        "solution_id": "cc7d9444b61eb90a0d1922e6dc187e915ad55938594d9cc7c48efea0e2879829",
+        "action": {
+          "operator": 0,
+          "first": 80,
+          "second": 511,
+          "third": 511
+        },
+        "C": 38994.61113100002,
+        "R": 11403.896328497549,
+        "J": 0.7475371116467944
+      },
+      {
+        "attempt": 117,
+        "solution_id": "49a7844db21b575d3c467a8f4c6278a41ffa2f2b4702796200fdd7ed248e280e",
+        "action": {
+          "operator": 0,
+          "first": 58,
+          "second": 511,
+          "third": 511
+        },
+        "C": 38891.19213100001,
+        "R": 11427.395853213315,
+        "J": 0.7473002373341563
+      },
+      {
+        "attempt": 118,
+        "solution_id": "1a37aff25f2cd93bce660e5d3e02a9b518ad1d189771e178c169ef8aff747743",
+        "action": {
+          "operator": 0,
+          "first": 120,
+          "second": 511,
+          "third": 511
+        },
+        "C": 38803.14513100001,
+        "R": 11434.065156477915,
+        "J": 0.7466653553500049
+      },
+      {
+        "attempt": 121,
+        "solution_id": "9b9c7d36de398617466eb42473055a5f8fd69b8faa3766f8e2973a1a3d6f0015",
+        "action": {
+          "operator": 0,
+          "first": 146,
+          "second": 511,
+          "third": 511
+        },
+        "C": 38671.01013100001,
+        "R": 11398.96679665117,
+        "J": 0.7442474151158561
+      },
+      {
+        "attempt": 122,
+        "solution_id": "72a58f0fa1228bc3ef23ea32de4f764201820b4d61409d58e3a5021a5f795ffe",
+        "action": {
+          "operator": 0,
+          "first": 165,
+          "second": 511,
+          "third": 511
+        },
+        "C": 38510.74691500001,
+        "R": 11313.187996133645,
+        "J": 0.7399112643933328
+      },
+      {
+        "attempt": 124,
+        "solution_id": "abf9579d52b9db41e8fef6bce8c7da17924f111fe0f697a46068a4e60eb2c34e",
+        "action": {
+          "operator": 0,
+          "first": 41,
+          "second": 511,
+          "third": 511
+        },
+        "C": 38184.81191500003,
+        "R": 11315.6972963938,
+        "J": 0.7368406203747035
+      },
+      {
+        "attempt": 125,
+        "solution_id": "d9c578efcae4b5b7f2103c792ba66cdd989a2c20327753f8667fdc5cfe86a711",
+        "action": {
+          "operator": 0,
+          "first": 38,
+          "second": 511,
+          "third": 511
+        },
+        "C": 37887.24711100002,
+        "R": 11231.595494305526,
+        "J": 0.7312310837772016
+      },
+      {
+        "attempt": 128,
+        "solution_id": "523796a88579ad1689119e312ead31511c0ffe13c1998f5a6ef19d5c86042ef2",
+        "action": {
+          "operator": 0,
+          "first": 5,
+          "second": 511,
+          "third": 511
+        },
+        "C": 37712.81511100002,
+        "R": 11229.124204921232,
+        "J": 0.7294638631190002
+      },
+      {
+        "attempt": 130,
+        "solution_id": "37f7703eaa61e8f3bf171dbf7dec5e277950dc2922c7ce910e2ab48419d94dee",
+        "action": {
+          "operator": 0,
+          "first": 220,
+          "second": 511,
+          "third": 511
+        },
+        "C": 37684.813111000025,
+        "R": 11232.041635161813,
+        "J": 0.729287815655693
+      },
+      {
+        "attempt": 131,
+        "solution_id": "ddcd5f699002f50c7a84afc146f9cc7b9c17739a1521dae9a93a968bbc797309",
+        "action": {
+          "operator": 0,
+          "first": 6,
+          "second": 511,
+          "third": 511
+        },
+        "C": 37477.11411100002,
+        "R": 11229.049183931545,
+        "J": 0.7271819383624611
+      },
+      {
+        "attempt": 132,
+        "solution_id": "4a5bb0b9f2fe5c8510f53a95ec366c1b0f4492b4e9a56d324b4f631a9671abd9",
+        "action": {
+          "operator": 0,
+          "first": 180,
+          "second": 511,
+          "third": 511
+        },
+        "C": 37402.006111000024,
+        "R": 11221.750436186827,
+        "J": 0.7262184866768264
+      },
+      {
+        "attempt": 134,
+        "solution_id": "699cc98198455fbeec426b197f08a8138f3213a44941364e2927c5bf5cd03a09",
+        "action": {
+          "operator": 0,
+          "first": 30,
+          "second": 511,
+          "third": 511
+        },
+        "C": 37022.36811100002,
+        "R": 11229.257118984067,
+        "J": 0.722790798344054
+      },
+      {
+        "attempt": 136,
+        "solution_id": "24a4032ede25c0b914d380e8b9193c535129c062b13a5c4beca731919f576f7e",
+        "action": {
+          "operator": 0,
+          "first": 7,
+          "second": 511,
+          "third": 511
+        },
+        "C": 36878.83521500002,
+        "R": 11152.645833281973,
+        "J": 0.7189142233888006
+      },
+      {
+        "attempt": 139,
+        "solution_id": "985067f823181a0afc5239a022ffd14f8203e6f56955cdcb031f2249a14cebec",
+        "action": {
+          "operator": 0,
+          "first": 124,
+          "second": 511,
+          "third": 511
+        },
+        "C": 36428.77221500002,
+        "R": 11152.780335865595,
+        "J": 0.714565987930996
+      },
+      {
+        "attempt": 140,
+        "solution_id": "1763f94014135025f293e817e395f9b2c5e0bf138584c93cfbaa7533eb138229",
+        "action": {
+          "operator": 0,
+          "first": 69,
+          "second": 511,
+          "third": 511
+        },
+        "C": 36309.31821500002,
+        "R": 11136.575578903365,
+        "J": 0.7128843805826419
+      },
+      {
+        "attempt": 142,
+        "solution_id": "487200fb623fd8340a8c2438a6513a21f5c6b77b2a31eaab2149a2d10d239c06",
+        "action": {
+          "operator": 1,
+          "first": 250,
+          "second": 344,
+          "third": 291
+        },
+        "C": 36271.14621500002,
+        "R": 11130.712516728312,
+        "J": 0.7123247739539845
+      },
+      {
+        "attempt": 143,
+        "solution_id": "4725fb4e50399ede09f8348162105732fafe2206e6d716f99ae2585ebc80fb0a",
+        "action": {
+          "operator": 0,
+          "first": 96,
+          "second": 511,
+          "third": 511
+        },
+        "C": 36083.661215000015,
+        "R": 11112.368969917743,
+        "J": 0.7099157607692147
+      },
+      {
+        "attempt": 148,
+        "solution_id": "631cea3b1a2e65157f54deb1265d031b430275ea3858942db8d0c5f9ff23ac8d",
+        "action": {
+          "operator": 1,
+          "first": 297,
+          "second": 345,
+          "third": 283
+        },
+        "C": 36029.15121500001,
+        "R": 11110.381513825887,
+        "J": 0.7093240334331183
+      },
+      {
+        "attempt": 151,
+        "solution_id": "77266f9339ea78f8a127c8b8e3e8f060025934b9812a97f4694a9f4c5aa0bdf6",
+        "action": {
+          "operator": 0,
+          "first": 170,
+          "second": 511,
+          "third": 511
+        },
+        "C": 35935.86621500001,
+        "R": 11106.926634411237,
+        "J": 0.7083096449953303
+      },
+      {
+        "attempt": 154,
+        "solution_id": "48424fce44ea83087f03912bafdc5341c1a69a542b75e8778f81138d3b82922d",
+        "action": {
+          "operator": 0,
+          "first": 105,
+          "second": 511,
+          "third": 511
+        },
+        "C": 35570.07321500001,
+        "R": 11089.49886664203,
+        "J": 0.7042059432295285
+      },
+      {
+        "attempt": 158,
+        "solution_id": "fea551268e265e5e274195aba3ec43b53520a77680ce9374eeaec101d9294e7c",
+        "action": {
+          "operator": 0,
+          "first": 128,
+          "second": 511,
+          "third": 511
+        },
+        "C": 35451.615215000005,
+        "R": 11103.876907303142,
+        "J": 0.7035273452254397
+      },
+      {
+        "attempt": 160,
+        "solution_id": "b5f8e84541260d7a03d70b8d7692a70306a345400e6badcc6ce9b653537d512d",
+        "action": {
+          "operator": 0,
+          "first": 60,
+          "second": 511,
+          "third": 511
+        },
+        "C": 35311.44621500001,
+        "R": 11112.951498319242,
+        "J": 0.7024665136580697
+      },
+      {
+        "attempt": 163,
+        "solution_id": "6f2ab500f73827f69d25327c8ff613bb0a6a2915a503227885d40c83f5859fa5",
+        "action": {
+          "operator": 0,
+          "first": 84,
+          "second": 511,
+          "third": 511
+        },
+        "C": 35178.51921500001,
+        "R": 11142.903774919383,
+        "J": 0.7021538599620327
+      },
+      {
+        "attempt": 165,
+        "solution_id": "194e1b689708dd038b8924ee0a8eb5328c47d1760d842fe0b6395d6d7eccf274",
+        "action": {
+          "operator": 0,
+          "first": 40,
+          "second": 511,
+          "third": 511
+        },
+        "C": 35029.209215,
+        "R": 11186.259226130916,
+        "J": 0.7021181206330971
+      },
+      {
+        "attempt": 170,
+        "solution_id": "e7edfe4129f2c4dc803233458b4c6b354f856ad7d0d98b8f0dc3724bf74afb98",
+        "action": {
+          "operator": 0,
+          "first": 37,
+          "second": 511,
+          "third": 511
+        },
+        "C": 34902.681215000004,
+        "R": 11188.788144801929,
+        "J": 0.7009765989029206
+      },
+      {
+        "attempt": 171,
+        "solution_id": "17cf825c589b07ba6d958e2428ad4945b0f0cb9406f80992f1606f6f60eaa699",
+        "action": {
+          "operator": 0,
+          "first": 153,
+          "second": 511,
+          "third": 511
+        },
+        "C": 34725.732671000005,
+        "R": 11152.879514091077,
+        "J": 0.6980989435391205
+      },
+      {
+        "attempt": 175,
+        "solution_id": "75924d203051b6cb055adcbe1db80009e3e0f5063141e14176c184ec3858f679",
+        "action": {
+          "operator": 1,
+          "first": 231,
+          "second": 336,
+          "third": 175
+        },
+        "C": 34661.133671,
+        "R": 11027.348509684305,
+        "J": 0.6933967574885836
+      },
+      {
+        "attempt": 186,
+        "solution_id": "cba82adb2a158f30a29158068c4c0d3633db2dbb17831f07fe91a9e2d313ca5c",
+        "action": {
+          "operator": 0,
+          "first": 21,
+          "second": 511,
+          "third": 511
+        },
+        "C": 34591.422671,
+        "R": 11022.022972937306,
+        "J": 0.6925495936983914
+      },
+      {
+        "attempt": 188,
+        "solution_id": "91997c3dd66e00fc0a69aba44f384366571ddc1b2e3965058e2e3740a732a8c8",
+        "action": {
+          "operator": 1,
+          "first": 86,
+          "second": 328,
+          "third": 158
+        },
+        "C": 34490.11937000001,
+        "R": 10829.14180450257,
+        "J": 0.6853047983902889
+      },
+      {
+        "attempt": 195,
+        "solution_id": "0074da66f47432d3a2d6d640c4bdb83e25facdac2014efc5232362ef640ccdc1",
+        "action": {
+          "operator": 0,
+          "first": 157,
+          "second": 511,
+          "third": 511
+        },
+        "C": 34280.44337,
+        "R": 10765.778569833683,
+        "J": 0.6812188642012283
+      },
+      {
+        "attempt": 197,
+        "solution_id": "2b908f9726722f73d354af35dcce0bcc7c17efe017a422c72eb214c6dcb8d812",
+        "action": {
+          "operator": 1,
+          "first": 302,
+          "second": 344,
+          "third": 265
+        },
+        "C": 34125.976370000004,
+        "R": 10684.241957143004,
+        "J": 0.6770765621355326
+      },
+      {
+        "attempt": 201,
+        "solution_id": "4e32bee6b54fdfc1e9d349e8081999a821d02d451145406249824be41ebf74de",
+        "action": {
+          "operator": 0,
+          "first": 156,
+          "second": 511,
+          "third": 511
+        },
+        "C": 34015.18937,
+        "R": 10705.946743189614,
+        "J": 0.6767101352485838
+      },
+      {
+        "attempt": 205,
+        "solution_id": "99293c0270fc62fe0654b85659e773c7fca1b4b278a8f4731c46d885ad7d2430",
+        "action": {
+          "operator": 3,
+          "first": 266,
+          "second": 288,
+          "third": 511
+        },
+        "C": 33687.154370000004,
+        "R": 10670.609180784038,
+        "J": 0.6723898568379447
+      },
+      {
+        "attempt": 214,
+        "solution_id": "d96c9ad151d069d3933940811bfd30a76d2644a07ca5d98d3c5fbbc202cbae7c",
+        "action": {
+          "operator": 1,
+          "first": 240,
+          "second": 345,
+          "third": 285
+        },
+        "C": 33541.24637,
+        "R": 10657.515738062,
+        "J": 0.6705534705436594
+      },
+      {
+        "attempt": 243,
+        "solution_id": "e0d6710aae52aa15d42e1957bd27b326f96c9f976e9f89e7b2d5319b573bab11",
+        "action": {
+          "operator": 1,
+          "first": 186,
+          "second": 337,
+          "third": 161
+        },
+        "C": 33249.529370000004,
+        "R": 10582.25660435441,
+        "J": 0.6652877122937075
+      },
+      {
+        "attempt": 246,
+        "solution_id": "be6aa7f8024401c6325248cbc6f4109f98cd169e6314b807e7b9b84cbc65e023",
+        "action": {
+          "operator": 0,
+          "first": 77,
+          "second": 511,
+          "third": 511
+        },
+        "C": 33103.08737000001,
+        "R": 10583.845141971819,
+        "J": 0.6639230552345549
+      },
+      {
+        "attempt": 270,
+        "solution_id": "825eb8d4c53d932943aeb5b1c1555fbed49840dd40d7a72ca0ffbf644581dbd3",
+        "action": {
+          "operator": 1,
+          "first": 288,
+          "second": 345,
+          "third": 266
+        },
+        "C": 33075.64037000001,
+        "R": 10548.47087298879,
+        "J": 0.6625086011652711
+      },
+      {
+        "attempt": 290,
+        "solution_id": "2cdd2bab6a6bea933b79163dd80074e70fd5421d13d69f38b26e30c7df2ccc09",
+        "action": {
+          "operator": 0,
+          "first": 63,
+          "second": 511,
+          "third": 511
+        },
+        "C": 33068.78837000001,
+        "R": 10548.854417970706,
+        "J": 0.662454792926332
+      },
+      {
+        "attempt": 302,
+        "solution_id": "0e3e3c8a8e2fe8de70f3be3aa5cb0766aad4e22a815b2ae9127861cd5c83a445",
+        "action": {
+          "operator": 0,
+          "first": 20,
+          "second": 511,
+          "third": 511
+        },
+        "C": 32835.20537000001,
+        "R": 10560.116446543141,
+        "J": 0.6605615965977565
+      },
+      {
+        "attempt": 316,
+        "solution_id": "bd13a378e0b81f513dd890aec88c29346be0f7dc3beb70d1a701f3ccf8114b45",
+        "action": {
+          "operator": 1,
+          "first": 200,
+          "second": 336,
+          "third": 226
+        },
+        "C": 32729.09537000001,
+        "R": 10549.281701826263,
+        "J": 0.6591834667753815
+      },
+      {
+        "attempt": 331,
+        "solution_id": "3e7331099dd0cdd0bb405d7ec72b6d7497d7d77dc55399a9bfbe005d710de81a",
+        "action": {
+          "operator": 1,
+          "first": 259,
+          "second": 344,
+          "third": 249
+        },
+        "C": 32581.948370000013,
+        "R": 10534.584943274756,
+        "J": 0.6572830197912779
+      },
+      {
+        "attempt": 357,
+        "solution_id": "35ab1007617b33af980e5ccbdf9bde288decedb6b264e8cc1248fcecd6cae113",
+        "action": {
+          "operator": 1,
+          "first": 292,
+          "second": 345,
+          "third": 301
+        },
+        "C": 32223.496370000008,
+        "R": 10326.538386941405,
+        "J": 0.6470587182485128
+      },
+      {
+        "attempt": 358,
+        "solution_id": "c75b071574b3b2d086d5f14260cb5c90a7072e19e3627f012424b2759501d591",
+        "action": {
+          "operator": 2,
+          "first": 158,
+          "second": 133,
+          "third": 511
+        },
+        "C": 32119.418365000012,
+        "R": 10331.528484535838,
+        "J": 0.6462142555936381
+      },
+      {
+        "attempt": 362,
+        "solution_id": "0c0264ae65bc278a97daa22a9b75fe7247c827a155e6887a5309e059eacefcf9",
+        "action": {
+          "operator": 0,
+          "first": 61,
+          "second": 511,
+          "third": 511
+        },
+        "C": 32018.144365000007,
+        "R": 10347.909864590076,
+        "J": 0.6457669173587673
+      },
+      {
+        "attempt": 367,
+        "solution_id": "ab6c0214f010f028098dbd321e50921b581ab144ee5c1fcf79174730bb67c861",
+        "action": {
+          "operator": 1,
+          "first": 258,
+          "second": 345,
+          "third": 316
+        },
+        "C": 31929.43436500001,
+        "R": 10155.198191503301,
+        "J": 0.6386494185979144
+      },
+      {
+        "attempt": 376,
+        "solution_id": "61736c6e421c6697d200d21eb73a654a388ebedda57b55ff21e3546ff420fe43",
+        "action": {
+          "operator": 0,
+          "first": 73,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31734.138681000008,
+        "R": 10210.34620205949,
+        "J": 0.6385519878228121
+      },
+      {
+        "attempt": 401,
+        "solution_id": "aaa9b1d500a28332fca4532ca8b8abfdd45a575c14cfe2a5b9e77578115786f0",
+        "action": {
+          "operator": 1,
+          "first": 227,
+          "second": 336,
+          "third": 185
+        },
+        "C": 31707.429681000005,
+        "R": 9983.582072685917,
+        "J": 0.6309280300881959
+      },
+      {
+        "attempt": 414,
+        "solution_id": "56aacbf78c7874e8ec46bf1ef4418b6c7a4ab87bd5c1137db2b16416e96e154f",
+        "action": {
+          "operator": 0,
+          "first": 113,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31682.907681000008,
+        "R": 9982.874356480384,
+        "J": 0.6306678876469538
+      },
+      {
+        "attempt": 417,
+        "solution_id": "3d58171e0c501fc19967a4e37bc571b2192c395f5d252e92b7a892255c234074",
+        "action": {
+          "operator": 1,
+          "first": 174,
+          "second": 337,
+          "third": 177
+        },
+        "C": 31905.37568100001,
+        "R": 9869.380494704013,
+        "J": 0.6291329404324821
+      },
+      {
+        "attempt": 430,
+        "solution_id": "d256b46f12c04ba9c3b7edbb4f3ac046636b3435a22c6d8bb837987c1db45f97",
+        "action": {
+          "operator": 1,
+          "first": 260,
+          "second": 346,
+          "third": 362
+        },
+        "C": 31998.80368100001,
+        "R": 9760.621592446014,
+        "J": 0.6265038333291837
+      },
+      {
+        "attempt": 432,
+        "solution_id": "19c591e11b9b2df4c0cc57285a83ebf86e58c3201450f40ab47080b256fd8912",
+        "action": {
+          "operator": 0,
+          "first": 204,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31675.802681000005,
+        "R": 9792.026481571567,
+        "J": 0.6244001380768676
+      },
+      {
+        "attempt": 434,
+        "solution_id": "11fc14ac8ce6cbb86dab89727f6ec2ec71559bd5f9ca22fa1ff4889f054d990b",
+        "action": {
+          "operator": 1,
+          "first": 278,
+          "second": 346,
+          "third": 346
+        },
+        "C": 31975.709681,
+        "R": 9639.851344814535,
+        "J": 0.6223576830865682
+      },
+      {
+        "attempt": 445,
+        "solution_id": "c06debdbb548f8784dc23bd85f01cd998af8bceb0e14ecd289786d0050e30d6c",
+        "action": {
+          "operator": 1,
+          "first": 261,
+          "second": 346,
+          "third": 346
+        },
+        "C": 31909.367680999996,
+        "R": 9500.497419757123,
+        "J": 0.6171896503035315
+      },
+      {
+        "attempt": 451,
+        "solution_id": "e7226909d01abddbc4b9f7fdb693b7e4684e88a405d87a63595fb9a3cb88519d",
+        "action": {
+          "operator": 0,
+          "first": 164,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31776.440680999993,
+        "R": 9525.206102188711,
+        "J": 0.6167066764970157
+      },
+      {
+        "attempt": 469,
+        "solution_id": "306eebd82a58208ae96a426fdf9fdd976d27b403839a00900884b4d2766005e6",
+        "action": {
+          "operator": 5,
+          "first": 51,
+          "second": 321,
+          "third": 321
+        },
+        "C": 31777.508680999992,
+        "R": 9502.960257715937,
+        "J": 0.6159944255343597
+      },
+      {
+        "attempt": 475,
+        "solution_id": "bff3f17607b33196b6716f6b88acbf1966c73144531ab189462e2d569e7939cb",
+        "action": {
+          "operator": 0,
+          "first": 123,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31755.88171299999,
+        "R": 9447.494654043672,
+        "J": 0.6139836597149004
+      },
+      {
+        "attempt": 495,
+        "solution_id": "5330c3e3e6535db865960cd1700b5d212e917b7bf5c30cf725b9afee0363dbb3",
+        "action": {
+          "operator": 0,
+          "first": 16,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31624.007712999988,
+        "R": 9479.486731607567,
+        "J": 0.6137474456014708
+      },
+      {
+        "attempt": 539,
+        "solution_id": "d8dd4bfc2aad450c61e3b51d086a0e026d214651a13da447e44a3e209ab865dd",
+        "action": {
+          "operator": 0,
+          "first": 100,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31539.035712999994,
+        "R": 9434.867364328275,
+        "J": 0.6114763662998979
+      },
+      {
+        "attempt": 544,
+        "solution_id": "c720090ee568a4b5e3495ab0eb8f1f6e6beebed932f9f91855d6302d4ce05400",
+        "action": {
+          "operator": 0,
+          "first": 181,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31411.40071299999,
+        "R": 9340.853085633491,
+        "J": 0.607188265153669
+      },
+      {
+        "attempt": 599,
+        "solution_id": "67d4dea4f016ea70ff35af009c68babf3f9ed9264001b744ce83dc9f57104bfb",
+        "action": {
+          "operator": 1,
+          "first": 258,
+          "second": 346,
+          "third": 278
+        },
+        "C": 31333.226712999996,
+        "R": 9137.820460762905,
+        "J": 0.5998374205045311
+      },
+      {
+        "attempt": 612,
+        "solution_id": "e953bceeac38e9c70a6bb86975f5717883f5c8f352fb16f6932f71e55487a28f",
+        "action": {
+          "operator": 1,
+          "first": 308,
+          "second": 346,
+          "third": 261
+        },
+        "C": 31347.22171299999,
+        "R": 8990.77555037755,
+        "J": 0.5951965196984381
+      },
+      {
+        "attempt": 616,
+        "solution_id": "f650fcdf4bb040d0223c37a6cdb0b505bd38c4c4e1721f753c87cd38390dfcb9",
+        "action": {
+          "operator": 0,
+          "first": 148,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31315.292712999995,
+        "R": 8964.435193626821,
+        "J": 0.5940321553068492
+      },
+      {
+        "attempt": 624,
+        "solution_id": "c25cf32768928d7756895691b7f18903aba0a5484defd05b0a711e73be3d5c8f",
+        "action": {
+          "operator": 1,
+          "first": 143,
+          "second": 330,
+          "third": 357
+        },
+        "C": 31462.296708999995,
+        "R": 8762.932908063298,
+        "J": 0.5889087373965074
+      },
+      {
+        "attempt": 625,
+        "solution_id": "020ea64760b08710b00f3767c807896e61f33640bdf036807c65bfde2f8d8e80",
+        "action": {
+          "operator": 0,
+          "first": 59,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31347.258708999994,
+        "R": 8753.393244305787,
+        "J": 0.5874863302405774
+      },
+      {
+        "attempt": 628,
+        "solution_id": "379813352e4369ade9cc666e42c3c9292923a8e50cd985198c8144c18381f6a5",
+        "action": {
+          "operator": 0,
+          "first": 9,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31211.949708999993,
+        "R": 8792.834300882965,
+        "J": 0.5874588503456226
+      },
+      {
+        "attempt": 706,
+        "solution_id": "afd83c411a2b0d38356e84a1f5377ed70adfbec277e0ee9bbc06c3a5f909bbc9",
+        "action": {
+          "operator": 1,
+          "first": 1,
+          "second": 322,
+          "third": 353
+        },
+        "C": 31144.871708999985,
+        "R": 8768.278713174659,
+        "J": 0.5860125285376043
+      },
+      {
+        "attempt": 707,
+        "solution_id": "e0c412254f85c7686e9031c4e0b6ca8f429cff53c0fe0b8b6c0aad2acab76c65",
+        "action": {
+          "operator": 1,
+          "first": 259,
+          "second": 344,
+          "third": 313
+        },
+        "C": 31091.930708999993,
+        "R": 8686.803335579689,
+        "J": 0.582854083589076
+      },
+      {
+        "attempt": 732,
+        "solution_id": "12a9d719029003f5de6e16ef75c3cbfa8d9ee0f0bda9ffc80731551fd89c47ff",
+        "action": {
+          "operator": 1,
+          "first": 110,
+          "second": 330,
+          "third": 330
+        },
+        "C": 31219.785212999985,
+        "R": 8642.260706995829,
+        "J": 0.5826437632979078
+      },
+      {
+        "attempt": 756,
+        "solution_id": "692210699962041bcf3e539fa3a58d035a643da3215fd47744e6bb627cb71668",
+        "action": {
+          "operator": 1,
+          "first": 264,
+          "second": 346,
+          "third": 258
+        },
+        "C": 31178.511212999983,
+        "R": 8518.787046780926,
+        "J": 0.5782339814021531
+      },
+      {
+        "attempt": 773,
+        "solution_id": "adf5fcc52b4155be71e98f0d6837aecc432250001b0ab92b1981ef38dc3e44fb",
+        "action": {
+          "operator": 1,
+          "first": 195,
+          "second": 337,
+          "third": 173
+        },
+        "C": 30972.77146499998,
+        "R": 8219.600556578254,
+        "J": 0.566526208241388
+      },
+      {
+        "attempt": 774,
+        "solution_id": "31334ab5703df525affc9de00786de03574653ed68a107c79554fdb00f672313",
+        "action": {
+          "operator": 1,
+          "first": 89,
+          "second": 331,
+          "third": 357
+        },
+        "C": 31197.833014999982,
+        "R": 7957.376340233641,
+        "J": 0.5601853498031747
+      },
+      {
+        "attempt": 781,
+        "solution_id": "f69f3ffb50f84e89ae937960c1f9df2a1b72922d125c64aa4f6d6e4a8201cb83",
+        "action": {
+          "operator": 0,
+          "first": 32,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31135.709014999986,
+        "R": 7974.669448380258,
+        "J": 0.5601462494854147
+      },
+      {
+        "attempt": 782,
+        "solution_id": "2905c6d0e561a2aee0536896b8c1d9bc5af74f0050b5d9ae9860d90d4ecd11a4",
+        "action": {
+          "operator": 0,
+          "first": 3,
+          "second": 511,
+          "third": 511
+        },
+        "C": 31096.040014999984,
+        "R": 7947.870276718004,
+        "J": 0.5588921277559078
+      },
+      {
+        "attempt": 784,
+        "solution_id": "1e4fe1251a1210e5f0723f5bf0e4285bc8b2d1e6e963c0b65b78167d2c60343d",
+        "action": {
+          "operator": 0,
+          "first": 27,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30983.090014999987,
+        "R": 7970.537944577012,
+        "J": 0.5585360581813759
+      },
+      {
+        "attempt": 793,
+        "solution_id": "00c4331370510d2ad555c48830654e77d5e276b98ad4199afa11cece1d7279d9",
+        "action": {
+          "operator": 0,
+          "first": 57,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30975.50901499998,
+        "R": 7939.192789999874,
+        "J": 0.5574446021011864
+      },
+      {
+        "attempt": 801,
+        "solution_id": "8608946678f7200177e8bb2a16ee05e31a9ce995b47775d29767d0c5ab054323",
+        "action": {
+          "operator": 0,
+          "first": 28,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30755.315014999986,
+        "R": 7956.76231649245,
+        "J": 0.5558857694938358
+      },
+      {
+        "attempt": 807,
+        "solution_id": "de722df3f4f6e876540934bc42af2e343f3e40fa3746a2757c5e3c95739e3f6c",
+        "action": {
+          "operator": 1,
+          "first": 85,
+          "second": 330,
+          "third": 143
+        },
+        "C": 30825.750514999992,
+        "R": 7932.349290399785,
+        "J": 0.5557739851289074
+      },
+      {
+        "attempt": 830,
+        "solution_id": "d5169f808fc3cd9d8660ad680eecfd283ce913b1b86df6999d799a5432d85fdc",
+        "action": {
+          "operator": 1,
+          "first": 134,
+          "second": 331,
+          "third": 331
+        },
+        "C": 30720.203467999992,
+        "R": 7912.130487784911,
+        "J": 0.5540964908562105
+      },
+      {
+        "attempt": 836,
+        "solution_id": "212ab1d03a469844114792c755cccfa847f792504616e3fedc21c56bc928dea3",
+        "action": {
+          "operator": 1,
+          "first": 252,
+          "second": 346,
+          "third": 264
+        },
+        "C": 30493.538468,
+        "R": 7677.274613926535,
+        "J": 0.5442759061643084
+      },
+      {
+        "attempt": 840,
+        "solution_id": "1c69cc88bd8fb628626f96bcec2810d475bd1ac93d87b055163b7b64da11d54f",
+        "action": {
+          "operator": 1,
+          "first": 300,
+          "second": 346,
+          "third": 261
+        },
+        "C": 30451.853467999994,
+        "R": 7561.551756438548,
+        "J": 0.5401139075982402
+      },
+      {
+        "attempt": 852,
+        "solution_id": "3c96aa1ec2b1400a8e9a837c0525b1ec637e23f4d08eb9041d6c69d84da34869",
+        "action": {
+          "operator": 0,
+          "first": 54,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30435.528991999985,
+        "R": 7559.231622410981,
+        "J": 0.5398806703882042
+      },
+      {
+        "attempt": 879,
+        "solution_id": "936ee50dd3f7791bc834e7bd31a716acae18f9f56f0929a4575872eaa6383005",
+        "action": {
+          "operator": 1,
+          "first": 227,
+          "second": 336,
+          "third": 187
+        },
+        "C": 30480.420991999985,
+        "R": 7485.927842866194,
+        "J": 0.5379338044126438
+      },
+      {
+        "attempt": 922,
+        "solution_id": "cafe0c45d57d6e4dff38c18cc8e8e27872c86d89b6198496b8f3ad155c774cf3",
+        "action": {
+          "operator": 1,
+          "first": 86,
+          "second": 331,
+          "third": 134
+        },
+        "C": 30640.16818099999,
+        "R": 7404.245412795089,
+        "J": 0.5368255628367868
+      },
+      {
+        "attempt": 943,
+        "solution_id": "aa9cb55d1e7e40a5ae4bc00256fb904a3327dc688863f191ddbba28b4d6ca872",
+        "action": {
+          "operator": 3,
+          "first": 51,
+          "second": 50,
+          "third": 511
+        },
+        "C": 30640.16818099999,
+        "R": 7403.338590023225,
+        "J": 0.5367961078199179
+      },
+      {
+        "attempt": 972,
+        "solution_id": "33e348846ece9940243867ae67ccb1c8632ff77c5bd9f0f25d0f898010150fe6",
+        "action": {
+          "operator": 1,
+          "first": 208,
+          "second": 336,
+          "third": 189
+        },
+        "C": 30639.775180999986,
+        "R": 7272.305548849075,
+        "J": 0.5325361496916927
+      },
+      {
+        "attempt": 1000,
+        "solution_id": "a3313d6f5cc795fcafffbd5912f4053bd66e7a35f2d8cf4a825fd27dbbdde49b",
+        "action": {
+          "operator": 1,
+          "first": 284,
+          "second": 347,
+          "third": 362
+        },
+        "C": 31098.576180999986,
+        "R": 7102.612854931641,
+        "J": 0.5314613769192813
+      },
+      {
+        "attempt": 1011,
+        "solution_id": "5f92892ffe35df5bc9dd9638cb2fe1ee00e463fb5a8325dcb6a60aa5eeef228c",
+        "action": {
+          "operator": 1,
+          "first": 233,
+          "second": 336,
+          "third": 175
+        },
+        "C": 31166.919180999987,
+        "R": 7005.137065555319,
+        "J": 0.5289561633612716
+      },
+      {
+        "attempt": 1032,
+        "solution_id": "1d565a39096d7f393768a00ab351a114bf85175941587f92322cfd8cabadf839",
+        "action": {
+          "operator": 1,
+          "first": 256,
+          "second": 346,
+          "third": 346
+        },
+        "C": 31094.409180999985,
+        "R": 6982.8290319790385,
+        "J": 0.5275303121985776
+      },
+      {
+        "attempt": 1036,
+        "solution_id": "d791f765599d751f045cf1c537900b8f63f6d465ef9582ce61b7b07aa4d9e58a",
+        "action": {
+          "operator": 1,
+          "first": 188,
+          "second": 336,
+          "third": 224
+        },
+        "C": 31162.260180999987,
+        "R": 6958.883888125961,
+        "J": 0.5274087304198285
+      },
+      {
+        "attempt": 1045,
+        "solution_id": "31672f52684385268b8e7c26105a021f3ec4bebe1657115db8208126b50325a1",
+        "action": {
+          "operator": 1,
+          "first": 126,
+          "second": 330,
+          "third": 330
+        },
+        "C": 31280.489223999986,
+        "R": 6912.709812642074,
+        "J": 0.5270523293942554
+      },
+      {
+        "attempt": 1068,
+        "solution_id": "1039fd3bddbe51cda676b56ee2a60f3e8444fb46bda37d9758e9990b0759c39a",
+        "action": {
+          "operator": 1,
+          "first": 310,
+          "second": 346,
+          "third": 278
+        },
+        "C": 31102.961223999988,
+        "R": 6808.7927770974575,
+        "J": 0.5219600510767322
+      },
+      {
+        "attempt": 1070,
+        "solution_id": "ea9af1021801528f7a639aef38a20ae2799a229587e93c1973cb56d717e39a44",
+        "action": {
+          "operator": 1,
+          "first": 255,
+          "second": 347,
+          "third": 284
+        },
+        "C": 31203.46422399998,
+        "R": 6740.716360674349,
+        "J": 0.5207207975480111
+      },
+      {
+        "attempt": 1077,
+        "solution_id": "35201c6add03f569bdeef0a3819f9cae2b9bf264c9f79c14df75ae1ffaada844",
+        "action": {
+          "operator": 1,
+          "first": 309,
+          "second": 347,
+          "third": 255
+        },
+        "C": 31195.067223999984,
+        "R": 6671.718317119916,
+        "J": 0.5183984253360024
+      },
+      {
+        "attempt": 1080,
+        "solution_id": "bf552a60a2ba5ea208ac265bfd5fbb769464ab8741c7d97d69b1cceb4c823803",
+        "action": {
+          "operator": 4,
+          "first": 344,
+          "second": 363,
+          "third": 511
+        },
+        "C": 31004.995482999984,
+        "R": 6557.881773722751,
+        "J": 0.5128626341698845
+      },
+      {
+        "attempt": 1082,
+        "solution_id": "4cc46af6077fabf153fb2b96debea9fd69c9798fd41cd5514c5c069fc1f68697",
+        "action": {
+          "operator": 0,
+          "first": 86,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30835.188594999985,
+        "R": 6600.994082895003,
+        "J": 0.5126207697535923
+      },
+      {
+        "attempt": 1084,
+        "solution_id": "2ed4627ba9b621a53a9f1555e72379b6557d6af3ced62c0f86bf6b05d6068af1",
+        "action": {
+          "operator": 1,
+          "first": 195,
+          "second": 337,
+          "third": 174
+        },
+        "C": 30699.522594999988,
+        "R": 6595.513855393288,
+        "J": 0.5111307239614142
+      },
+      {
+        "attempt": 1090,
+        "solution_id": "49f5e83c1e9754293219a154e2876ccc980f5f5e89b7d2cc1adbec0dae1a1f4b",
+        "action": {
+          "operator": 0,
+          "first": 115,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30526.181438999985,
+        "R": 6373.277511018051,
+        "J": 0.5022357414855456
+      },
+      {
+        "attempt": 1093,
+        "solution_id": "3b6bbedf4adf4c567df777e03aa187f403164e39d53d99bbc9418210b292eb13",
+        "action": {
+          "operator": 0,
+          "first": 158,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30323.927438999985,
+        "R": 6344.375708431942,
+        "J": 0.49934094722171185
+      },
+      {
+        "attempt": 1095,
+        "solution_id": "382868a54d26fcc489062a2ecf12e096bda196963dc8e81c4847f4f60e14303d",
+        "action": {
+          "operator": 0,
+          "first": 145,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30185.265650999987,
+        "R": 6296.198064291758,
+        "J": 0.4964350502297489
+      },
+      {
+        "attempt": 1100,
+        "solution_id": "ae8c9f8e298e746da828c50c7719a479ddf7a980dcf51a0a5c78f8529b7b00cc",
+        "action": {
+          "operator": 0,
+          "first": 118,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30107.793650999985,
+        "R": 6301.918751060347,
+        "J": 0.49587162758668746
+      },
+      {
+        "attempt": 1106,
+        "solution_id": "97ffb1a9983c4f27e63f9d7de7fd6ebc1d4dbf8aa544d90f2bb0a8000a1e0fa1",
+        "action": {
+          "operator": 1,
+          "first": 110,
+          "second": 331,
+          "third": 89
+        },
+        "C": 29903.439650999986,
+        "R": 6306.301806799456,
+        "J": 0.4940376680839247
+      },
+      {
+        "attempt": 1109,
+        "solution_id": "21cfe8a7572b163c658d53d03094fd068265e0b7c1c9fc59944f3bd03a8fa3be",
+        "action": {
+          "operator": 0,
+          "first": 1,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29747.72880299999,
+        "R": 6318.620700467672,
+        "J": 0.49293190975548273
+      },
+      {
+        "attempt": 1116,
+        "solution_id": "befe3f5b02419f7217e7e56b60575a886d0a05d080128d915b9074791a974134",
+        "action": {
+          "operator": 0,
+          "first": 121,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29648.464802999988,
+        "R": 6335.507489249138,
+        "J": 0.4925204268948701
+      },
+      {
+        "attempt": 1122,
+        "solution_id": "7ba3434387ba86f7cf727a96d6cb2c9606a5c60713f76ad8d7c65f36535fca9c",
+        "action": {
+          "operator": 1,
+          "first": 211,
+          "second": 338,
+          "third": 358
+        },
+        "C": 29851.437802999986,
+        "R": 6266.376804437207,
+        "J": 0.49223792671014865
+      },
+      {
+        "attempt": 1131,
+        "solution_id": "0dabe38a34ee0fbf5dfd0c2bd942ae731c1af62caac3b8da536fc5f2af4bcdc9",
+        "action": {
+          "operator": 0,
+          "first": 137,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29765.022750999986,
+        "R": 6266.347937815531,
+        "J": 0.491401260461741
+      },
+      {
+        "attempt": 1141,
+        "solution_id": "e54b240043722aebadf59c3ff64b0e0fe0d881646df3d965ed848fce30db5d95",
+        "action": {
+          "operator": 1,
+          "first": 276,
+          "second": 348,
+          "third": 362
+        },
+        "C": 29935.21175099999,
+        "R": 6206.3587232302725,
+        "J": 0.4910986321317808
+      },
+      {
+        "attempt": 1149,
+        "solution_id": "90bbab3a9540a7ffe1ba4cbb5a98219e1b995e6bd571481ef9a51bcacb397a46",
+        "action": {
+          "operator": 1,
+          "first": 261,
+          "second": 349,
+          "third": 362
+        },
+        "C": 30154.285750999992,
+        "R": 6130.704858296437,
+        "J": 0.49075996327289007
+      },
+      {
+        "attempt": 1156,
+        "solution_id": "377ee1f25fca611aace959c2448ea9114ffe8b3fe09ea9521765f429207b1cba",
+        "action": {
+          "operator": 1,
+          "first": 276,
+          "second": 349,
+          "third": 349
+        },
+        "C": 29948.38475099999,
+        "R": 6133.1589288091,
+        "J": 0.4888483861319334
+      },
+      {
+        "attempt": 1159,
+        "solution_id": "88ed5a79dc2ae7a3267997579e68e0ba4b0f3061378f1bcbe06cb059ebee9793",
+        "action": {
+          "operator": 1,
+          "first": 244,
+          "second": 349,
+          "third": 261
+        },
+        "C": 30115.151750999987,
+        "R": 5979.199990986314,
+        "J": 0.485460380239575
+      },
+      {
+        "attempt": 1167,
+        "solution_id": "824f085ad5c7fec5524ef393b4fd88b189547b8eff8af8e9d41ec134f71f71be",
+        "action": {
+          "operator": 1,
+          "first": 110,
+          "second": 331,
+          "third": 134
+        },
+        "C": 30125.063750999983,
+        "R": 5972.059691374403,
+        "J": 0.4853243121242793
+      },
+      {
+        "attempt": 1169,
+        "solution_id": "e17e754e7b2f6eddb50a4876b5a29033c85204a28d63d786167dbf31eb70ccf1",
+        "action": {
+          "operator": 1,
+          "first": 275,
+          "second": 349,
+          "third": 349
+        },
+        "C": 30039.16175099998,
+        "R": 5658.097513043569,
+        "J": 0.47429556443914017
+      },
+      {
+        "attempt": 1179,
+        "solution_id": "28e1dcc86a14472712b54e0ecf0806640ac0508969b109026a1af43f7b005c3b",
+        "action": {
+          "operator": 1,
+          "first": 163,
+          "second": 336,
+          "third": 185
+        },
+        "C": 29903.12375099998,
+        "R": 5419.380857323013,
+        "J": 0.4652260383216664
+      },
+      {
+        "attempt": 1194,
+        "solution_id": "3e205b01e2fee1eeedf32a59a3ceaccaf95929aca4d2b5694d7b37111cf79090",
+        "action": {
+          "operator": 1,
+          "first": 226,
+          "second": 339,
+          "third": 360
+        },
+        "C": 30234.86836699998,
+        "R": 5313.623082802464,
+        "J": 0.464999196366352
+      },
+      {
+        "attempt": 1195,
+        "solution_id": "c9f822dbc4f40a2feb5206b2a58f1e1affef77640245c43cb0c030ff1e3ca60e",
+        "action": {
+          "operator": 0,
+          "first": 98,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30184.72636699998,
+        "R": 5291.971503367256,
+        "J": 0.46381099102360385
+      },
+      {
+        "attempt": 1196,
+        "solution_id": "4d4ae6175a9e42dc066b6285b674721dc2a95db93f830ded4a49a6870b9351c3",
+        "action": {
+          "operator": 1,
+          "first": 266,
+          "second": 349,
+          "third": 349
+        },
+        "C": 30347.164366999983,
+        "R": 5237.586186730645,
+        "J": 0.4636154253357637
+      },
+      {
+        "attempt": 1198,
+        "solution_id": "e912eb39e4e528dca141fbe695b3e164139e03e4cd7d2d20ef9ab8602dd422b7",
+        "action": {
+          "operator": 1,
+          "first": 309,
+          "second": 347,
+          "third": 284
+        },
+        "C": 30209.13736699998,
+        "R": 5236.206280885891,
+        "J": 0.4622357309138856
+      },
+      {
+        "attempt": 1200,
+        "solution_id": "b08e003c5b5a5364cce763f0f1b6346a148da89eca7215b55cd12b1a1df46abe",
+        "action": {
+          "operator": 1,
+          "first": 161,
+          "second": 339,
+          "third": 226
+        },
+        "C": 30183.45661699998,
+        "R": 5207.599885830566,
+        "J": 0.46105818951767363
+      },
+      {
+        "attempt": 1206,
+        "solution_id": "5216da7586ccb276043638c742f96a6ec26c60af282f78f7b2de886b33eeb300",
+        "action": {
+          "operator": 1,
+          "first": 219,
+          "second": 339,
+          "third": 339
+        },
+        "C": 30317.311267999976,
+        "R": 5101.742085820237,
+        "J": 0.45891428492396863
+      },
+      {
+        "attempt": 1210,
+        "solution_id": "d66bd87394f13c2327bf73a0b66909a8c8273f5dc405f14a58329a67d8a1e82b",
+        "action": {
+          "operator": 0,
+          "first": 119,
+          "second": 511,
+          "third": 511
+        },
+        "C": 30196.40507599998,
+        "R": 5109.321897903418,
+        "J": 0.4579911931511378
+      },
+      {
+        "attempt": 1214,
+        "solution_id": "b65efa074a4f83216739dde239dd17805f5289532c53f31f9d7bde2c18a672d6",
+        "action": {
+          "operator": 0,
+          "first": 138,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29898.867775999977,
+        "R": 5150.601044599359,
+        "J": 0.456454491164136
+      },
+      {
+        "attempt": 1216,
+        "solution_id": "47d0d94fc41b78ce0461d693e7018d81d6321ebd3c5e2f1b8eada8dc5b276d9b",
+        "action": {
+          "operator": 1,
+          "first": 283,
+          "second": 349,
+          "third": 266
+        },
+        "C": 29903.11277599998,
+        "R": 5089.449561314139,
+        "J": 0.45450924950525023
+      },
+      {
+        "attempt": 1217,
+        "solution_id": "873d4c96a3a481210fb80176fcfafb7ac9c65d35fe7e56267f754ed442b79cb9",
+        "action": {
+          "operator": 0,
+          "first": 50,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29861.77868599998,
+        "R": 5101.542918728096,
+        "J": 0.45450231448021805
+      },
+      {
+        "attempt": 1218,
+        "solution_id": "24776e540d359884037a283646d2874c0be542a90d7876f226d74c1f6a1b8158",
+        "action": {
+          "operator": 0,
+          "first": 14,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29632.68068599998,
+        "R": 5127.383279386756,
+        "J": 0.4531260199812371
+      },
+      {
+        "attempt": 1221,
+        "solution_id": "08fd652c13f2af2d6a9b048bc307429c49258d4b7918687835eccaa7a7f6eb5d",
+        "action": {
+          "operator": 0,
+          "first": 107,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29545.809685999982,
+        "R": 5079.778730193922,
+        "J": 0.4507396118998177
+      },
+      {
+        "attempt": 1222,
+        "solution_id": "a5e70185053d9172ca0f22f523a4ba77a67085407b9659799e691362287c7984",
+        "action": {
+          "operator": 0,
+          "first": 51,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29287.89768599998,
+        "R": 5084.634770193921,
+        "J": 0.44840305088535903
+      },
+      {
+        "attempt": 1229,
+        "solution_id": "589dc2ddcdd820b87a68837e38aa1b79405f3e2316f617524fbbcc0ba5b163a7",
+        "action": {
+          "operator": 1,
+          "first": 297,
+          "second": 345,
+          "third": 248
+        },
+        "C": 29231.992685999987,
+        "R": 5061.579467792567,
+        "J": 0.44711351588332693
+      },
+      {
+        "attempt": 1232,
+        "solution_id": "046c29ea8de5b6bcd5314adb2844877f4384d47475895cc9469aa6830e52e1a4",
+        "action": {
+          "operator": 1,
+          "first": 297,
+          "second": 349,
+          "third": 266
+        },
+        "C": 29107.654685999987,
+        "R": 5042.994760709484,
+        "J": 0.44530737039326435
+      },
+      {
+        "attempt": 1245,
+        "solution_id": "d6e89bd7be94f82ec9e303c0b7417cf445e20bc518959798050c403d1217a3b5",
+        "action": {
+          "operator": 1,
+          "first": 201,
+          "second": 339,
+          "third": 161
+        },
+        "C": 29177.499435999984,
+        "R": 4958.148798375996,
+        "J": 0.44322691687510307
+      },
+      {
+        "attempt": 1254,
+        "solution_id": "2e422fa9b790733a606e27655195a909c9fee18c8a871796d8d1da6c598b605b",
+        "action": {
+          "operator": 1,
+          "first": 161,
+          "second": 339,
+          "third": 219
+        },
+        "C": 29132.00443599998,
+        "R": 4949.697621583009,
+        "J": 0.4425124227843843
+      },
+      {
+        "attempt": 1258,
+        "solution_id": "3a6ebff67d0b189a21dde064b5c2fef8cc5f35a5fa5a4e9a6baab528b8d54402",
+        "action": {
+          "operator": 1,
+          "first": 254,
+          "second": 349,
+          "third": 349
+        },
+        "C": 29320.530435999983,
+        "R": 4867.252034528957,
+        "J": 0.44165771544148913
+      },
+      {
+        "attempt": 1271,
+        "solution_id": "b10618d2ced3e7dbfbc950e6ca6ece4fba37c0d65d6e38af65084c1d4f250402",
+        "action": {
+          "operator": 1,
+          "first": 175,
+          "second": 339,
+          "third": 219
+        },
+        "C": 29191.17869899999,
+        "R": 4827.333868370888,
+        "J": 0.43911013760126505
+      },
+      {
+        "attempt": 1273,
+        "solution_id": "243211dafe49fbfec66af08f8c60fff335090abdd880c9d4442d7f31f0cb140c",
+        "action": {
+          "operator": 0,
+          "first": 159,
+          "second": 511,
+          "third": 511
+        },
+        "C": 29044.053000999993,
+        "R": 4859.2483554161645,
+        "J": 0.4387239025292562
+      },
+      {
+        "attempt": 1277,
+        "solution_id": "7e3efdcc221f35c65234908623bfd55b302070e839d859e769fc623bd7eedee5",
+        "action": {
+          "operator": 3,
+          "first": 317,
+          "second": 288,
+          "third": 511
+        },
+        "C": 28981.815000999988,
+        "R": 4848.502053847167,
+        "J": 0.43777293598048156
+      },
+      {
+        "attempt": 1278,
+        "solution_id": "b483bc3ba541a29f4a9a530ff1e4adb70c6cccb42d766927b2926b95338a0518",
+        "action": {
+          "operator": 1,
+          "first": 299,
+          "second": 349,
+          "third": 276
+        },
+        "C": 28801.440001,
+        "R": 4800.676068482541,
+        "J": 0.43447504876604937
+      },
+      {
+        "attempt": 1279,
+        "solution_id": "52836b1dd055a559c2dee66218409d56c23cc0a62bd99332c535f0c0427f1f99",
+        "action": {
+          "operator": 0,
+          "first": 95,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28638.444627999997,
+        "R": 4643.992148583409,
+        "J": 0.42780936630010724
+      },
+      {
+        "attempt": 1284,
+        "solution_id": "16754e735aa02206bb4106141ee764ce7106fdcbf8a53c2fc240d910dfa5d6bc",
+        "action": {
+          "operator": 3,
+          "first": 244,
+          "second": 261,
+          "third": 511
+        },
+        "C": 28607.496627999994,
+        "R": 4634.3791613404765,
+        "J": 0.4271978202880852
+      },
+      {
+        "attempt": 1301,
+        "solution_id": "4533302038155a6e3bdc3c54904f8bba3fb43988345a1513d13fe371a6ef5bc1",
+        "action": {
+          "operator": 1,
+          "first": 233,
+          "second": 339,
+          "third": 175
+        },
+        "C": 28706.62333599999,
+        "R": 4463.785260851192,
+        "J": 0.42261532885077047
+      },
+      {
+        "attempt": 1312,
+        "solution_id": "44c096b456ac7f2d8f4705884dd417f399a6b0b6df884b8d08ba4993af3eb29e",
+        "action": {
+          "operator": 3,
+          "first": 317,
+          "second": 296,
+          "third": 511
+        },
+        "C": 28685.99233599999,
+        "R": 4468.884085089433,
+        "J": 0.42258142214272715
+      },
+      {
+        "attempt": 1323,
+        "solution_id": "25dd7e09d71cc124f5bb49a017194b37f1443c4c7a53b2855fa293b048b7d5c1",
+        "action": {
+          "operator": 0,
+          "first": 0,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28641.976335999992,
+        "R": 4480.558658280042,
+        "J": 0.4225349473334742
+      },
+      {
+        "attempt": 1326,
+        "solution_id": "78d0bbd13f13bf224c7df564d65a5f675f12bb29e1bebb8c1b1e6234d8bcde1f",
+        "action": {
+          "operator": 1,
+          "first": 82,
+          "second": 328,
+          "third": 136
+        },
+        "C": 28484.774934999998,
+        "R": 4435.173957011735,
+        "J": 0.4195404710260502
+      },
+      {
+        "attempt": 1327,
+        "solution_id": "ceee209d4c9b09fd6075f81cf045c9a617fa84a861bedb2d696f2c02b6702ea1",
+        "action": {
+          "operator": 1,
+          "first": 268,
+          "second": 349,
+          "third": 266
+        },
+        "C": 28562.534934999985,
+        "R": 4411.735008602632,
+        "J": 0.41953116219480724
+      },
+      {
+        "attempt": 1332,
+        "solution_id": "0ed224277779f777f7a36b8b644cfb0222ffdd49db62481e38283715145197c8",
+        "action": {
+          "operator": 1,
+          "first": 240,
+          "second": 349,
+          "third": 266
+        },
+        "C": 28500.224934999987,
+        "R": 4380.4665548579915,
+        "J": 0.41791290784139623
+      },
+      {
+        "attempt": 1335,
+        "solution_id": "6bddce3bdc57d518e86d43f5602ec3af944fe9ef3a62da8925a06505b0411058",
+        "action": {
+          "operator": 5,
+          "first": 170,
+          "second": 338,
+          "third": 211
+        },
+        "C": 28557.55495899999,
+        "R": 4330.502667212815,
+        "J": 0.4168444473036025
+      },
+      {
+        "attempt": 1336,
+        "solution_id": "56e0b8a7c06c530a7e9ff8cb41dc8edcc56991d350276f8f83146e63fc6abb5d",
+        "action": {
+          "operator": 0,
+          "first": 10,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28539.17798499999,
+        "R": 4324.286305116453,
+        "J": 0.4164648046202581
+      },
+      {
+        "attempt": 1338,
+        "solution_id": "bd000cf97de38716f0af34ba6ec0cb97c4a072bda930178e15d669417b83b803",
+        "action": {
+          "operator": 0,
+          "first": 182,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28534.713744999994,
+        "R": 4322.703611499823,
+        "J": 0.4163702221532579
+      },
+      {
+        "attempt": 1343,
+        "solution_id": "67c7d96a90eadb9946ebb7951e5d03ea4f0ee9507d2202af7d693ca460c55988",
+        "action": {
+          "operator": 0,
+          "first": 126,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28370.57270199999,
+        "R": 4335.271044471474,
+        "J": 0.4151910075092632
+      },
+      {
+        "attempt": 1349,
+        "solution_id": "f95f5309de3625685bda7c788db7997af1d66166a6cc1195fcd4ac15e0a9177b",
+        "action": {
+          "operator": 0,
+          "first": 122,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28307.626422999987,
+        "R": 4343.921173091275,
+        "J": 0.4148632174043175
+      },
+      {
+        "attempt": 1352,
+        "solution_id": "72a7c1e791c0a53adb11de9d8624097a1ec9856724a2333dd5f0788f7a678702",
+        "action": {
+          "operator": 1,
+          "first": 203,
+          "second": 339,
+          "third": 339
+        },
+        "C": 28320.348780999993,
+        "R": 4315.254091078628,
+        "J": 0.41405510510166643
+      },
+      {
+        "attempt": 1366,
+        "solution_id": "a5461cce952e051e05b856b19228513d13d6f3bcab732aa8e62c593a7df85cd6",
+        "action": {
+          "operator": 1,
+          "first": 288,
+          "second": 347,
+          "third": 309
+        },
+        "C": 28372.54278099999,
+        "R": 4297.546506081579,
+        "J": 0.4139847085416758
+      },
+      {
+        "attempt": 1368,
+        "solution_id": "4ef2c622a2692d4c38f7367b4a52ae86263a60a44eaadef719b5b28a8fbd4c7c",
+        "action": {
+          "operator": 1,
+          "first": 188,
+          "second": 336,
+          "third": 229
+        },
+        "C": 28342.842780999992,
+        "R": 4296.831563024906,
+        "J": 0.4136742544048773
+      },
+      {
+        "attempt": 1373,
+        "solution_id": "cb7f1878b859bf4ec145b7dcdeeba3b1af1b73c096e87d7828abd1fd105c1cf0",
+        "action": {
+          "operator": 1,
+          "first": 253,
+          "second": 349,
+          "third": 283
+        },
+        "C": 28310.850780999994,
+        "R": 4262.9534092841095,
+        "J": 0.41226444134045986
+      },
+      {
+        "attempt": 1381,
+        "solution_id": "2a92c3e64194029ea02e81adbe7b82c2635f95ee74e290e85b8198ba0205e63a",
+        "action": {
+          "operator": 1,
+          "first": 317,
+          "second": 349,
+          "third": 253
+        },
+        "C": 28274.28378099999,
+        "R": 4255.5538988458775,
+        "J": 0.4116704505933495
+      },
+      {
+        "attempt": 1394,
+        "solution_id": "af37975584fed76bf621cfc9ef5c54e8b1c5c271b8d315afa338035416ab5b0c",
+        "action": {
+          "operator": 1,
+          "first": 173,
+          "second": 338,
+          "third": 170
+        },
+        "C": 28457.172780999987,
+        "R": 4137.153463332945,
+        "J": 0.4095933577475426
+      },
+      {
+        "attempt": 1403,
+        "solution_id": "0f7a02c26dd88d3634f32f242cec6aca15908e3496e149cf3abd203d9f56be44",
+        "action": {
+          "operator": 1,
+          "first": 276,
+          "second": 349,
+          "third": 266
+        },
+        "C": 28350.11478099999,
+        "R": 4084.117586264057,
+        "J": 0.40683530117511435
+      },
+      {
+        "attempt": 1405,
+        "solution_id": "2c0da7bbd60f1d8f71e34f93b6373b384d53978009b6413503e80ba6a9b5e6cc",
+        "action": {
+          "operator": 1,
+          "first": 217,
+          "second": 339,
+          "third": 175
+        },
+        "C": 28384.923780999987,
+        "R": 4070.255445633729,
+        "J": 0.40672167856635344
+      },
+      {
+        "attempt": 1412,
+        "solution_id": "95f3c8e08105caef22ceba3e60e9da083ce4201e5d67869a3e77056b86e74bcb",
+        "action": {
+          "operator": 1,
+          "first": 214,
+          "second": 337,
+          "third": 198
+        },
+        "C": 28198.266780999988,
+        "R": 4045.3700723145676,
+        "J": 0.4041081843323281
+      },
+      {
+        "attempt": 1414,
+        "solution_id": "e0d3480be5dfcacfeca2bca3d32b277755fec8e7bfcc974509f8cc909976d4cb",
+        "action": {
+          "operator": 1,
+          "first": 214,
+          "second": 339,
+          "third": 175
+        },
+        "C": 28215.957324999992,
+        "R": 4040.0516661771535,
+        "J": 0.4041065212338478
+      },
+      {
+        "attempt": 1424,
+        "solution_id": "9c0b2182556309a708ef8202efdc1a49c56aa07767ddf34ab8d9137096404de5",
+        "action": {
+          "operator": 0,
+          "first": 134,
+          "second": 511,
+          "third": 511
+        },
+        "C": 28182.054324999994,
+        "R": 4046.82701792855,
+        "J": 0.4039987159120729
+      },
+      {
+        "attempt": 1437,
+        "solution_id": "74e94fcf968cda67d28a702d57af883953861d9aa6109651deca77e1d24930cf",
+        "action": {
+          "operator": 2,
+          "first": 167,
+          "second": 213,
+          "third": 511
+        },
+        "C": 28231.437324999995,
+        "R": 4019.880765177361,
+        "J": 0.40360104756311765
+      },
+      {
+        "attempt": 1439,
+        "solution_id": "69afed3e68e4e313e74c1925c2331027fe2e613e5e286729dba82887ded8c7c5",
+        "action": {
+          "operator": 5,
+          "first": 119,
+          "second": 330,
+          "third": 143
+        },
+        "C": 28274.78962899999,
+        "R": 4000.3336093429607,
+        "J": 0.40338538994863404
+      },
+      {
+        "attempt": 1449,
+        "solution_id": "3ac49d5b1284aba17a4e7e6ae30fbbe6688992727229fb9a0703c94b478bc513",
+        "action": {
+          "operator": 1,
+          "first": 210,
+          "second": 339,
+          "third": 175
+        },
+        "C": 28266.467562999995,
+        "R": 3980.7669157601867,
+        "J": 0.4026693497142494
+      },
+      {
+        "attempt": 1453,
+        "solution_id": "bb06845da2cd51b5feef5c9aef0b1d795964be3707ebac96f4085bd347489971",
+        "action": {
+          "operator": 1,
+          "first": 258,
+          "second": 349,
+          "third": 266
+        },
+        "C": 28241.105562999997,
+        "R": 3984.451198782712,
+        "J": 0.40254374252858993
+      },
+      {
+        "attempt": 1454,
+        "solution_id": "90bd46c04bdb78f0f51a642251dba3a29eabe91e4c79512bb878f1bb50216c70",
+        "action": {
+          "operator": 0,
+          "first": 130,
+          "second": 511,
+          "third": 511
+        },
+        "C": 27923.438778999996,
+        "R": 3956.752323382655,
+        "J": 0.3985718526309044
+      },
+      {
+        "attempt": 1465,
+        "solution_id": "875a98e6d64c3bc1d15eaa512ee6a45b68f89ca7c9b81f61db12ea509cc685e3",
+        "action": {
+          "operator": 1,
+          "first": 243,
+          "second": 349,
+          "third": 266
+        },
+        "C": 27950.528778999993,
+        "R": 3868.4856545169027,
+        "J": 0.3959668037678036
+      },
+      {
+        "attempt": 1473,
+        "solution_id": "e634e5c6acf172396557605ff7a4a00c0edf31c2766f867b7c242ab0318bc69a",
+        "action": {
+          "operator": 1,
+          "first": 284,
+          "second": 349,
+          "third": 266
+        },
+        "C": 27693.935779,
+        "R": 3903.7356095545724,
+        "J": 0.39463024066218655
+      },
+      {
+        "attempt": 1487,
+        "solution_id": "ed3b5f254deb68f8fc28f8e377759e55dbe61aa56254e85306d35934683e4467",
+        "action": {
+          "operator": 0,
+          "first": 133,
+          "second": 511,
+          "third": 511
+        },
+        "C": 27619.502434999995,
+        "R": 3875.587251648854,
+        "J": 0.39299608581111845
+      },
+      {
+        "attempt": 1501,
+        "solution_id": "0c3a05adc21421c41123ae1cef75e362e7aeb0726f29f9e7e62a62e1bb1ab589",
+        "action": {
+          "operator": 1,
+          "first": 309,
+          "second": 349,
+          "third": 266
+        },
+        "C": 27463.49943499999,
+        "R": 3919.7285631030823,
+        "J": 0.3929211437748137
+      },
+      {
+        "attempt": 1511,
+        "solution_id": "52032f57a082120bd235d334e85a07db67dff9676b60f32ebb429bfc2e28edec",
+        "action": {
+          "operator": 3,
+          "first": 12,
+          "second": 68,
+          "third": 511
+        },
+        "C": 27164.180434999995,
+        "R": 3911.3435208776823,
+        "J": 0.3897540405334502
+      },
+      {
+        "attempt": 1522,
+        "solution_id": "8119f837f8e1f85f94f86569b91b5b112becef8aa1a3ccb13044b26e9566e8db",
+        "action": {
+          "operator": 1,
+          "first": 229,
+          "second": 340,
+          "third": 360
+        },
+        "C": 27305.09892099999,
+        "R": 3811.598691297669,
+        "J": 0.3878770098012574
+      },
+      {
+        "attempt": 1535,
+        "solution_id": "af35e3f248debd80552b3181b7af4f3a95ab7d926de33541eb7cf7aa306c41fd",
+        "action": {
+          "operator": 1,
+          "first": 277,
+          "second": 349,
+          "third": 266
+        },
+        "C": 27369.96192099999,
+        "R": 3778.0026818495257,
+        "J": 0.3874130556205676
+      },
+      {
+        "attempt": 1549,
+        "solution_id": "4dce716110f355879609327c0bd13813d4fdf96c892ee0872f386cc63c8f83c6",
+        "action": {
+          "operator": 1,
+          "first": 277,
+          "second": 349,
+          "third": 240
+        },
+        "C": 27296.818920999987,
+        "R": 3793.5402802644144,
+        "J": 0.38721036775916096
+      },
+      {
+        "attempt": 1553,
+        "solution_id": "3c124b572ec2eea98336e69f78715020bc613a8f7bc331c5c534c98821338362",
+        "action": {
+          "operator": 2,
+          "first": 272,
+          "second": 288,
+          "third": 511
+        },
+        "C": 27419.416920999993,
+        "R": 3734.483153461449,
+        "J": 0.38647775776949506
+      },
+      {
+        "attempt": 1560,
+        "solution_id": "e2a4a764fed28c6371a18e013f0f17948f2333b74742839b15ccb44a443a6352",
+        "action": {
+          "operator": 1,
+          "first": 244,
+          "second": 349,
+          "third": 349
+        },
+        "C": 27271.558920999996,
+        "R": 3759.1667660039607,
+        "J": 0.38584957045874924
+      },
+      {
+        "attempt": 1574,
+        "solution_id": "bc0f50bb4b839b2800e0ca9c5851a5c94279a78917127a8c636ab7a06e49b046",
+        "action": {
+          "operator": 3,
+          "first": 282,
+          "second": 313,
+          "third": 511
+        },
+        "C": 27222.175920999995,
+        "R": 3773.819417426603,
+        "J": 0.3858479234775793
+      },
+      {
+        "attempt": 1588,
+        "solution_id": "ae5970599f808c053e62b5eb488946f6ccf03e241f1995aaa258f9f9dc2677c3",
+        "action": {
+          "operator": 1,
+          "first": 187,
+          "second": 340,
+          "third": 229
+        },
+        "C": 27245.553174999994,
+        "R": 3642.5815589343806,
+        "J": 0.38181119706881683
+      },
+      {
+        "attempt": 1594,
+        "solution_id": "f3e49e4cf634fda9784bd8cc84fc7207e53e5d7bc96edd265f85cf840a2d5e6c",
+        "action": {
+          "operator": 0,
+          "first": 103,
+          "second": 511,
+          "third": 511
+        },
+        "C": 27211.608368999994,
+        "R": 3629.4903875113037,
+        "J": 0.38105769180332455
+      },
+      {
+        "attempt": 1600,
+        "solution_id": "98304693a62f169bda29e0cb37a70bcec6db80790ec78ed4399130dbf85cec22",
+        "action": {
+          "operator": 1,
+          "first": 149,
+          "second": 329,
+          "third": 101
+        },
+        "C": 27225.485932999993,
+        "R": 3586.6996899572227,
+        "J": 0.37980199456975516
+      },
+      {
+        "attempt": 1601,
+        "solution_id": "a8f7b66e58093c00bf79c9aca83f5fc17e79a857f190dc08d4d6531b03b33e58",
+        "action": {
+          "operator": 1,
+          "first": 266,
+          "second": 346,
+          "third": 300
+        },
+        "C": 27199.097932999994,
+        "R": 3577.1446986079677,
+        "J": 0.3792364325710682
+      },
+      {
+        "attempt": 1602,
+        "solution_id": "f3a2f22b2f40b35eccfb6cf3ffea1af0ca4247a310ff5a67cd9084083f24943b",
+        "action": {
+          "operator": 0,
+          "first": 91,
+          "second": 511,
+          "third": 511
+        },
+        "C": 27096.032932999995,
+        "R": 3557.9555103584967,
+        "J": 0.37761638590248137
+      },
+      {
+        "attempt": 1612,
+        "solution_id": "919fa165ecf684507067281ef64521c06235b53ac15a6b4f27b2dc8989657073",
+        "action": {
+          "operator": 3,
+          "first": 246,
+          "second": 241,
+          "third": 511
+        },
+        "C": 26942.36093299999,
+        "R": 3537.8823462846303,
+        "J": 0.3754782009601829
+      },
+      {
+        "attempt": 1620,
+        "solution_id": "15a28ed1f8cc54395415f0708e99c7b860bf4f8a9720201e157c78a7a94976ca",
+        "action": {
+          "operator": 0,
+          "first": 97,
+          "second": 511,
+          "third": 511
+        },
+        "C": 26745.33893299999,
+        "R": 3583.1951595401206,
+        "J": 0.3750446122742915
+      },
+      {
+        "attempt": 1634,
+        "solution_id": "ee2f987b3e73719dd9fac7cd5cac400a7d2517ee0f2723f0472e7e80192929df",
+        "action": {
+          "operator": 5,
+          "first": 114,
+          "second": 331,
+          "third": 110
+        },
+        "C": 26736.192436999994,
+        "R": 3583.8613310990195,
+        "J": 0.37497779388660357
+      },
+      {
+        "attempt": 1655,
+        "solution_id": "4f4dbad3e6db9c34c2af101c0d78ef3351bed43aa7c4c28b3d1adac07897d43f",
+        "action": {
+          "operator": 1,
+          "first": 175,
+          "second": 340,
+          "third": 229
+        },
+        "C": 26796.588436999995,
+        "R": 3564.557102401628,
+        "J": 0.37493485821371886
+      },
+      {
+        "attempt": 1661,
+        "solution_id": "755a3ea5757942ac49c374183bad192d9487ec20c9a4296f209c981bc06f4108",
+        "action": {
+          "operator": 1,
+          "first": 292,
+          "second": 349,
+          "third": 240
+        },
+        "C": 26764.008436999997,
+        "R": 3494.124669959928,
+        "J": 0.37233201860220566
+      },
+      {
+        "attempt": 1681,
+        "solution_id": "434d9cfb42e0393cafcedcd96ceb667169097872a9f862bb58a3c87781c93ab1",
+        "action": {
+          "operator": 3,
+          "first": 319,
+          "second": 257,
+          "third": 511
+        },
+        "C": 26604.045436999993,
+        "R": 3504.2245436391504,
+        "J": 0.3711130600587776
+      },
+      {
+        "attempt": 1694,
+        "solution_id": "85739f9230adee06be26bb0003d2539b5481206843584c0b99dd5b6186df336f",
+        "action": {
+          "operator": 1,
+          "first": 288,
+          "second": 349,
+          "third": 349
+        },
+        "C": 26558.00143699999,
+        "R": 3497.256834012438,
+        "J": 0.37044144185959116
+      },
+      {
+        "attempt": 1709,
+        "solution_id": "2392b8971ac5171ae6357459f67752b7126f2604222ca9e76cd7b0748d187665",
+        "action": {
+          "operator": 1,
+          "first": 258,
+          "second": 349,
+          "third": 297
+        },
+        "C": 26487.609436999992,
+        "R": 3516.4155041083523,
+        "J": 0.3703829772459425
+      },
+      {
+        "attempt": 1711,
+        "solution_id": "832660249745f8c1ca7ae1cc5f624596a6bf993a9355b9cd796888a943e7049c",
+        "action": {
+          "operator": 1,
+          "first": 248,
+          "second": 348,
+          "third": 362
+        },
+        "C": 26515.748436999984,
+        "R": 3470.6305827831748,
+        "J": 0.3691679467326518
+      },
+      {
+        "attempt": 1713,
+        "solution_id": "d09fd98f382357b7de9b270bf894f814c673069ad53a410408ad872a286f8d59",
+        "action": {
+          "operator": 1,
+          "first": 168,
+          "second": 336,
+          "third": 336
+        },
+        "C": 26411.414436999985,
+        "R": 3471.128807674085,
+        "J": 0.3681751052987409
+      },
+      {
+        "attempt": 1724,
+        "solution_id": "aad5aa17b29dd31b0b9f90c0f53e39231fcd17d38fe2d8bb7abf262e09f8d300",
+        "action": {
+          "operator": 4,
+          "first": 331,
+          "second": 356,
+          "third": 511
+        },
+        "C": 26112.295962999986,
+        "R": 3468.731014123663,
+        "J": 0.3652044165321866
+      },
+      {
+        "attempt": 1750,
+        "solution_id": "972f8b73512e61be8dce41fcb1e5f2423d8871dbf88dc360bdc5b0df311b49b2",
+        "action": {
+          "operator": 1,
+          "first": 24,
+          "second": 320,
+          "third": 22
+        },
+        "C": 26090.458962999986,
+        "R": 3470.3011332068836,
+        "J": 0.36504422863470876
+      },
+      {
+        "attempt": 1763,
+        "solution_id": "5900a1bf6a4db1b1304c2a27bf3edd875bb46482eeac67970254f33d97b01361",
+        "action": {
+          "operator": 3,
+          "first": 295,
+          "second": 273,
+          "third": 511
+        },
+        "C": 26143.41796299999,
+        "R": 3360.856059378015,
+        "J": 0.3620014538606431
+      },
+      {
+        "attempt": 1767,
+        "solution_id": "251ebe07954d3e212feeb840dc4233cf0d320fffb590519a2bfa6b865a208bba",
+        "action": {
+          "operator": 1,
+          "first": 217,
+          "second": 340,
+          "third": 340
+        },
+        "C": 26143.429962999988,
+        "R": 3338.7699884151543,
+        "J": 0.36128417990891315
+      },
+      {
+        "attempt": 1770,
+        "solution_id": "6ceb862065a72a6ebd8cc39980781d78eaabd5957f4299091e192c707330afd8",
+        "action": {
+          "operator": 1,
+          "first": 309,
+          "second": 349,
+          "third": 317
+        },
+        "C": 26174.29696299999,
+        "R": 3317.675129270715,
+        "J": 0.36089750385449676
+      },
+      {
+        "attempt": 1788,
+        "solution_id": "83141f492cb92f080d607786d7844e8173d6d20b8574a5fbadf962e5ff6e4966",
+        "action": {
+          "operator": 1,
+          "first": 117,
+          "second": 328,
+          "third": 135
+        },
+        "C": 26181.61096299999,
+        "R": 3305.992903525871,
+        "J": 0.3605887813820496
+      },
+      {
+        "attempt": 1794,
+        "solution_id": "8e315a9b0733bbf89681b7f29af3c1d45adb594c739b65bd819e2a0becce9572",
+        "action": {
+          "operator": 1,
+          "first": 237,
+          "second": 338,
+          "third": 170
+        },
+        "C": 26134.445054999993,
+        "R": 3213.3676576184066,
+        "J": 0.35712402282686134
+      },
+      {
+        "attempt": 1804,
+        "solution_id": "cc9cf1a74c9e3610637bef1436e46452e37d98817e45d19003ddfef2bc7f7e55",
+        "action": {
+          "operator": 0,
+          "first": 127,
+          "second": 511,
+          "third": 511
+        },
+        "C": 26073.62548699999,
+        "R": 3217.1696598290305,
+        "J": 0.3566593256554821
+      },
+      {
+        "attempt": 1841,
+        "solution_id": "21583824d3a17ff34ba744d3f9f35138b2d5632667516352b08509dcc97263be",
+        "action": {
+          "operator": 3,
+          "first": 308,
+          "second": 300,
+          "third": 511
+        },
+        "C": 25988.19148699999,
+        "R": 3216.417160237736,
+        "J": 0.35580864253254185
+      },
+      {
+        "attempt": 1843,
+        "solution_id": "e10f1d14c8c3720dab63b428d30ce9fe27af667b7bf7fa80ca0d9b7ca7fbf8e2",
+        "action": {
+          "operator": 1,
+          "first": 297,
+          "second": 349,
+          "third": 261
+        },
+        "C": 25984.63648699999,
+        "R": 3185.445440402061,
+        "J": 0.35476825204362145
+      },
+      {
+        "attempt": 1848,
+        "solution_id": "179b5fba0b7f3f1f817b5ae3a2b8a67661c66d26a91a1eae58b4abb0155b8d6a",
+        "action": {
+          "operator": 1,
+          "first": 210,
+          "second": 338,
+          "third": 170
+        },
+        "C": 25986.224686999984,
+        "R": 3175.1267633921134,
+        "J": 0.35444844497431993
+      },
+      {
+        "attempt": 1864,
+        "solution_id": "e31b40148585ef886a3833c4ce880c848dd56666f039c4cfbc45dc80995a16a7",
+        "action": {
+          "operator": 1,
+          "first": 272,
+          "second": 349,
+          "third": 253
+        },
+        "C": 25859.423686999984,
+        "R": 3197.88339810909,
+        "J": 0.35396131077489923
+      },
+      {
+        "attempt": 1886,
+        "solution_id": "86f2e179c49285f73c0a8ee3ab56cf0d8794e83ccfef591da6c9564c9742f3a4",
+        "action": {
+          "operator": 1,
+          "first": 309,
+          "second": 349,
+          "third": 258
+        },
+        "C": 25744.910686999985,
+        "R": 3178.340071462355,
+        "J": 0.3522190463856471
+      },
+      {
+        "attempt": 1894,
+        "solution_id": "e1e42f0730d55607d6a51be30fd7f86427b160a2e17242177455286f8b839e8a",
+        "action": {
+          "operator": 1,
+          "first": 285,
+          "second": 349,
+          "third": 277
+        },
+        "C": 25781.084686999988,
+        "R": 3151.0186341679682,
+        "J": 0.35168144589718187
+      },
+      {
+        "attempt": 1901,
+        "solution_id": "c772dd8a39953bc14461db70b7a2f6b467bb6090378ed21c1a76377a4612b7db",
+        "action": {
+          "operator": 0,
+          "first": 205,
+          "second": 511,
+          "third": 511
+        },
+        "C": 25775.29576699999,
+        "R": 3143.9266834158043,
+        "J": 0.3513951030596705
+      },
+      {
+        "attempt": 1918,
+        "solution_id": "1808dfc04a6940d89660a8244af94a5b6bb70a90b05f7c899762359f0767fd81",
+        "action": {
+          "operator": 1,
+          "first": 316,
+          "second": 350,
+          "third": 362
+        },
+        "C": 25804.091766999987,
+        "R": 3126.8631954909765,
+        "J": 0.3511193433769137
+      }
+    ],
+    "batches": 1920
+  },
+  "points": [
+    {
+      "cost": 25723.718686999986,
+      "risk": 3245.378180315986,
+      "normalized_cost": 0.4975533152498014,
+      "normalized_risk": 0.21082988211840967,
+      "weighted_objective_raw": 14484.548433657987,
+      "weighted_objective_normalized": 0.35419159868410555,
+      "weighted_objective": 0.35419159868410555,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 800.0,
+      "distance_cost": 20046.476999999988,
+      "processing_cost": 4877.241686999999,
+      "transport_risk": 382.57620388991717,
+      "coload_risk": 2707.640792926069,
+      "producer_inventory_risk": 142.460607,
+      "facility_inventory_risk": 12.700576500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "f1d676b362f7c2613829e1c4e4f9111f885ecdfd95ce003a94cf6953e10ff4a5",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1891,
+        "operator": "drop",
+        "action": {
+          "operator": 0,
+          "first": 125,
+          "second": 511,
+          "third": 511
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G5::S3",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G12::S2",
+              "n::G11::S1",
+              "n::G20::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25725.42676699999,
+      "risk": 3182.2940147824256,
+      "normalized_cost": 0.49758635327502065,
+      "normalized_risk": 0.20673173809820067,
+      "weighted_objective_raw": 14453.860390891208,
+      "weighted_objective_normalized": 0.35215904568661066,
+      "weighted_objective": 0.35215904568661066,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 800.0,
+      "distance_cost": 20050.43699999999,
+      "processing_cost": 4874.989766999998,
+      "transport_risk": 374.3571509417868,
+      "coload_risk": 2653.570632340639,
+      "producer_inventory_risk": 144.00106500000004,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "bceacc1585126a53639fc2d30192c8d86224aebfe94a88958322c1eebec34f7b",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1907,
+        "operator": "drop",
+        "action": {
+          "operator": 0,
+          "first": 88,
+          "second": 511,
+          "third": 511
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G5::S3",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G11::S1",
+              "n::G20::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G12::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25744.910686999985,
+      "risk": 3178.340071462355,
+      "normalized_cost": 0.49796321515521835,
+      "normalized_risk": 0.20647487761607583,
+      "weighted_objective_raw": 14461.625379231169,
+      "weighted_objective_normalized": 0.3522190463856471,
+      "weighted_objective": 0.3522190463856471,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 800.0,
+      "distance_cost": 20067.668999999987,
+      "processing_cost": 4877.241686999999,
+      "transport_risk": 373.30637913765025,
+      "coload_risk": 2652.6026208247044,
+      "producer_inventory_risk": 141.65010500000002,
+      "facility_inventory_risk": 10.780966500000003,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "86f2e179c49285f73c0a8ee3ab56cf0d8794e83ccfef591da6c9564c9742f3a4",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1886,
+        "operator": "relocate",
+        "action": {
+          "operator": 1,
+          "first": 309,
+          "second": 349,
+          "third": 258
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G5::S3",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G12::S2",
+              "n::G11::S1",
+              "n::G20::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25746.36076699999,
+      "risk": 3174.4154742371684,
+      "normalized_cost": 0.4979912628928009,
+      "normalized_risk": 0.20621992354774357,
+      "weighted_objective_raw": 14460.38812061858,
+      "weighted_objective_normalized": 0.35210559322027224,
+      "weighted_objective": 0.35210559322027224,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 800.0,
+      "distance_cost": 20071.370999999992,
+      "processing_cost": 4874.989766999998,
+      "transport_risk": 375.26355023722215,
+      "coload_risk": 2645.818992499946,
+      "producer_inventory_risk": 142.96776500000004,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "480b1fe92058a2e32557965927fc8ee456ddca23e9327996b2f34549d91429de",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1908,
+        "operator": "drop",
+        "action": {
+          "operator": 0,
+          "first": 108,
+          "second": 511,
+          "third": 511
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G5::S3",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G11::S1",
+              "n::G20::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G12::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25766.19976699999,
+      "risk": 3148.635261249618,
+      "normalized_cost": 0.4983749928014252,
+      "normalized_risk": 0.2045451605576801,
+      "weighted_objective_raw": 14457.417514124805,
+      "weighted_objective_normalized": 0.35146007667955265,
+      "weighted_objective": 0.35146007667955265,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 800.0,
+      "distance_cost": 20091.209999999992,
+      "processing_cost": 4874.989766999999,
+      "transport_risk": 370.6575233355634,
+      "coload_risk": 2624.9624524140545,
+      "producer_inventory_risk": 142.65011900000002,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "39b5fc3d201d0fbb563b4a81239184d2b912ac9bae6fb9c6a276095f244b3b3d",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1904,
+        "operator": "drop",
+        "action": {
+          "operator": 0,
+          "first": 18,
+          "second": 511,
+          "third": 511
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G11::S1",
+              "n::G20::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G12::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25775.29576699999,
+      "risk": 3143.9266834158043,
+      "normalized_cost": 0.4985509294539201,
+      "normalized_risk": 0.20423927666542085,
+      "weighted_objective_raw": 14459.611225207896,
+      "weighted_objective_normalized": 0.3513951030596705,
+      "weighted_objective": 0.3513951030596705,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 800.0,
+      "distance_cost": 20100.30599999999,
+      "processing_cost": 4874.989766999998,
+      "transport_risk": 370.6638138242748,
+      "coload_risk": 2621.0720380915295,
+      "producer_inventory_risk": 141.82566500000001,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "c772dd8a39953bc14461db70b7a2f6b467bb6090378ed21c1a76377a4612b7db",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1901,
+        "operator": "drop",
+        "action": {
+          "operator": 0,
+          "first": 205,
+          "second": 511,
+          "third": 511
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G5::S3",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G11::S1",
+              "n::G20::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G12::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25794.995766999986,
+      "risk": 3131.57177332479,
+      "normalized_cost": 0.49893197079672463,
+      "normalized_risk": 0.20343666319686707,
+      "weighted_objective_raw": 14463.283770162388,
+      "weighted_objective_normalized": 0.35118431699679586,
+      "weighted_objective": 0.35118431699679586,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 850.0,
+      "distance_cost": 20070.005999999987,
+      "processing_cost": 4874.989766999999,
+      "transport_risk": 368.46188770868577,
+      "coload_risk": 2610.0946001161037,
+      "producer_inventory_risk": 142.65011900000002,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "9219d4abfc84cd9425e50296dcf1c5e57ec6cc4d6beb3b719b2f84e889080dac",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1920,
+        "operator": "drop",
+        "action": {
+          "operator": 0,
+          "first": 18,
+          "second": 511,
+          "third": 511
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G11::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G12::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K7",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G20::S1",
+              "D2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cost": 25804.091766999987,
+      "risk": 3126.8631954909765,
+      "normalized_cost": 0.49910790744921957,
+      "normalized_risk": 0.20313077930460785,
+      "weighted_objective_raw": 14465.477481245482,
+      "weighted_objective_normalized": 0.3511193433769137,
+      "weighted_objective": 0.3511193433769137,
+      "cost_ref": 51700.426665000006,
+      "risk_ref": 15393.350068342135,
+      "fixed_cost": 850.0,
+      "distance_cost": 20079.101999999988,
+      "processing_cost": 4874.989766999998,
+      "transport_risk": 368.4681781973972,
+      "coload_risk": 2606.204185793579,
+      "producer_inventory_risk": 141.82566500000001,
+      "facility_inventory_risk": 10.365166500000004,
+      "violations": [],
+      "feasible": true,
+      "solution_id": "1808dfc04a6940d89660a8244af94a5b6bb70a90b05f7c899762359f0767fd81",
+      "provenance": {
+        "source": "PPO_candidate",
+        "preference": [
+          0.5,
+          0.5
+        ],
+        "evaluation_seed": 3381415411,
+        "candidate_index": 1918,
+        "operator": "relocate",
+        "action": {
+          "operator": 1,
+          "first": 316,
+          "second": 350,
+          "third": 362
+        }
+      },
+      "plan": {
+        "schema": "route-plan-v1",
+        "routes": [
+          {
+            "vehicle": "K1",
+            "period": 1,
+            "route": [
+              "D2",
+              "n::G12::S1",
+              "n::G4::S1",
+              "n::G7::S3",
+              "n::G6::S3",
+              "n::G7::S1",
+              "n::G5::S3",
+              "n::G18::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G16::S1",
+              "n::G17::S1",
+              "n::G19::S1",
+              "n::G9::S1",
+              "n::G10::S1",
+              "n::G15::S1",
+              "n::G1::S3",
+              "n::G16::S3",
+              "n::G19::S3",
+              "n::G8::S1",
+              "n::G14::S4",
+              "n::G10::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 2,
+            "route": [
+              "D1",
+              "n::G12::S2",
+              "n::G16::S2",
+              "n::G17::S4",
+              "n::G18::S4",
+              "n::G6::S2",
+              "n::G18::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 2,
+            "route": [
+              "D3",
+              "n::G16::S4",
+              "n::G10::S4",
+              "n::G2::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 2,
+            "route": [
+              "D2",
+              "n::G8::S3",
+              "n::G9::S3",
+              "n::G3::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 3,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "n::G17::S1",
+              "n::G8::S1",
+              "n::G1::S1",
+              "n::G20::S1",
+              "n::G15::S3",
+              "n::G11::S1",
+              "n::G18::S3",
+              "n::G5::S1",
+              "n::G7::S2",
+              "n::G1::S4",
+              "n::G9::S2",
+              "n::G10::S4",
+              "n::G12::S3",
+              "n::G20::S4",
+              "n::G3::S4",
+              "n::G18::S4",
+              "n::G5::S3",
+              "n::G6::S4",
+              "n::G17::S4",
+              "n::G8::S2",
+              "n::G13::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S2",
+              "n::G2::S4",
+              "n::G19::S3",
+              "n::G2::S3",
+              "n::G5::S2",
+              "n::G4::S3",
+              "n::G9::S4",
+              "n::G10::S3",
+              "n::G12::S4",
+              "n::G17::S2",
+              "n::G19::S4",
+              "n::G7::S3",
+              "n::G20::S3",
+              "n::G14::S2",
+              "n::G8::S4",
+              "n::G9::S3",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 3,
+            "route": [
+              "D1",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G13::S3",
+              "n::G20::S2",
+              "n::G4::S2",
+              "D1"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G11::S4",
+              "n::G15::S4",
+              "n::G14::S3",
+              "n::G19::S2",
+              "n::G1::S2",
+              "n::G17::S3",
+              "n::G11::S2",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 3,
+            "route": [
+              "D3",
+              "n::G15::S2",
+              "n::G18::S2",
+              "n::G4::S4",
+              "n::G7::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K1",
+            "period": 4,
+            "route": [
+              "D3",
+              "n::G11::S2",
+              "n::G13::S2",
+              "n::G14::S2",
+              "n::G2::S2",
+              "n::G20::S4",
+              "n::G1::S3",
+              "n::G5::S4",
+              "n::G11::S3",
+              "n::G12::S3",
+              "n::G13::S4",
+              "n::G3::S3",
+              "n::G9::S2",
+              "n::G8::S2",
+              "n::G16::S3",
+              "n::G7::S2",
+              "n::G6::S4",
+              "n::G2::S4",
+              "n::G5::S2",
+              "n::G6::S3",
+              "n::G19::S2",
+              "n::G17::S3",
+              "n::G3::S2",
+              "n::G16::S4",
+              "n::G14::S4",
+              "D3"
+            ]
+          },
+          {
+            "vehicle": "K2",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G11::S1",
+              "n::G19::S1",
+              "n::G17::S1",
+              "n::G15::S1",
+              "n::G2::S3",
+              "n::G20::S3",
+              "n::G19::S4",
+              "n::G18::S4",
+              "n::G17::S4",
+              "n::G16::S2",
+              "n::G14::S3",
+              "n::G13::S3",
+              "n::G12::S4",
+              "n::G10::S4",
+              "n::G9::S3",
+              "n::G8::S3",
+              "n::G15::S3",
+              "n::G17::S2",
+              "n::G19::S3",
+              "n::G1::S2",
+              "n::G3::S4",
+              "n::G7::S4",
+              "n::G8::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K3",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G5::S1",
+              "n::G18::S1",
+              "n::G7::S3",
+              "n::G16::S1",
+              "n::G10::S3",
+              "n::G18::S3",
+              "n::G7::S1",
+              "n::G4::S1",
+              "n::G6::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K4",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G4::S4",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K5",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G3::S1",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K6",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G13::S1",
+              "n::G2::S1",
+              "n::G4::S3",
+              "n::G12::S1",
+              "n::G1::S4",
+              "n::G10::S1",
+              "n::G1::S1",
+              "n::G14::S1",
+              "n::G10::S2",
+              "n::G12::S2",
+              "n::G8::S1",
+              "n::G5::S3",
+              "n::G18::S2",
+              "n::G11::S4",
+              "n::G4::S2",
+              "n::G9::S1",
+              "n::G20::S2",
+              "n::G9::S4",
+              "n::G15::S4",
+              "n::G6::S2",
+              "n::G15::S2",
+              "D2"
+            ]
+          },
+          {
+            "vehicle": "K7",
+            "period": 4,
+            "route": [
+              "D2",
+              "n::G20::S1",
+              "D2"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "action_log_path": "output/ppo-frontier-exploration-v10/runs/width1-T1/r0/p10.actions.jsonl",
+  "action_log_sha256": "9f1fdee4a179b6884acaf70543ec3c8881a360fec9dc1a3563198c92c750be8e",
+  "baseline_J": 0.34341885160738694,
+  "baseline_transitions": 234,
+  "nsga_best_scalar_by_budget": {
+    "40320": 0.27634924582427933,
+    "120960": 0.23415737440659048
+  },
+  "instance_sha256": "77a4f9aed9777d81ae330ce8d3b6866b197ab0334a298e440f6f8e36a86c42ea",
+  "b_C": 51700.426665000006,
+  "b_R": 15393.350068342135,
+  "checkpoint": {
+    "experiment_alias": "New-L-v9",
+    "training_scale": "Test-4",
+    "sha256": "0269a9a52a6e25ef1ed9d89ba8861ba35aa09e5d9b37643410baea1ee64fce54",
+    "checkpoint": "outputs/ppo_frontier_v9/models/large_model.pt",
+    "training_record": "outputs/ppo_frontier_v9/training/large/config.json",
+    "training_completed": "outputs/ppo_frontier_v9/training/large/completed.json",
+    "training_record_sha256": "b0804ec7d3dbe3b55e669038b6624e9b14b25b24702e2543502d838b711a51c2",
+    "training_completed_sha256": "00dcdff75cd03ac363cb89172e47c304159a1646413fd0122a2c0bb87fb2cb92"
+  }
+}

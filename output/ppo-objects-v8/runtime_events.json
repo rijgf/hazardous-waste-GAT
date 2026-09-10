@@ -1,0 +1,15 @@
+[
+  {
+    "event": "process_exit_before_first_action_log",
+    "trial": "critic_mlp_r2",
+    "seed": 958147205,
+    "exit_code": 1,
+    "tool_output": "No stdout/stderr returned",
+    "observed_state": "Config and source snapshot exist; no actions.jsonl, progress.json or result.json",
+    "cause": "Unknown; no exception trace was returned",
+    "preservation": "Incomplete directory retained unchanged; not used in any mean or claimed successful run",
+    "retry_trial": "critic_mlp_r2_retry",
+    "retry_protocol": "Same checkpoint, instance, fixed references, seed and 12000-candidate budget, restarted from the common reference plan; no partial solution reused",
+    "accounting": "Completed-trial candidate totals exclude this incomplete attempt; unlogged startup work cannot be quantified from the available trace"
+  }
+]

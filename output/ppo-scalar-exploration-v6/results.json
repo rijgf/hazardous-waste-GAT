@@ -1,0 +1,200 @@
+{
+  "nsga_target_J": 0.2286833693057271,
+  "nsga_baselines": [
+    {
+      "method": "NSGA-II",
+      "budget": 40320,
+      "repeat": 0,
+      "C": 24941.90289900001,
+      "R": 1081.6478210387115,
+      "J": 0.27634924582427933,
+      "solution_id": "97653e248a442353430140a9bf351210f41b223029caa31f31e05cc4b2647b1f",
+      "archive_sha256": "72379aca4fcaf60697f59d0cdf4d6122985b9227169d763f971312530d77cb78",
+      "historical_full_front_seconds": 1212.4954690999584
+    },
+    {
+      "method": "NSGA-II",
+      "budget": 40320,
+      "repeat": 1,
+      "C": 23368.514610000002,
+      "R": 991.1352046460792,
+      "J": 0.258192859390634,
+      "solution_id": "25043b39ea271ce334412678369e055e5912f58977eec618d5188cf9c4c88ab1",
+      "archive_sha256": "44f1a0ce55a2122c456551ce4e7168efa714e1776d82c4c1701f075774f1844a",
+      "historical_full_front_seconds": 1225.9640961000696
+    },
+    {
+      "method": "NSGA-II",
+      "budget": 40320,
+      "repeat": 2,
+      "C": 23770.799364000006,
+      "R": 1145.3291679802364,
+      "J": 0.26709185573649286,
+      "solution_id": "f83855b944c2f580e438e4fe6521733b6f02d073b92e6cbe5e4d22d36d75a360",
+      "archive_sha256": "a748b97e5af3d1567fb77c53597a717efcacef3ced18e17099e89324659e00eb",
+      "historical_full_front_seconds": 1228.7877283999696
+    },
+    {
+      "method": "NSGA-II",
+      "budget": 120960,
+      "repeat": 0,
+      "C": 21155.200565000006,
+      "R": 910.1568436517006,
+      "J": 0.23415737440659048,
+      "solution_id": "2c27decd927f7eed0d0b8e05058936fb31aa58284c261e4c202ed8796e6fdb19",
+      "archive_sha256": "90a16103e70627e70fe0f7d06d00eb92dd2c55ad5e641230e06bed69ae61939e",
+      "historical_full_front_seconds": 3399.6796694999794
+    },
+    {
+      "method": "NSGA-II",
+      "budget": 120960,
+      "repeat": 1,
+      "C": 21166.016787999994,
+      "R": 738.4098542231773,
+      "J": 0.2286833693057271,
+      "solution_id": "64f3849595f4c422f68ee05e9a36d48c3785b70378590d9f7c4fa267896e0a51",
+      "archive_sha256": "ef95933ed218107075b5b2f9a2468465025953e78a1ced0ba90e5a8025d68ab5",
+      "historical_full_front_seconds": 3227.491094200057
+    },
+    {
+      "method": "NSGA-II",
+      "budget": 120960,
+      "repeat": 2,
+      "C": 21785.087061,
+      "R": 948.2625735503655,
+      "J": 0.24148680323590996,
+      "solution_id": "08a43482687a2bb847f0a730ae02ca0568b698fbb68ddea49d9ec72e1a3b5d57",
+      "archive_sha256": "2b0c3be9a9bd83a1c8a8439157b32598507dd70b0b31e5fa2024af151304840b",
+      "historical_full_front_seconds": 3436.10218539997
+    }
+  ],
+  "trials": [
+    {
+      "id": "01-compact-8000",
+      "method": "compact",
+      "seed": 3381415411,
+      "budget": 8000,
+      "C": 15328.724956000002,
+      "R": 953.4478884981407,
+      "J": 0.17921510633323287,
+      "seconds": 121.2908150000003,
+      "visits": 159,
+      "routes": 16,
+      "improvement_vs_best_nsga_pct": 21.63177109147804,
+      "beats_best_nsga": true,
+      "solution_id": "fc01dc6b96f066e160093b0bd41a942377106f04345cee01b5978d2c58f10b21",
+      "first_better_attempt": 2654
+    },
+    {
+      "id": "02-ppo-compact-8000",
+      "method": "ppo_compact",
+      "seed": 3381415411,
+      "budget": 8000,
+      "C": 16287.382216000002,
+      "R": 876.0277640754096,
+      "J": 0.18597165033194482,
+      "seconds": 118.66604869999719,
+      "visits": 155,
+      "routes": 18,
+      "improvement_vs_best_nsga_pct": 18.677230051075963,
+      "beats_best_nsga": true,
+      "solution_id": "2a68fa78dac670d577380a4b0cf224ec9b675c5b0be5a760831cec51d105efb5",
+      "first_better_attempt": 2279
+    },
+    {
+      "id": "03-legacy-8000",
+      "method": "legacy",
+      "seed": 3381415411,
+      "budget": 8000,
+      "C": 29132.84717199999,
+      "R": 1592.523324592964,
+      "J": 0.33347431981103726,
+      "seconds": 167.15516249999928,
+      "visits": 193,
+      "routes": 26,
+      "improvement_vs_best_nsga_pct": -45.82359916396675,
+      "beats_best_nsga": false,
+      "solution_id": "72b3488ea458648a470eedf00edce851f801c53791c1bd2fd456e1a0327e4093",
+      "first_better_attempt": null
+    },
+    {
+      "id": "04-compact-r1",
+      "method": "compact",
+      "seed": 3078273277,
+      "budget": 8000,
+      "C": 16077.292075000001,
+      "R": 913.9000462154321,
+      "J": 0.18516999830036523,
+      "seconds": 124.14622840000084,
+      "visits": 156,
+      "routes": 19,
+      "improvement_vs_best_nsga_pct": 19.027781135754033,
+      "beats_best_nsga": true,
+      "solution_id": "67569b194c374dbfee935dba338d21f34b267e75b9da407af278b54ee8f47cc7",
+      "first_better_attempt": 3045
+    },
+    {
+      "id": "05-ppo-compact-r1",
+      "method": "ppo_compact",
+      "seed": 3078273277,
+      "budget": 8000,
+      "C": 17292.974855999997,
+      "R": 1006.4394863302083,
+      "J": 0.19993281336333008,
+      "seconds": 129.6852538999956,
+      "visits": 159,
+      "routes": 20,
+      "improvement_vs_best_nsga_pct": 12.572211101175606,
+      "beats_best_nsga": true,
+      "solution_id": "e9f92934f00a53cb32e7caa378c947dd65da6f8cf2e9f4339c39735a633bfbc3",
+      "first_better_attempt": 4656
+    },
+    {
+      "id": "06-compact-r2",
+      "method": "compact",
+      "seed": 958147205,
+      "budget": 8000,
+      "C": 18301.558654,
+      "R": 1163.6946118926187,
+      "J": 0.21479481975661932,
+      "seconds": 130.07988840000326,
+      "visits": 186,
+      "routes": 20,
+      "improvement_vs_best_nsga_pct": 6.073266102066288,
+      "beats_best_nsga": true,
+      "solution_id": "eaa756c8ccc0c3611f51121e22539031b8022096db4bab7994256ca4c50dee04",
+      "first_better_attempt": 5877
+    },
+    {
+      "id": "07-ppo-compact-r2",
+      "method": "ppo_compact",
+      "seed": 958147205,
+      "budget": 8000,
+      "C": 17140.330869999998,
+      "R": 971.8653249857372,
+      "J": 0.1973335554568588,
+      "seconds": 122.58813609999925,
+      "visits": 156,
+      "routes": 20,
+      "improvement_vs_best_nsga_pct": 13.708829786811785,
+      "beats_best_nsga": true,
+      "solution_id": "03024d5ddd929afbd54e83d0602a9a9c9e3fbe930ef03ba209ca0ed77572bf4c",
+      "first_better_attempt": 4486
+    }
+  ],
+  "scope": "one fixed large instance, preference 0.5/0.5; exploratory, not generalization",
+  "means": {
+    "compact": {
+      "C": 16569.191895,
+      "R": 1010.3475155353972,
+      "J": 0.19305997479673914,
+      "seconds": 125.17231060000147
+    },
+    "ppo_compact": {
+      "C": 16906.895980666664,
+      "R": 951.4441917971184,
+      "J": 0.19441267305071122,
+      "seconds": 123.64647956666401
+    }
+  }
+}

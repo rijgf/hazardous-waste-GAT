@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "only_actor_advantage_scalarization_changed": true,
+  "training_instances": 24,
+  "training_interaction_steps": 11520,
+  "optimizer_updates": 480,
+  "new_fronts": 3,
+  "new_final_solutions": 63,
+  "nsga_searches_started": 0,
+  "paired_coverage_recomputed": [
+    {
+      "repeat": 0,
+      "nsga_budget": 40320,
+      "N_covers_P": 1.0,
+      "P_covers_N": 0.0
+    },
+    {
+      "repeat": 0,
+      "nsga_budget": 120960,
+      "N_covers_P": 1.0,
+      "P_covers_N": 0.0
+    },
+    {
+      "repeat": 1,
+      "nsga_budget": 40320,
+      "N_covers_P": 1.0,
+      "P_covers_N": 0.0
+    },
+    {
+      "repeat": 1,
+      "nsga_budget": 120960,
+      "N_covers_P": 1.0,
+      "P_covers_N": 0.0
+    },
+    {
+      "repeat": 2,
+      "nsga_budget": 40320,
+      "N_covers_P": 1.0,
+      "P_covers_N": 0.0
+    },
+    {
+      "repeat": 2,
+      "nsga_budget": 120960,
+      "N_covers_P": 1.0,
+      "P_covers_N": 0.0
+    }
+  ],
+  "full_model_checks": {
+    "solutions": 767,
+    "variables": 4422032,
+    "rows": 14275012,
+    "violated_rows": 0,
+    "max_row_residual": 7.105427357601002e-15,
+    "max_bound_residual": 0.0,
+    "max_integrality_residual": 0.0,
+    "max_cost_difference": 4.3655745685100555e-11,
+    "max_risk_difference": 2.3646862246096134e-11,
+    "seconds": 33.141410799995356
+  },
+  "unique_solutions_by_method": {
+    "new_PPO": 113,
+    "old_PPO": 118,
+    "NSGA": 536
+  },
+  "preserved_historical_inputs": 3325,
+  "protocol_sha256": "22886b1b7ae1a10e1aefa0f4e2a1aad886e752998b47c9bf6995fec890c212fc",
+  "checkpoint_sha256": "574d50293757caa8d704466fa0c38f953feb295f02485283e3969f409a86914a",
+  "auditor_sha256": "a1f9ae38c0984f3622df97790101af3e5504bee3537d03ecebfd78ca6786d13c",
+  "results_sha256": "bed4656cf811a8ed7f4d69cc76ce66cd9c8110bdc9d54f53448e44a827ccafb5",
+  "report_sha256": "91ab7dba0f8d7493e3172eea7a541bb5fdf4d0adbe222251985d6c00d3a83d4a"
+}

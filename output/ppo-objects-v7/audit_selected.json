@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "preserved_files": 3325,
+  "action_provenance": true,
+  "trials": [
+    {
+      "trial": "v7b_r0_temperature2_B12000",
+      "sampled_actions": 12000,
+      "accepted_transitions": 489,
+      "max_log_probability_error": 8.283310855006221e-07,
+      "max_trace_metric_error": 0.0,
+      "J": 0.2008488964926018,
+      "result_sha256": "ec159269db8e775d7269c24dceb6f845fc6b1b8f7260642690c5386b91865b74",
+      "source_config_sha256": "d9c97b1ee8df1964a497258fa3c83545eecd19159c2c956cc28725a988210df7",
+      "actions_sha256": "27256b4be9633ea0b248d8477f996d349b5850e58d63d7b467fd1e8dd4deb63b",
+      "checkpoint_used": true,
+      "object_heads_used": true
+    },
+    {
+      "trial": "v7b_r1_temperature2_B12000",
+      "sampled_actions": 12000,
+      "accepted_transitions": 479,
+      "max_log_probability_error": 5.845736357201758e-07,
+      "max_trace_metric_error": 0.0,
+      "J": 0.19649370313447057,
+      "result_sha256": "60ab0eb25483df209754076da65ac4d719bc07fbdd37abb7af805de2a97357b4",
+      "source_config_sha256": "a2350aa46810710f6434199d67c0059bf6fee007244855b55cd7ea9dfe5e2daf",
+      "actions_sha256": "1a63e1b703342b4b8ddcff69573abe2316ba16863310af6672e443d57191ae99",
+      "checkpoint_used": true,
+      "object_heads_used": true
+    },
+    {
+      "trial": "v7b_r2_temperature2_B12000",
+      "sampled_actions": 12000,
+      "accepted_transitions": 483,
+      "max_log_probability_error": 8.344238793256409e-07,
+      "max_trace_metric_error": 0.0,
+      "J": 0.19342997363479422,
+      "result_sha256": "8a992f22255977a01dc7a73cfe66432f40389ead9371f31ff1bffb30b236efe9",
+      "source_config_sha256": "bcb93ba116f708036b9dbc77094316b3c476c4514f5e56ddd55febd9073f4978",
+      "actions_sha256": "0e6a39fb5fa9c670128ee9401452453988f7c89c0c08b41d611b87f1fab7ad9c",
+      "checkpoint_used": true,
+      "object_heads_used": true
+    }
+  ],
+  "full_milp": {
+    "solutions": 3,
+    "variables": 4422032,
+    "rows": 14275012,
+    "violated_rows": 0,
+    "max_row_residual": 3.552713678800501e-15,
+    "max_bound_residual": 0.0,
+    "max_integrality_residual": 0.0,
+    "max_cost_difference": 7.275957614183426e-12,
+    "max_risk_difference": 3.410605131648481e-13,
+    "seconds": 15.926760000002105
+  },
+  "audit_source_sha256": "36abf09e1795c22be9345b4fc607f3b76b92bf3f8d066f985cd989a0ad8da785"
+}
