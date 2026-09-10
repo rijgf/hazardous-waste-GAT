@@ -1,0 +1,1707 @@
+{
+  "name": "init80",
+  "seed": 20260910,
+  "budget": 3000,
+  "population": 100,
+  "crossover": 0.9,
+  "mutation": 0.25,
+  "instance_sha256": "25481fb03b90c6b872920415e34e2c6de3a304325eee76d1958c2218883ff0ca",
+  "refs": [
+    51700.426665000006,
+    15393.350068342135
+  ],
+  "core_sha256": "4ea667b52c5bd01a7b7123cbb358602999c760ae84f7aebee20c4aa1f9f4ee5a",
+  "driver_sha256": "caf87d1ca5ea0882a5210f37eb0379f1c5da246247261409bf7c2028a6a53b8f",
+  "pid": 33756,
+  "hv_reference": [
+    1.1,
+    1.1
+  ],
+  "result": {
+    "budget": 3000,
+    "counts": {
+      "candidate_attempts": 3000,
+      "candidate_objective_evaluations": 2649,
+      "cache_hits": 351,
+      "invalid_candidates": 1294,
+      "operator_failures": 1316,
+      "invalid_candidate_attempts": 1316,
+      "ppo_internal_objective_evaluations": 0
+    },
+    "seconds": 72.19113960000686,
+    "preparation_seconds": 0.012052699996274896,
+    "last_complete_generation": 29,
+    "partial_generation_candidates": 1,
+    "points": [
+      {
+        "cost": 45032.17048699999,
+        "risk": 2563.8016692613637,
+        "normalized_cost": 0.8710212544045739,
+        "normalized_risk": 0.1665525475532491,
+        "weighted_objective_raw": 23797.986078130678,
+        "weighted_objective_normalized": 0.5187869009789114,
+        "weighted_objective": 0.5187869009789114,
+        "cost_ref": 51700.426665000006,
+        "risk_ref": 15393.350068342135,
+        "fixed_cost": 1600.0,
+        "distance_cost": 38947.22999999999,
+        "processing_cost": 4484.940487,
+        "transport_risk": 339.0899787726668,
+        "coload_risk": 2176.169501988697,
+        "producer_inventory_risk": 42.38196199999999,
+        "facility_inventory_risk": 6.160226500000003,
+        "violations": [],
+        "feasible": true,
+        "solution_id": "f6127385afee4812afa21ff5c805d0f60c13e2e5bc806637d600d817bb3f9f0d",
+        "provenance": {
+          "source": "NSGA_offspring",
+          "generation": 28,
+          "index": 47
+        },
+        "plan": {
+          "schema": "route-plan-v1",
+          "routes": [
+            {
+              "vehicle": "K1",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G20::S1",
+                "n::G10::S3",
+                "n::G5::S3",
+                "n::G6::S1",
+                "n::G15::S1",
+                "n::G11::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G8::S2",
+                "n::G11::S3",
+                "n::G16::S2",
+                "n::G8::S4",
+                "n::G3::S2",
+                "n::G19::S2",
+                "n::G6::S3",
+                "n::G8::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G13::S1",
+                "n::G15::S3",
+                "n::G7::S1",
+                "n::G6::S4",
+                "n::G3::S1",
+                "n::G4::S1",
+                "n::G2::S3",
+                "n::G14::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G16::S1",
+                "n::G18::S4",
+                "n::G2::S2",
+                "n::G4::S2",
+                "n::G18::S1",
+                "n::G17::S1",
+                "n::G20::S2",
+                "n::G11::S2",
+                "n::G5::S4",
+                "n::G9::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G13::S3",
+                "n::G17::S4",
+                "n::G7::S2",
+                "n::G18::S3",
+                "n::G10::S2",
+                "n::G1::S1",
+                "n::G9::S4",
+                "n::G19::S1",
+                "n::G18::S2",
+                "n::G5::S1",
+                "n::G11::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G19::S4",
+                "n::G8::S3",
+                "n::G16::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 1,
+              "route": [
+                "D3",
+                "n::G17::S2",
+                "n::G6::S2",
+                "n::G1::S3",
+                "n::G12::S3",
+                "n::G5::S2",
+                "n::G9::S2",
+                "n::G12::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G3::S3",
+                "n::G14::S2",
+                "n::G9::S1",
+                "n::G13::S4",
+                "n::G12::S1",
+                "n::G19::S3",
+                "n::G17::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 2,
+              "route": [
+                "D1",
+                "n::G20::S2",
+                "n::G11::S4",
+                "n::G17::S3",
+                "n::G5::S4",
+                "n::G11::S2",
+                "n::G3::S4",
+                "n::G13::S4",
+                "n::G2::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G8::S1",
+                "n::G19::S3",
+                "n::G15::S3",
+                "n::G10::S3",
+                "n::G7::S1",
+                "n::G1::S1",
+                "n::G10::S1",
+                "n::G13::S1",
+                "n::G17::S1",
+                "n::G5::S1",
+                "n::G6::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G15::S1",
+                "n::G4::S4",
+                "n::G9::S3",
+                "n::G11::S3",
+                "n::G5::S3",
+                "n::G16::S3",
+                "n::G12::S4",
+                "n::G14::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G18::S2",
+                "n::G12::S2",
+                "n::G3::S3",
+                "n::G14::S3",
+                "n::G18::S4",
+                "n::G13::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G12::S3",
+                "n::G19::S4",
+                "n::G2::S3",
+                "n::G6::S3",
+                "n::G8::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G1::S3",
+                "n::G13::S3",
+                "n::G3::S2",
+                "n::G7::S2",
+                "n::G17::S2",
+                "n::G16::S2",
+                "n::G10::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G8::S3",
+                "n::G15::S2",
+                "n::G2::S4",
+                "n::G9::S4",
+                "n::G7::S3",
+                "n::G1::S4",
+                "n::G14::S4",
+                "n::G6::S2",
+                "n::G20::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G18::S1",
+                "n::G9::S2",
+                "n::G10::S2",
+                "n::G20::S1",
+                "n::G2::S1",
+                "n::G16::S4",
+                "n::G14::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G13::S1",
+                "n::G11::S4",
+                "n::G4::S4",
+                "n::G16::S3",
+                "n::G8::S1",
+                "n::G15::S1",
+                "n::G5::S1",
+                "n::G18::S1",
+                "n::G1::S1",
+                "n::G7::S1",
+                "n::G16::S1",
+                "n::G3::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G20::S1",
+                "n::G17::S4",
+                "n::G6::S2",
+                "n::G4::S3",
+                "n::G2::S1",
+                "n::G15::S3",
+                "n::G2::S3",
+                "n::G8::S2",
+                "n::G17::S3",
+                "n::G1::S2",
+                "n::G11::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G14::S2",
+                "n::G9::S2",
+                "n::G15::S4",
+                "n::G19::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G6::S3",
+                "n::G13::S4",
+                "n::G12::S3",
+                "n::G10::S3",
+                "n::G1::S3",
+                "n::G3::S2",
+                "n::G4::S1",
+                "n::G6::S4",
+                "n::G12::S4",
+                "n::G13::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 3,
+              "route": [
+                "D3",
+                "n::G4::S2",
+                "n::G5::S4",
+                "n::G17::S2",
+                "n::G19::S3",
+                "n::G7::S4",
+                "n::G1::S4",
+                "n::G8::S4",
+                "n::G18::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G16::S4",
+                "n::G3::S3",
+                "n::G10::S4",
+                "n::G20::S3",
+                "n::G7::S2",
+                "n::G11::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G14::S3",
+                "n::G15::S2",
+                "n::G19::S2",
+                "n::G2::S2",
+                "n::G5::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G11::S1",
+                "n::G17::S1",
+                "n::G16::S2",
+                "n::G9::S4",
+                "n::G19::S1",
+                "n::G18::S2",
+                "n::G3::S1",
+                "n::G20::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G4::S3",
+                "n::G9::S2",
+                "n::G20::S3",
+                "n::G7::S2",
+                "n::G4::S4",
+                "n::G2::S2",
+                "n::G20::S4",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G11::S1",
+                "n::G13::S1",
+                "n::G1::S1",
+                "n::G10::S1",
+                "n::G19::S2",
+                "n::G16::S4",
+                "n::G4::S2",
+                "n::G6::S4",
+                "n::G16::S2",
+                "n::G13::S4",
+                "n::G12::S1",
+                "n::G14::S1",
+                "n::G17::S1",
+                "n::G20::S1",
+                "n::G7::S1",
+                "n::G2::S1",
+                "n::G18::S1",
+                "n::G6::S1",
+                "n::G5::S1",
+                "n::G8::S1",
+                "n::G3::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G11::S2",
+                "n::G14::S3",
+                "n::G17::S2",
+                "n::G15::S3",
+                "n::G5::S3",
+                "n::G7::S3",
+                "n::G18::S2",
+                "n::G14::S4",
+                "n::G12::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G15::S1",
+                "n::G19::S4",
+                "n::G9::S1",
+                "n::G11::S4",
+                "n::G19::S1",
+                "n::G15::S2",
+                "n::G13::S2",
+                "n::G3::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G2::S3",
+                "n::G6::S3",
+                "n::G5::S2",
+                "n::G2::S4",
+                "n::G12::S3",
+                "n::G10::S4",
+                "n::G14::S2",
+                "n::G10::S3",
+                "n::G5::S4",
+                "n::G7::S4",
+                "n::G19::S3",
+                "n::G3::S3",
+                "n::G10::S2",
+                "n::G18::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G4::S1",
+                "n::G1::S3",
+                "n::G13::S3",
+                "n::G16::S1",
+                "n::G17::S3",
+                "n::G9::S3",
+                "n::G8::S2",
+                "n::G3::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G6::S2",
+                "n::G20::S2",
+                "n::G1::S4",
+                "n::G11::S3",
+                "n::G9::S4",
+                "n::G17::S4",
+                "n::G16::S3",
+                "n::G18::S3",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G8::S4",
+                "n::G12::S2",
+                "n::G8::S3",
+                "n::G1::S2",
+                "n::G15::S4",
+                "D1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "cost": 45146.05875199999,
+        "risk": 2183.7543769244603,
+        "normalized_cost": 0.8732241040200704,
+        "normalized_risk": 0.1418634908729553,
+        "weighted_objective_raw": 23664.906564462224,
+        "weighted_objective_normalized": 0.5075437974465129,
+        "weighted_objective": 0.5075437974465129,
+        "cost_ref": 51700.426665000006,
+        "risk_ref": 15393.350068342135,
+        "fixed_cost": 1600.0,
+        "distance_cost": 39014.03399999999,
+        "processing_cost": 4532.024751999999,
+        "transport_risk": 300.42315640889143,
+        "coload_risk": 1840.2471360155685,
+        "producer_inventory_risk": 39.663960999999986,
+        "facility_inventory_risk": 3.4201235000000025,
+        "violations": [],
+        "feasible": true,
+        "solution_id": "dae028cb5387496cafeb96db2fde867489e8ec19ad7ef37e475154ddd4dc8385",
+        "provenance": {
+          "source": "NSGA_offspring",
+          "generation": 29,
+          "index": 44
+        },
+        "plan": {
+          "schema": "route-plan-v1",
+          "routes": [
+            {
+              "vehicle": "K1",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G20::S1",
+                "n::G10::S3",
+                "n::G11::S3",
+                "n::G19::S1",
+                "n::G3::S1",
+                "n::G4::S1",
+                "n::G5::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G8::S2",
+                "n::G7::S1",
+                "n::G16::S2",
+                "n::G8::S4",
+                "n::G3::S2",
+                "n::G19::S2",
+                "n::G6::S3",
+                "n::G12::S2",
+                "n::G8::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 1,
+              "route": [
+                "D3",
+                "n::G14::S2",
+                "n::G6::S4",
+                "n::G14::S3",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G16::S1",
+                "n::G2::S2",
+                "n::G4::S2",
+                "n::G18::S1",
+                "n::G6::S1",
+                "n::G17::S1",
+                "n::G20::S2",
+                "n::G5::S4",
+                "n::G18::S4",
+                "n::G9::S3",
+                "n::G2::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G13::S3",
+                "n::G7::S2",
+                "n::G12::S4",
+                "n::G17::S4",
+                "n::G18::S3",
+                "n::G9::S4",
+                "n::G18::S2",
+                "n::G5::S1",
+                "n::G11::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G19::S4",
+                "n::G8::S3",
+                "n::G4::S4",
+                "n::G16::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G11::S2",
+                "n::G17::S2",
+                "n::G16::S4",
+                "n::G6::S2",
+                "n::G1::S3",
+                "n::G12::S3",
+                "n::G5::S2",
+                "n::G15::S1",
+                "n::G11::S1",
+                "n::G10::S2",
+                "n::G9::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G3::S3",
+                "n::G9::S1",
+                "n::G13::S4",
+                "n::G12::S1",
+                "n::G19::S3",
+                "n::G17::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 2,
+              "route": [
+                "D1",
+                "n::G20::S2",
+                "n::G10::S2",
+                "n::G5::S4",
+                "n::G12::S2",
+                "n::G9::S4",
+                "n::G3::S4",
+                "n::G13::S4",
+                "n::G11::S2",
+                "n::G2::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G8::S1",
+                "n::G19::S3",
+                "n::G7::S4",
+                "n::G15::S3",
+                "n::G10::S3",
+                "n::G7::S1",
+                "n::G15::S4",
+                "n::G19::S1",
+                "n::G12::S1",
+                "n::G13::S1",
+                "n::G9::S1",
+                "n::G17::S1",
+                "n::G5::S1",
+                "n::G6::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G15::S1",
+                "n::G7::S2",
+                "n::G4::S4",
+                "n::G9::S3",
+                "n::G18::S1",
+                "n::G5::S3",
+                "n::G16::S3",
+                "n::G14::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G3::S3",
+                "n::G18::S4",
+                "n::G13::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 2,
+              "route": [
+                "D1",
+                "n::G11::S3",
+                "n::G12::S3",
+                "n::G17::S3",
+                "n::G18::S2",
+                "n::G2::S3",
+                "n::G6::S3",
+                "n::G8::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G1::S3",
+                "n::G13::S3",
+                "n::G19::S4",
+                "n::G1::S2",
+                "n::G16::S2",
+                "n::G10::S4",
+                "n::G14::S3",
+                "n::G6::S2",
+                "n::G17::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G8::S3",
+                "n::G2::S4",
+                "n::G7::S3",
+                "n::G1::S4",
+                "n::G14::S4",
+                "n::G20::S4",
+                "n::G11::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G9::S2",
+                "n::G20::S1",
+                "n::G2::S1",
+                "n::G16::S4",
+                "n::G14::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G13::S1",
+                "n::G11::S4",
+                "n::G4::S4",
+                "n::G16::S3",
+                "n::G8::S1",
+                "n::G2::S3",
+                "n::G15::S1",
+                "n::G5::S1",
+                "n::G4::S1",
+                "n::G12::S1",
+                "n::G18::S1",
+                "n::G1::S1",
+                "n::G7::S1",
+                "n::G16::S1",
+                "n::G11::S1",
+                "n::G17::S1",
+                "n::G19::S1",
+                "n::G3::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G20::S1",
+                "n::G14::S3",
+                "n::G6::S2",
+                "n::G4::S3",
+                "n::G2::S1",
+                "n::G8::S2",
+                "n::G17::S3",
+                "n::G15::S3",
+                "n::G1::S2",
+                "n::G11::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G14::S2",
+                "n::G9::S2",
+                "n::G15::S4",
+                "n::G19::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G6::S3",
+                "n::G13::S4",
+                "n::G12::S3",
+                "n::G10::S3",
+                "n::G3::S2",
+                "n::G6::S4",
+                "n::G12::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G5::S4",
+                "n::G17::S2",
+                "n::G4::S2",
+                "n::G7::S4",
+                "n::G1::S4",
+                "n::G8::S4",
+                "n::G18::S4",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G16::S4",
+                "n::G10::S4",
+                "n::G20::S3",
+                "n::G7::S2",
+                "n::G11::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 3,
+              "route": [
+                "D3",
+                "n::G15::S2",
+                "n::G13::S3",
+                "n::G19::S2",
+                "n::G2::S2",
+                "n::G5::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G19::S3",
+                "n::G17::S4",
+                "n::G16::S2",
+                "n::G9::S4",
+                "n::G18::S2",
+                "n::G3::S4",
+                "n::G20::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G9::S2",
+                "n::G10::S3",
+                "n::G20::S3",
+                "n::G7::S2",
+                "n::G2::S2",
+                "n::G20::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G11::S1",
+                "n::G16::S1",
+                "n::G13::S1",
+                "n::G1::S1",
+                "n::G10::S1",
+                "n::G19::S2",
+                "n::G16::S4",
+                "n::G2::S1",
+                "n::G4::S2",
+                "n::G16::S2",
+                "n::G13::S4",
+                "n::G12::S1",
+                "n::G4::S1",
+                "n::G17::S1",
+                "n::G20::S1",
+                "n::G18::S1",
+                "n::G6::S1",
+                "n::G8::S1",
+                "n::G3::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G11::S2",
+                "n::G14::S3",
+                "n::G12::S4",
+                "n::G17::S2",
+                "n::G14::S4",
+                "n::G15::S3",
+                "n::G7::S3",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G15::S1",
+                "n::G19::S4",
+                "n::G9::S1",
+                "n::G3::S3",
+                "n::G11::S4",
+                "n::G19::S1",
+                "n::G14::S1",
+                "n::G5::S3",
+                "n::G15::S2",
+                "n::G13::S2",
+                "n::G3::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G2::S3",
+                "n::G6::S3",
+                "n::G5::S2",
+                "n::G2::S4",
+                "n::G10::S4",
+                "n::G5::S4",
+                "n::G7::S4",
+                "n::G19::S3",
+                "n::G10::S2",
+                "n::G18::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G1::S3",
+                "n::G13::S3",
+                "n::G17::S3",
+                "n::G7::S1",
+                "n::G5::S1",
+                "n::G9::S3",
+                "n::G8::S2",
+                "n::G18::S2",
+                "n::G3::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G6::S2",
+                "n::G20::S2",
+                "n::G1::S4",
+                "n::G11::S3",
+                "n::G9::S4",
+                "n::G17::S4",
+                "n::G16::S3",
+                "n::G12::S3",
+                "n::G18::S3",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G8::S4",
+                "n::G12::S2",
+                "n::G4::S3",
+                "n::G8::S3",
+                "n::G6::S4",
+                "n::G14::S2",
+                "n::G1::S2",
+                "n::G4::S4",
+                "n::G15::S4",
+                "D1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "cost": 47207.84127499999,
+        "risk": 2140.6938715571528,
+        "normalized_cost": 0.9131035142299629,
+        "normalized_risk": 0.13906614622892843,
+        "weighted_objective_raw": 24674.267573278572,
+        "weighted_objective_normalized": 0.5260848302294456,
+        "weighted_objective": 0.5260848302294456,
+        "cost_ref": 51700.426665000006,
+        "risk_ref": 15393.350068342135,
+        "fixed_cost": 1600.0,
+        "distance_cost": 41042.76899999999,
+        "processing_cost": 4565.072275,
+        "transport_risk": 296.8441348929454,
+        "coload_risk": 1798.225620830874,
+        "producer_inventory_risk": 42.89820399999999,
+        "facility_inventory_risk": 2.725911833333336,
+        "violations": [],
+        "feasible": true,
+        "solution_id": "fd89db059276ee2355af4ce586484890488443f82308ea4075eee831fbba2435",
+        "provenance": {
+          "source": "NSGA_offspring",
+          "generation": 29,
+          "index": 53
+        },
+        "plan": {
+          "schema": "route-plan-v1",
+          "routes": [
+            {
+              "vehicle": "K1",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G14::S1",
+                "n::G20::S1",
+                "n::G10::S3",
+                "n::G11::S3",
+                "n::G7::S1",
+                "n::G3::S1",
+                "n::G4::S1",
+                "n::G6::S1",
+                "n::G5::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G8::S2",
+                "n::G16::S2",
+                "n::G8::S4",
+                "n::G3::S2",
+                "n::G19::S2",
+                "n::G4::S2",
+                "n::G8::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 1,
+              "route": [
+                "D1",
+                "n::G15::S3",
+                "n::G6::S4",
+                "n::G16::S4",
+                "n::G14::S3",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G16::S1",
+                "n::G5::S2",
+                "n::G2::S2",
+                "n::G18::S1",
+                "n::G6::S3",
+                "n::G20::S2",
+                "n::G2::S1",
+                "n::G5::S4",
+                "n::G18::S4",
+                "n::G9::S3",
+                "n::G2::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G13::S3",
+                "n::G7::S2",
+                "n::G17::S4",
+                "n::G18::S3",
+                "n::G17::S1",
+                "n::G10::S2",
+                "n::G1::S1",
+                "n::G9::S4",
+                "n::G19::S1",
+                "n::G18::S2",
+                "n::G5::S1",
+                "n::G11::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G9::S1",
+                "n::G19::S4",
+                "n::G8::S3",
+                "n::G16::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G11::S2",
+                "n::G17::S2",
+                "n::G6::S2",
+                "n::G1::S3",
+                "n::G12::S3",
+                "n::G15::S1",
+                "n::G11::S1",
+                "n::G9::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 1,
+              "route": [
+                "D2",
+                "n::G3::S3",
+                "n::G14::S2",
+                "n::G13::S4",
+                "n::G12::S1",
+                "n::G19::S3",
+                "n::G17::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 2,
+              "route": [
+                "D1",
+                "n::G20::S2",
+                "n::G10::S2",
+                "n::G17::S3",
+                "n::G5::S4",
+                "n::G11::S2",
+                "n::G9::S4",
+                "n::G3::S4",
+                "n::G13::S4",
+                "n::G2::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G8::S1",
+                "n::G19::S3",
+                "n::G15::S3",
+                "n::G10::S3",
+                "n::G7::S1",
+                "n::G15::S4",
+                "n::G12::S3",
+                "n::G13::S1",
+                "n::G9::S1",
+                "n::G17::S1",
+                "n::G5::S1",
+                "n::G6::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G15::S1",
+                "n::G4::S4",
+                "n::G9::S3",
+                "n::G14::S3",
+                "n::G5::S3",
+                "n::G16::S3",
+                "n::G12::S4",
+                "n::G14::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G12::S2",
+                "n::G3::S3",
+                "n::G13::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G2::S1",
+                "n::G11::S3",
+                "n::G18::S2",
+                "n::G2::S3",
+                "n::G8::S2",
+                "n::G12::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 2,
+              "route": [
+                "D3",
+                "n::G1::S3",
+                "n::G13::S3",
+                "n::G19::S4",
+                "n::G18::S4",
+                "n::G7::S2",
+                "n::G16::S2",
+                "n::G10::S4",
+                "n::G6::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G8::S3",
+                "n::G2::S4",
+                "n::G8::S4",
+                "n::G7::S3",
+                "n::G1::S4",
+                "n::G11::S4",
+                "n::G14::S4",
+                "n::G3::S1",
+                "n::G20::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 2,
+              "route": [
+                "D2",
+                "n::G18::S1",
+                "n::G9::S2",
+                "n::G20::S1",
+                "n::G16::S4",
+                "n::G14::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G13::S1",
+                "n::G11::S4",
+                "n::G4::S4",
+                "n::G16::S3",
+                "n::G8::S1",
+                "n::G2::S3",
+                "n::G15::S1",
+                "n::G5::S1",
+                "n::G4::S1",
+                "n::G12::S1",
+                "n::G3::S1",
+                "n::G18::S1",
+                "n::G1::S1",
+                "n::G7::S1",
+                "n::G16::S1",
+                "n::G11::S1",
+                "n::G17::S1",
+                "n::G19::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G20::S1",
+                "n::G6::S2",
+                "n::G4::S3",
+                "n::G2::S1",
+                "n::G8::S2",
+                "n::G17::S3",
+                "n::G15::S3",
+                "n::G1::S2",
+                "n::G11::S3",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G17::S4",
+                "n::G14::S2",
+                "n::G9::S2",
+                "n::G15::S4",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 3,
+              "route": [
+                "D2",
+                "n::G6::S3",
+                "n::G13::S4",
+                "n::G12::S3",
+                "n::G3::S2",
+                "n::G6::S4",
+                "n::G12::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G5::S4",
+                "n::G17::S2",
+                "n::G4::S2",
+                "n::G7::S4",
+                "n::G1::S4",
+                "n::G8::S4",
+                "n::G18::S4",
+                "n::G1::S3",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 3,
+              "route": [
+                "D3",
+                "n::G10::S3",
+                "n::G16::S4",
+                "n::G10::S4",
+                "n::G20::S3",
+                "n::G11::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 3,
+              "route": [
+                "D3",
+                "n::G15::S2",
+                "n::G13::S3",
+                "n::G19::S2",
+                "n::G2::S2",
+                "n::G5::S2",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 3,
+              "route": [
+                "D1",
+                "n::G19::S3",
+                "n::G16::S2",
+                "n::G9::S4",
+                "n::G19::S4",
+                "n::G18::S2",
+                "n::G14::S3",
+                "n::G3::S4",
+                "n::G20::S2",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K1",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G9::S2",
+                "n::G20::S3",
+                "n::G4::S4",
+                "n::G2::S2",
+                "n::G20::S4",
+                "n::G19::S2",
+                "n::G17::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K2",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G16::S1",
+                "n::G13::S1",
+                "n::G1::S1",
+                "n::G10::S1",
+                "n::G16::S4",
+                "n::G2::S1",
+                "n::G4::S2",
+                "n::G6::S4",
+                "n::G16::S2",
+                "n::G14::S1",
+                "n::G11::S1",
+                "n::G4::S1",
+                "n::G17::S1",
+                "n::G18::S1",
+                "n::G6::S1",
+                "n::G5::S1",
+                "n::G8::S1",
+                "n::G3::S1",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K3",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G11::S2",
+                "n::G14::S3",
+                "n::G17::S2",
+                "n::G15::S3",
+                "n::G5::S3",
+                "n::G7::S3",
+                "n::G14::S4",
+                "n::G12::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K4",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G20::S1",
+                "n::G15::S1",
+                "n::G19::S4",
+                "n::G9::S1",
+                "n::G3::S3",
+                "n::G11::S4",
+                "n::G19::S1",
+                "n::G15::S2",
+                "n::G13::S2",
+                "n::G3::S4",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K5",
+              "period": 4,
+              "route": [
+                "D3",
+                "n::G2::S3",
+                "n::G6::S3",
+                "n::G5::S2",
+                "n::G10::S4",
+                "n::G14::S2",
+                "n::G10::S3",
+                "n::G5::S4",
+                "n::G7::S4",
+                "n::G19::S3",
+                "n::G10::S2",
+                "n::G18::S4",
+                "D3"
+              ]
+            },
+            {
+              "vehicle": "K6",
+              "period": 4,
+              "route": [
+                "D2",
+                "n::G1::S3",
+                "n::G2::S4",
+                "n::G12::S1",
+                "n::G13::S3",
+                "n::G17::S3",
+                "n::G7::S1",
+                "n::G9::S3",
+                "n::G8::S2",
+                "n::G18::S2",
+                "n::G3::S2",
+                "D2"
+              ]
+            },
+            {
+              "vehicle": "K7",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G6::S2",
+                "n::G20::S2",
+                "n::G1::S4",
+                "n::G9::S4",
+                "n::G11::S3",
+                "n::G16::S3",
+                "n::G12::S3",
+                "n::G18::S3",
+                "D1"
+              ]
+            },
+            {
+              "vehicle": "K8",
+              "period": 4,
+              "route": [
+                "D1",
+                "n::G8::S4",
+                "n::G12::S2",
+                "n::G4::S3",
+                "n::G7::S2",
+                "n::G13::S4",
+                "n::G8::S3",
+                "n::G1::S2",
+                "n::G15::S4",
+                "D1"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stop_reason": "candidate_budget_reached"
+  },
+  "diagnostics": {
+    "children": 2901,
+    "genome_identical_to_a_parent": 320
+  },
+  "summary": {
+    "hv": 0.21986132357353244,
+    "points": 3,
+    "min_cost": 45032.17048699999,
+    "max_cost": 47207.84127499999,
+    "min_risk": 2140.6938715571528,
+    "max_risk": 2563.8016692613637,
+    "best_J": 0.5075437974465129
+  }
+}

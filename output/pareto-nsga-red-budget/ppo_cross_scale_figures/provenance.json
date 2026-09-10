@@ -1,0 +1,3304 @@
+{
+  "model_version": "V9",
+  "candidate_cap_per_preference": 12000,
+  "front_cap": 252000,
+  "hv_reference": [
+    1.1,
+    1.1
+  ],
+  "selection": "each model and scale: max HV among three runs, tie smaller repeat",
+  "limitations": "Selected-repeat descriptive plots, not three-run means or unbiased generalization; segments are not additional feasible solutions.",
+  "sources": {
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-1-small-r0-B252000.json": "311863ecc5268519bb3074d814a17eb78bd77b6f49342a375e3aede4cc0d12c3",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-1-small-r1-B252000.json": "805ab8ec46430713aa385907eee25cd1c0822eae28389282efbd2ee750a06609",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-1-small-r2-B252000.json": "34f10924c0bae7e0f85ce16fc681ae721c65b88d4094162cfd9cc876b0939d99",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-1-large-r0-B252000.json": "2e89c5f1cdb913d313075d1aa05749b5a3f1c0f5d9b4b0c8ec04ba5d3358ba83",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-1-large-r1-B252000.json": "6f83756a845b390dd678824adfc5d3d47a092da86bfd2ecb1f35daf785fbb2ec",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-1-large-r2-B252000.json": "c4bced79066eb25be07602140e2c751a57908711c32d937827a304ff77e849b6",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-2-small-r0-B252000.json": "780cc0358b72de6b01ded81ad4463a427797e50776bad842627829bd06792557",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-2-small-r1-B252000.json": "c9a952f18f0e7d6abcd1e309aa3efcb3ccc67675f26925fa726c421a7780f8c1",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-2-small-r2-B252000.json": "981007fe50bef1eab3e03a4068af7d00553eadaa11e0770fb66b7b4723d76166",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-2-large-r0-B252000.json": "69fb3f7e4fbdb68d6dfb068d94eaa83356b118f159733afd40e272e193eb8ab5",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-2-large-r1-B252000.json": "5dedf045af69b52ad46fff45398fde7c7ece8453bd5bd23363044315740a18ce",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-2-large-r2-B252000.json": "39981d276828e951bc91e0b701228129397b16597e4435c9fddb9c985a18a7a6",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-3-small-r0-B252000.json": "26fac072ee5cdb511bfa3c72193433c8fecfc5edba5dfc1d00f89dc29de72c58",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-3-small-r1-B252000.json": "b4c2790c23a0f68d81de04c2116c4860a2fee5c2397c33314f068dd939144238",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-3-small-r2-B252000.json": "349e52b6ed0ec4d7406e91aad1a73c625f93f982915f84b3a7c9c40327803166",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-3-large-r0-B252000.json": "c55211ed6a3ed5b19affc4ac6e66350f75b86854a887c2ed5c4cf0e15e7040f9",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-3-large-r1-B252000.json": "309e309829181fe9936d9fa91a5a0fb4b14d352b921789315609e7ffddd7edb2",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-3-large-r2-B252000.json": "3803b5a2e10f49007ac7c495819b4bd8858fec746ac7aa7bdfa62ef514d75610",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-4-small-r0-B252000.json": "3fa773208688bd8c76652c6b95e5608702cf4c5dbf29e511415d439e1ac657ec",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-4-small-r1-B252000.json": "cd58fb887f3262c01b37e4317d0c1e107e36e46bbeb356e42a3d25847d01315f",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-4-small-r2-B252000.json": "ca93411cdfd33156279e708991415bb5f5ed0a876d180dc83e007fb37e2edcaa",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-4-large-r0-B252000.json": "f5089ebc173ebf1e9ebb044dc4e6e1a2f087115ef12268bed407e170345d191b",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-4-large-r1-B252000.json": "b5ecfbe148fd27525c2dfef3751d1bb615eee430b4170f76d8f2bb45e5070afb",
+    "output/pareto-ppo-budget-v11/fronts/PPO-Test-4-large-r2-B252000.json": "a224480cad49fbe8f9868881971a3d0321c7f37b1af777576568bb47594fdf4a"
+  },
+  "selections": [
+    {
+      "scale": 1,
+      "model": "small",
+      "repeat": 1,
+      "all_hv": [
+        0.5914326854083938,
+        0.5914887659323586,
+        0.5902685696533149
+      ],
+      "archive_id": "PPO-Test-1-small-r1-B252000",
+      "points": [
+        {
+          "cost": 1482.9083970000002,
+          "risk": 17.870815259223512,
+          "solution_id": "6c4c4b0b70a8289ba243d4e870df8d9d70c6c6a1536bf7e4c513ad12703f6549"
+        },
+        {
+          "cost": 1484.9963970000001,
+          "risk": 12.433254844808667,
+          "solution_id": "415145ccbb4a1eeb135f489abc24a3d50c5a53bb8110994343cce4e45bec468a"
+        },
+        {
+          "cost": 1591.019397,
+          "risk": 7.57223341031664,
+          "solution_id": "13b178d3450de7a6e79641f12040ed540d9b95fdfa81b0193d76e0200fbbade2"
+        },
+        {
+          "cost": 1799.693397,
+          "risk": 6.776179116642391,
+          "solution_id": "39cf62b82ac30e0f7c95c8f3b49d7b59a9e95ed0f671f853987fe06c7d13bad5"
+        },
+        {
+          "cost": 1802.581397,
+          "risk": 6.65092141031664,
+          "solution_id": "b1e5389b6d85077aea91317ac0972861e918f28c3211a19c15abd1380ad5ff78"
+        },
+        {
+          "cost": 1959.3973970000002,
+          "risk": 6.226835907384185,
+          "solution_id": "ba055cee3d287f2f64a5aef9af8ead8849eec2169348ba324408c35200dfec6d"
+        },
+        {
+          "cost": 2095.714397,
+          "risk": 5.71580304085927,
+          "solution_id": "2c0548aa0e9a6549265760033c2fc5e0969095ed0ac9eeee10191becaa778cc2"
+        },
+        {
+          "cost": 2105.200397,
+          "risk": 4.806486420312245,
+          "solution_id": "9846b00f09e3ce45c0a87e163869ba028066a1925782c27cfb355581a0bb03e3"
+        },
+        {
+          "cost": 2210.401397,
+          "risk": 4.35267141031664,
+          "solution_id": "580e601b81ac71d0722b824dac35f3907372d793b8b091b962952d6a2e54b746"
+        },
+        {
+          "cost": 2313.874397,
+          "risk": 4.010432126637996,
+          "solution_id": "db15f8759296e7c4f61a73708bd86fdd2b903a734b7bc59f6d6a8068a04549ba"
+        },
+        {
+          "cost": 2316.762397,
+          "risk": 3.885174420312245,
+          "solution_id": "88c364c847015f18066b64a3d032ed480424da9ad63b4373e848174bc2a62a49"
+        },
+        {
+          "cost": 2419.075397,
+          "risk": 3.55661711664239,
+          "solution_id": "26b2e3eed6727d9fa52497ddf23aae417c47b3e33d2e1463aefa3994c0004553"
+        },
+        {
+          "cost": 2469.273397,
+          "risk": 3.44397141031664,
+          "solution_id": "04d994c7b1e161d182c2317f8611ae5e3ddbb5a1ddc105c2e4059fa07213b74e"
+        },
+        {
+          "cost": 2525.4363970000004,
+          "risk": 3.089120126637995,
+          "solution_id": "7002c68ac000cc81e5bc5803070d40314edce7b8959887388e7aeefd5c89b8ef"
+        },
+        {
+          "cost": 2669.517397,
+          "risk": 3.05355311664239,
+          "solution_id": "854d856532feed344469f96e05e8b155827793a29f91c30d0e8e01735f820625"
+        },
+        {
+          "cost": 2740.110397,
+          "risk": 3.044989613709935,
+          "solution_id": "5932cbb0c3533770bbfecc44bf3c489ef646bf4c5aa8836d1aacfc2df0ec4cf1"
+        },
+        {
+          "cost": 2952.726889,
+          "risk": 3.0223856175207953,
+          "solution_id": "5185ea392dba64dbb9712aa4a92b186f0d4da61470fd0d9ff49a6c1f222f241f"
+        },
+        {
+          "cost": 3130.1202429999994,
+          "risk": 2.9802700112228995,
+          "solution_id": "d89137d14e97900c8dad0f2ba7838291ec3b8b59491df9c36dcc0efbe2b2ee02"
+        },
+        {
+          "cost": 3167.400889,
+          "risk": 2.9782551045927352,
+          "solution_id": "f2368e2480e7ca70c47f09d1ab2147df6dc88f652df382855dafb8e97191230b"
+        },
+        {
+          "cost": 3181.1657349999996,
+          "risk": 2.9448635354187402,
+          "solution_id": "fb933b79523555453318fd73228389a733a9e9a77290fe3298487af82315994d"
+        },
+        {
+          "cost": 3395.8397349999996,
+          "risk": 2.9143535511721796,
+          "solution_id": "399a988137e7cb57a664cba19f13c0d5cffdd39442d7e259a6f141944a74f682"
+        }
+      ]
+    },
+    {
+      "scale": 1,
+      "model": "large",
+      "repeat": 2,
+      "all_hv": [
+        0.5878519473026707,
+        0.5875562723079255,
+        0.5915719520763779
+      ],
+      "archive_id": "PPO-Test-1-large-r2-B252000",
+      "points": [
+        {
+          "cost": 1482.9083970000002,
+          "risk": 17.870815259223512,
+          "solution_id": "6c4c4b0b70a8289ba243d4e870df8d9d70c6c6a1536bf7e4c513ad12703f6549"
+        },
+        {
+          "cost": 1484.996397,
+          "risk": 12.433254844808667,
+          "solution_id": "415145ccbb4a1eeb135f489abc24a3d50c5a53bb8110994343cce4e45bec468a"
+        },
+        {
+          "cost": 1591.019397,
+          "risk": 7.57223341031664,
+          "solution_id": "13b178d3450de7a6e79641f12040ed540d9b95fdfa81b0193d76e0200fbbade2"
+        },
+        {
+          "cost": 1799.693397,
+          "risk": 6.776179116642391,
+          "solution_id": "562f3933f66ed42018751c44000e9c6ee17e1e51fb54e0a1074b81272ef1eccc"
+        },
+        {
+          "cost": 1802.5813970000002,
+          "risk": 6.65092141031664,
+          "solution_id": "116bf7ce7e5d31b1c2f7ebad191e70b38dab9c31e0a2cdf691b425accf7970b3"
+        },
+        {
+          "cost": 1959.3973970000002,
+          "risk": 6.226835907384185,
+          "solution_id": "c6d8b5653942fe99f5cf039f030c754ad8804be28bf39424e98dfeda47ee7261"
+        },
+        {
+          "cost": 2095.7143969999997,
+          "risk": 5.71580304085927,
+          "solution_id": "554beea76ae4a09dff511d2d15b48ee8aaaafbf5905bc1e0592f4ef720a6df5b"
+        },
+        {
+          "cost": 2163.058397,
+          "risk": 5.18644141031664,
+          "solution_id": "31678360b71bfdc639dd97c657dc6f6a424b4d99db0dc87e2048ae258df245d7"
+        },
+        {
+          "cost": 2210.401397,
+          "risk": 4.35267141031664,
+          "solution_id": "329b323dbcbb43b435d1a5e1fa4cf9dedf68941d407a64763343ef5a5962a467"
+        },
+        {
+          "cost": 2313.8743969999996,
+          "risk": 4.010432126637996,
+          "solution_id": "2964eb2ea61f629f7e96ba1a19c35c13fda8766db4b9afc5ac28a79948e19133"
+        },
+        {
+          "cost": 2316.762397,
+          "risk": 3.885174420312245,
+          "solution_id": "395be528e9c4047420e4989e9530bf5b9f7ff23f860abf22499e3b32bb5790b0"
+        },
+        {
+          "cost": 2419.075397,
+          "risk": 3.55661711664239,
+          "solution_id": "197531191d92beb5959d89aacb357cf26428484ecd8205418d30815a5effbc9c"
+        },
+        {
+          "cost": 2469.273397,
+          "risk": 3.44397141031664,
+          "solution_id": "26e28dc84f72cf5af3b6c87d00165d55ccfd840563eaf2287fb40dda39d4d1ed"
+        },
+        {
+          "cost": 2525.4363969999995,
+          "risk": 3.089120126637995,
+          "solution_id": "10984d6d2907f718855b20dacbe4bf26d27f4e5d3c44fc048f9f9ac15e3f9bec"
+        },
+        {
+          "cost": 2669.517397,
+          "risk": 3.05355311664239,
+          "solution_id": "290d39a6a28c997f41a34832481179697d782fd2336a0cce6b57208bd33fb145"
+        },
+        {
+          "cost": 2740.110397,
+          "risk": 3.0449896137099355,
+          "solution_id": "838a8f238dddbdcdb00d288cc04581a7219fc1794b6da0eeb92e6c976df7e48a"
+        },
+        {
+          "cost": 2915.4462430000003,
+          "risk": 3.0107799954694605,
+          "solution_id": "f98e3d6b603df9169df79a07d38ade8f876c9323d5501db6627ec003d709b215"
+        },
+        {
+          "cost": 2954.1192430000006,
+          "risk": 2.83330028092741,
+          "solution_id": "1b4d7ca8076c81d28e3e3837ce8235cafe9397e755efba24ad83450f7896dc0b"
+        },
+        {
+          "cost": 3168.7932430000005,
+          "risk": 2.8027902966808496,
+          "solution_id": "009dac1751a7fa2e9d23b876d2269dfe325ae7e974e2a7ce098452f731159887"
+        },
+        {
+          "cost": 3237.3287349999996,
+          "risk": 2.802132781805815,
+          "solution_id": "f6abe7d5bd593af8db3132c1f5ec5fae14e9e381d6e49bffa4941278e43e3a3d"
+        },
+        {
+          "cost": 3452.0027349999996,
+          "risk": 2.758002268877755,
+          "solution_id": "944d086dd550fddad2dafc9989fd566a2f2010024eace5211535f384310bedd8"
+        }
+      ]
+    },
+    {
+      "scale": 2,
+      "model": "small",
+      "repeat": 0,
+      "all_hv": [
+        0.7279545212021302,
+        0.7268757786912817,
+        0.7262938009153018
+      ],
+      "archive_id": "PPO-Test-2-small-r0-B252000",
+      "points": [
+        {
+          "cost": 2882.467926,
+          "risk": 66.79030255194701,
+          "solution_id": "4c41e4579876e7c9ad07774254210faca36dd0b9bc90c9ec65c8e3fe18f6e20f"
+        },
+        {
+          "cost": 2898.9199260000005,
+          "risk": 57.00161835190151,
+          "solution_id": "e5a7ec07b478d37cc09969e1adff739f6d74282bd4f4fe35bde2f0661caba81b"
+        },
+        {
+          "cost": 2908.036926,
+          "risk": 53.638375230175235,
+          "solution_id": "e8448b14fc305bfea9b032150530d89387114386f605975628e720c1774b3bd4"
+        },
+        {
+          "cost": 2913.259428,
+          "risk": 53.00948226345284,
+          "solution_id": "a33ee09cb0e5f233b97e0c627f4d21fac735935c63a4ee32049b96fb55d74dc2"
+        },
+        {
+          "cost": 2930.290428,
+          "risk": 51.293486890011486,
+          "solution_id": "f95d1d2fa4adb05514a94f8e8a187eb22af54a0e328c8ca394bbdab88b1646ff"
+        },
+        {
+          "cost": 2932.7054279999998,
+          "risk": 50.7196576127313,
+          "solution_id": "2a836be0d960ef03d7d75b5b578627188621deb720b26110e4bf8fb4c6e4aca5"
+        },
+        {
+          "cost": 2947.261428,
+          "risk": 50.48701790004094,
+          "solution_id": "b98d7a6c0c127beeb8a73012d5c6ef1a255a1d632ccc33f76c61d7a9862c5896"
+        },
+        {
+          "cost": 2964.2924279999997,
+          "risk": 48.77102252659959,
+          "solution_id": "211de387bbb5a96fe16a76a0518a7b751813c907a1aafbb4245a47f853ba0666"
+        },
+        {
+          "cost": 2967.8354279999994,
+          "risk": 48.658993094975806,
+          "solution_id": "d9e2e164b360c21988709257b833c05e034bcbe208178126f5db66dd38c0d558"
+        },
+        {
+          "cost": 3018.400428,
+          "risk": 48.20038114677753,
+          "solution_id": "4f252f989c52a701f4b3b640dcf7d79665cc395a84e1b51637f9da2ef4ccca9b"
+        },
+        {
+          "cost": 3139.3870380000003,
+          "risk": 47.56306134616674,
+          "solution_id": "76952b823af3847cb602f66f12b9067971e8e614efc91992eb24ae36ad7b2d31"
+        },
+        {
+          "cost": 3207.499148,
+          "risk": 47.29665833228427,
+          "solution_id": "e0385b11c6f6e6b0994f65e3d914132449972fdf85fb5bc82178f2cb4639c329"
+        },
+        {
+          "cost": 3217.188428,
+          "risk": 46.94987192840447,
+          "solution_id": "1ca5caf5b08d400bf756a50a0b0253a60603a332d7c33d553ee545a9828b3074"
+        },
+        {
+          "cost": 3247.563428,
+          "risk": 44.82556519043329,
+          "solution_id": "bccefc13a4dfc700e374424e048758ec69b31be8c73c998a30d3a884ffe48925"
+        },
+        {
+          "cost": 3278.1266450000003,
+          "risk": 41.70138261717978,
+          "solution_id": "c237612dd05ec3261a81b683b19df1e950cf4b8fd925d2cc64cf85ca5443eb90"
+        },
+        {
+          "cost": 3278.573645,
+          "risk": 41.063604631660176,
+          "solution_id": "114c45972f2ae49ab243bb2f6f45853419437b9c81854d684d776e8a87c93b9d"
+        },
+        {
+          "cost": 3281.4416450000003,
+          "risk": 40.36041702329275,
+          "solution_id": "5a97d2df54067fc6739b734229c75f1f90fc62af76ae3f2ddab47cafdc295f4f"
+        },
+        {
+          "cost": 3287.0066450000004,
+          "risk": 39.164377503155485,
+          "solution_id": "7f7fb90f8f92c508282369486c2f9c2cd292e915c1238e11848e943ead33b645"
+        },
+        {
+          "cost": 3289.8746450000003,
+          "risk": 38.461189894788056,
+          "solution_id": "547ddfcf4a7fd72c7f6a0086e178de83aec9f477d6772ca9206f184b526b277b"
+        },
+        {
+          "cost": 3298.4726450000003,
+          "risk": 38.05597700038679,
+          "solution_id": "a8395ae43d9bc65433219b30a290f7bb070c3127e55fcf113efe2fdc35469f31"
+        },
+        {
+          "cost": 3315.275645,
+          "risk": 37.948294470092826,
+          "solution_id": "fde8e06c19178962115d6f77c63b09bd1897841bfb1466207c6bea20c8b66c73"
+        },
+        {
+          "cost": 3321.275645,
+          "risk": 37.812430022767636,
+          "solution_id": "f9e67df38a23fb2c06c47cea4fb2ca9a0c34a9ef61749fd88353bed438b6aaa7"
+        },
+        {
+          "cost": 3330.0596450000003,
+          "risk": 37.76834759249382,
+          "solution_id": "b874b6c9d2694324998991717f98ab4bffa07da6b823a3e383e3cffa60d85355"
+        },
+        {
+          "cost": 3362.790038,
+          "risk": 36.860024311365976,
+          "solution_id": "7f2fbd890c249a1291a54686e6e67d4b0ac276400d518a3b7c07c874ebe6e4a8"
+        },
+        {
+          "cost": 3477.174038,
+          "risk": 35.6989030064803,
+          "solution_id": "9ab4d4a7893eaf25145129a1b148657cdd343cf8227fb58d0b9cc490d3945f74"
+        },
+        {
+          "cost": 3564.629645,
+          "risk": 35.23300072127104,
+          "solution_id": "ff513144ada5015bf0130b140a783869a7f6ff2c061b5b26e7fac9eec9f2782c"
+        },
+        {
+          "cost": 3581.743645000001,
+          "risk": 34.735906505944854,
+          "solution_id": "47616fea1d14c6d1f8de136ce94a8067877c2ffff06bfc50a654cf73d8abb62b"
+        },
+        {
+          "cost": 3766.216645,
+          "risk": 33.83669685573571,
+          "solution_id": "cbfccd9a7cf0025d0354fa1c572a82e9c73ce746875df97d76b2a7e4e78bfc98"
+        },
+        {
+          "cost": 3840.2116449999994,
+          "risk": 33.48934694684927,
+          "solution_id": "f399e144dad15772f07bc14e9ef3846b89eb62a7b87488fd447384fb1dca8360"
+        },
+        {
+          "cost": 3861.085645,
+          "risk": 33.03967804406025,
+          "solution_id": "ed83dcee07454de0f648cd593c975f287362052f7e9644a41088a13a7190b933"
+        },
+        {
+          "cost": 3914.858193999999,
+          "risk": 30.1064137553032,
+          "solution_id": "94b8aa8724cedae47121feb88061ad47628a41bc63257acad949be11493cb02a"
+        },
+        {
+          "cost": 3972.9981939999993,
+          "risk": 30.001155755303202,
+          "solution_id": "6f4c06c4d4c898b4f534ceecb5b6f720040843d9381694c9b65e7ea2cbfa8dd9"
+        },
+        {
+          "cost": 3984.0471939999993,
+          "risk": 29.88128590310832,
+          "solution_id": "bfb921aab835e893e6505754c8e86084c4f9a64df8d547bec2206c284e3fbc5d"
+        },
+        {
+          "cost": 3998.777038,
+          "risk": 29.85731700329785,
+          "solution_id": "16bc790494b400b2887b7cdd3053d61132bb6018eb6be2e1a0d72a9be49976da"
+        },
+        {
+          "cost": 4001.0781939999993,
+          "risk": 28.612959146686244,
+          "solution_id": "d29e2a58653ad993208aca4eb034bb18b9e7db29d2be979c158725cabfa06814"
+        },
+        {
+          "cost": 4023.8811939999996,
+          "risk": 28.369412169067083,
+          "solution_id": "184da7038da8722cc46bb63594488baa6e8974f6c0acaac260f65ab0c51c0383"
+        },
+        {
+          "cost": 4029.158193999999,
+          "risk": 28.21559431410127,
+          "solution_id": "79624fd1808c77796d8432913d42e62ea7752d17f68a4ce5f162bcdc0ff69cae"
+        },
+        {
+          "cost": 4093.736898,
+          "risk": 25.16579407275906,
+          "solution_id": "56de2ce179a9f2e2838219e42e15486ecfce769a64a38839c3dba8d59df39938"
+        },
+        {
+          "cost": 4103.426898,
+          "risk": 24.802226183066317,
+          "solution_id": "1766da779c3e09583eacbda4aa6c054daeca61e4807b46df4ea5455b73563127"
+        },
+        {
+          "cost": 4109.072898,
+          "risk": 23.621905637795855,
+          "solution_id": "1d1cc27310ff956f5f9fe5a1e498993f5fbda42c283fb418be08fbd8f30905e6"
+        },
+        {
+          "cost": 4122.332898000001,
+          "risk": 23.137354140248416,
+          "solution_id": "81d7392e0aa5568d4ec3090d0875ebfe11aa54dc6160265b94360d90860525b1"
+        },
+        {
+          "cost": 4155.044898,
+          "risk": 21.862049664083578,
+          "solution_id": "86e1c1fca905c41892ea705e45d9d71edb8634518c890d09c77d290d1a6a1fdc"
+        },
+        {
+          "cost": 4168.304897999999,
+          "risk": 21.52863717695815,
+          "solution_id": "50e6217e59e675d1ef191986a18ff4dd8fc8f0e6a062f7d789e37784ae3bed21"
+        },
+        {
+          "cost": 4170.743898,
+          "risk": 21.50906777284792,
+          "solution_id": "41abe56a7d5ae1df4701312ed05c0588cf09b9af3ecbbdb73f68aa8f81fd2fa3"
+        },
+        {
+          "cost": 4209.4348979999995,
+          "risk": 21.481808440827162,
+          "solution_id": "a47fe8b0f9f97b06fd269c4a58a2fad9690fff81088caed1f33f231146f28512"
+        },
+        {
+          "cost": 4257.782898,
+          "risk": 20.729645207965344,
+          "solution_id": "8788a318c2f3d52018bdda77f41fe2d5c14fd52798f577c495f46b908b09ced4"
+        },
+        {
+          "cost": 4264.1095080000005,
+          "risk": 20.482777823582907,
+          "solution_id": "f7c780f2d1860a29a9d36d03cee56b1a643a5f2d9ea2fc511b2597525d5633a6"
+        },
+        {
+          "cost": 4277.369508,
+          "risk": 20.122358798047195,
+          "solution_id": "0f26b901fa614a40b74bb281678b7f9fbb7988eab92ad183c86a4839318c9459"
+        },
+        {
+          "cost": 4415.656897999999,
+          "risk": 20.06145178557511,
+          "solution_id": "7a137080341a92431044099a4bc254f641cab558d90a97bc8224e99ea649f597"
+        },
+        {
+          "cost": 4440.024061,
+          "risk": 19.757080960932438,
+          "solution_id": "14727de7f04fa5f348d7dd7067fa685b33cd01f6cab08c35fbf08ffe9feaa2a4"
+        },
+        {
+          "cost": 4558.576898,
+          "risk": 19.33030413262485,
+          "solution_id": "efd4b5745fb081360321eaeb602946ee30070546f09dc0452f90fa25ff535183"
+        },
+        {
+          "cost": 4574.2518979999995,
+          "risk": 19.03317766822573,
+          "solution_id": "599164a2b10928b8ae0a1e964c78f5fcfb208340a422adbc40d91b604eb158fa"
+        },
+        {
+          "cost": 4581.631898,
+          "risk": 19.017203123371782,
+          "solution_id": "67994619adad6d3aed361178021a1c6d3babb6e5c978150b9f676e3b6cd6eb30"
+        },
+        {
+          "cost": 4592.578898,
+          "risk": 18.78990991627605,
+          "solution_id": "ac0f4f5f1ad9714cd55ad7d72fb95739131fbe265512deb9dc63289cd6b4f9f9"
+        },
+        {
+          "cost": 4595.017898,
+          "risk": 18.77034051216582,
+          "solution_id": "c665d3ccf365ce0c987b9d076ebb6ab0fd257ce144080ba29086a44f5b1c607a"
+        },
+        {
+          "cost": 4615.381898,
+          "risk": 18.69181324413189,
+          "solution_id": "83dca9a270f06cadcf314569c6869cd33fbd460b52ee0a73dd61cf4d76b11e52"
+        },
+        {
+          "cost": 4717.003508,
+          "risk": 18.542755951146734,
+          "solution_id": "4ce3afefe1b6698ec9d0be2007ab62e5f4fda429cc02023e9501644885407d4d"
+        },
+        {
+          "cost": 4724.383508000001,
+          "risk": 18.526781406292788,
+          "solution_id": "25fed74837d4293f36fc581d2290e544a7b987716964cea6a781e60c1503383d"
+        },
+        {
+          "cost": 4735.330508,
+          "risk": 18.299488199197054,
+          "solution_id": "b092f4238d6fcf79b194dc6ceb5d504daff738f6b7791c7ddc50d07065c425c7"
+        },
+        {
+          "cost": 4737.769507999999,
+          "risk": 18.279918795086825,
+          "solution_id": "6306a512881d8a7fc13c5997c962cfe987653b90dc2c587f49003d3dc78bb320"
+        },
+        {
+          "cost": 4758.133508000001,
+          "risk": 18.201391527052895,
+          "solution_id": "2cc0129b5c13407129c510d990dd0131c286ed4c3d38e62c1e966bba50c95912"
+        },
+        {
+          "cost": 4781.790898,
+          "risk": 17.765353916276048,
+          "solution_id": "3994800da4e6b0c3b01675d112d4c68cedebc8541bdf45d180feef4bc677fe78"
+        },
+        {
+          "cost": 4839.930898,
+          "risk": 17.322724524893005,
+          "solution_id": "5b221722729bc4d5b44ff23c2f7de050985cc89778471bde8467623fe00fe98b"
+        },
+        {
+          "cost": 4874.555405000001,
+          "risk": 17.193409342463784,
+          "solution_id": "4e9c55d75f8fee901f8380a604513a1084ebf261c9c1798eb1d273501485ff98"
+        },
+        {
+          "cost": 4879.031405000001,
+          "risk": 17.135802789211183,
+          "solution_id": "72f20e9bd3a7a41746486967dd9da6fa4ee03b62cd88cd0edb1d4c5e8733d8d3"
+        },
+        {
+          "cost": 4886.959898,
+          "risk": 16.869444440369907,
+          "solution_id": "99244ef78f2bc3e73473bf7d561e42b0be0aaf00048c68c7bef17e3c213b227c"
+        },
+        {
+          "cost": 4899.985897999999,
+          "risk": 16.70728849785871,
+          "solution_id": "9a167e401c4518729da078d0b35126b079c58dbee26e880d25fe3bd66e67a507"
+        },
+        {
+          "cost": 4997.678378000001,
+          "risk": 16.661085532494578,
+          "solution_id": "dd61af51544359cc41eb1d4385da0dfc3667a5d0955d089f68277669540d2130"
+        },
+        {
+          "cost": 5048.603405000001,
+          "risk": 15.790894785400633,
+          "solution_id": "4009571eb52f4272ab68d8911b1da927d2dca888966b2cbeb9ee3b895157bb58"
+        },
+        {
+          "cost": 5070.854405000001,
+          "risk": 15.599451558989188,
+          "solution_id": "9152f3dd33b29a452e89a91d6336fc2820735400c0f860d1461a2f18c5f24985"
+        },
+        {
+          "cost": 5082.110405000001,
+          "risk": 13.849015847979041,
+          "solution_id": "4f7ec68e191baeaf768b42572a822a63441fa2e08615036226a5e37589106737"
+        },
+        {
+          "cost": 5105.8058980000005,
+          "risk": 12.874573373607562,
+          "solution_id": "871c5f6380707e96f3b9ea6bb111f2861982a7071e14b8ec7d8b4c00c1b3ca81"
+        },
+        {
+          "cost": 5130.717898,
+          "risk": 12.760996339614254,
+          "solution_id": "f79ceeb399774aed52895d6dc5ec992388986d32238c455dcfd370136b5d9ad5"
+        },
+        {
+          "cost": 5146.053898,
+          "risk": 12.50598277866385,
+          "solution_id": "a599fe3660c7c5b06742f506b27646f3b030f1e808c828a309f803bef84f2401"
+        },
+        {
+          "cost": 5158.023898,
+          "risk": 11.934647589956366,
+          "solution_id": "199a27366cdb7275463613dd54c77331741f2636d30b687c672b80128acccf44"
+        },
+        {
+          "cost": 5169.222898,
+          "risk": 11.530280618226724,
+          "solution_id": "09136515b65fecebfb6e0931b0c698c0a63d4d99075c1d7dd2cb4caf3ffe4928"
+        },
+        {
+          "cost": 5189.586898000001,
+          "risk": 11.413822777717796,
+          "solution_id": "7b2b93f6f574da80edec537054e82ad5fa1c577ce622cc05331dabfa2f150d38"
+        },
+        {
+          "cost": 5192.025898000001,
+          "risk": 11.394253373607565,
+          "solution_id": "04b29a263de19277a3cc417ad808e07bde302311362e2ffe0b184d23cd4b434b"
+        },
+        {
+          "cost": 5233.155898,
+          "risk": 11.31572894297463,
+          "solution_id": "5fd10ae2c13c459cc270778fb98c5db742a2b296de2e3f20d370dc5de60ea2a4"
+        },
+        {
+          "cost": 5298.078898000001,
+          "risk": 11.245886901415217,
+          "solution_id": "bfd3101fa96c08aa7f51af6ac8e7c408be54919b7fd98f23c62c6024c516366c"
+        },
+        {
+          "cost": 5306.697508,
+          "risk": 11.220725189696365,
+          "solution_id": "c5cdf319efd486fa9c5651fad3a2e7dc13fd7891dc11f2b3165583c49bcbcb28"
+        },
+        {
+          "cost": 5311.974508,
+          "risk": 10.96750779987031,
+          "solution_id": "a9a49f9858c07c1cff405067e6bd8ad2698f0642583d0d1c531674384c671347"
+        },
+        {
+          "cost": 5332.338508000001,
+          "risk": 10.851049959361381,
+          "solution_id": "32ea835141a7aa34864a599346d4128d1725c9d600b9c15e47cd531da670c4f7"
+        },
+        {
+          "cost": 5334.777508,
+          "risk": 10.831480555251149,
+          "solution_id": "40b143b3895ee980268eeef9c3c577aad9f4ddf0818258cf006da95d16e24843"
+        },
+        {
+          "cost": 5375.907508,
+          "risk": 10.752956124618215,
+          "solution_id": "e4dd41502e9cd51d4f55e7722402a42080ff63670299353ffdfc4a5cd710fca4"
+        },
+        {
+          "cost": 5429.423927,
+          "risk": 10.698272090961423,
+          "solution_id": "e3b157ef6e2d3f8ab8dd2124caaf69989f592cac9ba6214ab0de9de03002181e"
+        },
+        {
+          "cost": 5440.830508000001,
+          "risk": 10.683114083058802,
+          "solution_id": "e7415472a45c6cf1e767e692d1a083ec36e0ebdb4ce29d206b98047fb73aa573"
+        },
+        {
+          "cost": 5470.091927,
+          "risk": 10.587938029424846,
+          "solution_id": "e02c8d74dc4f6f01c60cd409c0038d358db1147535f12fc59d1c74309d557d84"
+        },
+        {
+          "cost": 5500.917898,
+          "risk": 10.303132373607564,
+          "solution_id": "3a36c7b75e0d5caa14780759e62fa6d65090a98f18d08fa38dec00d8e3bfaf6e"
+        },
+        {
+          "cost": 5577.4977850000005,
+          "risk": 10.282780749401505,
+          "solution_id": "6ce50e18686dbf705c040f02250f3d69e63f6a7f3de27a9082d99662eec80fae"
+        },
+        {
+          "cost": 5615.255507999999,
+          "risk": 10.258610963193808,
+          "solution_id": "75314f5cac07d448b77aadf7929885efaf192bbd341c5e343a7f5c36e7b96cf6"
+        },
+        {
+          "cost": 5631.014204,
+          "risk": 10.228096715744714,
+          "solution_id": "a862b420fe3747e6e3604f3a98a70a215d5fb454f726cded3bb229b1eb019c1f"
+        },
+        {
+          "cost": 5643.669508,
+          "risk": 9.740359555251148,
+          "solution_id": "ae276253f38b12f57c4cb6a16bbbc76290799a8076c4f7faf255f71ed79e8295"
+        },
+        {
+          "cost": 5697.1859269999995,
+          "risk": 9.685675521594357,
+          "solution_id": "7f905805d3db08397e6336e72cbc25cdd1eefe900cf088695194ebe9b1dfb287"
+        },
+        {
+          "cost": 6061.9129269999985,
+          "risk": 9.669331051783868,
+          "solution_id": "c3bea97dad5369f4bdebe88cfb88222b41bef48385cfad370ebdf59a2e383ec2"
+        },
+        {
+          "cost": 6064.351926999999,
+          "risk": 9.649761647673637,
+          "solution_id": "f8e24c0ff79082ba44f24a02f8612b916d0e6d2c05746ab5b849e1e6300c1a44"
+        },
+        {
+          "cost": 6194.831927,
+          "risk": 8.316292467888115,
+          "solution_id": "a97d0afad37b010ccdacf15ae8147d43202f510b9e93e69c5fb8e7a2d5d05f39"
+        },
+        {
+          "cost": 6290.579927000001,
+          "risk": 8.085420083086813,
+          "solution_id": "1f52afd18602f4fae93938ef570d99e63207c46eab42e94c1fa806ce489fa16b"
+        },
+        {
+          "cost": 6373.528926999999,
+          "risk": 7.937504576152556,
+          "solution_id": "d9ecdc46c9e04cf771f4509e84acfc331636b08004f1718d1e59d09c19b3397e"
+        },
+        {
+          "cost": 6391.855927,
+          "risk": 7.78169422228316,
+          "solution_id": "9835d965d3c7cea1f5b0bac85f2e1de0384c41034401dadeebc520ba66733c03"
+        },
+        {
+          "cost": 6409.138926999999,
+          "risk": 7.745462390623429,
+          "solution_id": "b5f0e12d5af53592bbb0c2b8037cd9a6c31144b7bad03ead98e3b06bdf846f1f"
+        },
+        {
+          "cost": 6417.432912000003,
+          "risk": 7.697110436912072,
+          "solution_id": "65793b77032578c01c20b7e38dc024fa680c0cd76b6ae92dd00d41c8be816e88"
+        },
+        {
+          "cost": 6445.2889270000005,
+          "risk": 7.61594187676266,
+          "solution_id": "0cfea69e51197488faf8a691a704d485aacd0b94f99f2edd041dd9c728d08877"
+        },
+        {
+          "cost": 6447.727927,
+          "risk": 7.609310941055496,
+          "solution_id": "5bedde7eee4127e7a2f552ad669150852d67f7772de6bea5647bec14c0d547fe"
+        },
+        {
+          "cost": 6511.984927,
+          "risk": 7.560117259895285,
+          "solution_id": "3500ab9f048b807aefa2ef68b05598140e7c419f6ab2e78a533651d6c08b5b7f"
+        },
+        {
+          "cost": 6550.2079269999995,
+          "risk": 7.53559688896342,
+          "solution_id": "295bd67ea06e9119dd61c430306ae6ffff4a6d570eb2b8c7278713c263098589"
+        },
+        {
+          "cost": 6553.780926999999,
+          "risk": 7.51497031457029,
+          "solution_id": "df0b5cc80df60439200de076cf63531f42f91b05a4883c802c8e6722b16de380"
+        },
+        {
+          "cost": 6607.7255190000005,
+          "risk": 7.353225019497993,
+          "solution_id": "efb75f6806079128f3b508a98ff69b85dee6039db739b99ad1621e9d8bf32163"
+        },
+        {
+          "cost": 6629.773611,
+          "risk": 7.3052309297672,
+          "solution_id": "b6cc17f451aa8723ea58d89a9f096fa5b3fd1d50f857a4067697ea4b80da71ca"
+        },
+        {
+          "cost": 6728.205926999999,
+          "risk": 7.160286941055497,
+          "solution_id": "6a0e918fc7205b8bc7f30de8804f525563761dd36f4b6fea41abd3ad57e72431"
+        },
+        {
+          "cost": 6915.4719270000005,
+          "risk": 7.139282941055495,
+          "solution_id": "181b821ee9c7694a083d78de9683a8a8e1690b0b59fc0f0ac708e72b1ffa8e27"
+        },
+        {
+          "cost": 7424.805545,
+          "risk": 6.000030778291106,
+          "solution_id": "66b641aa3ee0489f8d7eb0309c49b92703acba09d7e79ba63485d93e0e398571"
+        },
+        {
+          "cost": 7502.6285450000005,
+          "risk": 5.731248326827634,
+          "solution_id": "0c14c0a36c73dc15ff503f7adf34b510b299cd184f80152684548c05cde1345e"
+        },
+        {
+          "cost": 7523.196545000001,
+          "risk": 5.719953892582042,
+          "solution_id": "dd1ff4aa321f46a1360be6045235ea365cfece8e9ad6ff9e5cc18b6157cdcf28"
+        },
+        {
+          "cost": 7524.984545,
+          "risk": 5.684023080628947,
+          "solution_id": "7b340b9fcc011480243cee178ba68961d21dd30d939a7594373fce16d43fbc56"
+        },
+        {
+          "cost": 7777.308545,
+          "risk": 5.681956807288586,
+          "solution_id": "af1e857cd7b9d7673d36fe331273d6e0ade6a5814efde258283253f1f2a97412"
+        }
+      ]
+    },
+    {
+      "scale": 2,
+      "model": "large",
+      "repeat": 1,
+      "all_hv": [
+        0.728656330826854,
+        0.7293795169656065,
+        0.7045914111652106
+      ],
+      "archive_id": "PPO-Test-2-large-r1-B252000",
+      "points": [
+        {
+          "cost": 2975.5498979999993,
+          "risk": 62.25048228469825,
+          "solution_id": "8c7adf37cf2d85ee89d750371dcb35d1a79cbc20f6c19bcb391015d1e4922e6a"
+        },
+        {
+          "cost": 2986.5688979999995,
+          "risk": 60.500624355125126,
+          "solution_id": "01bc10280d105bf91264e60524e550951ab37604aa6a174cb3aff06e7218f290"
+        },
+        {
+          "cost": 2989.0078979999994,
+          "risk": 60.48105495101489,
+          "solution_id": "a06e75cc1ae501d8898aa92c03336c65e6f42c4c8b6bcbad160053c44ceded91"
+        },
+        {
+          "cost": 3012.8398979999997,
+          "risk": 58.353906878258385,
+          "solution_id": "8435c6feddc86446f9f3f1300c573d5d9d6f9541d228bf3e344bcd4d4c27193e"
+        },
+        {
+          "cost": 3016.179403,
+          "risk": 51.73301026820792,
+          "solution_id": "ba5230a64ffbc28a1e94b38516883751dc349661b4dd81b69a8e8eb9a3eb3bce"
+        },
+        {
+          "cost": 3019.4477960000004,
+          "risk": 49.44935000310568,
+          "solution_id": "07c56cab46b967a1dd2359c948f9e58c89af8684ee41577d8595258002e99ea2"
+        },
+        {
+          "cost": 3022.7472980000007,
+          "risk": 48.80264334645199,
+          "solution_id": "2ed7bf3f7fb7d419051e411557ef9deec4ea6d8df5be2c8db82dd8a620e6412e"
+        },
+        {
+          "cost": 3024.0964030000005,
+          "risk": 46.045295444856954,
+          "solution_id": "4a41e6bb9ffbe3e52a8469a7ba244dafffef988020d68e259a054315751824c0"
+        },
+        {
+          "cost": 3039.7602980000006,
+          "risk": 45.814894759359056,
+          "solution_id": "4f59314db5a8d0bb0874699a212a38f78a31481fc945503482ee24804761b9bd"
+        },
+        {
+          "cost": 3053.8092980000006,
+          "risk": 44.335602981437745,
+          "solution_id": "387c25e8986803fc57140d5f3f9e8e8f2f83dd4e762f160e1029c834fafa0198"
+        },
+        {
+          "cost": 3056.039457,
+          "risk": 38.087509959718815,
+          "solution_id": "273e245d6d93edfc004931e5513fee3f2037cbf00a7c6f576ebbb14d79ea8791"
+        },
+        {
+          "cost": 3059.5824570000004,
+          "risk": 37.975480528095034,
+          "solution_id": "9d726ca49eaa9c6898e4b967029da6a721a948d58de59ecb9b24ee8e9d073a93"
+        },
+        {
+          "cost": 3094.7664570000006,
+          "risk": 37.25905634281387,
+          "solution_id": "5cb86c918a8c96962525988e508977f5d8a25e6c0c238e2c66cdf025d1f73c2e"
+        },
+        {
+          "cost": 3097.7064570000002,
+          "risk": 36.96279650492538,
+          "solution_id": "393d0fe5830773cfd459ebab897e2a516e1eeb3367f0a13209bc75fbd2148ce6"
+        },
+        {
+          "cost": 3101.249457,
+          "risk": 36.8507670733016,
+          "solution_id": "34645ebbaec0dc68908d2c9bff8acbd25de2a4b65ac3489fdea7e893120a8b1b"
+        },
+        {
+          "cost": 3131.0964570000006,
+          "risk": 36.5068146355065,
+          "solution_id": "6e5b877ec620c043bb9c56697714c9d3d7e408cc4fabfeb868937ef4217a79ea"
+        },
+        {
+          "cost": 3262.352457,
+          "risk": 36.41858804706046,
+          "solution_id": "8cd524debf14fc7c5ada7f945eea73700a29408b5b47cb0f1dd170b67e957097"
+        },
+        {
+          "cost": 3286.9184570000007,
+          "risk": 36.03769050492538,
+          "solution_id": "d95a6a1b9c0372fcd206963208317d88262d51600fe565346e9a6f2ce6de34ef"
+        },
+        {
+          "cost": 3290.4614570000003,
+          "risk": 35.9256610733016,
+          "solution_id": "0e771e16f5d2e8b24e6b817bb03dc5f6f90f385a7d10386d3355b2afea530ea0"
+        },
+        {
+          "cost": 3344.456177,
+          "risk": 35.37640287898626,
+          "solution_id": "e50dc7fe8a6c891d13cb159ee1536a1fcbd3f752d441dc862fd5bb7f0ea7a435"
+        },
+        {
+          "cost": 3364.174457000001,
+          "risk": 32.83572441184429,
+          "solution_id": "7752f5dcdb5933596ceb321259da1a165b7a421c90ca33d7b63c79b0119ec119"
+        },
+        {
+          "cost": 3650.6948979999997,
+          "risk": 28.631146811066834,
+          "solution_id": "2b2ad2691b9a287f1925a01770b9cffc3c42ced049a287201cb1ed4ff037bda5"
+        },
+        {
+          "cost": 3685.293898,
+          "risk": 26.739260320845,
+          "solution_id": "0258e68fcd9505ac2876e9c9e068aad40cacad226446ebcbef35a76e7e644a49"
+        },
+        {
+          "cost": 3705.680898,
+          "risk": 26.094911615624547,
+          "solution_id": "93164e8a03fe35f5f6dc8e1dbc44bacf4a51c1010c798cf7ab574fbeb515701f"
+        },
+        {
+          "cost": 3724.0078980000003,
+          "risk": 25.72658882832905,
+          "solution_id": "4f25c4986fb239f5f7ffd75e19f1f3eb04e4c88c71936077961c9a02429adf02"
+        },
+        {
+          "cost": 3740.810898,
+          "risk": 25.295396481804,
+          "solution_id": "43a146d009bfa5349593dc7d50ccc28f293ff34482bf1d4ee335cb9c88154ece"
+        },
+        {
+          "cost": 3746.810898,
+          "risk": 25.143789900732166,
+          "solution_id": "64e3536fa6ce05882c88fe875045e447a5d227cc97b0d03daa50f4a08f7586f8"
+        },
+        {
+          "cost": 3749.2498980000005,
+          "risk": 25.124220496621938,
+          "solution_id": "fc8c30b14ca1a334170fb928a307e2dc13d812a9287ccb9038693ffc6fc1bc20"
+        },
+        {
+          "cost": 3793.2268980000003,
+          "risk": 25.0990836467735,
+          "solution_id": "ee808949f505330e6d308aedabbc8187aa7437cb731f44181a8c4bcab0e7f0bb"
+        },
+        {
+          "cost": 3881.1715080000004,
+          "risk": 24.692886228976114,
+          "solution_id": "3ebed8f2767b5d941bd563844f16bc71829c0414c0532711ca13c658f323ef1d"
+        },
+        {
+          "cost": 3889.562508000001,
+          "risk": 24.066740295563996,
+          "solution_id": "bcf3ac9688b92fdfe0c20d9832eabbb7983b776fe728129624298fad8d07c96a"
+        },
+        {
+          "cost": 3994.162898,
+          "risk": 23.676604509349126,
+          "solution_id": "6166c9e931b30f49d481cf6fc169f11f2da6a8da5bfe3e8ab1e5188735d586b5"
+        },
+        {
+          "cost": 4060.001898,
+          "risk": 23.558338893248454,
+          "solution_id": "63e23fcebb17c374c3cd0e84ac1d111c5b06ac799cccbaf4815c509d51cf6e8d"
+        },
+        {
+          "cost": 4066.883898,
+          "risk": 23.48919282285647,
+          "solution_id": "8f23f0e29b539980e18f76837d946ca64e7619fb7d5465426229e6d7c4178357"
+        },
+        {
+          "cost": 4069.760898,
+          "risk": 22.60479181824789,
+          "solution_id": "5a897385d95ea2bfee4fe476784de53ddf564b28b51bc3c93b0d885eb4a06b84"
+        },
+        {
+          "cost": 4083.587898,
+          "risk": 22.22922598793727,
+          "solution_id": "b4cb15c469c758dcc9c58136420f42b7aea8fbb906ed8bb6b0de85eb733d138f"
+        },
+        {
+          "cost": 4100.884126000001,
+          "risk": 21.9899255026553,
+          "solution_id": "6d9ec37c1224d42dd76aa7593c5b985dca0be206198f933369d74128ad1a6f72"
+        },
+        {
+          "cost": 4159.024126,
+          "risk": 21.76082111127226,
+          "solution_id": "bcd5ad8df1583c14c013aef23754a9017c337479bcd40e214313943c1842e75c"
+        },
+        {
+          "cost": 4159.210126000001,
+          "risk": 21.33283155327738,
+          "solution_id": "65843721fa30ddd90e6956159713d926e657cf273821739f402737c221f044ec"
+        },
+        {
+          "cost": 4184.164126000001,
+          "risk": 21.23169370458091,
+          "solution_id": "0e13785a89e5346b626d9f86db9b5ef71e7639c4a359fe3d9c0cedc46009358a"
+        },
+        {
+          "cost": 4187.104126000001,
+          "risk": 21.060155502655302,
+          "solution_id": "50c010bde8de6eb3cce206a24630eabc8902012aa2a1a23d3c10227de7c96d96"
+        },
+        {
+          "cost": 4242.490126000001,
+          "risk": 20.57459975520299,
+          "solution_id": "264a4577121069087a487e40ff1a46f652886ec794d52a93bf47a5ee1d644c82"
+        },
+        {
+          "cost": 4245.430126000001,
+          "risk": 20.403061553277382,
+          "solution_id": "f76ac8f7601ab6ec3e2a7d609b8c10fd7faf56add49ac387bb238bb38962a568"
+        },
+        {
+          "cost": 4286.560126,
+          "risk": 20.188250189380515,
+          "solution_id": "11f0bd92925247df6e51e1e6f8d4d7d608814aad50680c2c94ad1f3121c15097"
+        },
+        {
+          "cost": 4324.903126000001,
+          "risk": 19.964712578775433,
+          "solution_id": "b8d7b372b67ad3ee0d51f0b3489a6a5db9cec66e1dd095a92d9b8dc0abbdd185"
+        },
+        {
+          "cost": 4346.532590000002,
+          "risk": 19.78847813943494,
+          "solution_id": "96904fbb7e4a53ecfdf7b0411c6df74cd91a5f6cfe103f322bc6dea8630d544f"
+        },
+        {
+          "cost": 4434.289998,
+          "risk": 19.305015001039173,
+          "solution_id": "7f7a7b7e184098cf356a1bd4739e2882cf6d7c423dd5ed8437502e876add72c5"
+        },
+        {
+          "cost": 4437.271998,
+          "risk": 18.35597475653774,
+          "solution_id": "bdfda8dc10f031c447ee1fe80c650f7843007ecea563713053976243777e974d"
+        },
+        {
+          "cost": 4464.290508,
+          "risk": 17.718664201909206,
+          "solution_id": "535ee0113e94f1114235c7b3c547da6b65859be28f9701a05e9ed8f4af5f12eb"
+        },
+        {
+          "cost": 4475.078898000001,
+          "risk": 17.49589059190524,
+          "solution_id": "84308799f3e96a4844266e79edf8a0718f4bc31abbc0a02c0ec2eb87157f4416"
+        },
+        {
+          "cost": 4490.414898,
+          "risk": 17.111311914020792,
+          "solution_id": "c57a5fbb028b0e6b9318c55f51d8198dce5a4606f870f8471183469e04b3e39f"
+        },
+        {
+          "cost": 4502.384898,
+          "risk": 16.41867601833651,
+          "solution_id": "00f1a0d9e7e4510b4cad13802262469f731f5781ed32c7f74eb99280ffaca4e4"
+        },
+        {
+          "cost": 4525.4398980000005,
+          "risk": 16.10557500908344,
+          "solution_id": "34446c0f326c09c78142fc3964e2b7d17313ba824bd5fb2317ccaffddb23f4f7"
+        },
+        {
+          "cost": 4533.947898,
+          "risk": 15.897851206097936,
+          "solution_id": "3d49041dd6b1c83016298680eaabdb5dd7678e4bd48b5784548d0dabbf3d2ee1"
+        },
+        {
+          "cost": 4536.386898000001,
+          "risk": 15.878281801987706,
+          "solution_id": "5a57eed1c9ac86bce5e151d2f7fb676f54149b5696955fb47f9d8f688967a095"
+        },
+        {
+          "cost": 4577.516898000001,
+          "risk": 15.755950813395291,
+          "solution_id": "fcb03bc3e3650df3c30fab67685f4e42776096834e2c7de6c54ec3e264470733"
+        },
+        {
+          "cost": 4631.579707000001,
+          "risk": 15.717638495834064,
+          "solution_id": "911980b5021b1f2dd68da2dc5e7714c1506d42d8f7eb7d36d811405ab950900f"
+        },
+        {
+          "cost": 4640.156707,
+          "risk": 15.662874068261296,
+          "solution_id": "1b39cc8ad788bc7e59d76d07a9918f7fb77175ef5016347c3ed2e75e87c862d1"
+        },
+        {
+          "cost": 4648.775707000001,
+          "risk": 15.55063553925951,
+          "solution_id": "3a7e9695513655b44e40904aaa8577c4f19098cf7e2cacd9df255efd5a4efcff"
+        },
+        {
+          "cost": 4667.483707000001,
+          "risk": 15.513670289339215,
+          "solution_id": "10f44c783a9f3ae6aa8c932bdb8735a1966bb81fc82f74f6bcffb7c4e0f05bac"
+        },
+        {
+          "cost": 4669.9227070000015,
+          "risk": 15.494100885228987,
+          "solution_id": "dbb93dc41e0cf4b00c05c4bbdcfac606bac1869cc709b5a3621e3c6cf468de4b"
+        },
+        {
+          "cost": 4676.699508000001,
+          "risk": 15.407429489018941,
+          "solution_id": "d1872f0815af23f56b759603ae28947c833688fbf304d46d3cfc0b48849f8c67"
+        },
+        {
+          "cost": 4679.138508,
+          "risk": 15.387860084908711,
+          "solution_id": "83fbc7560ed7bebbdd61a4aae9758301442d3f4e1e54d7be23b002f4bdf749f6"
+        },
+        {
+          "cost": 4698.482707000001,
+          "risk": 15.281059747789875,
+          "solution_id": "7078cb2a6445187520b034531f84a67c47d6d4b05f1c0bee5bb5efaa25a7a3d9"
+        },
+        {
+          "cost": 4721.978707,
+          "risk": 15.032294568572588,
+          "solution_id": "526ccd47cab071153c5d2bfdb3c8ca55f36983eda61b96afcee38d6e523473b2"
+        },
+        {
+          "cost": 4725.598898000001,
+          "risk": 14.853725801987705,
+          "solution_id": "2f5d124bd6f2a65a520d11adffd5919d14318dd71dec518ecd8960afa370bb71"
+        },
+        {
+          "cost": 4780.304707000001,
+          "risk": 14.65048024810117,
+          "solution_id": "b458d63c571fe4e09696b6453af30059d8658f23311e8cca35d59da47e13e0c5"
+        },
+        {
+          "cost": 4783.7388980000005,
+          "risk": 14.411096410604667,
+          "solution_id": "98074c5c32ffaa7a4993e5614591f660f2a7c6c603a389eee125c9e09cb22622"
+        },
+        {
+          "cost": 4868.350508000001,
+          "risk": 14.36330408490871,
+          "solution_id": "8d97afb78748df0db31d3b63b0ba0980d573bb17f9b7befda99936ead632a7c7"
+        },
+        {
+          "cost": 4921.866927,
+          "risk": 14.313539671630402,
+          "solution_id": "9f3726f82ae736cd2ba66a23ba7135f73163b2b981398e06ff51179d0dbdb93a"
+        },
+        {
+          "cost": 4926.490508000001,
+          "risk": 13.920674693525672,
+          "solution_id": "64a8fe13f47f499bca8ed09b8e1be7e5b480d3df0ccd9417c2d12824bafa2158"
+        },
+        {
+          "cost": 4980.006927,
+          "risk": 13.870910280247362,
+          "solution_id": "1790ace4007055cf80ec07ccc96a4a63981cba6c92bc5fbc0c6bd1285149d6ab"
+        },
+        {
+          "cost": 5084.805545000001,
+          "risk": 13.632115519633567,
+          "solution_id": "299fec1b2e859ea687d2b93f9f0a1ca1d366eeb3e9b418dd76dbe048c2fd6333"
+        },
+        {
+          "cost": 5091.164927,
+          "risk": 13.578878013484514,
+          "solution_id": "12bf83d2cc012b433351577eda988f9a1a1efc887f49a19f517e17c7ea3bd2b1"
+        },
+        {
+          "cost": 5119.244927,
+          "risk": 13.189633379039298,
+          "solution_id": "b86022233aa2f6a867fb9b016abe5c800e649b26bade03b01c75f65637667701"
+        },
+        {
+          "cost": 5160.374927,
+          "risk": 13.067302390446882,
+          "solution_id": "9674da8576227c337860436e189e2e1fc66461e40b9c71dc54a0ef9fd3b4f978"
+        },
+        {
+          "cost": 5205.855544999999,
+          "risk": 12.72348387510762,
+          "solution_id": "0f9b54e0812e947218a595e7d5c86d55ff74c7db818c4ab4f98293482c7f3507"
+        },
+        {
+          "cost": 5219.7929269999995,
+          "risk": 12.304901218139651,
+          "solution_id": "d467a1b40dd68ece36571d7a45346e3a5d043a6c52fa950fe9a0ceb3bd225f80"
+        },
+        {
+          "cost": 5242.848545000001,
+          "risk": 11.723601376435786,
+          "solution_id": "238a9a30c79f042f6d2c899bdd464ce0e9b4a715720789ae5e45b1b282b61da2"
+        },
+        {
+          "cost": 5249.2079269999995,
+          "risk": 11.670363870286733,
+          "solution_id": "fd2bfedadc78cc0b0a31d375f8cd310ebfdebddf48b8caf4020239b20eac25e6"
+        },
+        {
+          "cost": 5255.705926999999,
+          "risk": 10.993174006586171,
+          "solution_id": "e4030fca5e4ea04e2d57c103cfca294d54022639d296a764a0130b17a119414e"
+        },
+        {
+          "cost": 5293.956545000001,
+          "risk": 10.3285619720176,
+          "solution_id": "ce8dd7483b96f2dceace7d521308f1d5b75d5f59d99283b7c1947ce11335f421"
+        },
+        {
+          "cost": 5296.395545,
+          "risk": 10.308992567907369,
+          "solution_id": "04ffdde35e9ce736c87cad34debad2baefbf5354313d519e26d8788b32668163"
+        },
+        {
+          "cost": 5368.287545,
+          "risk": 10.30375642628882,
+          "solution_id": "d5a2d7a2980f351cab968a6508a1211165e8e6ebd5c925cdf22d477c973922b4"
+        },
+        {
+          "cost": 5375.222926999999,
+          "risk": 10.29987098648506,
+          "solution_id": "b02ddaf086727b59bc8f310cdc5053e2edfdd325bff325e77c20b22b4b4562db"
+        },
+        {
+          "cost": 5397.9005449999995,
+          "risk": 10.25461051378224,
+          "solution_id": "978365ba643cf89217bcdc9c30cff62fc4733b7b805a07bc77b8c37f23993099"
+        },
+        {
+          "cost": 5414.703544999999,
+          "risk": 10.052554454082493,
+          "solution_id": "1b114a0cafb2f3706b27318bb2b124d3a389ab15236c99c7b253f50d216ec105"
+        },
+        {
+          "cost": 5418.264545,
+          "risk": 9.968470312883564,
+          "solution_id": "48fc0dbda96a787611ed96b8c98985289db26561c41fd365875598beb4fef2a7"
+        },
+        {
+          "cost": 5420.703544999999,
+          "risk": 9.956052471145798,
+          "solution_id": "1829bbce84e790b65defcb1ee690251cecc6fff13b730e0fadea9ed20c7c0586"
+        },
+        {
+          "cost": 5444.1555450000005,
+          "risk": 9.196274714051253,
+          "solution_id": "8961511ed1d6cd4703eab1162e5e3ccb17826ace71a2e2186bc96263e316eb2a"
+        },
+        {
+          "cost": 5482.498545,
+          "risk": 8.815409702643668,
+          "solution_id": "5c9b7538cf5bef0f2b991fb746bea914a9b253908b380f8ea6af87da53c67533"
+        },
+        {
+          "cost": 5517.6285450000005,
+          "risk": 8.789580696987949,
+          "solution_id": "7c387d9d3c9036519ff33e625cb86b9778fed756a23153a6fa46077aa089e530"
+        },
+        {
+          "cost": 5521.189545000001,
+          "risk": 8.699709649758418,
+          "solution_id": "241a4789d4f7743beb1eed21e2491132bd07b40db8fd205fb3439a27e2256cb5"
+        },
+        {
+          "cost": 5523.6285450000005,
+          "risk": 8.693078714051254,
+          "solution_id": "9642b94b726293eb1f544bd9c7e3f12288c8db862b1f60f4e789d9dca9498e7c"
+        },
+        {
+          "cost": 5570.044545000001,
+          "risk": 8.66775978197045,
+          "solution_id": "9b757c1f3588847f4bb6f5198bd2ca5ebf3e501b6dd99d88e2a0489d53e7de54"
+        },
+        {
+          "cost": 5629.681545,
+          "risk": 8.598738087566048,
+          "solution_id": "03b74e7049d415f604427d748e0348cd63a068ad3cb8157ca9697858ad001816"
+        },
+        {
+          "cost": 5683.626137,
+          "risk": 8.433302470149814,
+          "solution_id": "1ff6fd52de72dd99c60dc4f1b1cb429deffd477d007eae213bf9d8cce8db7112"
+        },
+        {
+          "cost": 5705.674229000001,
+          "risk": 8.388998702762956,
+          "solution_id": "42776800f2b7b7da2c3df7d56277d0c3114e0ae74b92e7eac04b030ef1dedac0"
+        },
+        {
+          "cost": 5804.106545,
+          "risk": 8.240364391707317,
+          "solution_id": "5502516cea537aef2edc09d7b6bfb9cc6b692fa16cc15253c0af18c8c9ed36ef"
+        },
+        {
+          "cost": 5860.4055450000005,
+          "risk": 8.086726254372161,
+          "solution_id": "17a48a03d3039bd367d65336db9e079590845b8287fa2fbb0d553e0d2e53247f"
+        },
+        {
+          "cost": 6106.758545,
+          "risk": 8.053719478269013,
+          "solution_id": "d9f829006c0a132050d5bd65b1a47907098e166a701bfadc991484c12f197834"
+        },
+        {
+          "cost": 6970.211098999999,
+          "risk": 6.816168079459723,
+          "solution_id": "390e64572a1f51e849f86c025992fb300b3d139e0b8747779038163b9acacc69"
+        },
+        {
+          "cost": 6993.014099,
+          "risk": 6.754233320863043,
+          "solution_id": "88fd881b0edac3f5e2728cacf7691ebe8d5b4514e7a21c0aede616d97f882f0d"
+        },
+        {
+          "cost": 7065.774400999998,
+          "risk": 6.56483362867315,
+          "solution_id": "326b698fbca40dc5d3c90143fd050bc353751e2754b452c56d34daaa31ff915c"
+        },
+        {
+          "cost": 7163.387414999998,
+          "risk": 6.342659563298314,
+          "solution_id": "e042ed3cc3f7e1dc5946649b4557f464b34df9c9b8c6cb6ac8d578a51c14aa2d"
+        },
+        {
+          "cost": 7174.569400999999,
+          "risk": 6.192836577502293,
+          "solution_id": "2d56d0af4509a890e36474e0e427102a389b6a97cf9d3779605d2cb928e02089"
+        },
+        {
+          "cost": 7206.554415,
+          "risk": 6.189259068264638,
+          "solution_id": "73d4703cb4dc83a304b6bcfdb0b2ee0aa5ad96de143ca8189630c48af28d85dd"
+        },
+        {
+          "cost": 7208.993415,
+          "risk": 6.182628132557474,
+          "solution_id": "3b7c36cecab11d181dfba763cacb8fda35f407aff98bbd688ff3a68d0c1a5dfa"
+        },
+        {
+          "cost": 7225.796415000001,
+          "risk": 6.169574347950986,
+          "solution_id": "794ffbfeeaaa901b65a9dc27e10cbc558f89a41bf1144191cfcc9a384c34b56a"
+        },
+        {
+          "cost": 7278.183400999999,
+          "risk": 6.110913792754854,
+          "solution_id": "4d3e458989a08aefc9faa257d6945d6060150fc0520ac71f51956d2c93d40c1c"
+        },
+        {
+          "cost": 7280.622400999999,
+          "risk": 6.098495951017086,
+          "solution_id": "f70c75a7a49f222fa93bae9d98999070f407f5e89e4f6edb588166f3dea4b132"
+        },
+        {
+          "cost": 7334.259400999998,
+          "risk": 6.0843028152036895,
+          "solution_id": "c1bd5dbd489e027b6d627370d26e40da4c1290117c35c345d2db0c4238718ed8"
+        },
+        {
+          "cost": 7455.587021999999,
+          "risk": 5.959336986292622,
+          "solution_id": "a8a63848306eaf2a0e9db3db67a86f1e8f15e4a022de21deeff698b6da6e3f70"
+        },
+        {
+          "cost": 7519.3065449999995,
+          "risk": 5.945035123752581,
+          "solution_id": "6172ab2eca6736539eccc806011b92805a439d997d465c32734cf1cf1307ae4c"
+        },
+        {
+          "cost": 7521.745544999999,
+          "risk": 5.932617282014814,
+          "solution_id": "3e69a0bf75237862f235074721d38bb4e13453ecfef7db15fa1c6886cb6b6183"
+        },
+        {
+          "cost": 7812.278369999998,
+          "risk": 5.911521461136116,
+          "solution_id": "bfa9fc909f985cba5eea9c1476e818892246b5c4955bfa51299170373e4d83dd"
+        },
+        {
+          "cost": 7903.532821999998,
+          "risk": 5.849274417496802,
+          "solution_id": "c461337e56111c23b485fd9943450a34d75c1676bf9069ba0e2f21747241ed77"
+        }
+      ]
+    },
+    {
+      "scale": 3,
+      "model": "small",
+      "repeat": 2,
+      "all_hv": [
+        0.793914745818355,
+        0.7773291374730075,
+        0.79888338608263
+      ],
+      "archive_id": "PPO-Test-3-small-r2-B252000",
+      "points": [
+        {
+          "cost": 6039.769538,
+          "risk": 254.95445126601956,
+          "solution_id": "8c756001e192a8613a316aecd86c0319cde9e2bec54eb90f548e482ae8a56237"
+        },
+        {
+          "cost": 6052.568729,
+          "risk": 251.27878307493447,
+          "solution_id": "338c85f6d031b8efe92411dc633545a388e31ef6abda34122168d1aa26f4b062"
+        },
+        {
+          "cost": 6093.502538,
+          "risk": 250.16392142237714,
+          "solution_id": "7a23d03c9c4cc2a6d94dae4c50fffd09004733f81263593ee704872daf97513c"
+        },
+        {
+          "cost": 6099.472538,
+          "risk": 249.13800622558728,
+          "solution_id": "3c8cbb137b153779329f163a414367c6f00d450d76bc667a303d6b42cecb9255"
+        },
+        {
+          "cost": 6121.791538,
+          "risk": 245.28474497530328,
+          "solution_id": "92fb901800c4410451845b9d44025083ce8850a9a34210ebbab205464125fcdb"
+        },
+        {
+          "cost": 6191.017538000001,
+          "risk": 245.04538236071804,
+          "solution_id": "7c2965c1a47668dcc101f98fdf76ae3a133548f2f4426f662c1c8597ed00392b"
+        },
+        {
+          "cost": 6218.710538000002,
+          "risk": 237.19700976526647,
+          "solution_id": "d97f91ad12ce58a65223bb6b2ef2e48d9f8ed15e0c3001399104a40da695de2c"
+        },
+        {
+          "cost": 6248.449916,
+          "risk": 236.76545673205422,
+          "solution_id": "0c45779f9ff93fa4b83cdfb08c4563d9bc74c58ab6a4ff27c28d285b98f56fe2"
+        },
+        {
+          "cost": 6391.410537999999,
+          "risk": 233.2909404394029,
+          "solution_id": "77db996c32c2c8460a8d86efd5c4cd6c2c0bc8e54f5f574f4533f530242497f7"
+        },
+        {
+          "cost": 6512.462455000001,
+          "risk": 167.71373835157635,
+          "solution_id": "37d28bf933ad91bf7d174376bafbb079885c2023f189244a2bec8297d29e58ce"
+        },
+        {
+          "cost": 6559.190131000002,
+          "risk": 157.2797163377108,
+          "solution_id": "2b1014e1f3f09efa81e92af61357470c4e9c988642a6a346c05c01d5af8e9d6e"
+        },
+        {
+          "cost": 6579.485455000002,
+          "risk": 155.2262771543775,
+          "solution_id": "e337fe6ffa3d123705fb9f0fc7844a3d0d170e814f3857a82255ee191c3b4400"
+        },
+        {
+          "cost": 6584.426455000001,
+          "risk": 155.02583565376085,
+          "solution_id": "dd24b6b3438dadf985e81ea282fefe41401bd2983d433ac3531497f7fb7392db"
+        },
+        {
+          "cost": 6619.937455000001,
+          "risk": 154.5742633365594,
+          "solution_id": "209760fa313251fef1124a617947c11cf5463bec6ad45c21184441895abdb6b7"
+        },
+        {
+          "cost": 6622.748455000002,
+          "risk": 153.44449340949177,
+          "solution_id": "9b8b33470d29f795832b179548377c42cec0dd0d1cf040032a1d8a305ed7690a"
+        },
+        {
+          "cost": 6665.747455000001,
+          "risk": 153.28957304327872,
+          "solution_id": "00c4b5061e252a6af759ff9ea2104296f71ea0eeb6a7a8c010d6e77fe3d3f639"
+        },
+        {
+          "cost": 6721.465503000001,
+          "risk": 152.43390690826828,
+          "solution_id": "3999a00e4483f006e2bf94b477eeaf3ec2f8127409abd8739a19e1a507cb3552"
+        },
+        {
+          "cost": 6777.821000000002,
+          "risk": 152.0408085918887,
+          "solution_id": "47380a08bb18f0457a9b54b1ed720d772d87e598042a1cef418a360ce95f566d"
+        },
+        {
+          "cost": 6794.049115000002,
+          "risk": 151.77932000529958,
+          "solution_id": "f9b0e4494d93920b960c9c9d9b85de938221f110d4c2c6092d1ba6b5642a074a"
+        },
+        {
+          "cost": 6800.306455000002,
+          "risk": 144.48882579860452,
+          "solution_id": "0afde82339285402e0b03047670e0898ba2bdd9bbd40f7835bec80ad5bb77955"
+        },
+        {
+          "cost": 7078.1121600000015,
+          "risk": 143.62396675192667,
+          "solution_id": "43b37930baf1e407f865a30951d8db27ffb34fbbbe5a796d36172cfe04c9d4f8"
+        },
+        {
+          "cost": 7180.370731000002,
+          "risk": 142.20982746359377,
+          "solution_id": "9ae0bd660bad3d20eabf9940bf86abea9b5de22f4b86b9c96e37dd788bcd38a2"
+        },
+        {
+          "cost": 7181.330731000002,
+          "risk": 141.3608226075722,
+          "solution_id": "3044dc0f872eb5a26b3ccc978418c0bd52b23e6ab20f4dc49c5d48de2edfcf4b"
+        },
+        {
+          "cost": 7184.774055000003,
+          "risk": 140.86090458216486,
+          "solution_id": "7cfdd5c842f0052ef4889512aa631c98bb3621585bc37f3bc217379c4bb97e2c"
+        },
+        {
+          "cost": 7198.5027310000005,
+          "risk": 138.00827258029398,
+          "solution_id": "b66a96b42da07cd3d7c02020d747c0c1e4d8222af1d730bbd7e7d794491b869b"
+        },
+        {
+          "cost": 7411.776702000002,
+          "risk": 135.3569902846128,
+          "solution_id": "afe56d357f7697138baeda7bd7e8c392812cc2e56e146644a89637b28d5c2864"
+        },
+        {
+          "cost": 7489.018196000001,
+          "risk": 106.3482718128582,
+          "solution_id": "b2f1f106ea679ea22fa7408066fedff1e55d364e072df2a881eb066859cd8f2f"
+        },
+        {
+          "cost": 7551.2911570000015,
+          "risk": 99.86348441009825,
+          "solution_id": "72ab39ffd53ffa6650da4aeb0cb05ba102f42e6160fcaa040372142277b2c190"
+        },
+        {
+          "cost": 7586.420252000001,
+          "risk": 97.97876246209415,
+          "solution_id": "74f850517095e58ef9c1bea47c9e17df01f5fd000d61278d04bc16c476625f46"
+        },
+        {
+          "cost": 7588.954592000001,
+          "risk": 97.5068988373402,
+          "solution_id": "7146da5aa3f6dc8b6037576fd4003cfc6dbddeba483b51674f4a8bc42f132aff"
+        },
+        {
+          "cost": 7598.143591999999,
+          "risk": 97.07540614474229,
+          "solution_id": "5f620176a0359029ea311fbceeaf3d5012af6370f564763149ce8fa26f706fef"
+        },
+        {
+          "cost": 7598.335592,
+          "risk": 97.03370551805702,
+          "solution_id": "48c0c5b97055576785c2cc5884450f904152159e2b04df88016086f48869ff68"
+        },
+        {
+          "cost": 7615.366592,
+          "risk": 96.25248085513394,
+          "solution_id": "9939388fb1cbd5261a17fd507023512d5ab590e7a732490a0acb46820a08ee87"
+        },
+        {
+          "cost": 7641.271592000001,
+          "risk": 95.64914932660744,
+          "solution_id": "b6da1ac2993b40e46dc287a48ab15a35aee8b6c611e34749b20b3e465e6214e0"
+        },
+        {
+          "cost": 7655.338592000001,
+          "risk": 95.51414209620094,
+          "solution_id": "b531bc27604ec00ab5631e26054d00fdc5fc6a3936a55585cea3ca0c430067eb"
+        },
+        {
+          "cost": 7658.110592,
+          "risk": 95.28651527153235,
+          "solution_id": "687312e326cfbafdbbb5227bdbdca9a206db76ab80ae1c412d5dca5bf52c80c5"
+        },
+        {
+          "cost": 7658.302592000001,
+          "risk": 95.24481464484708,
+          "solution_id": "6ef79e4799beae4897b1614c62ab3558b0ce74c73b008d4b85b06243f9a3319a"
+        },
+        {
+          "cost": 7671.247592000001,
+          "risk": 95.04316483954474,
+          "solution_id": "195424931213b36f302169c60b7832c9a8bdee5c78a40f69c3ec8d8ad35f99bd"
+        },
+        {
+          "cost": 7673.669246,
+          "risk": 94.10016446979664,
+          "solution_id": "99aebf3153ed5b31e6361113a9a8e9654637473331f8b392125fba9aadbff056"
+        },
+        {
+          "cost": 7716.605246,
+          "risk": 93.0924982595098,
+          "solution_id": "7efc40b4d001b2fc67e58b4e445fda414456ee5745b1b663dc94ee05316c60c2"
+        },
+        {
+          "cost": 7746.112516,
+          "risk": 92.67654668947907,
+          "solution_id": "881db3e0340ff1c52b46383dfc54c2c31f18b131d529b469db3b364ce4f246a9"
+        },
+        {
+          "cost": 7931.864240000001,
+          "risk": 90.69279066794395,
+          "solution_id": "d077eb262eb4daf16baefe750abe22cda2f42638c825e7e76fb1d06cebee8bc8"
+        },
+        {
+          "cost": 8217.127503,
+          "risk": 81.49208120188476,
+          "solution_id": "a1010910f8f586f579582d10eece26aa935fe02b212bfbe2acfcf844a0e65925"
+        },
+        {
+          "cost": 8271.902688999999,
+          "risk": 80.00302295952594,
+          "solution_id": "774a3c774da00346558ee403d30024a7f819a840a25dbecff89da327b6b937e2"
+        },
+        {
+          "cost": 8279.077834,
+          "risk": 79.84552973440704,
+          "solution_id": "0dffe9f63c1d5f49c04e15291a58f1fecaec1b40872386782f609c9d41a5a0ca"
+        },
+        {
+          "cost": 8292.748119999998,
+          "risk": 78.75261648125426,
+          "solution_id": "a57af32f5be7b87d9c522b355627b0e05ebfd5560761d6f951fa5667e9fdd388"
+        },
+        {
+          "cost": 8315.328268999998,
+          "risk": 77.89338330581934,
+          "solution_id": "c94ec32b13224417d06103f27f3f27a430b1ad16512f7f13758a70ca51f91717"
+        },
+        {
+          "cost": 8339.067269,
+          "risk": 77.44008125947339,
+          "solution_id": "40c0094e1ec1651833930e8e37921d988ac1cf31ca5b28ae8c41d94d7f785fed"
+        },
+        {
+          "cost": 8359.932268999999,
+          "risk": 76.9890951974918,
+          "solution_id": "ba711154e8b1edce04e996d9e9e9ded6ec171ad7b92742e08e9cc5c5bfd78186"
+        },
+        {
+          "cost": 8377.590268999998,
+          "risk": 76.3350088047448,
+          "solution_id": "b13dcb7966397e278c88a87bec5192afcb0786afe960ac345b4209c8d59d7550"
+        },
+        {
+          "cost": 8471.999012999999,
+          "risk": 75.6829787292145,
+          "solution_id": "ddaed394e0fc0866fd6df0dad4d5dfd67088053714e2b23f4db06f75d7f60d70"
+        },
+        {
+          "cost": 8636.909904999999,
+          "risk": 75.63886822523205,
+          "solution_id": "2f05514594238ebf22943ee628e2a91938eb165a01de0203ec7651172ea53555"
+        },
+        {
+          "cost": 8640.781420999998,
+          "risk": 75.3405220043115,
+          "solution_id": "411f5a74d8441fe4f9aaa006270ace8b542ee08f60dd4fa699954417da18908d"
+        },
+        {
+          "cost": 8656.796905,
+          "risk": 74.82310941129921,
+          "solution_id": "efb01e5217bcd5c4a349f37dbb6d8ab4ba00f351949f228638a2e7b3fdf9ae44"
+        },
+        {
+          "cost": 8701.246420999998,
+          "risk": 74.60986014674522,
+          "solution_id": "dab63bde8fe965b17071208654be0f78fbbdc0dee94118dc2614c3fef9fffaa7"
+        },
+        {
+          "cost": 8732.423989999998,
+          "risk": 74.5564787307633,
+          "solution_id": "7e42b0daa083a7857cc3ea316f681af7e0a2753a896e88622b57228dd74a5ccb"
+        },
+        {
+          "cost": 8785.863872999998,
+          "risk": 74.22264526572096,
+          "solution_id": "835bdcd599d103a70cd2448035f7f3c52d865099772848754808d0f629fab378"
+        },
+        {
+          "cost": 8796.687468999999,
+          "risk": 74.13090968924946,
+          "solution_id": "b53f8a6c8433956ca4cfac6180ff859a9e4ddc38c481ffa5cb48cb5bdaf2975c"
+        },
+        {
+          "cost": 8803.558892,
+          "risk": 74.0165463751992,
+          "solution_id": "6b96ca54dffd36a62248b5680c7239c5738a0e8451a645717900246ce8523aab"
+        },
+        {
+          "cost": 8858.744616999998,
+          "risk": 73.82051481193349,
+          "solution_id": "109924a216af32ee54aaa2d524e0db1236ac262a0b1fff01683665e84bf26151"
+        },
+        {
+          "cost": 8911.901620999999,
+          "risk": 73.0871493062756,
+          "solution_id": "7d5cdbffcb446605b00bdf35cb9af87c3b6a4e9471525fdacc3e91268c988da1"
+        },
+        {
+          "cost": 8984.811420999999,
+          "risk": 72.75970657097774,
+          "solution_id": "69a4d737e2d1fe17bcb1970bc84c6fc542b002d89360c60e8afda732f4d33b77"
+        },
+        {
+          "cost": 9331.254463,
+          "risk": 72.39487600116956,
+          "solution_id": "75497097e41850d32777fbe6053d290a0ff54a4682b754922c603b16cd860e92"
+        },
+        {
+          "cost": 9436.171303000001,
+          "risk": 68.99409018111201,
+          "solution_id": "f63b3815ea47b6ef9ebf7bd7773a28a4b8804d778f5e058c027b9591d2ba98ee"
+        },
+        {
+          "cost": 9550.961563,
+          "risk": 68.7517763298559,
+          "solution_id": "f10f6c51406a9b4b1fffa2579e48d70585afe47eaef6888a205a67a8f61faaae"
+        },
+        {
+          "cost": 9571.907543,
+          "risk": 68.51607712968509,
+          "solution_id": "c417bc4f6ab3130ecc287149dea7a70b6d779284f5b2558d321236fa8196d7f3"
+        },
+        {
+          "cost": 9584.400791,
+          "risk": 68.10882905388544,
+          "solution_id": "a6ef2c5126430977008fdba422e171eba546fb03ff62e6cab70575722f10ecfd"
+        },
+        {
+          "cost": 9598.181563,
+          "risk": 67.56276986379127,
+          "solution_id": "b517e86575452d77031ffd7597a1115eee849c9fc3dd973d9e53d1ae53e03d6e"
+        },
+        {
+          "cost": 9606.767563000001,
+          "risk": 67.53837556450829,
+          "solution_id": "e1ad2d1e83e744728be72e156ea64f43049f65f21f5201ce5a99af1115a38872"
+        },
+        {
+          "cost": 9613.628563000002,
+          "risk": 67.38175289136883,
+          "solution_id": "17183ef27adc89885884a0179504e0325d8fce01617200211691c028e83115bf"
+        },
+        {
+          "cost": 9616.286563000001,
+          "risk": 67.31548630129778,
+          "solution_id": "3a798b264f1ee5ba02c8c25fb64c3867004b1226bba1df23bb949b5473b73662"
+        },
+        {
+          "cost": 9643.217563,
+          "risk": 67.2527129684233,
+          "solution_id": "8a54119753b06754937af03b762be7247d87ae4cb71144e0c89ec53e8e72d9da"
+        },
+        {
+          "cost": 9645.718863,
+          "risk": 67.18355443326143,
+          "solution_id": "73b7f5c03894d1cf75581eb6dc64f4225a33c0258c042ed4fe847c61921ed6f4"
+        },
+        {
+          "cost": 9758.342943000001,
+          "risk": 66.96749895568838,
+          "solution_id": "4169da60f4c545db39831850e542ae5901f2979021db389e31a5fbaf770755dc"
+        },
+        {
+          "cost": 9807.397643,
+          "risk": 66.6784484458899,
+          "solution_id": "2c915bbc644c73b707df8f9b2ab0c5c89c0faf02d36557753adc1fde5c599f5d"
+        },
+        {
+          "cost": 9860.368748,
+          "risk": 66.38049118628564,
+          "solution_id": "c4df6511c08ab18a742781401b4e4bac001cf76ce552f70f55a71f36e4a38784"
+        },
+        {
+          "cost": 9941.771563,
+          "risk": 65.39872549638052,
+          "solution_id": "94d6823872549a34ea482fbc32a62300273ad36743918d03e72a861a1da666cb"
+        },
+        {
+          "cost": 11294.395088999994,
+          "risk": 60.036576079501366,
+          "solution_id": "04845d6823ef616347be44555c1594b0606579c6f43012251b635a8ac730122b"
+        },
+        {
+          "cost": 11298.897608999996,
+          "risk": 59.805546734775874,
+          "solution_id": "64731ed5a027d093eb5553a1dfb16ea214fe26081dcc28e0f476fc249d804a54"
+        },
+        {
+          "cost": 11299.662608999995,
+          "risk": 59.73511346385937,
+          "solution_id": "04aa789f190c20b6b874fe9ebacd296d91f121eb06547d814778459d62225174"
+        },
+        {
+          "cost": 11418.363608999996,
+          "risk": 59.51165331133259,
+          "solution_id": "5d29aff9d0b604fbb2eae2ba555f98f915488155a5d6b25a10b8186c4c620f16"
+        },
+        {
+          "cost": 11437.575608999996,
+          "risk": 59.48782519660569,
+          "solution_id": "30cac42e1600fec9dab407ac6cf5f88ea213f26358c8dba9d3bbb5631bb89831"
+        },
+        {
+          "cost": 11445.022328999996,
+          "risk": 59.372159130847876,
+          "solution_id": "590d29502839e88988c68724bc6c87ea27a0c0bc025696a719bf045f1d01c89d"
+        },
+        {
+          "cost": 11476.818608999996,
+          "risk": 58.91100106507658,
+          "solution_id": "ae23e5b238874ace095ec7449e1329113262fb38f384c5dca4cc5ec2818cb303"
+        },
+        {
+          "cost": 11487.093608999996,
+          "risk": 58.87828479660919,
+          "solution_id": "d5e326f67b1776ecd45cfa4a93d4ca089d719dd65474d2b6f96c68d0def4169d"
+        },
+        {
+          "cost": 11754.318608999996,
+          "risk": 58.33734581525555,
+          "solution_id": "2d95b18c6c3257c74090b33bbd7513264c0633f7f2746da6a47850d49032d44f"
+        },
+        {
+          "cost": 15113.074775999996,
+          "risk": 52.62904712519263,
+          "solution_id": "71c85a874db48723b10a7a978c04b29271a5feaea2ec0478bdf5a430363ea4b4"
+        },
+        {
+          "cost": 15142.745989,
+          "risk": 52.37869713047324,
+          "solution_id": "127b91194a742a35e420b0fe798472dc48125a8a7ce8ff817a6949d271cf1bf3"
+        },
+        {
+          "cost": 15202.385024999994,
+          "risk": 51.367392481770025,
+          "solution_id": "2e732f812b80cd353c58ef262c3b8757173de6772fc10424f280ed3587ffaa6c"
+        },
+        {
+          "cost": 15269.894733,
+          "risk": 50.83226892428773,
+          "solution_id": "a8d2dd6055a30cf1fe54d0b4b9e01e5428f6bef12c88e3e3c090284c5e6f8dc5"
+        },
+        {
+          "cost": 15282.533732999997,
+          "risk": 50.56291047138082,
+          "solution_id": "f248b3d02f43dbe85ee337664c379adcd36fa0816c8b5053e58e7f62a4553aad"
+        },
+        {
+          "cost": 15368.642540999994,
+          "risk": 50.35429667950061,
+          "solution_id": "d4843a5406833e7f773828fe9f4ec1321976f2f0d39b52ca9766afadebdf16b0"
+        },
+        {
+          "cost": 15481.163024999994,
+          "risk": 50.30811246157112,
+          "solution_id": "edf0048eea2a07440aa6c05f234259b77ae71f9d1eb073b22edf127d565b7999"
+        },
+        {
+          "cost": 15495.337876999998,
+          "risk": 50.24359810465789,
+          "solution_id": "e54d645fa7eb23eedb53a471eb56400ace9bcc45a5d963608fc8b373d4cb86a6"
+        },
+        {
+          "cost": 15507.976876999996,
+          "risk": 49.97423965175098,
+          "solution_id": "a257ebdb0fa1f996eee842ad9d40f3c457800ee6dc8aee8550160b4e4cebf411"
+        },
+        {
+          "cost": 15597.365024999996,
+          "risk": 49.94687572698243,
+          "solution_id": "d2f82d4bf60aaf512985f046a622ff70ef9eb6da7a3019ecfdaac903fac173dc"
+        },
+        {
+          "cost": 15607.339666999997,
+          "risk": 48.41935798154048,
+          "solution_id": "a16fcaabc280bef79b09392e5363b11e30b38acbffefce70cf96aa82040e21d7"
+        },
+        {
+          "cost": 15636.787666999997,
+          "risk": 48.39607807314718,
+          "solution_id": "7a690b532fbb9594be71d6a12c55535dd27144fc3d6af1d5330f9db037019a8f"
+        },
+        {
+          "cost": 15705.036490999997,
+          "risk": 48.34987032741432,
+          "solution_id": "1c7d312ffc5705c6112d76de0c49bf98e1cf4daba9e69ab0fe53fee566d72a8c"
+        },
+        {
+          "cost": 15741.796666999999,
+          "risk": 48.13205457013447,
+          "solution_id": "0c9c7054deb5ff61f8b135fc5f6c4c6aded7d4ce66d5320cfa079cae85111758"
+        },
+        {
+          "cost": 15843.281328999998,
+          "risk": 47.51529906944362,
+          "solution_id": "255431438d7ea3f9d3c67b728d17c544f4fc859481b401e19e8cf211dc070428"
+        },
+        {
+          "cost": 15889.419850999997,
+          "risk": 47.29292182653541,
+          "solution_id": "c95df0830eadcbfa7299d6756da17099e760f21373cab7f0cc3a21b76116e080"
+        },
+        {
+          "cost": 15918.867850999997,
+          "risk": 46.96589937798676,
+          "solution_id": "685d061abfdb6a40c9909918aa16804d6edb1d3409dea0b23b39a8230afdf7bc"
+        },
+        {
+          "cost": 16045.374998999994,
+          "risk": 46.87904105871223,
+          "solution_id": "5b289b6b558cb51fcfea4b0239c21e8845cce526c72680c1d8081ed9c6715d7f"
+        },
+        {
+          "cost": 16230.228850999998,
+          "risk": 46.87262379179939,
+          "solution_id": "960d84fa24f6939836402d2cd1d3a9e86fa8a6f5c5f3f9de10ad4a0e1a7a2b10"
+        },
+        {
+          "cost": 16301.208850999998,
+          "risk": 46.8275274996548,
+          "solution_id": "ddf130e22e7912ee5440b58b8bdb3d4135ba701c859876bf7e29928c79fc2146"
+        },
+        {
+          "cost": 16427.715998999996,
+          "risk": 46.74066918038027,
+          "solution_id": "f07545803a721364b9d8f9147eba981be8e375ab1b02787523550d9a636b83fd"
+        }
+      ]
+    },
+    {
+      "scale": 3,
+      "model": "large",
+      "repeat": 2,
+      "all_hv": [
+        0.7795774194591516,
+        0.7943777732085908,
+        0.8098986042100139
+      ],
+      "archive_id": "PPO-Test-3-large-r2-B252000",
+      "points": [
+        {
+          "cost": 5799.967406999998,
+          "risk": 339.51223868936984,
+          "solution_id": "616d37c254f5e484d39df345d9c2cfa15c4fa136a9ddd9aed36c07699e182db9"
+        },
+        {
+          "cost": 5805.385259999999,
+          "risk": 333.00147109896045,
+          "solution_id": "41775903457a91e2b4c0093f23f8b60c19f5b1626373953c07b071b7947b68c8"
+        },
+        {
+          "cost": 5807.232233999998,
+          "risk": 308.3207274516448,
+          "solution_id": "cf8af07baa0d1221e0734a747bcf004085975f6b172ecf367fbfa16678cc5186"
+        },
+        {
+          "cost": 5831.113521999998,
+          "risk": 300.12445830496966,
+          "solution_id": "9215085e76c1ed426f34e539a3dda6ad29ebea392a430cc3841a536073318e90"
+        },
+        {
+          "cost": 5843.163581999998,
+          "risk": 298.8198176690491,
+          "solution_id": "4ba400df5f0163a780fae05f8cd1ece7a513ec2c873055287269b945e1979358"
+        },
+        {
+          "cost": 5845.851233999999,
+          "risk": 296.26006214846257,
+          "solution_id": "452ca9556bf06012cc4f23c7589cb10dfa09794aebbe095891d7fa39491384bd"
+        },
+        {
+          "cost": 5877.627233999999,
+          "risk": 296.03405289318397,
+          "solution_id": "a9b05a71961c0ddad2e6fc026ef593e80bf7425d8892030c6ee5bb0ac132577a"
+        },
+        {
+          "cost": 5911.176234,
+          "risk": 294.81990268633285,
+          "solution_id": "fc85d704ae95df47870ccaa8fa945cfa398b605528733b7ecb6f436cdd3b03a7"
+        },
+        {
+          "cost": 5942.169233999998,
+          "risk": 294.4366583604772,
+          "solution_id": "956b1fe109ca522e96fa519a6bf3d274160cb459f2f32dcdf237cd5a23fa35d3"
+        },
+        {
+          "cost": 5960.669233999998,
+          "risk": 289.118892987011,
+          "solution_id": "6712b40680d6bcd643afc835fdecef19e89576f4b539b89ccc79f53c4aee992e"
+        },
+        {
+          "cost": 5973.389233999998,
+          "risk": 286.4140832516788,
+          "solution_id": "7900e90e7dbad3648ad019a88f6b9c7a6f9927e7a022bab9a6d9eca3d3b5effe"
+        },
+        {
+          "cost": 5975.456233999998,
+          "risk": 280.7941805888451,
+          "solution_id": "a27fe1ff806603487a2ff5c40b8935e5d07c408edbf41008228c02439e0a619d"
+        },
+        {
+          "cost": 6008.061233999999,
+          "risk": 280.6313191630356,
+          "solution_id": "e834d7e5e73400f5b9673d8245790982fc25065f55c01985b84368cea1790a57"
+        },
+        {
+          "cost": 6112.433233999998,
+          "risk": 276.5898032684616,
+          "solution_id": "873a1e532d6acccc195a408c71211eda85b40d6a803c52ac4bb7e9d7055ab5a0"
+        },
+        {
+          "cost": 6381.07893,
+          "risk": 274.70945531345654,
+          "solution_id": "b6ee7e05f29c741f8a7108eac115951d12ca76b7f33e45a67534da8d6599a404"
+        },
+        {
+          "cost": 6384.4340219999995,
+          "risk": 273.19575114591584,
+          "solution_id": "82ca33394d5f3b4158be23ddf9d21a98e0626069b2ecb9d253d07afbd5835e1f"
+        },
+        {
+          "cost": 6521.411021999998,
+          "risk": 269.95999196927,
+          "solution_id": "70084ba007f798f02ccab16f3a5f5ddded6f10ea4778b3067a742fefc04ad519"
+        },
+        {
+          "cost": 6754.576486000001,
+          "risk": 227.9092447812373,
+          "solution_id": "766401e22067b285fbc5dee047f20a8c31527e60a7dd8e964476ba1e8300ab2b"
+        },
+        {
+          "cost": 6803.3644810000005,
+          "risk": 202.11816034047052,
+          "solution_id": "b929b56b134187b7b48b17029339dbb8dd46472ebd2aa37208327882bbb1376e"
+        },
+        {
+          "cost": 6813.357932000001,
+          "risk": 201.37344931125986,
+          "solution_id": "8361cce5f02a2fb770b41da47605d17e2fd909a6e3d9e8b139ae298e7775d2eb"
+        },
+        {
+          "cost": 6813.416840000001,
+          "risk": 199.42903087778024,
+          "solution_id": "6893c0c260cd158474bc99b72a74b0e61fe91dd58b4b86bb53f82d37e01b65bc"
+        },
+        {
+          "cost": 6816.560840000001,
+          "risk": 199.36189952833072,
+          "solution_id": "cf6bec88dcc8da921ac4f902307c95dde84a829382daf38fb2eff8b722f68865"
+        },
+        {
+          "cost": 6821.467767000001,
+          "risk": 199.09940149624626,
+          "solution_id": "3e2e5ad48c48af73a8471c38919680b881c15c0e53a67585758d50f96e292cfe"
+        },
+        {
+          "cost": 6821.820549,
+          "risk": 198.63110657945023,
+          "solution_id": "bc86513efcdbb3997e1de597bbf93482cd89d10600ebb2a906b6265b77544015"
+        },
+        {
+          "cost": 6823.997859000001,
+          "risk": 197.56260282306275,
+          "solution_id": "8cef55133d05c10893b037abcbdd7a22cc6b188b853436888f5e3c07294246c6"
+        },
+        {
+          "cost": 6824.056767000001,
+          "risk": 195.61818438958312,
+          "solution_id": "e7cf48121cab0b3461b7973e20babb995ffc624a487351ad18eaa2b1447e699d"
+        },
+        {
+          "cost": 6827.200767000001,
+          "risk": 195.5510530401336,
+          "solution_id": "101e0e32269f1ad9f080cbe45667976f127b2afe88194f965037b27979bdd4ce"
+        },
+        {
+          "cost": 6832.460476,
+          "risk": 194.82026009125312,
+          "solution_id": "e47b8d73fc3b172c49c490abbe927b24972c9c6a8478a090c6b95a01f2227ce5"
+        },
+        {
+          "cost": 6838.321767,
+          "risk": 193.22674440065438,
+          "solution_id": "ba3ebc24d6b454769699be61740833f0b54e9bb4702c025f546e855cbf356477"
+        },
+        {
+          "cost": 6883.569481,
+          "risk": 193.04711553614936,
+          "solution_id": "3c663e07f2c1e88ff627816044d54d58dc66bd0de849d8dd5dee236618858f94"
+        },
+        {
+          "cost": 6893.562932000001,
+          "risk": 192.3024045069387,
+          "solution_id": "77d38de776d4ec82836dbce040796cf3d80ee9f20f5a0467cc4e97e6c1f8ca79"
+        },
+        {
+          "cost": 6893.621840000001,
+          "risk": 190.35798607345905,
+          "solution_id": "60c0f7066c9110fc6efa6ec5db89cb542b6c33f93a656fc9b0460e843927630d"
+        },
+        {
+          "cost": 6896.765840000001,
+          "risk": 190.2908547240095,
+          "solution_id": "13beaa55be07a864b45198754faf186623a9c1d60f8ec303f3a99ac1a1dccbcb"
+        },
+        {
+          "cost": 6907.886840000001,
+          "risk": 187.96654608453034,
+          "solution_id": "3f07c88a22f7211b41d2228f6e89bdce8a00fc0033926f512db268ac8f93082a"
+        },
+        {
+          "cost": 6944.24384,
+          "risk": 187.40291999028065,
+          "solution_id": "b9db746e8f457580d6a4577abfce3e5c2206b2bb2d0eccbbe3a4a116210483dc"
+        },
+        {
+          "cost": 6955.445288,
+          "risk": 151.71049093008557,
+          "solution_id": "b5593fb89d767b3c1059a9b886706f11f39533ebd1019bd0e5fe12cfcdf2ae89"
+        },
+        {
+          "cost": 6963.155267,
+          "risk": 148.02662442553415,
+          "solution_id": "18f295d391a9077c73f2f383c902143ea08130c4fab8279dd99d6fee047200d5"
+        },
+        {
+          "cost": 7040.981845,
+          "risk": 145.1060391487915,
+          "solution_id": "96ec1deb9285fa53752bd4d3880e6b261e4fe2160787f8ff0b93c04753ec7161"
+        },
+        {
+          "cost": 7047.456723,
+          "risk": 143.79142278641152,
+          "solution_id": "4f0d389b18a1c2fd7a526d037ed72989fcac83f0104411b4f00dacc82b966153"
+        },
+        {
+          "cost": 7066.342054,
+          "risk": 141.30125072183725,
+          "solution_id": "68ad94f6357e2023eb39729554410cc8d4e3e47ae6647e28958d86a9f3464b26"
+        },
+        {
+          "cost": 7074.632288,
+          "risk": 141.20042740834919,
+          "solution_id": "bf0a8adce604f1a49281c74fa31b8d29e60581d17857834ffd709539257db658"
+        },
+        {
+          "cost": 7079.075288,
+          "risk": 140.0611009240874,
+          "solution_id": "4f2fa4e01ce48b70ae442de2eb6ddbea9004b82bf9a54cf4d80167e97bb0a8c8"
+        },
+        {
+          "cost": 7080.035288,
+          "risk": 139.21209606806585,
+          "solution_id": "0dfee293e3b4054c4e084eb7f951e53084a50ddf02b704b37ba88995169a0245"
+        },
+        {
+          "cost": 7093.880287999999,
+          "risk": 138.92391897260683,
+          "solution_id": "406b2f3a6efdf8e7217280568be38d81eb257672bcb11ff73041490aa60ef637"
+        },
+        {
+          "cost": 7111.691288,
+          "risk": 138.74060649728833,
+          "solution_id": "93f7087f4dc9b0f6eb7b7e218afa39737401cf00b3b1bb17b09c74cffe70739c"
+        },
+        {
+          "cost": 7112.651288,
+          "risk": 137.89160164126676,
+          "solution_id": "2782623405e30df53e673b7f121588be219df252b858b2de3665a816b8fb174a"
+        },
+        {
+          "cost": 7126.496287999999,
+          "risk": 137.60342454580774,
+          "solution_id": "83946f04d49bd3e4e078c4687aba735534456dbc610da3a099b67f2ba6c55e89"
+        },
+        {
+          "cost": 7130.417288,
+          "risk": 137.21085924174574,
+          "solution_id": "b3dd48bcc93b4900fae508e81da4b2ae7d73fcb3553c48881f4857915b4c6a52"
+        },
+        {
+          "cost": 7160.7112879999995,
+          "risk": 136.64970742001097,
+          "solution_id": "2ee26d35d8381877b8aa1cba8f88c10e0dd8a8ab7de30ae0f1240d91260775f7"
+        },
+        {
+          "cost": 7192.04876,
+          "risk": 128.2001615227882,
+          "solution_id": "9cb261c4bbd647c24a13a4daffa5fc5ffd685c8470dddd3b9da87112197efda6"
+        },
+        {
+          "cost": 7195.427503999999,
+          "risk": 120.41518133218716,
+          "solution_id": "c01284c03e3966c63ec5b8d493e85aa5a2b6c1a62efc6e6c10b81281f4aec035"
+        },
+        {
+          "cost": 7226.495504,
+          "risk": 120.27707354218492,
+          "solution_id": "4efff5f756d08fd943e5ed8903b25055ea37dd388580d8f9fa2b4e5337732331"
+        },
+        {
+          "cost": 7239.472160000001,
+          "risk": 116.82612949810111,
+          "solution_id": "c0f77d3e834ad21ea78010601b6fee53d320150ef8c4b11ab84579ae0c09bd38"
+        },
+        {
+          "cost": 7249.208504,
+          "risk": 115.61713006770484,
+          "solution_id": "49341a5318156edc80c5ea08c3355742ff75903be2cfe21d640138b9c4ec276c"
+        },
+        {
+          "cost": 7259.926160000001,
+          "risk": 115.41020339486178,
+          "solution_id": "194f2b4c50aaee96949cfcfa2d4b6bc12e78d512337b67faba3c81a22185bde0"
+        },
+        {
+          "cost": 7269.207259000002,
+          "risk": 113.45410920902093,
+          "solution_id": "68567c430c443fa88c2862f5f021f4fedf42c1d8c7cf3ad9e9bf1d4ca69086b1"
+        },
+        {
+          "cost": 7276.11116,
+          "risk": 113.41453532539312,
+          "solution_id": "fb47afcae5a53d30ddf1dede0504aa31817d15fe75c4349ff8450d36e0d460ec"
+        },
+        {
+          "cost": 7283.742194000001,
+          "risk": 112.96120693858171,
+          "solution_id": "86e69e2d276e6136fd9489a649312c415a9873b1c50480f6b377f0586f13fb54"
+        },
+        {
+          "cost": 7285.847504000001,
+          "risk": 112.72642491782186,
+          "solution_id": "783e83df0106b9a710a9e4bc752502794a3252f78012673751bcefd18d53b190"
+        },
+        {
+          "cost": 7288.301504000001,
+          "risk": 112.29113458094879,
+          "solution_id": "a951c0a3b4e972a9ce3aeb68e63bc270c78fc6e84ed9391940854b6615927f27"
+        },
+        {
+          "cost": 7320.225779000001,
+          "risk": 111.87712248959802,
+          "solution_id": "494c754757d68cd443bc5d9ac75711e84e38c9f53338a01dcbf646ed3dbf6666"
+        },
+        {
+          "cost": 7327.118504,
+          "risk": 111.4154854094178,
+          "solution_id": "52d898b2755073f435424e47a520b8547594f4c0765b302340a27bd30b255509"
+        },
+        {
+          "cost": 7327.775504000001,
+          "risk": 111.20736801371227,
+          "solution_id": "1998f3c0c9c083e9a457f23929baf18aa4c8bd5fbbfd2d0d1d38982a44556e0b"
+        },
+        {
+          "cost": 7360.785188000001,
+          "risk": 110.48854280459653,
+          "solution_id": "d66f472e07343de609a75a16ed36a278b61393f53ca5de3d69f4908d81188f77"
+        },
+        {
+          "cost": 7421.762396000002,
+          "risk": 110.33890235685574,
+          "solution_id": "bf9ce56193ce7c5a175b4dadcea41c715bb47d6dbc3ff0f2e77ff8b6c4fd0a3e"
+        },
+        {
+          "cost": 7427.780396,
+          "risk": 109.35001699127558,
+          "solution_id": "19bfebce61d1af6d7a0724ab9690344d4f785b918a00c3486034621548714941"
+        },
+        {
+          "cost": 7428.228440000002,
+          "risk": 109.06082448417573,
+          "solution_id": "fe220dc67e5951aa196a031e9b600b8265d302db627b7c6c1405a09e7a89464b"
+        },
+        {
+          "cost": 7478.5618300000015,
+          "risk": 109.01946829919339,
+          "solution_id": "98b9ff0bc4ae6989cf64fea5b8c0e493812450ab79e0be55dbf0a7a343bd8bd2"
+        },
+        {
+          "cost": 8345.524126,
+          "risk": 93.38967444093804,
+          "solution_id": "4f857a06ad7b1b6c694cb46f30a55a938a2888ee544bb17ee35aa7cf05c0cd16"
+        },
+        {
+          "cost": 8359.913632,
+          "risk": 81.02758137408591,
+          "solution_id": "2ee5b09faeef3fc79e543e7fd68e8a0eb4626ecf908fa760a9e147e3f075af00"
+        },
+        {
+          "cost": 8508.415073999999,
+          "risk": 74.46073278678718,
+          "solution_id": "0a968422be5094188924e4a09742e0d9fe7adac7b6e7bb2eae908479f61b9ece"
+        },
+        {
+          "cost": 8574.552832,
+          "risk": 73.71248584358909,
+          "solution_id": "0c670a65f45ed4c1f5d98544d7b11782cc5b4e6b7a808a8056e081081780016f"
+        },
+        {
+          "cost": 8587.456387999999,
+          "risk": 73.22453670412064,
+          "solution_id": "cdad09d0629e9491eb2579e90e54f64f54ac6a69b394aab0e3c07ed2b3a8a626"
+        },
+        {
+          "cost": 8593.844376,
+          "risk": 73.04294044515149,
+          "solution_id": "369befcce52e7f61b38e661d59e5536ce0065dbaaa4c3a0f8c2e33c6af004605"
+        },
+        {
+          "cost": 8595.587376,
+          "risk": 71.3757399660366,
+          "solution_id": "9e80da80e83fa7e2df5fb5736c9189c9d5ebfedd8d21cde8245db7c96930b07a"
+        },
+        {
+          "cost": 8727.326375999999,
+          "risk": 71.16557190622092,
+          "solution_id": "4235ad905fb72a53b6430f42c7dcda97b1d7f4bca8f24cce190adb960f5ed707"
+        },
+        {
+          "cost": 8747.02554,
+          "risk": 71.09320238862082,
+          "solution_id": "0bf514c02e6c1d70c22f5be9fda3edab4d8aad0e124df34a2765904678c15609"
+        },
+        {
+          "cost": 8747.118097999999,
+          "risk": 70.93896526633831,
+          "solution_id": "c2e4e5049632a395a3511c1301af09c5e5cb1b23ab7456cc64da70a340792df2"
+        },
+        {
+          "cost": 8764.836098,
+          "risk": 70.66111922706881,
+          "solution_id": "be4fadf244339b7c7ae452f0cfe62e82e3ccd97c988a191d27beea3eef39c048"
+        },
+        {
+          "cost": 8951.662407999998,
+          "risk": 69.54715648226644,
+          "solution_id": "6171e34f73949b911c5c00898d09b4d0827d3cbc4d5d31d516b333ba66fb4692"
+        },
+        {
+          "cost": 11491.044406999998,
+          "risk": 64.04695291364914,
+          "solution_id": "225533ac766b713dc5a9621b703a1f7cf83edc789221172d5d0f9ca3ef5901c9"
+        },
+        {
+          "cost": 11557.84814,
+          "risk": 63.029079293669625,
+          "solution_id": "557ad51d7b81e4885b1f9722e221d4142516592cb7ef34e1e4fa537e5c98bcbc"
+        },
+        {
+          "cost": 11568.54914,
+          "risk": 62.97532341087542,
+          "solution_id": "34e43f0ab20c50aff0d28c5a4cfd6be171bc36c6eab5d7f3c7ab2e4810bcbc1f"
+        },
+        {
+          "cost": 11573.013726000001,
+          "risk": 60.36327614768756,
+          "solution_id": "0e7d0e0c1c495d07dd3f3da20fbd68e95c66558e8448dbd1ea66a10501751dc6"
+        },
+        {
+          "cost": 11648.485455000002,
+          "risk": 54.52844996130422,
+          "solution_id": "78ca244490d6c09ef40b1119c2e9a968655edb6c136c9e6a1e3c65f77f5941e1"
+        },
+        {
+          "cost": 11698.391539,
+          "risk": 54.12360162606787,
+          "solution_id": "8efb1783cc20a27252c0b743fc855f0deb093c86d94a3095a21e2a42d9e874b6"
+        },
+        {
+          "cost": 11706.915726000003,
+          "risk": 54.01126087190417,
+          "solution_id": "4cec520d53b31ef54f28c0875c1b1c581336a53ba29528b3e3e0925ec37e75d2"
+        },
+        {
+          "cost": 11801.779206000003,
+          "risk": 53.24454046708733,
+          "solution_id": "1ae800a7d0f0a813a785cc4d400bf5f06389b98ac24c70e5911588c327a4bb81"
+        },
+        {
+          "cost": 11859.768726000002,
+          "risk": 53.18421795492837,
+          "solution_id": "fa89a7149da154fe8e0da040e51561b6f52cab918179d2bae8d3bd6d4ae643ce"
+        },
+        {
+          "cost": 11875.155726000003,
+          "risk": 53.17913620460922,
+          "solution_id": "97c4e4a85610a546cd7f58eb7b2a78ec213b8a586d32da5457f1c96835ae4495"
+        },
+        {
+          "cost": 11885.878001000001,
+          "risk": 52.984035482325226,
+          "solution_id": "06324ee3a30338909673a396af8106aada7e1620090963109043aca2c7d74424"
+        },
+        {
+          "cost": 11886.288726000002,
+          "risk": 52.874711543684185,
+          "solution_id": "1c27f500087f5a7e4c597600ec0ca62eba5add1e40066a983b0054e02c544b84"
+        },
+        {
+          "cost": 11920.710726000001,
+          "risk": 52.78040876917656,
+          "solution_id": "cb79d5bd81b3f32d3232a5e5ec112a3acefc0cfd0524d99ef54c927b727f384b"
+        },
+        {
+          "cost": 12114.144766000001,
+          "risk": 52.02538684319185,
+          "solution_id": "ac865fb020d94724fff7b02b8faee28ba3f3ef62a5356fdae8638e96ccebae95"
+        },
+        {
+          "cost": 13354.053142999997,
+          "risk": 46.77000524512222,
+          "solution_id": "dcaedccb6847e59b23316c9e524a5df92ad03b20230e77dea45d281c7948cf70"
+        },
+        {
+          "cost": 13390.670398999997,
+          "risk": 45.61293288892773,
+          "solution_id": "1239b076825565979538b1510e8e379d03ac4011003eb14535b2223c1fa3bbb6"
+        },
+        {
+          "cost": 13574.279398999997,
+          "risk": 45.60554435524652,
+          "solution_id": "589a937c64fe7a6074c36853edbe1aef83741e8a54d3eee1a3a7107a6ae70093"
+        },
+        {
+          "cost": 13592.660398999997,
+          "risk": 45.583003425169764,
+          "solution_id": "9782ed5ee449e0b16cccb974d441bda81802a3505d8448cf32b181dea1d36e32"
+        },
+        {
+          "cost": 13631.849398999997,
+          "risk": 45.5417192371451,
+          "solution_id": "88893c4e9e9c481277994a860e793def99d1b04849091e1049c71da1fb5b6779"
+        }
+      ]
+    },
+    {
+      "scale": 4,
+      "model": "small",
+      "repeat": 0,
+      "all_hv": [
+        0.8485718313994625,
+        0.8364646639404507,
+        0.8266294342234222
+      ],
+      "archive_id": "PPO-Test-4-small-r0-B252000",
+      "points": [
+        {
+          "cost": 15246.078585000003,
+          "risk": 2037.91139086805,
+          "solution_id": "0679358858ea9a2edbc0d8354c8f782405d9346b7311511009b3bb00c6d2bcd5"
+        },
+        {
+          "cost": 15246.753585000002,
+          "risk": 2032.8146650148678,
+          "solution_id": "cfd8cb63f8c9180fd786fc091d408b4ef1fc8ef91a360814e00bdea2056293f4"
+        },
+        {
+          "cost": 15268.383585000003,
+          "risk": 2023.8785710818358,
+          "solution_id": "dc196452d291526d1e828cce021ad20d75fbba9f77a1a7ed2f43ba6c499aa7ae"
+        },
+        {
+          "cost": 15269.058585000002,
+          "risk": 2017.4749459476964,
+          "solution_id": "81f9d6369b7c3073770bf6339db490fac36023f633756d8db2b728bcde2f6a90"
+        },
+        {
+          "cost": 15314.358585000002,
+          "risk": 2016.1179247312261,
+          "solution_id": "a356a6ec3e3bc616a4a8495b3d8605b593cf5db22c670156ea0957c06676a232"
+        },
+        {
+          "cost": 15367.934585000003,
+          "risk": 2015.5662322063592,
+          "solution_id": "ec583945449a972ccb0cf84cf1b9a83035dcc432d6b1d69196e73b59f295ae94"
+        },
+        {
+          "cost": 15376.737585000003,
+          "risk": 2011.2397524486398,
+          "solution_id": "681d64107b00d68ddc7ff1d5690a8b586b0fd4eac82f0fc6506bc9ff8e9b981b"
+        },
+        {
+          "cost": 15507.030281000003,
+          "risk": 2007.7719934813792,
+          "solution_id": "b23cbc3259286726c0394022dcd5ec165e7cb2357da2f431409a5c69ca61e5bc"
+        },
+        {
+          "cost": 15537.722585000003,
+          "risk": 1989.3209223590663,
+          "solution_id": "127c3c3deb947ae08a0e6f360d16fb9d4396c966acc6bd15fd53ece5d7a9a7a4"
+        },
+        {
+          "cost": 15544.898585000006,
+          "risk": 1983.4763132820099,
+          "solution_id": "530f46094e43dfe7ab1e7aa9922a05584a0054fcb29f99c73fc720d3eafcafa2"
+        },
+        {
+          "cost": 15554.897585000002,
+          "risk": 1982.1677311766882,
+          "solution_id": "da65d98ae8f1f2d52a62bbc0baef68232acd6bf1f902c757cb5bc47f11b54b23"
+        },
+        {
+          "cost": 15557.295585000003,
+          "risk": 1949.4438465653639,
+          "solution_id": "e94de283447ad27442242297c4572267507f570ee2198a7bdca530c222211a2f"
+        },
+        {
+          "cost": 17117.75812,
+          "risk": 1629.0224315011833,
+          "solution_id": "b1c90867204137bc09c84abe4c1e0424c02e30f054c88499b434f1937d0cc546"
+        },
+        {
+          "cost": 17151.727606,
+          "risk": 1601.042288209452,
+          "solution_id": "b08b22187143c41c6e0a57d12b25d52b036d8021c74e373b4ba48ec3a7e2e840"
+        },
+        {
+          "cost": 17237.534061,
+          "risk": 1577.6134677136351,
+          "solution_id": "8cb54d00e759ec90a13698499f3f28692671ee4fe785b702b6e712e8ef453478"
+        },
+        {
+          "cost": 17497.446605999998,
+          "risk": 1569.678797624131,
+          "solution_id": "759d64fec995a6bc49ca4ef11801e929fa3ea5e5b9fa064be908e582e0f52e05"
+        },
+        {
+          "cost": 18978.424398000003,
+          "risk": 1074.2301984961937,
+          "solution_id": "f679f55a277ad06d8f53d29fe28d67694f8e52f34f38cc0880cc82aff0e41773"
+        },
+        {
+          "cost": 18999.988398,
+          "risk": 1071.1559622857678,
+          "solution_id": "5db2a0dde1cca34f5b7d1508ebf2bf111cb16ce40c41cb77ba1778a673c1ea24"
+        },
+        {
+          "cost": 19000.444398,
+          "risk": 1068.0778281941268,
+          "solution_id": "733c4eb9673267e72626bc0a8b9a395007c3109a8fe0efcf26fad9ecce435efa"
+        },
+        {
+          "cost": 19014.708306000004,
+          "risk": 1015.4014743006073,
+          "solution_id": "7bfb5e5da0438eebf65f0d251fb691b6022bb9479ccbdc9f9d8c4102a8917223"
+        },
+        {
+          "cost": 19078.640491000006,
+          "risk": 970.2142877133032,
+          "solution_id": "3a00f38943ad7df6974f04aeb1089a394f4d65020b25fe1e56ef52cc4f11d7c3"
+        },
+        {
+          "cost": 19082.12798100001,
+          "risk": 963.637529227006,
+          "solution_id": "5b375d068a10730e523b16e9e5d9994b1ccf3030e2433e293f0194362a5b4666"
+        },
+        {
+          "cost": 19097.51045100001,
+          "risk": 960.5683069581912,
+          "solution_id": "241563e2928560fdd4f79fe0d2dfa405db95d5221235e7173fd43753ce948c71"
+        },
+        {
+          "cost": 19102.25945100001,
+          "risk": 960.4519013479592,
+          "solution_id": "f1762548da7f20c51116f77a125db2a0c9003b80ecb8fba1a1977fa79703481c"
+        },
+        {
+          "cost": 19103.43845100001,
+          "risk": 958.7359890766389,
+          "solution_id": "49441ff267d82296f85ab90c8fa0bdfa31a94f58a303db0c53624736a7e80aa7"
+        },
+        {
+          "cost": 19126.33145100001,
+          "risk": 954.8455486736467,
+          "solution_id": "b3a31e67cfe65ad13b28bff2d016a814305f32cdcd1cca861cbd19f44ce6db97"
+        },
+        {
+          "cost": 19466.533063000003,
+          "risk": 953.1374089216997,
+          "solution_id": "ef745e274dcd029699346b8929fdd211495ea896ae188660a1e07b572d506da9"
+        },
+        {
+          "cost": 19503.879859000004,
+          "risk": 952.3444195857768,
+          "solution_id": "1aea589cee6ccbab1daaba74f9c092378662f5b3fc0bd3d4d8a4deb08f6c235d"
+        },
+        {
+          "cost": 19519.544701000006,
+          "risk": 951.3626054423117,
+          "solution_id": "e1dcb081efb11862f4c2582eb998e9062af5813f65a45877a37820ee351ef882"
+        },
+        {
+          "cost": 19545.970447000003,
+          "risk": 951.3044880770144,
+          "solution_id": "7960c9d6a1268acdf7cbe16d212e49567cdba1cd06ee7452920ed0ac311bdfb6"
+        },
+        {
+          "cost": 19706.202858999997,
+          "risk": 940.6087236792478,
+          "solution_id": "94c7782c5b96bc04b31f34d32b281dc079d9b12dec0be810afb38797bd9e47d0"
+        },
+        {
+          "cost": 21181.137013,
+          "risk": 827.6594127634116,
+          "solution_id": "21e12073808b3afb4f0750f88a3aa3477dd91879a0ff930a3a884f2977107ef2"
+        },
+        {
+          "cost": 21366.146575000002,
+          "risk": 822.2971766273805,
+          "solution_id": "4d6ff3426ef77de9ab1cea9d9859c5487ca6149b5de6d2ef2b5545671bb89eeb"
+        },
+        {
+          "cost": 21414.724151000006,
+          "risk": 817.7538928453846,
+          "solution_id": "700f92128958c414782b790ac64b7a9d0a1b1cf14ddc8af6a9de45288ab11cd2"
+        },
+        {
+          "cost": 21640.481151000007,
+          "risk": 776.2853101980177,
+          "solution_id": "cb1c0829b7e1163e90e2596c23b75d239a8d880a224c7937af00ca7aa9928bff"
+        },
+        {
+          "cost": 21642.54815100001,
+          "risk": 775.9473554975505,
+          "solution_id": "dc83776f01bbf0537319dad418f9c5b14aab018178984639d193c833120cd882"
+        },
+        {
+          "cost": 21692.164435000006,
+          "risk": 775.5575739739384,
+          "solution_id": "433131b4283391c933c87b1ee33906448d6873d68d8f2600e4274341eca04d92"
+        },
+        {
+          "cost": 21693.965151000004,
+          "risk": 770.485485395562,
+          "solution_id": "005b2f08ac1ecb5d399a45e2418387776928b4c45ee9a6478afe07cad57a776c"
+        },
+        {
+          "cost": 21699.995151000003,
+          "risk": 769.5186424291677,
+          "solution_id": "d6742d0eaac33621452879dd8d3191c3393d1c2255b0116441a8f2cd95c0daac"
+        },
+        {
+          "cost": 21702.062151000006,
+          "risk": 769.1806877287006,
+          "solution_id": "011ce2dc046c75f678cde106969bd0c971d69a63d1d7d1d82e92087ac2b68577"
+        },
+        {
+          "cost": 21722.70515100001,
+          "risk": 768.5946097696742,
+          "solution_id": "7ff6d126647a1a2c931dff543f92f040266b6aec0ad71d3005266397a15ef23a"
+        },
+        {
+          "cost": 21819.017151000007,
+          "risk": 762.3435741870485,
+          "solution_id": "1a347d053ff6beec3bec12f042a719834eef67400900c150f6ae2caa135684a7"
+        },
+        {
+          "cost": 22992.706521,
+          "risk": 638.5977206108536,
+          "solution_id": "95eb0f961d8cb885b8c4f1b766927642765be7f30d4e8dae4301ee9a21f8af0f"
+        },
+        {
+          "cost": 22996.690521000004,
+          "risk": 636.9414451693982,
+          "solution_id": "e6655e9ac2ef4b6d150470c5b75fe530c12c1e8654e4b8506cff323db20893ec"
+        },
+        {
+          "cost": 23112.978717000005,
+          "risk": 631.066756321499,
+          "solution_id": "83625d9e9ad30d47f544d21c95bf11462db53768b135ed7bcffa445a37198d02"
+        },
+        {
+          "cost": 23119.326717000004,
+          "risk": 628.9986133597487,
+          "solution_id": "15d2888a20fc9af7ed9183b9aa4a6c54f940720601e62d5e878280b1c3744990"
+        },
+        {
+          "cost": 36369.46804099999,
+          "risk": 538.0423617165089,
+          "solution_id": "ff6bfda3d655172c36f548fbac6308f5ce5a67ddbd929cbc6b48662f082ad8ae"
+        },
+        {
+          "cost": 36400.142824999995,
+          "risk": 535.6419494521582,
+          "solution_id": "f83f5ded263243ce55332b71b4c1d38866a3837ed03a1eba77d774f900cbc0c6"
+        },
+        {
+          "cost": 36649.616831,
+          "risk": 535.4972212634356,
+          "solution_id": "ad1a8b2ac43641fdea9aa9fca1b09509d7dcc2aa6315dadfbc1609ae000865ca"
+        },
+        {
+          "cost": 36885.873431,
+          "risk": 535.1880493849576,
+          "solution_id": "037eadcc64e09b07f56237ecbf0fb05b2fae24df56be505448e846c6570dae4f"
+        }
+      ]
+    },
+    {
+      "scale": 4,
+      "model": "large",
+      "repeat": 1,
+      "all_hv": [
+        0.8620505115927585,
+        0.8841701224803439,
+        0.8721851490146467
+      ],
+      "archive_id": "PPO-Test-4-large-r1-B252000",
+      "points": [
+        {
+          "cost": 13973.628992999998,
+          "risk": 2876.462483086206,
+          "solution_id": "9333d7a057bdb35891533680659bbe6558f30017166a29071be5ada7f74b34a0"
+        },
+        {
+          "cost": 13981.536992999998,
+          "risk": 2830.8056862255,
+          "solution_id": "2184d5902300900991aa2c1e6d6a5a29a15dec1e183e4085c85cadd9395006f1"
+        },
+        {
+          "cost": 13982.181992999998,
+          "risk": 2808.4897563291192,
+          "solution_id": "590f8bba223ee6be3b269a225ce7a8db13dfbb06f8b3e3dd5a606494d7f43cbe"
+        },
+        {
+          "cost": 13989.594648999999,
+          "risk": 2804.858892972722,
+          "solution_id": "e5ef01d36b06583e3c091856ce07fe6e2965a5b56e6104320c98001ab7484c1d"
+        },
+        {
+          "cost": 14002.715963999999,
+          "risk": 2794.072485288743,
+          "solution_id": "042d8d9d41cf1d280d080b859398807090ec5ff58f3c3bb7ee7c2d05ba23a9a0"
+        },
+        {
+          "cost": 14035.035993000001,
+          "risk": 2766.027066776336,
+          "solution_id": "92231d90c8cdb849b2ed270b54951b13564467c5e4a2633ffb3148e774a61cb6"
+        },
+        {
+          "cost": 14035.680993000002,
+          "risk": 2743.711136879956,
+          "solution_id": "705ffeb92a5ca49f4cd5a53c7084f5ba6c161595b1f29fb3d9dfe48fabe3d27e"
+        },
+        {
+          "cost": 14041.566993000004,
+          "risk": 2733.4644997695727,
+          "solution_id": "9e6d687eeb6389af1e1e67d8b490dff51ce41093b95a6bfcea7cf364f9073d32"
+        },
+        {
+          "cost": 14056.214963999999,
+          "risk": 2729.2938658395797,
+          "solution_id": "e85b81030e9e19143350af9a4df66220a15af1431edafaf41b606dc96e1b2147"
+        },
+        {
+          "cost": 14113.614993,
+          "risk": 2724.131767728175,
+          "solution_id": "c51c1ca9be0bd4730390a1df5d8f1f48f764cc74fa965ed95142c18c798d6553"
+        },
+        {
+          "cost": 14113.920537000002,
+          "risk": 2689.24935750232,
+          "solution_id": "365481ddecba69c7ab8b3e5ed0031ab4f5756464d282406fa98f89cdc3411730"
+        },
+        {
+          "cost": 14178.407682,
+          "risk": 2672.6623284482007,
+          "solution_id": "59a21353aec9c1addff6f1d263e7d9b0a66d36130e6f35d93eb9d3f4ecc524fc"
+        },
+        {
+          "cost": 14534.522297999994,
+          "risk": 2669.446501785429,
+          "solution_id": "bb1cd1931d11d2d6e96856788072dfa1f67034bc0b96a92a20fd4f5ab590ff5e"
+        },
+        {
+          "cost": 14554.069405999999,
+          "risk": 2652.151648487962,
+          "solution_id": "064b47b0ee5dafd73050769ced0f7b426bf00fc706cdd1d33953758a749745d2"
+        },
+        {
+          "cost": 14618.430896999995,
+          "risk": 2648.8210586623877,
+          "solution_id": "21d4b8da7a5f125708e76d46e3b318a097677b9b493b78d890011b855425b35c"
+        },
+        {
+          "cost": 14732.604896999994,
+          "risk": 2629.212749642804,
+          "solution_id": "635525b19e06a2f31937a98eb136937ee03797016eb5db4bbc20c8700df7de38"
+        },
+        {
+          "cost": 15113.333896999993,
+          "risk": 2613.1938086297355,
+          "solution_id": "7f1f8da0024a4d1d7f0c7d62a99d29a178be3fd86155e9d3dee889b75ee3584f"
+        },
+        {
+          "cost": 15239.292730000001,
+          "risk": 2576.353633281807,
+          "solution_id": "26737e68eda78991802da75406be6771c49d784cb0c2b474c7104ca0e190bde1"
+        },
+        {
+          "cost": 15251.62873,
+          "risk": 2552.5915066100615,
+          "solution_id": "b82046b7b71b91ee2266c96c735334b5a5cdfcd87a4c0c2e8ae53ea1b4cf3f8c"
+        },
+        {
+          "cost": 15252.28873,
+          "risk": 2551.6802549597214,
+          "solution_id": "0b41fe54bc0efbbe3cd8f6e32049f7991710c557dd6943754757097fd9198adf"
+        },
+        {
+          "cost": 15252.80773,
+          "risk": 2550.1995394112005,
+          "solution_id": "703f8a55d49d80e910076a475dfe60d0271196bd54458f4d4e3c6aa5fdbdb519"
+        },
+        {
+          "cost": 15252.811810000001,
+          "risk": 2549.128378033333,
+          "solution_id": "c02dc076962eb208996dc7c5d618c462f3bcd993576d938f2c451faff0514a25"
+        },
+        {
+          "cost": 15254.220730000001,
+          "risk": 2519.337239459012,
+          "solution_id": "05d07581316b1e0cbd566c73a689622b508f4d86dcd8eb4ccc057f35ed53b429"
+        },
+        {
+          "cost": 15254.88073,
+          "risk": 2518.4259878086714,
+          "solution_id": "d15d703c87c0f1f8bb724b9d5e3a56e99e1a3e92ea14fd6163c140d296323272"
+        },
+        {
+          "cost": 15255.399730000001,
+          "risk": 2516.945272260151,
+          "solution_id": "a1426da427ea0ff7c5208241e6de31415ba3120fdb4e5e99f30c9e68d51a0a9a"
+        },
+        {
+          "cost": 15256.062729999998,
+          "risk": 2516.7883622237036,
+          "solution_id": "e7c10632e0b6889ccd6bbe5bd23d062a4c8ddbf50cbd50dd1677a7467284da14"
+        },
+        {
+          "cost": 15260.36173,
+          "risk": 2514.1095689266567,
+          "solution_id": "563a4f237e155c9caadf90de30bf663c94047dd94e6e30257fabe462f9ae3374"
+        },
+        {
+          "cost": 15274.45273,
+          "risk": 2509.5873795275197,
+          "solution_id": "0915ea459e5c43c00330096be2a54bb4e6a70112c5a4134b4ef956a2909c2aae"
+        },
+        {
+          "cost": 15305.35873,
+          "risk": 2483.931059179125,
+          "solution_id": "5021f0b2acb4a21da7259e30f9dec0905ff39c24a4bd69180d4b67c3b1dee6c5"
+        },
+        {
+          "cost": 15494.519730000004,
+          "risk": 2479.6276385965148,
+          "solution_id": "2cfe3c03a1a7ff9eeed8b842967fbaca579167db97cc20026300ef5df63544fa"
+        },
+        {
+          "cost": 15587.949674000001,
+          "risk": 2459.540675916366,
+          "solution_id": "eaeac802ec7f441284bedd2370fb71d45deee33d9b9de9b73e8cacda71876993"
+        },
+        {
+          "cost": 15610.409577999999,
+          "risk": 2455.816666856329,
+          "solution_id": "d9cf3a1e308a09511b259f11148e2c00759b2d84bfc5d4492d8bbd4e4b58499b"
+        },
+        {
+          "cost": 15630.158730000003,
+          "risk": 2448.7625319112044,
+          "solution_id": "774c11a6de4b68198f883f8f65dc01090ea974eeb683310b0fd19d00ee9e0f25"
+        },
+        {
+          "cost": 16452.671081,
+          "risk": 763.3982955330222,
+          "solution_id": "c0a1bd1c62a0cba70ae4df64250aa661ff36fc9c21f5049faa8d38da5da0c8df"
+        },
+        {
+          "cost": 16489.981203,
+          "risk": 760.7232527515135,
+          "solution_id": "a7a9e0e0cf5857fcff23237597d42b8aa2fcf9b4b619ffa04abb913a6fb37c8e"
+        },
+        {
+          "cost": 16502.890093,
+          "risk": 748.1637960364059,
+          "solution_id": "458832a9f5e7a9360a34d682232cdec64f744e97b3afc86389118ead1e5e1c20"
+        },
+        {
+          "cost": 16522.385081,
+          "risk": 746.6938617034931,
+          "solution_id": "4ef5d945b700b356e360bef2eb58597add72b666d45490fe30698d60d36a08f8"
+        },
+        {
+          "cost": 16530.254081,
+          "risk": 742.6251818824384,
+          "solution_id": "672c2017116633457e20cadd86cbba3aecf6e28736e90761462760494b732a58"
+        },
+        {
+          "cost": 16531.262081,
+          "risk": 739.987258754985,
+          "solution_id": "946cf3d17dd96512db8326ecd249873f8b91f2783ca49ba423af5264a9eb5baa"
+        },
+        {
+          "cost": 16536.635081,
+          "risk": 738.6086394584046,
+          "solution_id": "8c7af215fb7b7729a93899d9bc5b6c506b64f179d6919df5eee9dc38db9a3f4f"
+        },
+        {
+          "cost": 16537.340081000002,
+          "risk": 737.7348987954425,
+          "solution_id": "94888f829acbc63b6b6fe49addd6dd3ee56b02797bbade91953b0360408b4086"
+        },
+        {
+          "cost": 16545.671081000004,
+          "risk": 735.9424648726617,
+          "solution_id": "276ed64e4c0e0ba2123d7f76fe4ba6d5abbee7a0a5feb7d9931d0e7bea5965e5"
+        },
+        {
+          "cost": 16589.270081000002,
+          "risk": 725.9826624825356,
+          "solution_id": "c4d51300109391c8e4e4984bad204728c4a4054d6f3cbaa6d82fbeecaa59f894"
+        },
+        {
+          "cost": 17049.846330999997,
+          "risk": 718.0607273535373,
+          "solution_id": "9cface23b220e474a4efd20f6c8066b0df219864f15e8c5957013988c4deb4fe"
+        },
+        {
+          "cost": 18207.015092,
+          "risk": 710.2912424197576,
+          "solution_id": "020f5edb24d9cbd416648f18f35967da87942e45d2f4e9fbd01d0b47fad174e8"
+        },
+        {
+          "cost": 18218.34444699999,
+          "risk": 709.912717791616,
+          "solution_id": "8ecf7733203bb6311be637c75ffeb8b3cc0455477f37378c37c870e59f0b1505"
+        },
+        {
+          "cost": 18220.039518999987,
+          "risk": 703.4189706314386,
+          "solution_id": "4ad10fe6a7a59268e0f6a47a6ac0e4ef15505d46ef615e804af4eb0971930efa"
+        },
+        {
+          "cost": 18243.17577699999,
+          "risk": 683.3968270831733,
+          "solution_id": "0447f2d9b75d68cd653ec83a8cb8837dd8970a4a275e264908caa416a31580b3"
+        },
+        {
+          "cost": 18255.93177699999,
+          "risk": 678.1185155353222,
+          "solution_id": "f9324cd2327a59c13ecc47dc5933e72f85a1033f427b60844893922481be8c26"
+        },
+        {
+          "cost": 18256.24977699999,
+          "risk": 676.2816268301134,
+          "solution_id": "5fa31f4b5ca92bd1dfc048bc550122af4b4657520ee99a54ec375a16116511a4"
+        },
+        {
+          "cost": 18352.96077699999,
+          "risk": 675.0529713661585,
+          "solution_id": "d03147bb265aafff34d79a9ac8f8dfe92ae775868c88aad0de19050752a60adb"
+        },
+        {
+          "cost": 18465.142792999988,
+          "risk": 673.2486417519341,
+          "solution_id": "870181e8d1c56f3edd89c26e7a9074eae50b065003ed197cc78eaa1ba4a09db7"
+        },
+        {
+          "cost": 18516.15099399999,
+          "risk": 671.3426374317329,
+          "solution_id": "b9b0d1d3f598989a621e209a4800fc34d5be065ca99c030a194ce1d3dfff2948"
+        },
+        {
+          "cost": 19249.046251999996,
+          "risk": 586.0350516315752,
+          "solution_id": "bb211ffd1357f7a506f5da363116a1ea55e975161ae6c5fcd20307b26df02c61"
+        },
+        {
+          "cost": 19263.641251999998,
+          "risk": 569.0348237510433,
+          "solution_id": "e2b6dbaefcb76babbba3195480f819ca07fc751c533c8c945dda5e731aab79ba"
+        },
+        {
+          "cost": 19273.706251999996,
+          "risk": 568.1837063737074,
+          "solution_id": "df861f3a6666c8838828fae13a38ea804855259ef9916a1874f2601fda1e7cd9"
+        },
+        {
+          "cost": 19279.153339999997,
+          "risk": 567.5078048220615,
+          "solution_id": "fbb18b33eef0a0edcd09e2863900c8ecf4249d9f09b8d9ed530f1d7d91e3ea77"
+        },
+        {
+          "cost": 19280.099251999996,
+          "risk": 565.932705135633,
+          "solution_id": "6e514c5c41cd83ae0ecf6b84ba950e5ed8ad1823b890d5245a60230723ca2e04"
+        },
+        {
+          "cost": 19304.375251999998,
+          "risk": 564.8547054364773,
+          "solution_id": "1fccf8279452eb2dbaf8cb9d745e0b44e6e7b490ce300118040e170d833a6962"
+        },
+        {
+          "cost": 19406.174251999993,
+          "risk": 563.5981716180662,
+          "solution_id": "1cf47f32598c57ae34db2cf0bd96e8ed4d6bfe5f280ce934363005e46913618f"
+        },
+        {
+          "cost": 19423.615106999998,
+          "risk": 545.9921098568691,
+          "solution_id": "c93c5606061454813663a46e4afc17aa877d627245391dfcaccb5a1753a3e2af"
+        },
+        {
+          "cost": 19455.571106999996,
+          "risk": 541.0837383235901,
+          "solution_id": "f2f53e102c5b4ff257ae8995e89651dc305ed2fe98ce93cfab800ac5c42b2537"
+        },
+        {
+          "cost": 19494.592106999997,
+          "risk": 538.0729317601665,
+          "solution_id": "02159f4153ac73e1cc57e293d8d1a6efb6b22337813f2117d86a8ea335e8b2db"
+        },
+        {
+          "cost": 19504.885107,
+          "risk": 536.9329018503487,
+          "solution_id": "211237c49a4393d21cafce086eeee1b5b9c021b9459074c2b77393c343f51712"
+        },
+        {
+          "cost": 19525.924107,
+          "risk": 535.5474745900088,
+          "solution_id": "7efad137ffa64633db962d83b66dcf18fc227e6272f4768edbcd07ed51a84518"
+        },
+        {
+          "cost": 19527.724107,
+          "risk": 535.2158283205291,
+          "solution_id": "8ac987b57ba49cb51c6333455194c4b0f6e5a2a07837d8b6d6ab4e2d31ff8c6b"
+        },
+        {
+          "cost": 19551.568107,
+          "risk": 534.4750261045672,
+          "solution_id": "121cbfefe3eb8f4d85bf9ae037bb8b0088d8a543e03d75e6f7d654b90c18f80b"
+        },
+        {
+          "cost": 19582.915107,
+          "risk": 533.8586331122714,
+          "solution_id": "722b8b41ebd529671f8b731ff4d9a54afd15ca3682df03835548c11d64c1c72e"
+        },
+        {
+          "cost": 19611.528107,
+          "risk": 533.0072223377182,
+          "solution_id": "f5f59033c82c7010bdf27a2649b9bd632322ca584cf4cbf0dd2518ae8f91dcf0"
+        },
+        {
+          "cost": 22863.37834100001,
+          "risk": 532.1784795476506,
+          "solution_id": "95788c4917d7b335c56ac093525d6ebcaf4dbdbdc12fec4e35e0aac77410c70a"
+        },
+        {
+          "cost": 22869.639341000006,
+          "risk": 530.3243963986321,
+          "solution_id": "c9b17ec4d30b3d4757fd28f19fe123c700ee9cc4748d15c74c9bcb2e37777e63"
+        },
+        {
+          "cost": 22921.15784100001,
+          "risk": 529.9901886820137,
+          "solution_id": "28f4fedb28dd030349f8802bae9a015daa74c71cf7d1f631be5a7eb6765b64c1"
+        },
+        {
+          "cost": 22957.74217500001,
+          "risk": 529.718438834448,
+          "solution_id": "fe28c4fea1cb684ae57e867b9bc2e967b10dd4945c97880a984fd8822372284c"
+        },
+        {
+          "cost": 22975.12834100001,
+          "risk": 528.2087339587615,
+          "solution_id": "301277eaae8fb7a525639f1f10103b691fb607c57ffabf94ecc6d9acb8f3422a"
+        },
+        {
+          "cost": 23049.917050000007,
+          "risk": 527.9040949638659,
+          "solution_id": "8aebf4afc742720673193a62a5ae4e34052606fdfe1fa541795d292b66141c9f"
+        },
+        {
+          "cost": 23051.559341000007,
+          "risk": 525.9966530343844,
+          "solution_id": "6469883557162a2a0d7dc7b54efec38d4465bbfbff3add326c8260625be3f468"
+        },
+        {
+          "cost": 23061.42634100001,
+          "risk": 524.2991266917302,
+          "solution_id": "5f81481d658faa9d6de9f758d395c8ffdee79b98256106b3dc77fa644fe9b840"
+        },
+        {
+          "cost": 23088.44134100001,
+          "risk": 523.7443490692126,
+          "solution_id": "4d683b52c1949e54a9376e1d4d18a8303243f331cd0f09e7741cdbbee09b1612"
+        },
+        {
+          "cost": 23091.006341000008,
+          "risk": 523.0967058054847,
+          "solution_id": "6d90756fedd7587247a7adba220c60d672f6c75c417e695ea44513cb0a24b840"
+        },
+        {
+          "cost": 23091.53134100001,
+          "risk": 522.6659145698255,
+          "solution_id": "14f10a3004ed968f1cb719db1db647d60bfae965f42b6a279bee2487bf4f7bdd"
+        },
+        {
+          "cost": 23300.800387000003,
+          "risk": 392.680893818212,
+          "solution_id": "efdc5a363938bc288d721fe13a513748768c468c2c60c90cc88a63c59755f3ac"
+        },
+        {
+          "cost": 23394.952386999998,
+          "risk": 389.9249665759101,
+          "solution_id": "e28fbef39f51ef44e13a9f6146b80878cf7e2d64d65b8d7f829ccd7401b983cd"
+        },
+        {
+          "cost": 23397.241387000002,
+          "risk": 389.17475407947416,
+          "solution_id": "d9b663d2e35a8e7682ac551ee6c37da36fec8c188d651bcabe72e8332ede0685"
+        },
+        {
+          "cost": 23492.158521000005,
+          "risk": 389.1372580249045,
+          "solution_id": "4cad807d4e8625b9820bf2862ef66a71bfe2c26399f64c0d3ab3ba83bcb3062a"
+        },
+        {
+          "cost": 23502.511387,
+          "risk": 388.71411842423464,
+          "solution_id": "cd67524affbd704bab826b919431f246d5f543b533a37aa237b176880f1d7388"
+        },
+        {
+          "cost": 23506.282387,
+          "risk": 388.6277225095533,
+          "solution_id": "ca009d5c9527d976e24aa6f24946e9e0a0ab7894dc3887584f56980bbc515a9c"
+        },
+        {
+          "cost": 23520.763387000003,
+          "risk": 388.40232777309615,
+          "solution_id": "50cd5e17adf9d19a0ed4a899592e99cd0aee9c5c0a826c257be2e94cfaa589ad"
+        },
+        {
+          "cost": 23528.491387,
+          "risk": 387.4056660838539,
+          "solution_id": "e92440470b1342084b5524dcdc791a380cb01ee08fea3cfdff839dad26f60901"
+        },
+        {
+          "cost": 23553.349387000002,
+          "risk": 387.27659241293605,
+          "solution_id": "642ceee71830882eecc9af7d5edc29fce65a92b69dd7a00c345137482c490860"
+        },
+        {
+          "cost": 23565.615241000003,
+          "risk": 387.2629937736718,
+          "solution_id": "469fc46ef72fbd4a13e22c19222bf062f09af021ef8b437efc92c0338dd4cae2"
+        },
+        {
+          "cost": 23568.073386999997,
+          "risk": 385.7352916083188,
+          "solution_id": "a64a0e2cb89acdffa8664cac207ca2b4f5758ac0df8acbd615ff680ea5ef5a8c"
+        },
+        {
+          "cost": 23588.008386999998,
+          "risk": 383.9926195056438,
+          "solution_id": "645b302cfebed122409f2439b3618fedcc065de60094ec699d277cc20d3e81fb"
+        },
+        {
+          "cost": 23729.317890999995,
+          "risk": 382.2526318907723,
+          "solution_id": "f0638579b49a3b9ab772d7539ee8745248f39a5de5adbf954969e826029f7c98"
+        },
+        {
+          "cost": 37417.837578000006,
+          "risk": 369.38641594445033,
+          "solution_id": "b69e1401e2728f3acd529282720c4b32fa7906dd01edb1b5e0b8eb57cbc75fb9"
+        },
+        {
+          "cost": 37432.99347000001,
+          "risk": 357.6752170659804,
+          "solution_id": "4bb3c25558ee2322ee8a10bee6cd06c4dd7c7f4aae91cec9b517f5df1c38f97a"
+        },
+        {
+          "cost": 37489.29504900001,
+          "risk": 352.5223208413488,
+          "solution_id": "c93fab963d5845df15a2d73cccada6e5434db04020a2c4ca2735c785330f1c47"
+        },
+        {
+          "cost": 37533.342333000015,
+          "risk": 350.7516277937835,
+          "solution_id": "52cd0aaa2a1d96ffe6bcd9915b59b6cc6f53d6735a460e2f05a26ceb515a29f6"
+        },
+        {
+          "cost": 37757.82033300002,
+          "risk": 350.7342553620391,
+          "solution_id": "1e47a8048cb1382d918a521fad2537e124cba686133f08308c51093d90e38db6"
+        },
+        {
+          "cost": 37924.098333000016,
+          "risk": 350.12233935812645,
+          "solution_id": "feb63b90a5705942af499e0c3a22bb3251bb16177f90fc8651b3d24e911293bf"
+        }
+      ]
+    }
+  ],
+  "figures": {
+    "test_1_ppo_comparison.png": "e32d08860929214a19d535b771c12fb070547d47ce31cfa6d08b5c974686508d",
+    "test_1_ppo_comparison.svg": "03201d4619e413b4fb5fd8344a0ba8b4f08fcd62138f269fa58acee33dc7892a",
+    "test_2_ppo_comparison.png": "11ba25f15d67f8bc55f63f49c679264b522c7cc3d4143c3ac9c7d9a1b06d98f3",
+    "test_2_ppo_comparison.svg": "6a223626854627d22cfc0758f5511ae8a0d090e1fbab2b53f08a5ec663d861dd",
+    "test_3_ppo_comparison.png": "b0837545ac55d0159cffbb699c2d4553b9070392a0091ceed59c7eb4258a25e6",
+    "test_3_ppo_comparison.svg": "c105c5fb8f862268bf1c2a9f0bde35c0862672d5ca3c4c7106686a37dc33b425",
+    "test_4_ppo_comparison.png": "bb21ac150fb9911ec2f6312c8c212b2d0ec2fffac06008aabb8cda28807e4bd6",
+    "test_4_ppo_comparison.svg": "14fb01c94c32411d24311159d50e6563428973898302c28027f918a8da2ec347"
+  },
+  "script_sha256": "c6364e1b2aabaa68e582859c6cb8ae78a66407dc6a6aa120e1e3d7bee3591fe2"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "exploratory_only_not_formal_default",
+  "name": "combined40",
+  "population": 40,
+  "crossover": 0.9,
+  "mutation": 1.0,
+  "budget": 6000,
+  "seeds": [
+    20260910,
+    20260911,
+    20260912
+  ],
+  "instance": "output/pareto-parameter-revision-v4/instances/Test-4.json",
+  "entry": "run_nsga_parameter_probe.py",
+  "command": "py -B run_nsga_parameter_probe.py combined40 --seed 20260910 --budget 6000",
+  "selection": "maximum mean HV among three-seed confirmed settings; single-instance adaptive exploration",
+  "unchanged": "encoding, repair, nondominated sorting, crowding, tournament, elitist replacement",
+  "audit_sha256": "d42003acb3812e88e48cf7efee3ba9df4d9500d03a5929136d038bffe311334b",
+  "sources": {
+    "run_nsga_parameter_probe.py": "caf87d1ca5ea0882a5210f37eb0379f1c5da246247261409bf7c2028a6a53b8f",
+    "src/pareto_experiment.py": "4ea667b52c5bd01a7b7123cbb358602999c760ae84f7aebee20c4aa1f9f4ee5a",
+    "src/operators.py": "429bf3d42b96c630c08fe85209991c7cb385ccee582aaebbe225445c627851a9",
+    "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "runs": 24,
+  "total_attempts": 96000,
+  "unique_plans": 162,
+  "paired_coverage": [
+    {
+      "seed": 20260910,
+      "new_covers_old": 1.0,
+      "old_covers_new": 0.0
+    },
+    {
+      "seed": 20260911,
+      "new_covers_old": 1.0,
+      "old_covers_new": 0.0
+    },
+    {
+      "seed": 20260912,
+      "new_covers_old": 1.0,
+      "old_covers_new": 0.0
+    }
+  ],
+  "hashes": {
+    "output\\nsga-parameter-probe\\audit.json": "d42003acb3812e88e48cf7efee3ba9df4d9500d03a5929136d038bffe311334b",
+    "output\\nsga-parameter-probe\\summary.json": "f83208dd3e9efe44f21d7d7a1767cb56b987c03c026ce5be6b3e317950c3a6f1",
+    "output\\nsga-parameter-probe\\results.md": "8a57ae10f8f1170d7fcf59c03f21d970201bd1528407f18df456d7398433c974",
+    "configs\\nsga_low_budget_exploratory.json": "cac0185f7ed603baec0e6199baa4296c498d163560ec20279f4baed495411bd5",
+    "docs\\nsga_parameter_probe_protocol.md": "399b78d4da23463b2e1ece0747f73e9a55de9f1dbf1106fdd49bfeafe6f2a480",
+    "run_nsga_parameter_probe.py": "caf87d1ca5ea0882a5210f37eb0379f1c5da246247261409bf7c2028a6a53b8f",
+    "report_nsga_parameter_probe.py": "95785df90e925b85359e1a6c243b0346c2aea118d81eea077ef73a51752d18ad",
+    "tests\\test_nsga_parameter_probe.py": "61186784feab973c3b1921cccf0e531b5c6d48ace0f6de236a67b25dbf1ac891"
+  },
+  "limitation": "Only parameter tuning on one fixed instance; improved quality, not wider front; formal defaults unchanged."
+}

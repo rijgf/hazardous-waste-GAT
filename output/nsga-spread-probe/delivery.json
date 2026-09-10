@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "audit_sha256": "36e22b3fc96300cd2e5d78452312d6a64fec238bcfc7e8cf8a52e8ec768c3ddc",
+  "runs": 42,
+  "new_searches": 39,
+  "reused": {
+    "baseline-s20260910-B6000.json": {
+      "source": "output\\nsga-parameter-probe\\baseline-s20260910-B6000.json",
+      "sha256": "92c1ce7108343e8401c2091f1b6362b225d87691a3039bacd6754a4a1a8378d2"
+    },
+    "baseline-s20260911-B6000.json": {
+      "source": "output\\nsga-parameter-probe\\baseline-s20260911-B6000.json",
+      "sha256": "4036bf1580f22a086d30f90fa09fb980a611171944c1ebadb5df40bf2d590ec8"
+    },
+    "baseline-s20260912-B6000.json": {
+      "source": "output\\nsga-parameter-probe\\baseline-s20260912-B6000.json",
+      "sha256": "2b9dfda741d3d0510ebf49ab9e78e72f01e58781b5c490411da48c28c7d55a4e"
+    }
+  },
+  "initialization": [
+    {
+      "name": "init80",
+      "seed": 20260910,
+      "probability": 0.8,
+      "sha256": "5fc14ca99d7a64b0b47254a18b0c157b9db01c340ed23fa3dce77d83d987627b"
+    },
+    {
+      "name": "init80_m50",
+      "seed": 20260910,
+      "probability": 0.8,
+      "sha256": "349083773d531dbc8dc074094cc4c06c18318392f9115a3eeee272997c589157"
+    },
+    {
+      "name": "init80_n200",
+      "seed": 20260910,
+      "probability": 0.8,
+      "sha256": "9229745da9bc33d36dcb1efa23189b112170abcbd6401748f1939a97ee4ca1ef"
+    },
+    {
+      "name": "init95",
+      "seed": 20260910,
+      "probability": 0.95,
+      "sha256": "8e4e6a53b000bb1fe6b792137f7364c5b75a926859cba4bb5ddcbcc31019f85c"
+    },
+    {
+      "name": "init95",
+      "seed": 20260911,
+      "probability": 0.95,
+      "sha256": "7496b9708a8b47556825c4debbe575157bbcbb4197acc3392ff8b4b2e838e093"
+    },
+    {
+      "name": "init95",
+      "seed": 20260912,
+      "probability": 0.95,
+      "sha256": "5ce93255bbf3c9936ff19a5b9c4dd2a597cc9ae652b6e0d48076ba9130b6ceaf"
+    }
+  ],
+  "comparisons": [
+    {
+      "seed": 20260910,
+      "cost_ratio": 5.000468905624638,
+      "risk_ratio": 6.607534556288952,
+      "new_points": 22,
+      "new_cost_span": 7333.410545999999,
+      "new_risk_span": 2509.103448728547
+    },
+    {
+      "seed": 20260911,
+      "cost_ratio": 3.2230620350054924,
+      "risk_ratio": 5.569316232049152,
+      "new_points": 19,
+      "new_cost_span": 7199.4767659999925,
+      "new_risk_span": 3492.6189748108945
+    },
+    {
+      "seed": 20260912,
+      "cost_ratio": 0.9372570919985161,
+      "risk_ratio": 1.5391110796094354,
+      "new_points": 14,
+      "new_cost_span": 2594.9851239999916,
+      "new_risk_span": 616.6396271894946
+    }
+  ],
+  "summary": {
+    "cost_ratio": 2.647691152928694,
+    "risk_ratio": 4.7022164525107994,
+    "hv_change_pct": -2.6953091591028766,
+    "J_change_pct": 14.52793744369889,
+    "both_axes_wider_runs": 2
+  },
+  "conclusions_sha256": "c398ab3e4d31960cc3d5a8e5f722574948a1d6add29c12548246a09a62155aa2",
+  "figure_sha256": "7640f71efba62a5b532868e0ccc1c3fabf3bb242950d24967b84b9a65ed95eb6",
+  "sources": {
+    "run_nsga_spread_probe.py": "e4b91ef758148fdd5bf3e7d4fd43ec19b17dc015102878244197a2a8f90bbd80",
+    "run_nsga_initialization_probe.py": "e64798e20731f11b2b53f4c9e44e7039ae195cc71fec333588d275f120bea1ad",
+    "run_nsga_parameter_probe.py": "caf87d1ca5ea0882a5210f37eb0379f1c5da246247261409bf7c2028a6a53b8f",
+    "src/pareto_experiment.py": "4ea667b52c5bd01a7b7123cbb358602999c760ae84f7aebee20c4aa1f9f4ee5a",
+    "src/operators.py": "429bf3d42b96c630c08fe85209991c7cb385ccee582aaebbe225445c627851a9",
+    "src/solution_utils.py": "0e987e27da0e77be61530e9b71b536966c5da3f9648f9786fa62b6901eaab79f"
+  }
+}
